@@ -2,7 +2,6 @@ name: Weekly Upstream Sync
 
 on:
   schedule:
-    # 每周一 00:00 UTC
     - cron: '0 0 * * 1'
   workflow_dispatch:
 
@@ -14,90 +13,35 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     timeout-minutes: 60
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
-      
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: 'pip'
-      
+
       - name: Install dependencies
-        run: |
-          pip install httpx pyyaml
-      
-      - name: Sync from cheahjs/free-llm-api-resources
-        id: cheahjs
-        run: |
-          python3 << 'EOF'
-import json, httpx, sys
-from datetime import datetime, timezone
+        run: pip install httpx pyyaml
 
-# 抓取 cheahjs 的 README (自动生成的列表)
-url = "https://raw.githubusercontent.com/cheahjs/free-llm-api-resources/main/README.md"
-try:
-    resp = httpx.get(url, timeout=30)
-    resp.raise_for_status()
-    content = resp.text
-    
-    # 简单解析：查找 "### 永久免费 Provider" 等表格
-    # 这里只做演示，实际需要更复杂的解析
-    print(f"Fetched {len(content)} chars from cheahjs")
-    print("::notice::cheahjs sync - would parse and merge new providers here")
-except Exception as e:
-    print(f"::error::Failed to fetch cheahjs: {e}")
-EOF
-      
-      - name: Sync from nejib1/Free-LLM
-        id: nejib1
-        run: |
-          python3 << 'EOF'
-import httpx
+      - name: Sync from cheahjs
+        run: python3 scripts/update_providers.py --source cheahjs
 
-# 抓取 nejib1/Free-LLM 的数据
-url = "https://raw.githubusercontent.com/nejib1/Free-LLM/main/free-llm.json"
-try:
-    resp = httpx.get(url, timeout=30)
-    if resp.status_code == 200:
-        data = resp.json()
-        print(f"Fetched {len(data)} providers from nejib1/Free-LLM")
-        print("::notice::nejib1 sync - would merge new providers here")
-    else:
-        print(f"::warning::nejib1 returned {resp.status_code}")
-except Exception as e:
-    print(f"::error::Failed to fetch nejib1: {e}")
-EOF
-      
+      - name: Sync from nejib1
+        run: python3 scripts/update_providers.py --source nejib1
+
       - name: Sync from open-free-llm-api
-        id: openfree
-        run: |
-          python3 << 'EOF'
-import httpx
+        run: python3 scripts/update_providers.py --source open-free-llm-api
 
-# 抓取 open-free-llm-api 的数据
-url = "https://raw.githubusercontent.com/open-free-llm-api/awesome-freellm-apis/main/data/providers.json"
-try:
-    resp = httpx.get(url, timeout=30)
-    if resp.status_code == 200:
-        data = resp.json()
-        print(f"Fetched data from open-free-llm-api: {len(data.get('providers', []))} providers")
-        print("::notice::open-free-llm-api sync - would merge here")
-    else:
-        print(f"::warning::open-free-llm-api returned {resp.status_code}")
-except Exception as e:
-    print(f"::error::Failed to fetch open-free-llm-api: {e}")
-EOF
-      
-      - name: Validate providers.json
-        run: |
-          python3 scripts/probe.py --validate
-      
+      - name: Validate
+        run: python3 scripts/probe.py --validate
+
       - name: Commit if changed
         run: |
           if git diff --quiet data/providers.json; then
@@ -108,5 +52,4 @@ EOF
             git add data/providers.json
             git commit -m "chore: weekly upstream sync $(date -u +'%Y-%m-%d')"
             git push
-            echo "Pushed upstream updates"
           fi
