@@ -1,0 +1,80 @@
+name: Daily Provider Probe
+
+on:
+  schedule:
+    # 每日 06:00 UTC (对应北京时间 14:00)
+    - cron: '0 6 * * *'
+  workflow_dispatch:  # 手动触发
+  push:
+    paths:
+      - 'data/providers.json'
+      - 'scripts/probe.py'
+
+permissions:
+  contents: write  # 需要推送更新后的 providers.json
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          pip install -r scripts/requirements.txt
+      
+      - name: Run probe (all providers)
+        run: |
+          cd scripts
+          python3 probe.py --all
+      
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet data/providers.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No changes in providers.json"
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "Changes detected in providers.json"
+            git diff data/providers.json
+          fi
+      
+      - name: Commit and push changes
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/providers.json
+          git commit -m "chore: update provider probe results $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push
+      
+      - name: Create issue for failed providers
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          # 检查是否有 down/unknown 状态的 provider
+          python3 -c "
+import json, sys
+with open('data/providers.json') as f:
+    data = json.load(f)
+failed = [p for p in data['providers'] if p.get('status') in ('down', 'unknown')]
+if failed:
+    print('::error::', len(failed), 'providers are down/unknown:')
+    for p in failed:
+        print(f'  - {p["name"]} ({p["slug"]}): {p.get("last_probed", "N/A")}')
+    sys.exit(1)
+else:
+    print('All providers healthy')
+  " || echo "Some providers unhealthy - check logs"

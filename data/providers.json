@@ -1,0 +1,1414 @@
+{
+  "version": "1.0",
+  "updated": "2026-08-01T06:00:00Z",
+  "sources": [
+    "cheahjs/free-llm-api-resources",
+    "tashfeenahmed/freellmapi",
+    "mnfst/awesome-free-llm-apis",
+    "nejib1/Free-LLM",
+    "open-free-llm-api/awesome-freellm-apis"
+  ],
+  "providers": [
+    {
+      "name": "Google AI Studio",
+      "slug": "google-ai-studio",
+      "tier": "permanent_free",
+      "website": "https://aistudio.google.com",
+      "api_base": "https://generativelanguage.googleapis.com/v1beta",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 15,
+        "rpd": 1500,
+        "tpm": 250000
+      },
+      "models": [
+        "gemini-1.5-flash",
+        "gemini-1.5-pro",
+        "gemini-2.0-flash-exp"
+      ],
+      "free_models": [
+        "gemini-1.5-flash",
+        "gemini-2.0-flash-exp"
+      ],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling",
+        "embeddings"
+      ],
+      "region": "global",
+      "notes": "需 Google 账号，中文支持好，多模态强",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "Groq",
+      "slug": "groq",
+      "tier": "permanent_free",
+      "website": "https://console.groq.com",
+      "api_base": "https://api.groq.com/openai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 30,
+        "rpd": 14400,
+        "tpm": 6000
+      },
+      "models": [
+        "llama-3.3-70b-versatile",
+        "llama-3.1-8b-instant",
+        "mixtral-8x7b-32768",
+        "gemma2-9b-it"
+      ],
+      "free_models": [
+        "llama-3.3-70b-versatile",
+        "llama-3.1-8b-instant",
+        "mixtral-8x7b-32768",
+        "gemma2-9b-it"
+      ],
+      "features": [
+        "chat",
+        "function_calling"
+      ],
+      "region": "global",
+      "notes": "LPU 推理极致速度，无需信用卡",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "Cerebras",
+      "slug": "cerebras",
+      "tier": "permanent_free",
+      "website": "https://cloud.cerebras.ai",
+      "api_base": "https://api.cerebras.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 30,
+        "rpd": 14400,
+        "tpd": 1000000
+      },
+      "models": [
+        "llama3.1-8b",
+        "llama3.3-70b"
+      ],
+      "free_models": [
+        "llama3.1-8b",
+        "llama3.3-70b"
+      ],
+      "features": [
+        "chat"
+      ],
+      "region": "global",
+      "notes": "Wafer-scale 硬件，2600+ tokens/s",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "Cloudflare Workers AI",
+      "slug": "cloudflare-workers-ai",
+      "tier": "permanent_free",
+      "website": "https://developers.cloudflare.com/workers-ai",
+      "api_base": "https://api.cloudflare.com/client/v4/accounts/{account_id}/ai/run",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "daily_neurons": 10000
+      },
+      "models": [
+        "@cf/meta/llama-3.1-8b-instruct",
+        "@cf/meta/llama-3.3-70b-instruct",
+        "@cf/mistral/mistral-7b-instruct-v0.1",
+        "@cf/google/gemma-7b-it"
+      ],
+      "free_models": [
+        "@cf/meta/llama-3.1-8b-instruct",
+        "@cf/meta/llama-3.3-70b-instruct",
+        "@cf/mistral/mistral-7b-instruct-v0.1",
+        "@cf/google/gemma-7b-it"
+      ],
+      "features": [
+        "chat",
+        "embeddings",
+        "vision"
+      ],
+      "region": "global",
+      "notes": "边缘部署，10K neurons/天免费额度",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "NVIDIA NIM",
+      "slug": "nvidia-nim",
+      "tier": "permanent_free",
+      "website": "https://build.nvidia.com",
+      "api_base": "https://integrate.api.nvidia.com/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 40
+      },
+      "models": [
+        "nvidia/nemotron-3-ultra-550b-a55b",
+        "meta/llama-3.1-405b-instruct",
+        "microsoft/phi-3.5-mini-instruct",
+        "google/gemma-2-9b-it"
+      ],
+      "free_models": [
+        "nvidia/nemotron-3-ultra-550b-a55b",
+        "meta/llama-3.1-405b-instruct",
+        "microsoft/phi-3.5-mini-instruct",
+        "google/gemma-2-9b-it"
+      ],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling"
+      ],
+      "region": "global",
+      "notes": "需手机验证，102+ 模型，GPU 集群推理",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "Mistral La Plateforme",
+      "slug": "mistral",
+      "tier": "permanent_free",
+      "website": "https://console.mistral.ai",
+      "api_base": "https://api.mistral.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rps": 1,
+        "tpm": 500000
+      },
+      "models": [
+        "mistral-large-latest",
+        "mistral-small-latest",
+        "open-mistral-7b",
+        "open-mixtral-8x7b"
+      ],
+      "free_models": [
+        "open-mistral-7b",
+        "open-mixtral-8x7b"
+      ],
+      "features": [
+        "chat",
+        "embeddings",
+        "function_calling"
+      ],
+      "region": "eu",
+      "notes": "欧洲隐私标准，~1B tokens/月免费",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "HuggingFace Inference",
+      "slug": "huggingface",
+      "tier": "permanent_free",
+      "website": "https://huggingface.co/inference-api",
+      "api_base": "https://api-inference.huggingface.co/models",
+      "models_endpoint": "",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "monthly_credits": 0.1
+      },
+      "models": [
+        "meta-llama/Meta-Llama-3.1-70B-Instruct",
+        "mistralai/Mistral-7B-Instruct-v0.3",
+        "google/gemma-2-9b-it",
+        "Qwen/Qwen2.5-72B-Instruct"
+      ],
+      "free_models": [
+        "meta-llama/Meta-Llama-3.1-70B-Instruct",
+        "mistralai/Mistral-7B-Instruct-v0.3",
+        "google/gemma-2-9b-it",
+        "Qwen/Qwen2.5-72B-Instruct"
+      ],
+      "features": [
+        "chat",
+        "embeddings",
+        "vision",
+        "audio"
+      ],
+      "region": "global",
+      "notes": "$0.10/月 credits，聚合模型最多",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "GitHub Models",
+      "slug": "github-models",
+      "tier": "permanent_free",
+      "website": "https://github.com/marketplace/models",
+      "api_base": "https://models.inference.ai.azure.com",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 15,
+        "rpd": 150
+      },
+      "models": [
+        "gpt-5",
+        "gpt-4.1",
+        "o4-mini",
+        "gpt-4o-mini",
+        "llama-3.1-405b",
+        "phi-3.5-mini"
+      ],
+      "free_models": [
+        "gpt-5",
+        "gpt-4.1",
+        "o4-mini",
+        "gpt-4o-mini",
+        "llama-3.1-405b",
+        "phi-3.5-mini"
+      ],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling"
+      ],
+      "region": "global",
+      "notes": "GitHub 账号即用，45+ 模型含闭源顶级",
+      "source": "https://github.com/nejib1/Free-LLM",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "OpenRouter",
+      "slug": "openrouter",
+      "tier": "permanent_free",
+      "website": "https://openrouter.ai",
+      "api_base": "https://openrouter.ai/api/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 20,
+        "rpd": 50
+      },
+      "models": [
+        "inclusionai/ling-3.0-flash:free",
+        "poolside/laguna-s-2.1:free",
+        "cohere/north-mini-code:free",
+        "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"
+      ],
+      "free_models": [
+        "inclusionai/ling-3.0-flash:free",
+        "poolside/laguna-s-2.1:free",
+        "cohere/north-mini-code:free",
+        "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"
+      ],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling",
+        "reasoning"
+      ],
+      "region": "global",
+      "notes": "聚合平台，14 免费模型，1M 上下文 (Nemotron Ultra)",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "Cohere",
+      "slug": "cohere",
+      "tier": "permanent_free",
+      "website": "https://dashboard.cohere.com",
+      "api_base": "https://api.cohere.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 20,
+        "monthly_requests": 1000
+      },
+      "models": [
+        "command-a",
+        "command-r-plus",
+        "command-r",
+        "command-light"
+      ],
+      "free_models": [
+        "command-r",
+        "command-light"
+      ],
+      "features": [
+        "chat",
+        "embeddings",
+        "rerank"
+      ],
+      "region": "global",
+      "notes": "RAG/Embedding 强，1000 req/月免费",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "Kilo Code",
+      "slug": "kilo-code",
+      "tier": "permanent_free",
+      "website": "https://kilo.ai",
+      "api_base": "https://api.kilo.ai/api/gateway/v1",
+      "models_endpoint": "/models",
+      "requires_key": false,
+      "requires_card": false,
+      "rate_limit": {
+        "rph": 200
+      },
+      "models": [
+        "kilo-auto/free",
+        "stepfun/step-1-flash",
+        "deepseek/deepseek-chat"
+      ],
+      "free_models": [
+        "kilo-auto/free",
+        "stepfun/step-1-flash",
+        "deepseek/deepseek-chat"
+      ],
+      "features": [
+        "chat",
+        "function_calling"
+      ],
+      "region": "global",
+      "notes": "无需 Key 列模型，200 req/hr per IP",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "Pollinations.ai",
+      "slug": "pollinations",
+      "tier": "permanent_free",
+      "website": "https://pollinations.ai",
+      "api_base": "https://text.pollinations.ai",
+      "models_endpoint": "",
+      "requires_key": false,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "openai",
+        "gpt-4o",
+        "claude",
+        "gemini"
+      ],
+      "free_models": [
+        "openai"
+      ],
+      "features": [
+        "chat",
+        "image_generation"
+      ],
+      "region": "global",
+      "notes": "完全免费，无需注册，支持文生图",
+      "source": "https://github.com/nejib1/Free-LLM",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "OVHcloud AI Endpoints",
+      "slug": "ovhcloud",
+      "tier": "permanent_free",
+      "website": "https://endpoints.ai.cloud.ovh.net",
+      "api_base": "https://endpoints.ai.cloud.ovh.net/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 2
+      },
+      "models": [
+        "mistral-7b-instruct",
+        "llama-3.1-8b-instruct",
+        "llama-3.3-70b-instruct",
+        "mixtral-8x7b-instruct"
+      ],
+      "free_models": [
+        "mistral-7b-instruct",
+        "llama-3.1-8b-instruct",
+        "llama-3.3-70b-instruct",
+        "mixtral-8x7b-instruct"
+      ],
+      "features": [
+        "chat"
+      ],
+      "region": "eu",
+      "notes": "欧盟 GDPR 合规，匿名 2 RPM",
+      "source": "https://github.com/nejib1/Free-LLM",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "LLM7.io",
+      "slug": "llm7",
+      "tier": "permanent_free",
+      "website": "https://llm7.io",
+      "api_base": "https://api.llm7.io/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 30
+      },
+      "models": [
+        "claude-3.5-sonnet",
+        "gpt-5",
+        "gemini-2.0",
+        "kling",
+        "seedance"
+      ],
+      "free_models": [],
+      "features": [
+        "chat",
+        "vision",
+        "video_generation"
+      ],
+      "region": "global",
+      "notes": "含闭源顶级模型，30 RPM (带 token 120)",
+      "source": "https://github.com/nejib1/Free-LLM",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "Z.AI (智谱)",
+      "slug": "z-ai",
+      "tier": "permanent_free",
+      "website": "https://z.ai",
+      "api_base": "https://api.z.ai/api/paas/v4",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "glm-4.5-flash",
+        "glm-4.5-air",
+        "glm-4.5v-flash"
+      ],
+      "free_models": [
+        "glm-4.5-flash",
+        "glm-4.5v-flash"
+      ],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling",
+        "reasoning"
+      ],
+      "region": "cn",
+      "notes": "国内永久免费，200K 上下文",
+      "source": "https://github.com/nejib1/Free-LLM",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "Coze",
+      "slug": "coze",
+      "tier": "permanent_free",
+      "website": "https://coze.com",
+      "api_base": "https://api.coze.cn/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "doubao-pro",
+        "deepseek-v3",
+        "glm-4"
+      ],
+      "free_models": [
+        "doubao-pro",
+        "deepseek-v3",
+        "glm-4"
+      ],
+      "features": [
+        "chat",
+        "function_calling",
+        "workflow"
+      ],
+      "region": "cn",
+      "notes": "字节跳动平台，Bot/Workflow 免费",
+      "source": "https://github.com/nejib1/Free-LLM",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "Inference.net",
+      "slug": "inference-net",
+      "tier": "permanent_free",
+      "website": "https://inference.net",
+      "api_base": "https://api.inference.net/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "meta-llama/Meta-Llama-3.1-405B-Instruct",
+        "microsoft/Phi-3.5-mini-instruct"
+      ],
+      "free_models": [
+        "meta-llama/Meta-Llama-3.1-405B-Instruct",
+        "microsoft/Phi-3.5-mini-instruct"
+      ],
+      "features": [
+        "chat"
+      ],
+      "region": "global",
+      "notes": "新晋永久免费层",
+      "source": "https://github.com/nejib1/Free-LLM",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "degraded"
+    },
+    {
+      "name": "Fireworks AI",
+      "slug": "fireworks",
+      "tier": "trial_credit",
+      "website": "https://fireworks.ai",
+      "api_base": "https://api.fireworks.ai/inference/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "accounts/fireworks/models/llama-v3p1-405b-instruct",
+        "accounts/fireworks/models/deepseek-v3",
+        "accounts/fireworks/models/qwen2p5-72b-instruct"
+      ],
+      "free_models": [],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling"
+      ],
+      "region": "global",
+      "notes": "$1 试用额度，需信用卡验证",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "FriendliAI",
+      "slug": "friendli",
+      "tier": "trial_credit",
+      "website": "https://friendli.ai",
+      "api_base": "https://api.friendli.ai/serverless/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": true,
+      "rate_limit": {},
+      "models": [
+        "meta-llama-3.1-405b-instruct",
+        "deepseek-v3",
+        "qwen2.5-72b-instruct"
+      ],
+      "free_models": [],
+      "features": [
+        "chat",
+        "function_calling"
+      ],
+      "region": "global",
+      "notes": "试用额度，高性能推理",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "Hyperbolic",
+      "slug": "hyperbolic",
+      "tier": "trial_credit",
+      "website": "https://hyperbolic.xyz",
+      "api_base": "https://api.hyperbolic.xyz/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": true,
+      "rate_limit": {},
+      "models": [
+        "meta-llama/Meta-Llama-3.1-405B-Instruct",
+        "deepseek-ai/DeepSeek-V3",
+        "Qwen/Qwen2.5-72B-Instruct"
+      ],
+      "free_models": [],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling"
+      ],
+      "region": "global",
+      "notes": "试用额度，GPU 算力市场",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "Nebius AI Studio",
+      "slug": "nebius",
+      "tier": "trial_credit",
+      "website": "https://studio.nebius.com",
+      "api_base": "https://api.studio.nebius.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": true,
+      "rate_limit": {},
+      "models": [
+        "meta-llama/Meta-Llama-3.1-405B-Instruct",
+        "deepseek-ai/DeepSeek-V3",
+        "Qwen/Qwen2.5-72B-Instruct"
+      ],
+      "free_models": [],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling"
+      ],
+      "region": "global",
+      "notes": "$1 试用额度",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "degraded"
+    },
+    {
+      "name": "Novita.AI",
+      "slug": "novita",
+      "tier": "trial_credit",
+      "website": "https://novita.ai",
+      "api_base": "https://api.novita.ai/v3/openai",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": true,
+      "rate_limit": {},
+      "models": [
+        "inclusionai/ling-3.0-flash",
+        "mindai/macaron-v1-venti",
+        "mindai/macaron-v1-tall",
+        "dev/glm46",
+        "minimax/m2-her"
+      ],
+      "free_models": [
+        "inclusionai/ling-3.0-flash",
+        "mindai/macaron-v1-venti",
+        "mindai/macaron-v1-tall",
+        "dev/glm46",
+        "minimax/m2-her"
+      ],
+      "features": [
+        "chat",
+        "function_calling",
+        "reasoning",
+        "structured_output"
+      ],
+      "region": "global",
+      "notes": "$0.5 试用，部分模型 price=0 免费",
+      "source": "https://github.com/nejib1/Free-LLM",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "Replicate",
+      "slug": "replicate",
+      "tier": "trial_credit",
+      "website": "https://replicate.com",
+      "api_base": "https://api.replicate.com/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": true,
+      "rate_limit": {},
+      "models": [
+        "meta/meta-llama-3.1-405b-instruct",
+        "deepseek-ai/deepseek-v3",
+        "qwen/qwen-2.5-72b-instruct"
+      ],
+      "free_models": [],
+      "features": [
+        "chat",
+        "vision",
+        "audio",
+        "video"
+      ],
+      "region": "global",
+      "notes": "按秒计费，试用额度",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "Upstage",
+      "slug": "upstage",
+      "tier": "trial_credit",
+      "website": "https://www.upstage.ai",
+      "api_base": "https://api.upstage.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": true,
+      "rate_limit": {},
+      "models": [
+        "solar-pro",
+        "solar-mini",
+        "document-parse"
+      ],
+      "free_models": [],
+      "features": [
+        "chat",
+        "document_parsing",
+        "embeddings"
+      ],
+      "region": "global",
+      "notes": "$10 试用额度，韩国团队，文档解析强",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "Qwen (阿里云百炼)",
+      "slug": "qwen-bailian",
+      "tier": "trial_credit",
+      "website": "https://bailian.console.aliyun.com",
+      "api_base": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": true,
+      "rate_limit": {},
+      "models": [
+        "qwen-max",
+        "qwen-plus",
+        "qwen-turbo",
+        "qwen-vl-max",
+        "qwen2.5-72b-instruct"
+      ],
+      "free_models": [
+        "qwen-turbo",
+        "qwen2.5-72b-instruct"
+      ],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling"
+      ],
+      "region": "cn",
+      "notes": "千万 Token 免费额度，多模态全",
+      "source": "https://github.com/nejib1/Free-LLM",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "Scaleway",
+      "slug": "scaleway",
+      "tier": "trial_credit",
+      "website": "https://cloud.scaleway.com",
+      "api_base": "https://api.scaleway.com/ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": true,
+      "rate_limit": {},
+      "models": [
+        "mistral-7b-instruct",
+        "llama-3.1-8b-instruct",
+        "llama-3.3-70b-instruct"
+      ],
+      "free_models": [],
+      "features": [
+        "chat"
+      ],
+      "region": "eu",
+      "notes": "欧洲云厂商，试用额度",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "degraded"
+    },
+    {
+      "name": "Requesty",
+      "slug": "requesty",
+      "tier": "trial_credit",
+      "website": "https://requesty.ai",
+      "api_base": "https://router.requesty.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": true,
+      "rate_limit": {},
+      "models": [
+        "gpt-4o",
+        "claude-3.5-sonnet",
+        "gemini-1.5-pro"
+      ],
+      "free_models": [],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling"
+      ],
+      "region": "global",
+      "notes": "路由聚合平台，端点已变更",
+      "source": "https://github.com/nejib1/Free-LLM",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "degraded"
+    },
+    {
+      "name": "Together AI",
+      "slug": "together",
+      "tier": "trial_credit",
+      "website": "https://api.together.xyz",
+      "api_base": "https://api.together.xyz/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": true,
+      "rate_limit": {},
+      "models": [
+        "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
+        "deepseek-ai/DeepSeek-V3",
+        "Qwen/Qwen2.5-72B-Instruct"
+      ],
+      "free_models": [],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling"
+      ],
+      "region": "global",
+      "notes": "试用额度，高吞吐",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "Friendli",
+      "slug": "friendli-ai",
+      "tier": "trial_credit",
+      "website": "https://friendli.ai",
+      "api_base": "https://api.friendli.ai/serverless/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": true,
+      "rate_limit": {},
+      "models": [
+        "meta-llama-3.1-405b-instruct",
+        "deepseek-v3",
+        "qwen2.5-72b-instruct"
+      ],
+      "free_models": [],
+      "features": [
+        "chat",
+        "function_calling"
+      ],
+      "region": "global",
+      "notes": "高性能推理，试用额度",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "Ollama",
+      "slug": "ollama",
+      "tier": "local",
+      "website": "https://ollama.com",
+      "api_base": "http://localhost:11434/v1",
+      "models_endpoint": "/api/tags",
+      "requires_key": false,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "llama3.1:70b",
+        "llama3.3:70b",
+        "qwen2.5:72b",
+        "deepseek-r1:70b",
+        "gemma2:27b",
+        "phi3.5:3.8b"
+      ],
+      "free_models": [
+        "all"
+      ],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling",
+        "embeddings"
+      ],
+      "region": "local",
+      "notes": "最流行本地运行工具，一键拉取运行",
+      "source": "https://github.com/ollama/ollama",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "LM Studio",
+      "slug": "lm-studio",
+      "tier": "local",
+      "website": "https://lmstudio.ai",
+      "api_base": "http://localhost:1234/v1",
+      "models_endpoint": "/models",
+      "requires_key": false,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "任意 GGUF 模型"
+      ],
+      "free_models": [
+        "all"
+      ],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling"
+      ],
+      "region": "local",
+      "notes": "GUI 界面，支持 Apple Silicon GPU 加速",
+      "source": "https://github.com/lmstudio-ai/lmstudio",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "GPT4All",
+      "slug": "gpt4all",
+      "tier": "local",
+      "website": "https://gpt4all.io",
+      "api_base": "http://localhost:4891/v1",
+      "models_endpoint": "/models",
+      "requires_key": false,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "任意 GGUF 模型"
+      ],
+      "free_models": [
+        "all"
+      ],
+      "features": [
+        "chat",
+        "embeddings",
+        "RAG"
+      ],
+      "region": "local",
+      "notes": "隐私优先，内置模型商店",
+      "source": "https://github.com/nomic-ai/gpt4all",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "llama.cpp",
+      "slug": "llama-cpp",
+      "tier": "local",
+      "website": "https://github.com/ggml-org/llama.cpp",
+      "api_base": "http://localhost:8080/v1",
+      "models_endpoint": "/models",
+      "requires_key": false,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "任意 GGUF 模型"
+      ],
+      "free_models": [
+        "all"
+      ],
+      "features": [
+        "chat",
+        "embeddings",
+        "function_calling"
+      ],
+      "region": "local",
+      "notes": "核心推理引擎，C++ 实现，跨平台",
+      "source": "https://github.com/ggml-org/llama.cpp",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "Jan.ai",
+      "slug": "jan",
+      "tier": "local",
+      "website": "https://jan.ai",
+      "api_base": "http://localhost:1337/v1",
+      "models_endpoint": "/models",
+      "requires_key": false,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "任意 GGUF 模型"
+      ],
+      "free_models": [
+        "all"
+      ],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling",
+        "embeddings",
+        "RAG"
+      ],
+      "region": "local",
+      "notes": "开源 ChatGPT 替代，TypeScript，43.8k Stars",
+      "source": "https://github.com/janhq/jan",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "KoboldCpp",
+      "slug": "koboldcpp",
+      "tier": "local",
+      "website": "https://github.com/LostRuins/koboldcpp",
+      "api_base": "http://localhost:5001/v1",
+      "models_endpoint": "/models",
+      "requires_key": false,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "任意 GGUF 模型"
+      ],
+      "free_models": [
+        "all"
+      ],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling"
+      ],
+      "region": "local",
+      "notes": "单文件 GGUF 引擎 + KoboldAI UI，11.3k Stars",
+      "source": "https://github.com/LostRuins/koboldcpp",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "llamafile",
+      "slug": "llamafile",
+      "tier": "local",
+      "website": "https://github.com/Mozilla-Ocho/llamafile",
+      "api_base": "http://localhost:8080/v1",
+      "models_endpoint": "/models",
+      "requires_key": false,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "打包好的 .llamafile"
+      ],
+      "free_models": [
+        "all"
+      ],
+      "features": [
+        "chat"
+      ],
+      "region": "local",
+      "notes": "单文件跨平台运行 LLM，25.5k Stars",
+      "source": "https://github.com/Mozilla-Ocho/llamafile",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "Text Generation WebUI",
+      "slug": "text-generation-webui",
+      "tier": "local",
+      "website": "https://github.com/oobabooga/text-generation-webui",
+      "api_base": "http://localhost:5000/v1",
+      "models_endpoint": "/models",
+      "requires_key": false,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "任意 GGUF/EXL2/AWQ 模型"
+      ],
+      "free_models": [
+        "all"
+      ],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling",
+        "training"
+      ],
+      "region": "local",
+      "notes": "功能最全的本地 LLM Web UI，47.5k Stars",
+      "source": "https://github.com/oobabooga/text-generation-webui",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "BentoML",
+      "slug": "bentoml",
+      "tier": "local",
+      "website": "https://www.bentoml.com",
+      "api_base": "http://localhost:3000/v1",
+      "models_endpoint": "/models",
+      "requires_key": false,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "任意模型 (通过 Bento 打包)"
+      ],
+      "free_models": [
+        "all"
+      ],
+      "features": [
+        "chat",
+        "embeddings",
+        "function_calling",
+        "batch_inference"
+      ],
+      "region": "local",
+      "notes": "模型服务平台，推理 API + 任务队列，8.7k Stars",
+      "source": "https://github.com/bentoml/BentoML",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "硅基流动",
+      "slug": "siliconflow",
+      "tier": "trial_credit",
+      "website": "https://siliconflow.cn",
+      "api_base": "https://api.siliconflow.cn/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "deepseek-v3",
+        "qwen2.5-72b-instruct",
+        "llama-3.3-70b-instruct",
+        "glm-4-9b-chat"
+      ],
+      "free_models": [
+        "deepseek-v3",
+        "qwen2.5-72b-instruct",
+        "llama-3.3-70b-instruct"
+      ],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling"
+      ],
+      "region": "cn",
+      "notes": "新用户 20M Token，速度最快，开源最全",
+      "source": "https://github.com/nejib1/Free-LLM",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "百度千帆",
+      "slug": "qianfan",
+      "tier": "trial_credit",
+      "website": "https://qianfan.baidu.com",
+      "api_base": "https://qianfan.baidubce.com/v2",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": true,
+      "rate_limit": {
+        "qps": 50
+      },
+      "models": [
+        "ernie-speed",
+        "ernie-lite",
+        "ernie-4.0"
+      ],
+      "free_models": [
+        "ernie-speed",
+        "ernie-lite"
+      ],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling",
+        "embeddings"
+      ],
+      "region": "cn",
+      "notes": "免费额度，高并发企业级",
+      "source": "https://github.com/nejib1/Free-LLM",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "腾讯混元",
+      "slug": "hunyuan",
+      "tier": "trial_credit",
+      "website": "https://hunyuan.tencent.com",
+      "api_base": "https://api.hunyuan.cloud.tencent.com/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": true,
+      "rate_limit": {},
+      "models": [
+        "hunyuan-lite",
+        "hunyuan-standard",
+        "hunyuan-pro"
+      ],
+      "free_models": [
+        "hunyuan-lite"
+      ],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling"
+      ],
+      "region": "cn",
+      "notes": "100M Token 免费，1年有效，企业稳定",
+      "source": "https://github.com/nejib1/Free-LLM",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "月之暗面 Kimi",
+      "slug": "kimi",
+      "tier": "trial_credit",
+      "website": "https://kimi.moonshot.cn",
+      "api_base": "https://api.moonshot.cn/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "kimi-k2-0711",
+        "kimi-k2-0905"
+      ],
+      "free_models": [
+        "kimi-k2-0711"
+      ],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling"
+      ],
+      "region": "cn",
+      "notes": "不限 Token，限频率，超长上下文",
+      "source": "https://github.com/nejib1/Free-LLM",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "讯飞星火",
+      "slug": "xinghuo",
+      "tier": "trial_credit",
+      "website": "https://xinghuo.xfyun.cn",
+      "api_base": "https://spark-api-open.xf-yun.com/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": true,
+      "rate_limit": {},
+      "models": [
+        "spark-lite",
+        "spark-pro",
+        "spark-max",
+        "spark-4.0-ultra"
+      ],
+      "free_models": [
+        "spark-lite"
+      ],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling",
+        "audio"
+      ],
+      "region": "cn",
+      "notes": "200K tokens 免费，1年有效，语音最强",
+      "source": "https://github.com/nejib1/Free-LLM",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "魔搭 ModelScope",
+      "slug": "modelscope",
+      "tier": "trial_credit",
+      "website": "https://modelscope.cn",
+      "api_base": "https://api-inference.modelscope.cn/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "daily_requests": 2000
+      },
+      "models": [
+        "qwen2.5-72b-instruct",
+        "deepseek-v3",
+        "glm-4-9b-chat",
+        "llama-3.3-70b-instruct"
+      ],
+      "free_models": [
+        "qwen2.5-72b-instruct",
+        "deepseek-v3",
+        "glm-4-9b-chat"
+      ],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling",
+        "embeddings"
+      ],
+      "region": "cn",
+      "notes": "54+ 模型，单模型 500 次/天，模型最多",
+      "source": "https://github.com/nejib1/Free-LLM",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "火山引擎",
+      "slug": "volcengine",
+      "tier": "trial_credit",
+      "website": "https://www.volcengine.com",
+      "api_base": "https://ark.cn-beijing.volces.com/api/v3",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": true,
+      "rate_limit": {},
+      "models": [
+        "doubao-pro",
+        "doubao-lite",
+        "deepseek-v3",
+        "kimi-k2"
+      ],
+      "free_models": [
+        "doubao-lite"
+      ],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling"
+      ],
+      "region": "cn",
+      "notes": "500 资源点/天，极致速度",
+      "source": "https://github.com/nejib1/Free-LLM",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    },
+    {
+      "name": "DeepSeek",
+      "slug": "deepseek",
+      "tier": "trial_credit",
+      "website": "https://platform.deepseek.com",
+      "api_base": "https://api.deepseek.com/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": true,
+      "rate_limit": {},
+      "models": [
+        "deepseek-chat",
+        "deepseek-reasoner"
+      ],
+      "free_models": [
+        "deepseek-chat"
+      ],
+      "features": [
+        "chat",
+        "reasoning",
+        "function_calling"
+      ],
+      "region": "cn",
+      "notes": "有限免费额度，代码能力强",
+      "source": "https://github.com/nejib1/Free-LLM",
+      "last_probed": "2026-08-01T06:00:00Z",
+      "status": "active"
+    }
+  ]
+}
