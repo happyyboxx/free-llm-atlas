@@ -7,12 +7,12 @@
 ## 🎯 一问一答决策树
 
 ### Q1: 你能接受在本地运行模型吗？（有显存/内存 ≥ 8GB）
-- **是** → 看 [本地运行方案](local-inference.md) → 推荐：**Ollama** (最简单) / **LM Studio** (有GUI) / **Jan.ai** (开源全能)
+- **是** → 看 [本地运行方案](../platforms/local-inference.md) → 推荐：**Ollama** (最简单) / **LM Studio** (有GUI) / **Jan.ai** (开源全能)
 - **否** → 继续 Q2
 
 ### Q2: 你能接受绑定信用卡吗？（即使是免费额度）
-- **否** → 看 [永久免费层](permanent-free.md) → 继续 Q3
-- **是** → 看 [试用额度平台](trial-credits.md) → 继续 Q6
+- **否** → 看 [永久免费层](../platforms/permanent-free.md) → 继续 Q3
+- **是** → 看 [试用额度平台](../platforms/trial-credits.md) → 继续 Q6
 
 ### Q3: 你完全不想注册账号，甚至不想要 API Key？
 - **是** → **Pollinations.ai** (完全匿名，支持文生图) 或 **Kilo Code** (无需Key，346模型)

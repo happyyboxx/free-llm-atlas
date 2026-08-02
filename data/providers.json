@@ -477,14 +477,18 @@
         "kling",
         "seedance"
       ],
-      "free_models": [],
+      "free_models": [
+        "openai",
+        "gpt-4o-mini",
+        "deepseek-chat"
+      ],
       "features": [
         "chat",
         "vision",
         "video_generation"
       ],
       "region": "global",
-      "notes": "含闭源顶级模型，30 RPM (带 token 120)",
+      "notes": "含闭源顶级模型，30 RPM (带 token 120 RPM)。基础模型免费，闭源模型需 token",
       "source": "https://github.com/nejib1/Free-LLM",
       "last_probed": "2026-08-01T06:00:00Z",
       "status": "active"

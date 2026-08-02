@@ -105,8 +105,8 @@ python3 scripts/probe.py --export-config portkey
 
 | Workflow | Frequency | Output |
 |---|---|---|
-| `probe.yml` | Daily 06:00 UTC | Updates `data/providers.json` with `status`, `last_probed`, `models_count` |
-| `update.yml` | Weekly Mon 00:00 UTC | Syncs new providers from cheahjs/free-llm-api-resources, nejib1/Free-LLM, etc. |
+| `.github/workflows/probe.yml` | Daily 06:00 UTC | Updates `data/providers.json` with `status`, `last_probed`, `models_count` |
+| `.github/workflows/update.yml` | Weekly Mon 00:00 UTC | Syncs new providers from cheahjs/free-llm-api-resources, nejib1/Free-LLM, etc. |
 
 ---
 

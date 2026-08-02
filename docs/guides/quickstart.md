@@ -87,7 +87,7 @@ console.log(resp.choices[0].message.content);
 
 ```bash
 # 1. 克隆本仓库
-git clone https://github.com/your-username/free-llm-atlas
+git clone https://github.com/happyyboxx/free-llm-atlas
 cd free-llm-atlas
 
 # 2. 安装探测依赖
@@ -146,6 +146,6 @@ ollama run phi3.5:3.8b      # Microsoft 小而强
 ## 🎯 下一步
 
 - 阅读 [选型决策树](decision-tree.md) 精准匹配需求
-- 查看 [永久免费层详细对比](permanent-free.md) 深度选型
+- 查看 [永久免费层详细对比](../platforms/permanent-free.md) 深度选型
 - 运行 `python3 scripts/probe.py --all` 自动探测最新可用性
 - Star 本项目 ⭐ 关注免费 LLM 最新动态

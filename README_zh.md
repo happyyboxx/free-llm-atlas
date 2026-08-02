@@ -2,9 +2,9 @@
 
 > **免费大模型图谱** — 收录 70+ 平台、43+ Provider、40+ 实测端点。提供结构化数据、自动探测脚本、可落地的网关配置。
 
-[![GitHub Stars](https://img.shields.io/github/stars/your-username/free-llm-atlas?style=flat-square)](https://github.com/your-username/free-llm-atlas/stargazers)
+[![GitHub Stars](https://img.shields.io/github/stars/happyyboxx/free-llm-atlas?style=flat-square)](https://github.com/happyyboxx/free-llm-atlas/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
-[![Automated Probe](https://img.shields.io/github/actions/workflow/status/your-username/free-llm-atlas/probe.yml?label=Probe&style=flat-square)](https://github.com/your-username/free-llm-atlas/actions/workflows/probe.yml)
+[![Automated Probe](https://img.shields.io/github/actions/workflow/status/happyyboxx/free-llm-atlas/probe.yml?label=Probe&style=flat-square)](https://github.com/happyyboxx/free-llm-atlas/actions/workflows/probe.yml)
 
 ---
 
