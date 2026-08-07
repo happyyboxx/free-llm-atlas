@@ -3,6 +3,7 @@
 > **46 free LLM API providers, auto-probed daily. Structured JSON + gateway configs. Zero cost to production.**
 
 [![GitHub Stars](https://img.shields.io/github/stars/happyyboxx/free-llm-atlas?style=flat-square)](https://github.com/happyyboxx/free-llm-atlas/stargazers)
+[![Star History](https://api.star-history.com/svg?repos=happyyboxx/free-llm-atlas&type=Date&theme=dark)](https://star-history.com/#happyyboxx/free-llm-atlas&Date)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![Automated Probe](https://img.shields.io/github/actions/workflow/status/happyyboxx/free-llm-atlas/probe.yml?label=Daily%20Probe&style=flat-square)](https://github.com/happyyboxx/free-llm-atlas/actions/workflows/probe.yml)
 [![Providers](https://img.shields.io/badge/Providers-46-blue?style=flat-square)](data/providers.json)
