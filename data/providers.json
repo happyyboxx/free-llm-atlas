@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-08-12T07:13:47.339373+00:00",
+  "updated": "2026-08-13T07:16:31.100758+00:00",
   "sources": [
     "cheahjs/free-llm-api-resources",
     "tashfeenahmed/freellmapi",
@@ -41,7 +41,7 @@
       "region": "global",
       "notes": "需 Google 账号，中文支持好，多模态强",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-12T07:13:44.407465+00:00",
+      "last_probed": "2026-08-13T07:16:28.091518+00:00",
       "status": "degraded"
     },
     {
@@ -77,7 +77,7 @@
       "region": "global",
       "notes": "LPU 推理极致速度，无需信用卡",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-12T07:13:44.480611+00:00",
+      "last_probed": "2026-08-13T07:16:28.129455+00:00",
       "status": "active"
     },
     {
@@ -108,7 +108,7 @@
       "region": "global",
       "notes": "Wafer-scale 硬件，2600+ tokens/s",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-12T07:13:44.509382+00:00",
+      "last_probed": "2026-08-13T07:16:28.148848+00:00",
       "status": "degraded"
     },
     {
@@ -143,7 +143,7 @@
       "region": "global",
       "notes": "边缘部署，10K neurons/天免费额度",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-12T07:13:44.378294+00:00",
+      "last_probed": "2026-08-13T07:16:28.103711+00:00",
       "status": "active"
     },
     {
@@ -178,7 +178,7 @@
       "region": "global",
       "notes": "需手机验证，102+ 模型，GPU 集群推理",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-12T07:13:44.379171+00:00",
+      "last_probed": "2026-08-13T07:16:28.168457+00:00",
       "status": "active",
       "models_count": 102
     },
@@ -213,7 +213,7 @@
       "region": "eu",
       "notes": "欧洲隐私标准，~1B tokens/月免费",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-12T07:13:44.478691+00:00",
+      "last_probed": "2026-08-13T07:16:28.265824+00:00",
       "status": "active"
     },
     {
@@ -249,7 +249,7 @@
       "region": "global",
       "notes": "$0.10/月 credits，聚合模型最多",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-12T07:13:44.331063+00:00",
+      "last_probed": "2026-08-13T07:16:28.022888+00:00",
       "status": "unknown"
     },
     {
@@ -289,7 +289,7 @@
       "region": "global",
       "notes": "GitHub 账号即用，45+ 模型含闭源顶级",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-12T07:13:44.382931+00:00",
+      "last_probed": "2026-08-13T07:16:28.052408+00:00",
       "status": "down"
     },
     {
@@ -328,9 +328,9 @@
       "region": "global",
       "notes": "聚合平台，14 免费模型，1M 上下文 (Nemotron Ultra)",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-12T07:13:44.404893+00:00",
+      "last_probed": "2026-08-13T07:16:28.126521+00:00",
       "status": "active",
-      "models_count": 406
+      "models_count": 410
     },
     {
       "name": "Cohere",
@@ -363,7 +363,7 @@
       "region": "global",
       "notes": "RAG/Embedding 强，1000 req/月免费",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-12T07:13:44.496618+00:00",
+      "last_probed": "2026-08-13T07:16:28.129665+00:00",
       "status": "active"
     },
     {
@@ -395,9 +395,9 @@
       "region": "global",
       "notes": "无需 Key 列模型，200 req/hr per IP",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-12T07:13:44.765252+00:00",
+      "last_probed": "2026-08-13T07:16:28.284288+00:00",
       "status": "active",
-      "models_count": 355
+      "models_count": 359
     },
     {
       "name": "Pollinations.ai",
@@ -425,7 +425,7 @@
       "region": "global",
       "notes": "完全免费，无需注册，支持文生图",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-12T07:13:44.378878+00:00",
+      "last_probed": "2026-08-13T07:16:28.052505+00:00",
       "status": "unknown"
     },
     {
@@ -458,7 +458,7 @@
       "region": "eu",
       "notes": "欧盟 GDPR 合规，匿名 2 RPM",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-12T07:13:45.066120+00:00",
+      "last_probed": "2026-08-13T07:16:29.609430+00:00",
       "status": "degraded"
     },
     {
@@ -493,9 +493,9 @@
       "region": "global",
       "notes": "含闭源顶级模型，30 RPM (带 token 120 RPM)。基础模型免费，闭源模型需 token",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-12T07:13:44.711877+00:00",
+      "last_probed": "2026-08-13T07:16:28.472952+00:00",
       "status": "active",
-      "models_count": 35
+      "models_count": 34
     },
     {
       "name": "Z.AI (智谱)",
@@ -525,7 +525,7 @@
       "region": "cn",
       "notes": "国内永久免费，200K 上下文",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-12T07:13:45.182305+00:00",
+      "last_probed": "2026-08-13T07:16:28.555153+00:00",
       "status": "active"
     },
     {
@@ -556,7 +556,7 @@
       "region": "cn",
       "notes": "字节跳动平台，Bot/Workflow 免费",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-12T07:13:45.417597+00:00",
+      "last_probed": "2026-08-13T07:16:29.903947+00:00",
       "status": "down"
     },
     {
@@ -583,9 +583,9 @@
       "region": "global",
       "notes": "新晋永久免费层",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-12T07:13:44.549161+00:00",
+      "last_probed": "2026-08-13T07:16:29.269343+00:00",
       "status": "active",
-      "models_count": 38
+      "models_count": 39
     },
     {
       "name": "Fireworks AI",
@@ -611,7 +611,7 @@
       "region": "global",
       "notes": "$1 试用额度，需信用卡验证",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-12T07:13:44.500968+00:00",
+      "last_probed": "2026-08-13T07:16:28.242078+00:00",
       "status": "active"
     },
     {
@@ -637,7 +637,7 @@
       "region": "global",
       "notes": "试用额度，高性能推理",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-12T07:13:44.696964+00:00",
+      "last_probed": "2026-08-13T07:16:28.487444+00:00",
       "status": "active",
       "models_count": 7
     },
@@ -665,7 +665,7 @@
       "region": "global",
       "notes": "试用额度，GPU 算力市场",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-12T07:13:44.630557+00:00",
+      "last_probed": "2026-08-13T07:16:28.294836+00:00",
       "status": "active"
     },
     {
@@ -692,7 +692,7 @@
       "region": "global",
       "notes": "$1 试用额度",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-12T07:13:44.957489+00:00",
+      "last_probed": "2026-08-13T07:16:28.935650+00:00",
       "status": "active"
     },
     {
@@ -728,7 +728,7 @@
       "region": "global",
       "notes": "$0.5 试用，部分模型 price=0 免费",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-12T07:13:45.272393+00:00",
+      "last_probed": "2026-08-13T07:16:28.575894+00:00",
       "status": "active",
       "models_count": 146
     },
@@ -757,7 +757,7 @@
       "region": "global",
       "notes": "按秒计费，试用额度",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-12T07:13:44.601843+00:00",
+      "last_probed": "2026-08-13T07:16:28.406498+00:00",
       "status": "active"
     },
     {
@@ -784,7 +784,7 @@
       "region": "global",
       "notes": "$10 试用额度，韩国团队，文档解析强",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-12T07:13:45.226651+00:00",
+      "last_probed": "2026-08-13T07:16:28.987476+00:00",
       "status": "active"
     },
     {
@@ -816,7 +816,7 @@
       "region": "cn",
       "notes": "千万 Token 免费额度，多模态全",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-12T07:13:45.638047+00:00",
+      "last_probed": "2026-08-13T07:16:29.098298+00:00",
       "status": "active"
     },
     {
@@ -841,7 +841,7 @@
       "region": "eu",
       "notes": "欧洲云厂商，试用额度",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-12T07:13:45.281167+00:00",
+      "last_probed": "2026-08-13T07:16:29.315773+00:00",
       "status": "down"
     },
     {
@@ -868,7 +868,7 @@
       "region": "global",
       "notes": "路由聚合平台，端点已变更",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-12T07:13:44.792062+00:00",
+      "last_probed": "2026-08-13T07:16:29.256778+00:00",
       "status": "active",
       "models_count": 602
     },
@@ -896,7 +896,7 @@
       "region": "global",
       "notes": "试用额度，高吞吐",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-12T07:13:44.870455+00:00",
+      "last_probed": "2026-08-13T07:16:28.715678+00:00",
       "status": "active"
     },
     {
@@ -922,7 +922,7 @@
       "region": "global",
       "notes": "高性能推理，试用额度",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-12T07:13:44.943852+00:00",
+      "last_probed": "2026-08-13T07:16:28.810674+00:00",
       "status": "active",
       "models_count": 7
     },
@@ -956,7 +956,7 @@
       "region": "local",
       "notes": "最流行本地运行工具，一键拉取运行",
       "source": "https://github.com/ollama/ollama",
-      "last_probed": "2026-08-12T07:13:44.872565+00:00",
+      "last_probed": "2026-08-13T07:16:28.717445+00:00",
       "status": "down"
     },
     {
@@ -983,7 +983,7 @@
       "region": "local",
       "notes": "GUI 界面，支持 Apple Silicon GPU 加速",
       "source": "https://github.com/lmstudio-ai/lmstudio",
-      "last_probed": "2026-08-12T07:13:44.874402+00:00",
+      "last_probed": "2026-08-13T07:16:28.718754+00:00",
       "status": "down"
     },
     {
@@ -1010,7 +1010,7 @@
       "region": "local",
       "notes": "隐私优先，内置模型商店",
       "source": "https://github.com/nomic-ai/gpt4all",
-      "last_probed": "2026-08-12T07:13:44.876131+00:00",
+      "last_probed": "2026-08-13T07:16:28.720016+00:00",
       "status": "down"
     },
     {
@@ -1037,7 +1037,7 @@
       "region": "local",
       "notes": "核心推理引擎，C++ 实现，跨平台",
       "source": "https://github.com/ggml-org/llama.cpp",
-      "last_probed": "2026-08-12T07:13:44.878243+00:00",
+      "last_probed": "2026-08-13T07:16:28.721241+00:00",
       "status": "down"
     },
     {
@@ -1066,7 +1066,7 @@
       "region": "local",
       "notes": "开源 ChatGPT 替代，TypeScript，43.8k Stars",
       "source": "https://github.com/janhq/jan",
-      "last_probed": "2026-08-12T07:13:44.880057+00:00",
+      "last_probed": "2026-08-13T07:16:28.723455+00:00",
       "status": "down"
     },
     {
@@ -1093,7 +1093,7 @@
       "region": "local",
       "notes": "单文件 GGUF 引擎 + KoboldAI UI，11.3k Stars",
       "source": "https://github.com/LostRuins/koboldcpp",
-      "last_probed": "2026-08-12T07:13:44.881741+00:00",
+      "last_probed": "2026-08-13T07:16:28.724702+00:00",
       "status": "down"
     },
     {
@@ -1118,7 +1118,7 @@
       "region": "local",
       "notes": "单文件跨平台运行 LLM，25.5k Stars",
       "source": "https://github.com/Mozilla-Ocho/llamafile",
-      "last_probed": "2026-08-12T07:13:44.883462+00:00",
+      "last_probed": "2026-08-13T07:16:28.725890+00:00",
       "status": "down"
     },
     {
@@ -1146,7 +1146,7 @@
       "region": "local",
       "notes": "功能最全的本地 LLM Web UI，47.5k Stars",
       "source": "https://github.com/oobabooga/text-generation-webui",
-      "last_probed": "2026-08-12T07:13:44.885235+00:00",
+      "last_probed": "2026-08-13T07:16:28.727109+00:00",
       "status": "down"
     },
     {
@@ -1174,7 +1174,7 @@
       "region": "local",
       "notes": "模型服务平台，推理 API + 任务队列，8.7k Stars",
       "source": "https://github.com/bentoml/BentoML",
-      "last_probed": "2026-08-12T07:13:44.887169+00:00",
+      "last_probed": "2026-08-13T07:16:28.728346+00:00",
       "status": "down"
     },
     {
@@ -1206,7 +1206,7 @@
       "region": "cn",
       "notes": "新用户 20M Token，速度最快，开源最全",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-12T07:13:46.177055+00:00",
+      "last_probed": "2026-08-13T07:16:29.836830+00:00",
       "status": "active"
     },
     {
@@ -1239,7 +1239,7 @@
       "region": "cn",
       "notes": "免费额度，高并发企业级",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-12T07:13:46.625559+00:00",
+      "last_probed": "2026-08-13T07:16:30.211836+00:00",
       "status": "degraded"
     },
     {
@@ -1268,7 +1268,7 @@
       "region": "cn",
       "notes": "100M Token 免费，1年有效，企业稳定",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-12T07:13:47.339238+00:00",
+      "last_probed": "2026-08-13T07:16:30.802092+00:00",
       "status": "active"
     },
     {
@@ -1296,7 +1296,7 @@
       "region": "cn",
       "notes": "不限 Token，限频率，超长上下文",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-12T07:13:46.509961+00:00",
+      "last_probed": "2026-08-13T07:16:30.302211+00:00",
       "status": "active"
     },
     {
@@ -1327,7 +1327,7 @@
       "region": "cn",
       "notes": "200K tokens 免费，1年有效，语音最强",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-12T07:13:46.231831+00:00",
+      "last_probed": "2026-08-13T07:16:29.952862+00:00",
       "status": "active"
     },
     {
@@ -1362,7 +1362,7 @@
       "region": "cn",
       "notes": "54+ 模型，单模型 500 次/天，模型最多",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-12T07:13:46.467628+00:00",
+      "last_probed": "2026-08-13T07:16:30.723455+00:00",
       "status": "active",
       "models_count": 43
     },
@@ -1393,7 +1393,7 @@
       "region": "cn",
       "notes": "500 资源点/天，极致速度",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-12T07:13:46.438547+00:00",
+      "last_probed": "2026-08-13T07:16:31.100648+00:00",
       "status": "active"
     },
     {
@@ -1421,7 +1421,7 @@
       "region": "cn",
       "notes": "有限免费额度，代码能力强",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-12T07:13:45.670715+00:00",
+      "last_probed": "2026-08-13T07:16:29.734902+00:00",
       "status": "active"
     }
   ]
