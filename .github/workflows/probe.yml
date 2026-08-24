@@ -59,3 +59,12 @@ jobs:
         if: always()
         run: |
           python3 -c "import json; data=json.load(open('data/providers.json')); failed=[p for p in data['providers'] if p.get('status') in ('down','unknown')]; print(f'{len(failed)} providers down') if failed else print('All providers healthy')"
+      
+      - name: Send webhook notifications
+        if: always()
+        env:
+          PROVIDER_WEBHOOK_URL: ${{ secrets.PROVIDER_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          python3 scripts/notify_webhook.py || echo "Webhook notification failed (non-fatal)"

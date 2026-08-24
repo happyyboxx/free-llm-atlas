@@ -5,6 +5,7 @@ Generate documentation markdown files from data/providers.json.
 Usage:
     python3 scripts/generate_docs.py              # Generate all docs
     python3 scripts/generate_docs.py --overview   # Generate overview only
+    python3 scripts/generate_docs.py --comparison # Generate comparison table only
 """
 
 import json
@@ -40,17 +41,93 @@ def generate_overview(data):
     
     return "\n".join(lines)
 
+def generate_comparison(data):
+    """Generate platforms/comparison.md with detailed comparison table"""
+    providers = data.get("providers", [])
+    permanent_free = [p for p in providers if p.get("tier") == "permanent_free"]
+    trial_credit = [p for p in providers if p.get("tier") == "trial_credit"]
+    
+    lines = [
+        "# Provider Comparison Table (Auto-generated)",
+        "",
+        f"> Last updated: {data.get('updated', 'N/A')}",
+        "",
+        "## Permanent Free Tier (No Card Required)",
+        "",
+        "| Provider | Status | Health | RPM | TPM | Context | Max Output | Features | Region |",
+        "|---|---|---|---|---|---|---|---|---|",
+    ]
+    
+    for p in sorted(permanent_free, key=lambda x: x.get("health_score", 0), reverse=True):
+        status_emoji = {"active": "✅", "degraded": "⚠️", "down": "❌", "unknown": "❓"}.get(p.get("status", "unknown"), "❓")
+        rpm = p.get("rate_limit", {}).get("rpm", p.get("rate_limit", {}).get("rps", 0) * 60 if p.get("rate_limit", {}).get("rps") else 0)
+        tpm = p.get("rate_limit", {}).get("tpm", p.get("rate_limit", {}).get("daily_neurons", 0))
+        ctx = p.get("context_window", "?")
+        max_out = p.get("max_output_tokens", "?")
+        features = ", ".join(p.get("features", [])) if p.get("features") else "—"
+        health = p.get("health_score", 0)
+        lines.append(f"| {p['name']} | {status_emoji} | {health} | {rpm} | {tpm} | {ctx} | {max_out} | {features} | {p.get('region', '?')} |")
+    
+    lines.extend([
+        "",
+        "## Trial Credit Providers",
+        "",
+        "| Provider | Status | Health | RPM | TPM | Context | Max Output | Features | Region | Notes |",
+        "|---|---|---|---|---|---|---|---|---|---|",
+    ])
+    
+    for p in sorted(trial_credit, key=lambda x: x.get("health_score", 0), reverse=True):
+        status_emoji = {"active": "✅", "degraded": "⚠️", "down": "❌", "unknown": "❓"}.get(p.get("status", "unknown"), "❓")
+        rpm = p.get("rate_limit", {}).get("rpm", p.get("rate_limit", {}).get("rps", 0) * 60 if p.get("rate_limit", {}).get("rps") else 0)
+        tpm = p.get("rate_limit", {}).get("tpm", 0)
+        ctx = p.get("context_window", "?")
+        max_out = p.get("max_output_tokens", "?")
+        features = ", ".join(p.get("features", [])) if p.get("features") else "—"
+        health = p.get("health_score", 0)
+        notes = p.get("notes", "").replace("|", "\\|")[:80]
+        lines.append(f"| {p['name']} | {status_emoji} | {health} | {rpm} | {tpm} | {ctx} | {max_out} | {features} | {p.get('region', '?')} | {notes} |")
+    
+    lines.extend([
+        "",
+        "## Quick Selection Guide",
+        "",
+        "| Use Case | Recommended Provider | Why |",
+        "|---|---|---|",
+        "| **Maximum Speed** | Groq | LPU hardware, 300+ tok/s |",
+        "| **Longest Context (1M+)** | NVIDIA NIM (Nemotron Ultra) / OpenRouter | 1M context window |",
+        "| **Multimodal (Vision/Audio)** | Google AI Studio / GitHub Models | Native multimodal support |",
+        "| **Function Calling / Agents** | NVIDIA NIM / OpenRouter / Mistral | Full FC support |",
+        "| **Embeddings / RAG** | Cohere / Google AI Studio | Specialized embedding models |",
+        "| **EU GDPR Compliance** | Mistral / OVHcloud | EU data centers |",
+        "| **No Key / Zero Config** | Pollinations.ai / Kilo Code | Anonymous access |",
+        "| **Image/Video Generation** | Agnes AI | Free image & video generation |",
+        "| **Chinese Language** | LLM7.io / DeepSeek | Optimized for Chinese |",
+        "",
+        "---",
+        "",
+        "*Auto-generated from `data/providers.json` via `scripts/generate_docs.py --comparison`*",
+    ])
+    
+    return "\n".join(lines)
+
 def main():
     parser = argparse.ArgumentParser(description="Generate docs from providers.json")
     parser.add_argument("--overview", action="store_true", help="Generate overview only")
+    parser.add_argument("--comparison", action="store_true", help="Generate comparison table only")
     args = parser.parse_args()
     
     data = load_data()
     
-    if args.overview or not args.overview:
+    if args.overview or (not args.comparison and not args.overview):
         overview = generate_overview(data)
         out = DOCS_DIR / "platforms" / "overview.md"
         out.write_text(overview, encoding="utf-8")
+        print(f"✅ Generated {out}")
+    
+    if args.comparison or (not args.overview and not args.comparison):
+        comparison = generate_comparison(data)
+        out = DOCS_DIR / "platforms" / "comparison.md"
+        out.write_text(comparison, encoding="utf-8")
         print(f"✅ Generated {out}")
 
 if __name__ == "__main__":

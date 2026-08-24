@@ -174,12 +174,13 @@ for p in fallback:
 | Doc | What's Inside |
 |---|---|
 | [Permanent Free Tier](docs/platforms/permanent-free.md) | 17 providers compared: rate limits, context, features |
-| [Trial Credits](docs/platforms/trial-credits.md) | 20 providers with credit amounts + expiry |
+| [Trial Credits](docs/platforms/trial-credits.md) | 2 providers with credit amounts + expiry |
 | [Local Inference](docs/platforms/local-inference.md) | 9 local tools: VRAM requirements, model support |
 | [Decision Tree](docs/guides/decision-tree.md) | "Which provider should I use for X?" flowchart |
 | [Gateway Config](docs/guides/gateway-config.md) | Hermes / LiteLLM / Portkey / Open WebUI setup |
 | [Quick Start](docs/guides/quickstart.md) | 5-minute getting started guide |
 | [Hidden Limits](docs/guides/hidden-limits.md) | TPM vs daily, concurrent requests, context windows |
+| [Provider Comparison](docs/platforms/comparison.md) | Detailed table: RPM, TPM, context, features, health scores |
 
 ---
 
