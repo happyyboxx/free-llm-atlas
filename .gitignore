@@ -32,3 +32,6 @@ config_portkey.yaml
 
 # Cache
 .cache/
+
+# Promotion materials (keep separate)
+promotion/
