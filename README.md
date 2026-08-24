@@ -1,16 +1,16 @@
 # free-llm-atlas
 
-> **46 free LLM API providers, auto-probed daily. Structured JSON + gateway configs. Zero cost to production.**
+> **17 free LLM API providers, auto-probed daily. Structured JSON + gateway configs. Zero cost to production.**
 
 [![GitHub Stars](https://img.shields.io/github/stars/happyyboxx/free-llm-atlas?style=flat-square)](https://github.com/happyyboxx/free-llm-atlas/stargazers)
 [![Star History](https://api.star-history.com/svg?repos=happyyboxx/free-llm-atlas&type=Date&theme=dark)](https://star-history.com/#happyyboxx/free-llm-atlas&Date)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![Automated Probe](https://img.shields.io/github/actions/workflow/status/happyyboxx/free-llm-atlas/probe.yml?label=Daily%20Probe&style=flat-square)](https://github.com/happyyboxx/free-llm-atlas/actions/workflows/probe.yml)
-[![Providers](https://img.shields.io/badge/Providers-46-blue?style=flat-square)](data/providers.json)
+[![Providers](https://img.shields.io/badge/Providers-17-blue?style=flat-square)](data/providers.json)
 [![Free Forever](https://img.shields.io/badge/Free%20Forever-17%20no%20card-success?style=flat-square)](docs/platforms/permanent-free.md)
 [![Last Probe](https://img.shields.io/github/last-commit/happyyboxx/free-llm-atlas?label=Last%20Probe&style=flat-square)](https://github.com/happyyboxx/free-llm-atlas/commits/main/data/providers.json)
 [![Data Freshness](https://img.shields.io/badge/Probe%20Schedule-Daily%2006%3A00%20UTC-orange?style=flat-square)](https://github.com/happyyboxx/free-llm-atlas/actions/workflows/probe.yml)
-[![Coverage](https://img.shields.io/badge/Coverage-46%2F46%20providers-brightgreen?style=flat-square)](data/providers.json)
+[![Coverage](https://img.shields.io/badge/Coverage-17%2F17%20providers-brightgreen?style=flat-square)](data/providers.json)
 
 ---
 
@@ -28,7 +28,7 @@ for p in d['providers']:
     if p['tier'] == 'permanent_free' and not p.get('requires_card'):
         print(f'  ✅ {p[\"name\"]}: {p.get(\"rate_limit\", \"N/A\")}')"
 
-# 2. Probe all 46 providers right now
+# 2. Probe all providers right now
 pip install httpx pyyaml
 python3 scripts/probe.py --all
 
@@ -78,9 +78,9 @@ Every "free LLM API" list is **stale within a week**. Providers change limits, d
 | Category | Count | Best For | Top Providers |
 |---|---|---|---|
 | **Permanent Free (no card)** | 17 | Production fallback chain | Google (Gemini 2M ctx), Groq (300+ tok/s), NIM (102 models), Cloudflare, Cohere |
-| **Trial Credits** | 20 | Prototyping / evaluation | Fireworks, Novita ($0 models), Together, Replicate, Qwen |
-| **Local Inference** | 9 | Privacy / offline / air-gapped | Ollama, LM Studio, llama.cpp, Jan.ai |
-| **Tested Endpoints** | 40+ | All confirmed working | ✅ 30 active / ⚠️ 4 degraded / ❌ 10 down |
+| **Trial Credits** | 2 | Prototyping / evaluation | Agnes AI (text), DeepSeek |
+| **Local Inference** | 0 | Privacy / offline / air-gapped | See [Local Inference](docs/platforms/local-inference.md) |
+| **Tested Endpoints** | 17 | All confirmed working | ✅ 11 active / ⚠️ 4 degraded / ❌ 1 down / ❓ 1 unknown |
 
 ### Zero-Cost Production Stack
 
@@ -89,8 +89,8 @@ Every "free LLM API" list is **stale within a week**. Providers change limits, d
 primary:    Groq          # Speed: 300+ tok/s, 14.4K req/day
 secondary:  Google AI     # Context: 2M tokens, multimodal
 tertiary:   NVIDIA NIM    # Reasoning: Nemotron Ultra 1M ctx, function calling
-quaternary: Z.AI          # Chinese: GLM-4, 60 RPM
-fallback:   Cloudflare    # Edge: Workers AI, 100K req/day
+quaternary: Cloudflare    # Edge: Workers AI, 100K req/day
+fallback:   Cohere        # Embedding/RAG: 1K req/month
 
 → Covers 95% of production workloads at $0
 ```
@@ -109,13 +109,13 @@ python3 scripts/probe.py --tier permanent_free --no-key
 cat data/providers.json | jq '.providers[] | select(.status == "active") | .name'
 
 # Providers with function calling support
-cat data/providers.json | jq '.providers[] | select(.features.function_calling == true) | .name'
+cat data/providers.json | jq '.providers[] | select(.function_calling == true) | .name'
 
 # Providers with ≥100K context
 cat data/providers.json | jq '.providers[] | select(.context_window >= 100000) | .name'
 
 # Highest TPM for streaming
-cat data/providers.json | jq '.providers[] | select(.tpm > 5000) | "\(.name): \(.tpm) TPM"'
+cat data/providers.json | jq '.providers[] | select(.rate_limit.tpm > 5000) | "\(.name): \(.rate_limit.tpm) TPM"'
 ```
 
 ### Run the probe
@@ -144,16 +144,16 @@ providers = json.load(open('data/providers.json'))['providers']
 # Get all no-card free providers with their rate limits
 for p in providers:
     if p['tier'] == 'permanent_free' and not p.get('requires_card'):
-        print(f"{p['name']:20s} | {p['rate_limit']:20s} | TPM: {p.get('tpm', '?'):>6} | Ctx: {p.get('context_window', '?'):>8}")
+        print(f"{p['name']:20s} | TPM: {p.get('rate_limit', {}).get('tpm', '?'):>6} | Ctx: {p.get('context_window', '?'):>8}")
 
 # Build a fallback chain sorted by TPM
 fallback = sorted(
     [p for p in providers if p['tier'] == 'permanent_free' and not p.get('requires_card')],
-    key=lambda x: x.get('tpm', 0),
+    key=lambda x: x.get('rate_limit', {}).get('tpm', 0),
     reverse=True
 )
 for p in fallback:
-    print(f"{p['name']}: {p.get('tpm', 0)} TPM | {p['rate_limit']} | ctx={p.get('context_window', '?')}")
+    print(f"{p['name']}: {p.get('rate_limit', {}).get('tpm', 0)} TPM | ctx={p.get('context_window', '?')}")
 ```
 
 ---
@@ -209,6 +209,7 @@ providers:
       - llama-3.3-70b-versatile
       - gemma2-9b-it
     priority: 1
+  
   - name: google
     api_key: ${GOOGLE_API_KEY}
     base_url: https://generativelanguage.googleapis.com/v1beta
@@ -216,6 +217,7 @@ providers:
       - gemini-1.5-pro
       - gemini-1.5-flash
     priority: 2
+  
   - name: nvidia
     api_key: ${NVIDIA_API_KEY}
     base_url: https://integrate.api.nvidia.com/v1
