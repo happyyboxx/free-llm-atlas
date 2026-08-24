@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-08-24T09:26:42.324976+00:00",
+  "updated": "2026-08-24T16:13:34.383202+00:00",
   "sources": [
     "cheahjs/free-llm-api-resources",
     "tashfeenahmed/freellmapi",
@@ -41,7 +41,7 @@
       "region": "global",
       "notes": "需 Google 账号，中文支持好，多模态强",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-24T09:26:41.639327+00:00",
+      "last_probed": "2026-08-23T15:46:00.566760+00:00",
       "status": "degraded"
     },
     {
@@ -77,7 +77,7 @@
       "region": "global",
       "notes": "LPU 推理极致速度，无需信用卡",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-24T09:26:41.687682+00:00",
+      "last_probed": "2026-08-23T15:46:00.607687+00:00",
       "status": "active"
     },
     {
@@ -108,7 +108,7 @@
       "region": "global",
       "notes": "Wafer-scale 硬件，2600+ tokens/s",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-24T09:26:41.635913+00:00",
+      "last_probed": "2026-08-23T15:46:00.697140+00:00",
       "status": "degraded"
     },
     {
@@ -143,7 +143,7 @@
       "region": "global",
       "notes": "边缘部署，10K neurons/天免费额度",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-24T09:26:41.635556+00:00",
+      "last_probed": "2026-08-23T15:46:00.490837+00:00",
       "status": "active"
     },
     {
@@ -178,7 +178,7 @@
       "region": "global",
       "notes": "需手机验证，102+ 模型，GPU 集群推理",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-24T09:26:41.643284+00:00",
+      "last_probed": "2026-08-23T15:46:00.232843+00:00",
       "status": "active",
       "models_count": 102
     },
@@ -213,7 +213,7 @@
       "region": "eu",
       "notes": "欧洲隐私标准，~1B tokens/月免费",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-24T09:26:41.717408+00:00",
+      "last_probed": "2026-08-23T15:46:00.724860+00:00",
       "status": "active"
     },
     {
@@ -249,7 +249,7 @@
       "region": "global",
       "notes": "$0.10/月 credits，聚合模型最多",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-24T09:26:41.570980+00:00",
+      "last_probed": "2026-08-23T15:46:00.175272+00:00",
       "status": "unknown"
     },
     {
@@ -289,7 +289,7 @@
       "region": "global",
       "notes": "GitHub 账号即用，45+ 模型含闭源顶级",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-24T09:26:41.635195+00:00",
+      "last_probed": "2026-08-23T15:46:00.216671+00:00",
       "status": "down"
     },
     {
@@ -328,9 +328,9 @@
       "region": "global",
       "notes": "聚合平台，14 免费模型，1M 上下文 (Nemotron Ultra)",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-24T09:26:41.631429+00:00",
+      "last_probed": "2026-08-23T15:46:00.552477+00:00",
       "status": "active",
-      "models_count": 419
+      "models_count": 422
     },
     {
       "name": "Cohere",
@@ -363,7 +363,7 @@
       "region": "global",
       "notes": "RAG/Embedding 强，1000 req/月免费",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-24T09:26:41.687458+00:00",
+      "last_probed": "2026-08-23T15:46:00.472308+00:00",
       "status": "active"
     },
     {
@@ -395,9 +395,9 @@
       "region": "global",
       "notes": "无需 Key 列模型，200 req/hr per IP",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-24T09:26:42.084515+00:00",
+      "last_probed": "2026-08-23T15:46:00.599138+00:00",
       "status": "active",
-      "models_count": 366
+      "models_count": 369
     },
     {
       "name": "Pollinations.ai",
@@ -425,7 +425,7 @@
       "region": "global",
       "notes": "完全免费，无需注册，支持文生图",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-24T09:26:41.632036+00:00",
+      "last_probed": "2026-08-23T15:46:00.218026+00:00",
       "status": "unknown"
     },
     {
@@ -458,7 +458,7 @@
       "region": "eu",
       "notes": "欧盟 GDPR 合规，匿名 2 RPM",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-24T09:26:42.324782+00:00",
+      "last_probed": "2026-08-23T15:46:01.869907+00:00",
       "status": "degraded"
     },
     {
@@ -493,7 +493,7 @@
       "region": "global",
       "notes": "含闭源顶级模型，30 RPM (带 token 120 RPM)。基础模型免费，闭源模型需 token",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-24T09:26:42.056694+00:00",
+      "last_probed": "2026-08-23T15:46:02.324967+00:00",
       "status": "active",
       "models_count": 47
     },
@@ -528,7 +528,7 @@
       "region": "global",
       "notes": "免费图片/视频生成，图片 1K: 30/20 RPM, 2K: 20/10 RPM, 3K: 2/1 RPM, 4K: 1/1 RPM; 视频 2/1 RPM; 无需信用卡",
       "source": "https://github.com/AgnesAI-Labs/AgnesAI-Models",
-      "last_probed": "2026-08-24T09:26:41.951253+00:00",
+      "last_probed": "2026-08-23T15:46:00.000000+00:00",
       "status": "active"
     },
     {
@@ -567,7 +567,7 @@
       "region": "global",
       "notes": "免费文本推理: 30 RPM 公开 / 20 实际 RPM; 512K 上下文; 支持工具调用、代码、推理、多轮对话、视觉输入; 无需信用卡; 需登录 Dashboard 领 credits",
       "source": "https://github.com/AgnesAI-Labs/AgnesAI-Models",
-      "last_probed": "2026-08-24T09:26:41.942736+00:00",
+      "last_probed": "2026-08-23T15:46:00.000000+00:00",
       "status": "active"
     },
     {
@@ -595,7 +595,7 @@
       "region": "cn",
       "notes": "有限免费额度，代码能力强",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-24T09:26:42.230306+00:00",
+      "last_probed": "2026-08-23T15:46:03.207930+00:00",
       "status": "active"
     }
   ]

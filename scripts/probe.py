@@ -15,6 +15,8 @@ import json
 import sys
 import asyncio
 import argparse
+import os
+import random
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional, Any
@@ -84,12 +86,18 @@ class ProviderProber:
         url = f"{api_base.rstrip('/')}/{models_endpoint.lstrip('/')}"
         headers = {"Accept": "application/json"}
         
-        # 对于不需要 key 的 provider，不加 Authorization
-        if not requires_key and provider.get('tier') == 'permanent_free':
-            pass  # 无需 key
-        else:
-            # 需要 key 但我们没有，只能探测端点是否存活
-            pass
+        # Try to get API key from environment for providers that require keys
+        api_key = None
+        if requires_key:
+            # Try multiple env var naming conventions
+            for env_var in [f"{slug.upper()}_API_KEY", f"{slug.upper()}_API_TOKEN", f"{slug.upper()}_KEY"]:
+                key = os.environ.get(env_var)
+                if key:
+                    api_key = key
+                    break
+        
+        if api_key:
+            headers["Authorization"] = f"Bearer {api_key}"
         
         start = datetime.now()
         try:
@@ -221,14 +229,51 @@ class ProviderProber:
         print(f"探测 {len(providers)} 个 provider...")
         
         # 并发探测，限制并发数
-        semaphore = asyncio.Semaphore(10)
+        semaphore = asyncio.Semaphore(5)  # Reduced from 10 to 5 to avoid rate limits
+        
+        # Retry configuration
+        max_retries = 3
+        base_delay = 2.0  # seconds
+        max_delay = 60.0  # seconds
         
         async def probe_with_sem(p):
             async with semaphore:
-                return await self.probe_provider(p)
-        
-        tasks = [probe_with_sem(p) for p in providers]
-        self.results = await asyncio.gather(*tasks)
+                # Exponential backoff retry for transient errors
+                last_error = None
+                for attempt in range(3):  # max 3 attempts
+                    try:
+                        return await self.probe_provider(p)
+                    except (httpx.TimeoutException, httpx.ConnectError) as e:
+                        last_error = e
+                        if attempt < 2:  # Don't sleep on last attempt
+                            # Exponential backoff with jitter
+                            delay = min(2 ** attempt * 2.0 + random.uniform(0, 1), 30)
+                            print(f"  ⚠️ {p['name']} attempt {attempt + 1} failed: {e}, retrying in {delay:.1f}s...")
+                            await asyncio.sleep(delay)
+                    except httpx.HTTPStatusError as e:
+                        # Retry on 429, 5xx errors
+                        if e.response.status_code in (429, 500, 502, 503, 504):
+                            last_error = e
+                            if attempt < 2:
+                                delay = min(2 ** attempt * 3.0 + random.uniform(0, 2), 60)
+                                print(f"  ⚠️ {p['name']} HTTP {e.response.status_code} - retrying in {delay:.1f}s...")
+                                await asyncio.sleep(delay)
+                        else:
+                            # Non-retryable HTTP error
+                            raise
+                        last_error = e
+                
+                # All retries exhausted
+                return ProbeResult(
+                    provider=p['name'],
+                    slug=p['slug'],
+                    endpoint='',
+                    status='down',
+                    latency_ms=None,
+                    models_count=None,
+                    error=f"Max retries exceeded: {last_error}",
+                    timestamp=datetime.now(timezone.utc).isoformat()
+                )
         
         # 更新数据
         for result in self.results:
