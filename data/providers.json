@@ -45,7 +45,8 @@
       "status": "degraded",
       "context_window": 2000000,
       "max_output_tokens": 8192,
-      "function_calling": true
+      "function_calling": true,
+      "health_score": 52
     },
     {
       "name": "Groq",
@@ -84,7 +85,8 @@
       "status": "active",
       "context_window": 8192,
       "max_output_tokens": 8192,
-      "function_calling": true
+      "function_calling": true,
+      "health_score": 68
     },
     {
       "name": "Cerebras",
@@ -118,7 +120,8 @@
       "status": "degraded",
       "context_window": 8192,
       "max_output_tokens": 8192,
-      "function_calling": false
+      "function_calling": false,
+      "health_score": 46
     },
     {
       "name": "Cloudflare Workers AI",
@@ -156,7 +159,8 @@
       "status": "active",
       "context_window": 8192,
       "max_output_tokens": 4096,
-      "function_calling": false
+      "function_calling": false,
+      "health_score": 70
     },
     {
       "name": "NVIDIA NIM",
@@ -195,7 +199,8 @@
       "models_count": 102,
       "context_window": 1000000,
       "max_output_tokens": 4096,
-      "function_calling": true
+      "function_calling": true,
+      "health_score": 70
     },
     {
       "name": "Mistral La Plateforme",
@@ -232,7 +237,8 @@
       "status": "active",
       "context_window": 32768,
       "max_output_tokens": 4096,
-      "function_calling": true
+      "function_calling": true,
+      "health_score": 70
     },
     {
       "name": "HuggingFace Inference",
@@ -271,7 +277,8 @@
       "status": "unknown",
       "context_window": 4096,
       "max_output_tokens": 4096,
-      "function_calling": false
+      "function_calling": false,
+      "health_score": 42
     },
     {
       "name": "GitHub Models",
@@ -314,7 +321,8 @@
       "status": "down",
       "context_window": 128000,
       "max_output_tokens": 4096,
-      "function_calling": true
+      "function_calling": true,
+      "health_score": 30
     },
     {
       "name": "OpenRouter",
@@ -357,7 +365,8 @@
       "models_count": 422,
       "context_window": 1000000,
       "max_output_tokens": 4096,
-      "function_calling": true
+      "function_calling": true,
+      "health_score": 72
     },
     {
       "name": "Cohere",
@@ -394,7 +403,8 @@
       "status": "active",
       "context_window": 4096,
       "max_output_tokens": 4096,
-      "function_calling": false
+      "function_calling": false,
+      "health_score": 70
     },
     {
       "name": "Kilo Code",
@@ -430,7 +440,8 @@
       "models_count": 369,
       "context_window": 32768,
       "max_output_tokens": 4096,
-      "function_calling": true
+      "function_calling": true,
+      "health_score": 68
     },
     {
       "name": "Pollinations.ai",
@@ -462,7 +473,8 @@
       "status": "unknown",
       "context_window": 4096,
       "max_output_tokens": 4096,
-      "function_calling": false
+      "function_calling": false,
+      "health_score": 38
     },
     {
       "name": "OVHcloud AI Endpoints",
@@ -498,7 +510,8 @@
       "status": "degraded",
       "context_window": 32768,
       "max_output_tokens": 4096,
-      "function_calling": false
+      "function_calling": false,
+      "health_score": 46
     },
     {
       "name": "LLM7.io",
@@ -537,7 +550,8 @@
       "models_count": 47,
       "context_window": 128000,
       "max_output_tokens": 4096,
-      "function_calling": true
+      "function_calling": true,
+      "health_score": 70
     },
     {
       "name": "Agnes AI",
@@ -574,7 +588,8 @@
       "status": "active",
       "context_window": 0,
       "max_output_tokens": 0,
-      "function_calling": false
+      "function_calling": false,
+      "health_score": 70
     },
     {
       "name": "Agnes AI",
@@ -616,7 +631,8 @@
       "status": "active",
       "context_window": 512000,
       "max_output_tokens": 8192,
-      "function_calling": true
+      "function_calling": true,
+      "health_score": 74
     },
     {
       "name": "DeepSeek",
@@ -647,7 +663,8 @@
       "status": "active",
       "context_window": 64000,
       "max_output_tokens": 8192,
-      "function_calling": true
+      "function_calling": true,
+      "health_score": 70
     }
   ]
 }
