@@ -8,7 +8,7 @@
 | Cerebras | permanent_free | ✅ | ❌ | global | ⚠️ |
 | Cloudflare Workers AI | permanent_free | ✅ | ❌ | global | ✅ |
 | Cohere | permanent_free | ✅ | ❌ | global | ✅ |
-| GitHub Models | permanent_free | ✅ | ❌ | global | ❌ |
+| GitHub Models | 🏴‍☠️ Retired (2026-07-30) | N/A | N/A | N/A | N/A | N/A |
 | Google AI Studio | permanent_free | ✅ | ❌ | global | ⚠️ |
 | Groq | permanent_free | ✅ | ❌ | global | ✅ |
 | HuggingFace Inference | permanent_free | ✅ | ❌ | global | ❓ |

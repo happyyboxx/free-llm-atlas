@@ -122,7 +122,7 @@ Code/Reasoning: Nemotron Ultra (OpenRouter/NIM) + Local DeepSeek-R1
 | NVIDIA NIM | https://www.nvidia.com/en-us/about-nvidia/terms-of-use/ |
 | Mistral | https://mistral.ai/terms/ |
 | HuggingFace Inference | https://huggingface.co/inference-api-tos |
-| GitHub Models | https://github.com/github/models/blob/main/TERMS.md |
+| GitHub Models | 🏴‍☠️ Retired (2026-07-30) | N/A | N/A | N/A | N/A | N/A |
 | OpenRouter | https://openrouter.ai/terms |
 | Cohere | https://cohere.com/api-terms |
 | Kilo Code | https://kilo.ai/terms |

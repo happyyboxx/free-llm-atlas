@@ -286,50 +286,6 @@
       "models_count": 131
     },
     {
-      "name": "GitHub Models",
-      "slug": "github-models",
-      "tier": "permanent_free",
-      "website": "https://github.com/marketplace/models",
-      "api_base": "https://models.inference.ai.azure.com",
-      "models_endpoint": "/models",
-      "requires_key": true,
-      "requires_card": false,
-      "rate_limit": {
-        "rpm": 15,
-        "rpd": 150
-      },
-      "models": [
-        "gpt-5",
-        "gpt-4.1",
-        "o4-mini",
-        "gpt-4o-mini",
-        "llama-3.1-405b",
-        "phi-3.5-mini"
-      ],
-      "free_models": [
-        "gpt-5",
-        "gpt-4.1",
-        "o4-mini",
-        "gpt-4o-mini",
-        "llama-3.1-405b",
-        "phi-3.5-mini"
-      ],
-      "features": [
-        "chat",
-        "vision",
-        "function_calling"
-      ],
-      "region": "global",
-      "notes": "GitHub account only, 45+ models including closed-source top tier",
-      "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-25T06:50:51.518547+00:00",
-      "status": "down",
-      "context_window": 128000,
-      "max_output_tokens": 4096,
-      "function_calling": true,
-      "health_score": 30
-    },
-    {
       "name": "OpenRouter",
       "slug": "openrouter",
       "tier": "permanent_free",

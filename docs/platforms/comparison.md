@@ -20,7 +20,7 @@
 | OVHcloud AI Endpoints | ⚠️ | 46 | 2 | 0 | 32768 | 4096 | chat | eu |
 | HuggingFace Inference | ❓ | 42 | 0 | 0 | 4096 | 4096 | chat, embeddings, vision, audio | global |
 | Pollinations.ai | ❓ | 38 | 0 | 0 | 4096 | 4096 | chat, image_generation | global |
-| GitHub Models | ❌ | 30 | 15 | 0 | 128000 | 4096 | chat, vision, function_calling | global |
+| GitHub Models | 🏴‍☠️ Retired (2026-07-30) | N/A | N/A | N/A | N/A | N/A | N/A | Use Azure AI Foundry |
 
 ## Trial Credit Providers
 

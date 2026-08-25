@@ -15,7 +15,7 @@ Deep comparison of 17+ no-credit-card, long-term free tier platforms.
 | **NVIDIA NIM** | 40 | - | - | 1M | ✅ | ✅ | Global | 102 models, Nemotron Ultra |
 | **Mistral** | 60 | - | 500K | 32K | ❌ | ✅ | EU | EU privacy standards |
 | **HuggingFace** | Credit-based | - | - | 32K | ✅ | ❌ | Global | Most models (129+) |
-| **GitHub Models** | 15 | 150 | - | 128K | ✅ | ✅ | Global | GPT-5, o4-mini free |
+| **GitHub Models** | 🏴‍☠️ Retired (2026-07-30) | N/A | N/A | N/A | N/A | N/A | Global | Retired |
 | **OpenRouter** | 20 | 50 | - | 1M | ✅ | ✅ | Global | Aggregates 14 free models |
 | **Cohere** | 20 | 1,000/mo | - | 128K | ❌ | ❌ | Global | Strong RAG/Embedding |
 | **Kilo Code** | 200/hr | - | - | 32K | ❌ | ✅ | Global | **No Key Needed** |
@@ -32,9 +32,9 @@ Deep comparison of 17+ no-credit-card, long-term free tier platforms.
 | Dimension | 1st | 2nd | 3rd |
 |---|---|---|---|
 | **Inference Speed** | Groq (LPU) | Cerebras | NVIDIA NIM |
-| **Context Length** | NVIDIA NIM (1M) | Google (2M) | GitHub Models (128K) |
+| **Context Length** | NVIDIA NIM (1M) | Google (2M) | Retired (128K) |
 | **Chinese Support** | Z.AI (GLM) | Google | SiliconFlow* |
-| **Model Variety** | HuggingFace | OpenRouter | GitHub Models |
+| **Model Variety** | HuggingFace | OpenRouter | Retired |
 | **Zero Barrier (No Key)** | Pollinations.ai | Kilo Code | - |
 | **Privacy/Compliance (EU)** | Mistral | OVHcloud | Scaleway* |
 | **Function Calling** | NVIDIA NIM | OpenRouter | Google |
@@ -61,7 +61,7 @@ Deep comparison of 17+ no-credit-card, long-term free tier platforms.
 → **Mistral** (French enterprise) → **OVHcloud** (anonymous 2 RPM)
 
 ### Want closed-source top models (GPT-5, Claude, o4-mini)
-→ **GitHub Models** (free tier includes closed-source) → **LLM7.io** (requires key)
+→ **Retired** (was free tier) → **LLM7.io** (requires key)
 
 ---
 
@@ -71,7 +71,7 @@ Deep comparison of 17+ no-credit-card, long-term free tier platforms.
 |---|---|
 | Google AI Studio | Needs Google account, some regions need VPN |
 | NVIDIA NIM | Requires phone verification (supports +86) |
-| GitHub Models | Needs GitHub account, limited quota |
+| **GitHub Models** | 🏴‍☠️ Retired (2026-07-30) | Retired |
 | HuggingFace | Free quota calculated as $0.10/month credits |
 | Mistral | EU data centers only, high latency from China |
 | OVHcloud | Only 2 RPM, suitable for low-frequency calls |

@@ -117,7 +117,6 @@ class ProviderProber:
                     "google-ai-studio": "GOOGLE_API_KEY",
                     "huggingface": "HF_TOKEN",
                     "zai": "GLM_API_KEY",
-                    "github-models": "GITHUB_MODELS_TOKEN",
                 }
                 if slug in fallback_map:
                     api_key = os.environ.get(fallback_map[slug])
