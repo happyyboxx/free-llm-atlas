@@ -84,24 +84,66 @@ class ProviderProber:
             )
         
         url = f"{api_base.rstrip('/')}/{models_endpoint.lstrip('/')}"
-        headers = {"Accept": "application/json"}
+        headers = {
+            "Accept": "application/json",
+            "User-Agent": "Free-LLM-Atlas-Probe/1.0 (+https://github.com/happyyboxx/free-llm-atlas)"
+        }
+        
+        # Provider-specific header customization
+        if slug == "cerebras":
+            # Cerebras requires specific headers
+            headers["Content-Type"] = "application/json"
+        elif slug == "google-ai-studio":
+            # Google AI Studio uses query param for API key, not Bearer
+            pass
+        elif slug == "nvidia-nim":
+            # NVIDIA NIM uses Authorization without Bearer prefix in some cases
+            pass  # Handled below
         
         # Try to get API key from environment for providers that require keys
         api_key = None
         if requires_key:
-            # Try multiple env var naming conventions
-            for env_var in [f"{slug.upper()}_API_KEY", f"{slug.upper()}_API_TOKEN", f"{slug.upper()}_KEY"]:
+            # Try multiple env var naming conventions (slug with hyphens -> underscores)
+            slug_normalized = slug.upper().replace('-', '_')
+            for env_var in [f"{slug_normalized}_API_KEY", f"{slug_normalized}_API_TOKEN", f"{slug_normalized}_KEY"]:
                 key = os.environ.get(env_var)
                 if key:
                     api_key = key
                     break
+            
+            # Fallback for known providers with non-standard env var names
+            if not api_key:
+                fallback_map = {
+                    "google-ai-studio": "GOOGLE_API_KEY",
+                    "huggingface": "HF_TOKEN",
+                    "zai": "GLM_API_KEY",
+                }
+                if slug in fallback_map:
+                    api_key = os.environ.get(fallback_map[slug])
         
         if api_key:
-            headers["Authorization"] = f"Bearer {api_key}"
+            # Provider-specific auth format
+            if slug == "nvidia-nim":
+                # NVIDIA NIM expects "Authorization: <key>" not "Bearer <key>"
+                headers["Authorization"] = api_key
+            elif slug == "google-ai-studio":
+                # Google AI Studio uses query parameter: ?key=API_KEY
+                # We'll handle this in the request
+                pass
+            else:
+                headers["Authorization"] = f"Bearer {api_key}"
         
         start = datetime.now()
         try:
-            resp = await self.client.get(url, headers=headers)
+            # Provider-specific request modifications
+            request_url = url
+            request_headers = headers.copy()
+            if slug == "google-ai-studio" and api_key:
+                # Google AI Studio uses query parameter for API key
+                separator = "&" if "?" in request_url else "?"
+                request_url = f"{request_url}{separator}key={api_key}"
+            
+            resp = await self.client.get(request_url, headers=request_headers)
             latency = int((datetime.now() - start).total_seconds() * 1000)
             
             if resp.status_code == 200:
