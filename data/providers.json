@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-08-25T02:30:19.760406+00:00",
+  "updated": "2026-08-25T03:08:18.449691+00:00",
   "sources": [
     "cheahjs/free-llm-api-resources",
     "tashfeenahmed/freellmapi",
@@ -81,12 +81,13 @@
       "region": "global",
       "notes": "LPU inference at extreme speed, no credit card required",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-25T02:30:18.874788+00:00",
+      "last_probed": "2026-08-25T03:08:18.449691+00:00",
       "status": "active",
       "context_window": 8192,
       "max_output_tokens": 8192,
       "function_calling": true,
-      "health_score": 68
+      "health_score": 68,
+      "models_count": 42
     },
     {
       "name": "Cerebras",
@@ -155,12 +156,13 @@
       "region": "global",
       "notes": "Edge deployment, 10K neurons/day free tier",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-25T02:30:18.733340+00:00",
+      "last_probed": "2026-08-25T03:08:18.449691+00:00",
       "status": "active",
       "context_window": 8192,
       "max_output_tokens": 4096,
       "function_calling": false,
-      "health_score": 70
+      "health_score": 70,
+      "models_count": 4
     },
     {
       "name": "NVIDIA NIM",
@@ -545,7 +547,7 @@
       "region": "global",
       "notes": "Includes closed-source top models, 30 RPM (120 RPM with token). Base models free, closed-source requires token",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-25T02:30:19.214970+00:00",
+      "last_probed": "2026-08-25T03:08:18.449691+00:00",
       "status": "active",
       "models_count": 44,
       "context_window": 128000,
