@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-08-25T03:08:31.772550+00:00",
+  "updated": "2026-08-25T03:17:53.689570+00:00",
   "sources": [
     "cheahjs/free-llm-api-resources",
     "tashfeenahmed/freellmapi",
@@ -275,12 +275,13 @@
       "region": "global",
       "notes": "$0.10/month credits, most aggregated models",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-25T03:08:31.025591+00:00",
-      "status": "unknown",
+      "last_probed": "2026-08-25T03:17:53.689570+00:00",
+      "status": "active",
       "context_window": 4096,
       "max_output_tokens": 4096,
       "function_calling": false,
-      "health_score": 42
+      "health_score": 60,
+      "models_count": 100
     },
     {
       "name": "GitHub Models",
