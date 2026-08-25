@@ -117,9 +117,15 @@ class ProviderProber:
                     "google-ai-studio": "GOOGLE_API_KEY",
                     "huggingface": "HF_TOKEN",
                     "zai": "GLM_API_KEY",
+                    "cloudflare-workers-ai": "CLOUDFLARE_WORKERS_AI_API_TOKEN",
                 }
                 if slug in fallback_map:
                     api_key = os.environ.get(fallback_map[slug])
+            
+            # Also get Cloudflare Account ID for URL replacement
+            account_id = None
+            if slug == "cloudflare-workers-ai":
+                account_id = os.environ.get("CLOUDFLARE_ACCOUNT_ID")
         
         if api_key:
             # Provider-specific auth format
@@ -142,6 +148,9 @@ class ProviderProber:
                 # Google AI Studio uses query parameter for API key
                 separator = "&" if "?" in request_url else "?"
                 request_url = f"{request_url}{separator}key={api_key}"
+            if slug == "cloudflare-workers-ai" and account_id:
+                # Replace {account_id} placeholder in URL
+                request_url = request_url.replace("{account_id}", account_id)
             
             resp = await self.client.get(request_url, headers=request_headers)
             latency = int((datetime.now() - start).total_seconds() * 1000)
