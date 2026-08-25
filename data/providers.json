@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-08-25T01:24:46.539456+00:00",
+  "updated": "2026-08-25T02:30:06.320317+00:00",
   "sources": [
     "cheahjs/free-llm-api-resources",
     "tashfeenahmed/freellmapi",
@@ -116,12 +116,12 @@
       "region": "global",
       "notes": "Wafer-scale hardware, 2600+ tokens/s",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-25T01:24:45.363720+00:00",
-      "status": "degraded",
+      "last_probed": "2026-08-25T02:30:06.320317+00:00",
+      "status": "active",
       "context_window": 8192,
       "max_output_tokens": 8192,
       "function_calling": false,
-      "health_score": 46
+      "health_score": 65
     },
     {
       "name": "Cloudflare Workers AI",
@@ -399,7 +399,7 @@
       "region": "global",
       "notes": "Strong RAG/Embedding, 1000 req/month free",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-25T01:24:45.614709+00:00",
+      "last_probed": "2026-08-25T02:30:06.320317+00:00",
       "status": "active",
       "context_window": 4096,
       "max_output_tokens": 4096,
