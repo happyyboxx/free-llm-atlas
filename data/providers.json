@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-08-25T03:33:37.672208+00:00",
+  "updated": "2026-08-25T03:37:12.472804+00:00",
   "sources": [
     "cheahjs/free-llm-api-resources",
     "tashfeenahmed/freellmapi",
@@ -249,8 +249,8 @@
       "slug": "huggingface",
       "tier": "permanent_free",
       "website": "https://huggingface.co/inference-api",
-      "api_base": "https://api-inference.huggingface.co/models",
-      "models_endpoint": "",
+      "api_base": "https://router.huggingface.co/v1",
+      "models_endpoint": "/models",
       "requires_key": true,
       "requires_card": false,
       "rate_limit": {
@@ -277,13 +277,13 @@
       "region": "global",
       "notes": "$0.10/month credits, most aggregated models",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-25T03:33:36.495986+00:00",
-      "status": "unknown",
+      "last_probed": "2026-08-25T03:37:12.472804+00:00",
+      "status": "active",
       "context_window": 4096,
       "max_output_tokens": 4096,
       "function_calling": false,
-      "health_score": 60,
-      "models_count": 100
+      "health_score": 65,
+      "models_count": 131
     },
     {
       "name": "GitHub Models",
