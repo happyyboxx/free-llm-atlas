@@ -1,91 +1,91 @@
-# 网关配置落地指南
+# Gateway Configuration Guide
 
-将免费 LLM 接入 Hermes Agent / LiteLLM / Portkey / Open WebUI 等网关。
+Integrate free LLMs into Hermes Agent, LiteLLM, Portkey, Open WebUI, and other gateways.
 
 ---
 
-## 🤖 Hermes Agent 配置
+## 🤖 Hermes Agent Configuration
 
-### 自动生成 (推荐)
+### Auto-Generate (Recommended)
 ```bash
 cd free-llm-atlas
 pip install -r scripts/requirements.txt
 python3 scripts/probe.py --export-config hermes
-# 生成 config_hermes.yaml
+# Generates config_hermes.yaml
 ```
 
-### 手动配置模板 (~/.hermes/config.yaml)
+### Manual Template (~/.hermes/config.yaml)
 ```yaml
 models:
-  # Groq - 极速推理
+  # Groq - Blazing fast inference
   - model: "llama-3.3-70b-versatile"
     provider: "groq"
     api_base: "https://api.groq.com/openai/v1"
     api_key_env: "GROQ_API_KEY"
   
-  # Google - 多模态、长上下文、中文好
+  # Google - Multimodal, long context, great Chinese
   - model: "gemini-1.5-flash"
     provider: "google"
     api_base: "https://generativelanguage.googleapis.com/v1beta"
     api_key_env: "GOOGLE_API_KEY"
   
-  # NVIDIA NIM - 推理模型、1M 上下文
+  # NVIDIA NIM - Reasoning models, 1M context
   - model: "nvidia/nemotron-3-ultra-550b-a55b:free"
     provider: "openrouter"
     api_base: "https://openrouter.ai/api/v1"
     api_key_env: "OPENROUTER_API_KEY"
   
-  # Z.AI - 国内永久免费、中文强
+  # Z.AI - Domestic permanent free, strong Chinese
   - model: "glm-4.5-flash"
     provider: "z-ai"
     api_base: "https://api.z.ai/api/paas/v4"
     api_key_env: "ZAI_API_KEY"
   
-  # Cohere - Embedding/RAG 强
+  # Cohere - Strong Embedding/RAG
   - model: "command-r"
     provider: "cohere"
     api_base: "https://api.cohere.ai/v1"
     api_key_env: "COHERE_API_KEY"
 
-# Fallback 链：按优先级自动切换
+# Fallback chain: auto-switch by priority
 fallback_chain:
-  - "llama-3.3-70b-versatile"      # 最快
-  - "gemini-1.5-flash"             # 多模态/中文
-  - "nvidia/nemotron-3-ultra-550b-a55b:free"  # 推理/长上下文
-  - "glm-4.5-flash"                # 国内低延迟
-  - "command-r"                    # RAG 备选
+  - "llama-3.3-70b-versatile"      # Fastest
+  - "gemini-1.5-flash"             # Multimodal/Chinese
+  - "nvidia/nemotron-3-ultra-550b-a55b:free"  # Reasoning/long context
+  - "glm-4.5-flash"                # Domestic low latency
+  - "command-r"                    # RAG fallback
 
-# 可选：每模型参数覆盖
+# Optional: Per-model parameter overrides
 model_overrides:
   "nvidia/nemotron-3-ultra-550b-a55b:free":
     temperature: 0.3
     max_tokens: 4096
 ```
 
-### 环境变量设置
+### Environment Variables
 ```bash
-# ~/.bashrc 或 ~/.zshrc
+# ~/.bashrc or ~/.zshrc
 export GROQ_API_KEY="gsk_xxx"
 export GOOGLE_API_KEY="AIza_xxx"
 export OPENROUTER_API_KEY="sk-or-xxx"
 export ZAI_API_KEY="xxx"
 export COHERE_API_KEY="xxx"
 
-# 重新加载
+# Reload
 source ~/.bashrc
 ```
 
 ---
 
-## ⚡ LiteLLM 配置
+## ⚡ LiteLLM Configuration
 
-### 生成配置
+### Generate Config
 ```bash
 python3 scripts/probe.py --export-config litellm
-# 生成 config_litellm.yaml
+# Generates config_litellm.yaml
 ```
 
-### 手动配置 (config.yaml)
+### Manual Config (config.yaml)
 ```yaml
 model_list:
   # Groq
@@ -102,7 +102,7 @@ model_list:
       api_base: "https://generativelanguage.googleapis.com/v1beta"
       api_key: "os.environ/GOOGLE_API_KEY"
   
-  # OpenRouter (Nemotron Ultra 免费)
+  # OpenRouter (Nemotron Ultra free)
   - model_name: "nvidia/nemotron-3-ultra-550b-a55b:free"
     litellm_params:
       model: "openrouter/nvidia/nemotron-3-ultra-550b-a55b:free"
@@ -123,7 +123,7 @@ model_list:
       api_base: "https://api.cohere.ai/v1"
       api_key: "os.environ/COHERE_API_KEY"
 
-# Router 设置：自动 fallback
+# Router settings: auto fallback
 router_settings:
   routing_strategy: "latency-based-routing"
   fallback_models:
@@ -133,26 +133,28 @@ router_settings:
     - "glm-4.5-flash"
 ```
 
-### 启动 LiteLLM Proxy
+### Start LiteLLM Proxy
 ```bash
 pip install litellm
 litellm --config config.yaml --port 4000
 
-# 测试
-curl -X POST http://localhost:4000/v1/chat/completions   -H "Content-Type: application/json"   -d '{"model": "llama-3.3-70b-versatile", "messages": [{"role": "user", "content": "你好"}]}'
+# Test
+curl -X POST http://localhost:4000/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{"model": "llama-3.3-70b-versatile", "messages": [{"role": "user", "content": "Hello"}]}'
 ```
 
 ---
 
-## 🔑 Portkey 配置
+## 🔑 Portkey Configuration
 
-### 生成配置
+### Generate Config
 ```bash
 python3 scripts/probe.py --export-config portkey
-# 生成 config_portkey.yaml
+# Generates config_portkey.yaml
 ```
 
-### 手动配置 (config.yaml)
+### Manual Config (config.yaml)
 ```yaml
 virtual_keys:
   # Groq
@@ -185,7 +187,7 @@ virtual_keys:
     api_base: "https://api.cohere.ai/v1"
     api_key: "${COHERE_API_KEY}"
 
-# Fallback 策略
+# Fallback strategy
 fallback:
   - "llama-3.3-70b-versatile"
   - "gemini-1.5-flash"
@@ -193,26 +195,33 @@ fallback:
   - "glm-4.5-flash"
 ```
 
-### 启动 Portkey
+### Start Portkey
 ```bash
-# Docker 方式
-docker run -d   -p 8787:8787   -v $(pwd)/config_portkey.yaml:/app/config.yaml   portkeyai/gateway:latest
+# Docker
+docker run -d \
+  -p 8787:8787 \
+  -v $(pwd)/config_portkey.yaml:/app/config.yaml \
+  portkeyai/gateway:latest
 
-# 或 npm
+# Or npm
 npm install -g portkey-ai
 portkey gateway --config config_portkey.yaml
 ```
 
 ---
 
-## 🌐 Open WebUI 配置
+## 🌐 Open WebUI Configuration
 
-### 通过环境变量 (最简单)
+### Via Environment Variables (Simplest)
 ```bash
-docker run -d -p 3000:8080   -e OPENAI_API_BASE_URL="https://api.groq.com/openai/v1"   -e OPENAI_API_KEY="${GROQ_API_KEY}"   -e DEFAULT_MODEL="llama-3.3-70b-versatile"   ghcr.io/open-webui/open-webui:main
+docker run -d -p 3000:8080 \
+  -e OPENAI_API_BASE_URL="https://api.groq.com/openai/v1" \
+  -e OPENAI_API_KEY="${GROQ_API_KEY}" \
+  -e DEFAULT_MODEL="llama-3.3-70b-versatile" \
+  ghcr.io/open-webui/open-webui:main
 ```
 
-### 多模型配置 (config.json)
+### Multi-Model Config (config.json)
 ```json
 {
   "OPENAI_API_BASE_URLS": {
@@ -241,24 +250,24 @@ docker run -d -p 3000:8080   -e OPENAI_API_BASE_URL="https://api.groq.com/openai
 
 ---
 
-## 🔄 通用 Fallback 策略设计
+## 🔄 Universal Fallback Strategy Design
 
-### 原则
-1. **速度优先**：Groq (LPU) 最快 → 放第一位
-2. **能力互补**：多模态 (Google) + 推理 (Nemotron) + 国内 (Z.AI) + RAG (Cohere)
-3. **额度分散**：避免单一平台耗尽额度
-4. **地域分散**：全球 (Groq/Google/OpenRouter) + EU (Mistral) + CN (Z.AI)
+### Principles
+1. **Speed First**: Groq (LPU) fastest → put first
+2. **Capability Complement**: Multimodal (Google) + Reasoning (Nemotron) + Domestic (Z.AI) + RAG (Cohere)
+3. **Quota Distribution**: Avoid exhausting single platform quota
+4. **Geographic Distribution**: Global (Groq/Google/OpenRouter) + EU (Mistral) + CN (Z.AI)
 
-### 推荐 5 层 Fallback 链
+### Recommended 5-Layer Fallback Chain
 ```
-Layer 1: Groq (llama-3.3-70b)          # 极速，高额度
-Layer 2: Google (gemini-1.5-flash)     # 多模态，中文好，长上下文
-Layer 3: NVIDIA NIM/Nemotron Ultra     # 推理强，1M ctx
-Layer 4: Z.AI (glm-4.5-flash)          # 国内低延迟，中文原生
-Layer 5: Cohere (command-r) / Mistral  # RAG/EU 合规兜底
+Layer 1: Groq (llama-3.3-70b)          # Extreme speed, high quota
+Layer 2: Google (gemini-1.5-flash)     # Multimodal, Chinese, long context
+Layer 3: NVIDIA NIM/Nemotron Ultra     # Strong reasoning, 1M ctx
+Layer 4: Z.AI (glm-4.5-flash)          # Domestic low latency, native Chinese
+Layer 5: Cohere (command-r) / Mistral  # RAG/EU compliance fallback
 ```
 
-### 代码实现 (Python)
+### Python Implementation
 ```python
 import os
 from openai import OpenAI
@@ -285,47 +294,47 @@ def chat_with_fallback(messages, **kwargs):
             return resp.choices[0].message.content
         except Exception as e:
             last_error = e
-            print(f"⚠️ {cfg['model']} 失败: {e}，尝试下一个...")
+            print(f"⚠️ {cfg['model']} failed: {e}, trying next...")
             continue
-    raise RuntimeError(f"所有 fallback 均失败: {last_error}")
+    raise RuntimeError(f"All fallbacks failed: {last_error}")
 
-# 使用
-print(chat_with_fallback([{"role": "user", "content": "你好"}]))
+# Usage
+print(chat_with_fallback([{"role": "user", "content": "Hello"}]))
 ```
 
 ---
 
-## 📝 环境变量清单
+## 📝 Environment Variables Checklist
 
-在 `.env` 或 shell rc 中统一管理：
+Manage in `.env` or shell rc:
 
 ```bash
-# === 永久免费层 ===
+# === Permanent Free Tier ===
 GROQ_API_KEY="gsk_xxx"                    # Groq
 GOOGLE_API_KEY="AIza_xxx"                 # Google AI Studio
 OPENROUTER_API_KEY="sk-or-xxx"            # OpenRouter
-NVIDIA_NIM_API_KEY="xxx"                  # NVIDIA NIM (或用 OpenRouter)
-ZAI_API_KEY="xxx"                         # Z.AI 智谱
+NVIDIA_NIM_API_KEY="xxx"                  # NVIDIA NIM (or use OpenRouter)
+ZAI_API_KEY="xxx"                         # Z.AI
 COHERE_API_KEY="xxx"                      # Cohere
 MISTRAL_API_KEY="xxx"                     # Mistral
 HUGGINGFACE_API_KEY="hf_xxx"              # HuggingFace
 GITHUB_MODELS_TOKEN="ghp_xxx"             # GitHub Models (PAT)
-KILO_API_KEY=""                           # Kilo Code (无需 Key)
-POLLINATIONS_API_KEY=""                   # Pollinations (无需 Key)
+KILO_API_KEY=""                           # Kilo Code (no key needed)
+POLLINATIONS_API_KEY=""                   # Pollinations (no key needed)
 OVH_API_KEY="xxx"                         # OVHcloud
 LLM7_API_KEY="xxx"                        # LLM7.io
 
-# === 国内平台 (试用额度) ===
-SILICONFLOW_API_KEY="xxx"                 # 硅基流动
-VOLCENGINE_API_KEY="xxx"                  # 火山引擎
-BAILIAN_API_KEY="xxx"                     # 百炼
-HUNYUAN_API_KEY="xxx"                     # 腾讯混元
-MOONSHOT_API_KEY="xxx"                    # 月之暗面 Kimi
-XINGHUO_API_KEY="xxx"                     # 讯飞星火
-MODELSCOPE_API_KEY="xxx"                  # 魔搭
+# === Domestic Platforms (Trial Credits) ===
+SILICONFLOW_API_KEY="xxx"                 # SiliconFlow
+VOLCENGINE_API_KEY="xxx"                  # VolcEngine
+BAILIAN_API_KEY="xxx"                     # Bailian
+HUNYUAN_API_KEY="xxx"                     # Tencent Hunyuan
+MOONSHOT_API_KEY="xxx"                    # Moonshot Kimi
+XINGHUO_API_KEY="xxx"                     # Xinghuo
+MODELSCOPE_API_KEY="xxx"                  # ModelScope
 DEEPSEEK_API_KEY="xxx"                    # DeepSeek
 
-# === 试用额度类 (需卡) ===
+# === Trial Credit Tier (Card Required) ===
 FIREWORKS_API_KEY="xxx"
 FRIENDLI_API_KEY="xxx"
 HYPERBOLIC_API_KEY="xxx"
@@ -340,4 +349,4 @@ TOGETHER_API_KEY="xxx"
 
 ---
 
-> 生成的配置文件基于 `providers.json` 实测活跃的 provider。运行 `python3 scripts/probe.py --export-config <target>` 可随时刷新。
+> Generated configs are based on live-tested active providers from `providers.json`. Run `python3 scripts/probe.py --export-config <target>` anytime to refresh.

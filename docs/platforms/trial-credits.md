@@ -1,91 +1,91 @@
-# 试用额度平台详细对比
+# Trial Credit Platforms Comparison
 
-11+ 个提供一次性/限时免费额度的平台。通常需信用卡验证。
+11+ platforms offering one-time/limited free credits. Usually require credit card verification.
 
 ---
 
-## 📊 核心指标对比
+## 📊 Core Metrics Comparison
 
-| 平台 | 免费额度 | 需卡 | 模型亮点 | 地区 | 状态 |
+| Platform | Free Credits | Card Required | Model Highlights | Region | Status |
 |---|---|---|---|---|---|
-| **Fireworks AI** | $1 | ✅ | Llama 405B, DeepSeek-V3, Qwen 72B | 全球 | ✅ |
-| **FriendliAI** | 试用额度 | ✅ | Llama 405B, DeepSeek-V3 | 全球 | ✅ |
-| **Hyperbolic** | 试用额度 | ✅ | Llama 405B, DeepSeek-V3, Qwen 72B | 全球 | ✅ |
-| **Nebius AI Studio** | $1 | ✅ | Llama 405B, DeepSeek-V3 | 全球 | ⚠️ |
-| **Novita.AI** | $0.5 | ✅ | **部分模型 price=0 免费** (Ling-3-Flash, Macaron) | 全球 | ✅ |
-| **Replicate** | 试用额度 | ✅ | 405B, DeepSeek-V3, 视频/音频模型 | 全球 | ✅ |
-| **Upstage** | $10 | ✅ | Solar Pro, 文档解析 | 全球 | ✅ |
-| **Qwen (阿里云百炼)** | 千万 Token | ✅ | Qwen 系列全家桶 | 中国 | ✅ |
-| **Scaleway** | 试用额度 | ✅ | Mistral, Llama 系列 | EU | ⚠️ |
-| **Requesty** | 试用额度 | ✅ | 聚合 GPT-4o, Claude, Gemini | 全球 | ⚠️ |
-| **Together AI** | 试用额度 | ✅ | Llama 405B Turbo, DeepSeek-V3 | 全球 | ✅ |
-| **Friendli** | 试用额度 | ✅ | 高性能推理 | 全球 | ✅ |
+| **Fireworks AI** | $1 | ✅ | Llama 405B, DeepSeek-V3, Qwen 72B | Global | ✅ |
+| **FriendliAI** | Trial credits | ✅ | Llama 405B, DeepSeek-V3 | Global | ✅ |
+| **Hyperbolic** | Trial credits | ✅ | Llama 405B, DeepSeek-V3, Qwen 72B | Global | ✅ |
+| **Nebius AI Studio** | $1 | ✅ | Llama 405B, DeepSeek-V3 | Global | ⚠️ |
+| **Novita.AI** | $0.5 | ✅ | **Some models price=0 free** (Ling-3-Flash, Macaron) | Global | ✅ |
+| **Replicate** | Trial credits | ✅ | 405B, DeepSeek-V3, video/audio models | Global | ✅ |
+| **Upstage** | $10 | ✅ | Solar Pro, document parsing | Global | ✅ |
+| **Qwen (Alibaba Bailian)** | 10M tokens | ✅ | Qwen full family | China | ✅ |
+| **Scaleway** | Trial credits | ✅ | Mistral, Llama series | EU | ⚠️ |
+| **Requesty** | Trial credits | ✅ | Aggregates GPT-4o, Claude, Gemini | Global | ⚠️ |
+| **Together AI** | Trial credits | ✅ | Llama 405B Turbo, DeepSeek-V3 | Global | ✅ |
+| **Friendli** | Trial credits | ✅ | High-performance inference | Global | ✅ |
 
 ---
 
-## 💎 隐藏宝藏：Novita.AI 免费模型
+## 💎 Hidden Gem: Novita.AI Free Models
 
-Novita.AI `/v3/openai/models` 返回 `input_token_price_per_m: 0, output_token_price_per_m: 0` 的模型：
+Novita.AI `/v3/openai/models` returns models with `input_token_price_per_m: 0, output_token_price_per_m: 0`:
 
-| 模型 | 类型 | 特性 |
+| Model | Type | Features |
 |---|---|---|
 | `inclusionai/ling-3.0-flash` | MoE 124B/5.1B active | Serverless, Function Calling, Reasoning |
-| `mindai/macaron-v1-venti` (748B) | MoL 架构 (GLM-5.2 base + 4 LoRA) | Serverless, Function Calling, Reasoning |
+| `mindai/macaron-v1-venti` (748B) | MoL architecture (GLM-5.2 base + 4 LoRA) | Serverless, Function Calling, Reasoning |
 | `mindai/macaron-v1-tall` (35B) | Qwen3.6-35B-A3B + LoRA | Serverless, Function Calling, Reasoning |
-| `dev/glm46` | 开发版 | Function Calling, Structured Outputs |
-| `ai_infer_test_1/2/3` | 测试模型 | 200K Context, Function Calling |
-| `minimax/m2-her` | 测试模型 | 32K Context |
+| `dev/glm46` | Dev version | Function Calling, Structured Outputs |
+| `ai_infer_test_1/2/3` | Test models | 200K Context, Function Calling |
+| `minimax/m2-her` | Test model | 32K Context |
 
-> ⚠️ 注：Novita 免费模型多为测试/实验版，生产建议用 OpenRouter/NIM。
+> ⚠️ Note: Novita free models are mostly test/experimental versions; for production use OpenRouter/NIM.
 
 ---
 
-## 🏆 维度最佳
+## 🏆 Best by Dimension
 
-| 维度 | 推荐 | 理由 |
+| Dimension | Recommended | Reason |
 |---|---|---|
-| **真正免费模型** | **Novita.AI** | 6+ 个 price=0 模型，无需消耗额度 |
-| **最大模型 (405B)** | Fireworks / Hyperbolic / Together / Replicate | 都有 Llama 3.1 405B |
-| **中文/国内访问** | **Qwen 百炼** / 硅基流动* / 火山引擎* | 国内节点，低延迟 |
-| **文档解析** | **Upstage** | Solar + Document Parse 强 |
-| **多模态/视频** | **Replicate** | 支持视频/音频生成模型 |
-| **路由/聚合** | **Requesty** / OpenRouter* | 单 Key 访问多家 |
+| **Truly free models** | **Novita.AI** | 6+ price=0 models, no credits consumed |
+| **Largest models (405B)** | Fireworks / Hyperbolic / Together / Replicate | All have Llama 3.1 405B |
+| **Chinese / Domestic access** | **Qwen Bailian** / SiliconFlow* / VolcEngine* | Domestic nodes, low latency |
+| **Document parsing** | **Upstage** | Solar + Document Parse strong |
+| **Multimodal / Video** | **Replicate** | Supports video/audio generation models |
+| **Routing / Aggregation** | **Requesty** / OpenRouter* | Single key for multiple providers |
 
-*永久免费层
+*Permanent free tier
 
 ---
 
-## ⚠️ 避坑指南
+## ⚠️ Pitfall Guide
 
-| 平台 | 坑点 |
+| Platform | Issues |
 |---|---|
-| **所有需卡平台** | 即使是"试用额度"，绑卡后可能自动扣费，建议用虚拟卡/额度卡 |
-| Nebius | 端点偶尔不稳定，需重试 |
-| Scaleway | 欧洲节点，国内延迟高 |
-| Requesty | 端点已变更，需关注文档 |
-| Replicate | 按秒计费，长对话成本不可控 |
-| 火山引擎/百炼 | 实名认证，企业认证更高额度 |
+| **All card-required platforms** | Even "trial credits" may auto-charge after binding card; use virtual/prepaid cards |
+| Nebius | Endpoints occasionally unstable, needs retry |
+| Scaleway | EU nodes, high latency from China |
+| Requesty | Endpoint changed, watch docs |
+| Replicate | Per-second billing, long conversations cost unpredictable |
+| VolcEngine/Bailian | Real-name verification, enterprise cert for higher quota |
 
 ---
 
-## 💡 组合策略
+## 💡 Combination Strategies
 
-### "零成本生产可用" 组合
+### "Zero-Cost Production Ready" Stack
 ```
-永久免费层为主 (Groq/Google/NIM/OpenRouter)
-    ↓ 遇到限流/需要特定模型
-Novita.AI 免费模型 (Ling-3-Flash 等 price=0 模型)
-    ↓ 仍不够
-Fireworks/Hyperbolic $1 额度顶一下 (约 100万 tokens)
+Permanent free tier as primary (Groq/Google/NIM/OpenRouter)
+    ↓ Hit limits / need specific models
+Novita.AI free models (Ling-3-Flash etc price=0 models)
+    ↓ Still not enough
+Fireworks/Hyperbolic $1 top-up (~1M tokens)
 ```
 
-### "国内低延迟" 组合
+### "Domestic Low Latency" Stack
 ```
-硅基流动 (20M Token 新用户) + 火山引擎 (500点/天) + 百炼 (千万Token)
-    ↓ 备选
-Z.AI (GLM 永久免费) + Coze (Bot 免费)
+SiliconFlow (20M tokens new user) + VolcEngine (500 pts/day) + Bailian (10M tokens)
+    ↓ Fallback
+Z.AI (GLM permanent free) + Coze (Bot free)
 ```
 
 ---
 
-*数据每日 06:00 UTC 自动探测更新。以 providers.json 为准。*
+*Data auto-updated daily at 06:00 UTC. See providers.json for latest.*

@@ -1,6 +1,6 @@
 # Provider Comparison Table (Auto-generated)
 
-> Last updated: 2026-08-24T22:57:06.668375+00:00
+> Last updated: 2026-08-24T23:23:54.395281+00:00
 
 ## Permanent Free Tier (No Card Required)
 
@@ -26,8 +26,8 @@
 
 | Provider | Status | Health | RPM | TPM | Context | Max Output | Features | Region | Notes |
 |---|---|---|---|---|---|---|---|---|---|
-| Agnes AI | ✅ | 74 | 30 | 500000 | 512000 | 8192 | chat, vision, function_calling, reasoning, tool_calling, agent_workflows | global | 免费文本推理: 30 RPM 公开 / 20 实际 RPM; 512K 上下文; 支持工具调用、代码、推理、多轮对话、视觉输入; 无需信用卡; 需登录 Dash |
-| DeepSeek | ✅ | 70 | 0 | 0 | 64000 | 8192 | chat, reasoning, function_calling | cn | 有限免费额度，代码能力强 |
+| Agnes AI | ✅ | 74 | 30 | 500000 | 512000 | 8192 | chat, vision, function_calling, reasoning, tool_calling, agent_workflows | global | Free text inference: 30 RPM public / 20 actual RPM; 512K context; supports tool  |
+| DeepSeek | ✅ | 70 | 0 | 0 | 64000 | 8192 | chat, reasoning, function_calling | cn | Limited free tier, strong coding ability |
 
 ## Quick Selection Guide
 

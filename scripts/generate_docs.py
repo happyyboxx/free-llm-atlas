@@ -41,6 +41,18 @@ def generate_overview(data):
     
     return "\n".join(lines)
 
+def translate_notes(notes):
+    """Translate common Chinese phrases in notes to English"""
+    translations = {
+        "免费文本推理: 30 RPM 公开 / 20 实际 RPM; 512K 上下文; 支持工具调用、代码、推理、多轮对话、视觉输入; 无需信用卡; 需登录 Dashboard 领 credits": 
+            "Free text inference: 30 RPM public / 20 actual RPM; 512K context; supports tool calling, code, reasoning, multi-turn, vision; no credit card; requires Dashboard login for credits",
+        "有限免费额度，代码能力强": "Limited free tier, strong coding ability",
+    }
+    for zh, en in translations.items():
+        if zh in notes:
+            notes = notes.replace(zh, en)
+    return notes
+
 def generate_comparison(data):
     """Generate platforms/comparison.md with detailed comparison table"""
     providers = data.get("providers", [])
@@ -85,6 +97,7 @@ def generate_comparison(data):
         features = ", ".join(p.get("features", [])) if p.get("features") else "—"
         health = p.get("health_score", 0)
         notes = p.get("notes", "").replace("|", "\\|")[:80]
+        notes = translate_notes(notes)
         lines.append(f"| {p['name']} | {status_emoji} | {health} | {rpm} | {tpm} | {ctx} | {max_out} | {features} | {p.get('region', '?')} | {notes} |")
     
     lines.extend([
@@ -122,13 +135,13 @@ def main():
         overview = generate_overview(data)
         out = DOCS_DIR / "platforms" / "overview.md"
         out.write_text(overview, encoding="utf-8")
-        print(f"✅ Generated {out}")
+        print(f"Generated {out}")
     
     if args.comparison or (not args.overview and not args.comparison):
         comparison = generate_comparison(data)
         out = DOCS_DIR / "platforms" / "comparison.md"
         out.write_text(comparison, encoding="utf-8")
-        print(f"✅ Generated {out}")
+        print(f"Generated {out}")
 
 if __name__ == "__main__":
     main()

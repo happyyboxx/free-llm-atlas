@@ -1,116 +1,119 @@
-# ToS 合规审查
+# ToS Compliance Review
 
-各免费 LLM 平台服务条款关键点合规审查，**仅供参考，不构成法律建议**。商业用途请务必自行阅读官方最新 ToS。
+Key terms of service compliance review for each free LLM platform. **For reference only, not legal advice.** For commercial use, always read the latest official ToS yourself.
 
 ---
 
-## ⚖️ 核心合规维度对比
+## ⚖️ Core Compliance Dimensions Comparison
 
-| 平台 | 商业用途 | 数据训练 | 数据留存 | 地域限制 | 关键条款 |
+| Platform | Commercial Use | Data Training | Data Retention | Regional Limits | Key Terms |
 |---|---|---|---|---|---|
-| **Google AI Studio** | ✅ 允许 | ❌ 不用于训练 (免费层) | 18个月 | 全球 (部分地区受限) | AI Studio 附加条款 |
-| **Groq** | ✅ 允许 | ❌ 不用于训练 | 30天 | 全球 | GroqCloud ToS |
-| **Cerebras** | ✅ 允许 | ❌ 不用于训练 | - | 全球 | Cerebras Cloud ToS |
-| **Cloudflare Workers AI** | ✅ 允许 | ❌ 不用于训练 | 按账户 | 全球 | Cloudflare ToS |
-| **NVIDIA NIM** | ✅ 允许 | ❌ 不用于训练 | - | 全球 | NVIDIA AI Enterprise ToS |
-| **Mistral** | ✅ 允许 | ❌ 不用于训练 | 30天 | EU 数据驻留 | Mistral Platform ToS |
-| **HuggingFace** | ✅ 允许 | ❌ 不用于训练 | 按模型 | 全球 | HF Inference API ToS |
-| **GitHub Models** | ✅ 允许 | ❌ 不用于训练 | - | 全球 | GitHub Models ToS |
-| **OpenRouter** | ✅ 允许 | 视上游而定 | 视上游 | 全球 | OpenRouter ToS |
-| **Cohere** | ✅ 允许 | ❌ 不用于训练 | - | 全球 | Cohere API ToS |
-| **Kilo Code** | ✅ 允许 | ❌ 不用于训练 | - | 全球 | Kilo ToS |
-| **Pollinations.ai** | ✅ 允许 | ⚠️ 可能用于改进 | - | 全球 | Pollinations ToS |
-| **OVHcloud** | ✅ 允许 | ❌ 不用于训练 | GDPR 合规 | EU | OVHcloud AI Endpoints ToS |
-| **LLM7.io** | ⚠️ 需确认 | ⚠️ 不详 | - | 全球 | 需查阅官网 |
-| **Z.AI (智谱)** | ✅ 允许 | ❌ 不用于训练 | 中国法律 | 中国 | 智谱开放平台协议 |
-| **Coze** | ✅ 允许 | ❌ 不用于训练 | 中国法律 | 中国 | Coze 服务协议 |
-| **Inference.net** | ⚠️ 需确认 | ⚠️ 不详 | - | 全球 | 需查阅官网 |
+| **Google AI Studio** | ✅ Allowed | ❌ Not for training (free tier) | 18 months | Global (some regions restricted) | AI Studio Additional Terms |
+| **Groq** | ✅ Allowed | ❌ Not for training | 30 days | Global | GroqCloud ToS |
+| **Cerebras** | ✅ Allowed | ❌ Not for training | - | Global | Cerebras Cloud ToS |
+| **Cloudflare Workers AI** | ✅ Allowed | ❌ Not for training | Per account | Global | Cloudflare ToS |
+| **NVIDIA NIM** | ✅ Allowed | ❌ Not for training | - | Global | NVIDIA AI Enterprise ToS |
+| **Mistral** | ✅ Allowed | ❌ Not for training | 30 days | EU data residency | Mistral Platform ToS |
+| **HuggingFace** | ✅ Allowed | ❌ Not for training | Per model | Global | HF Inference API ToS |
+| **GitHub Models** | ✅ Allowed | ❌ Not for training | - | Global | GitHub Models ToS |
+| **OpenRouter** | ✅ Allowed | Depends on upstream | Depends on upstream | Global | OpenRouter ToS |
+| **Cohere** | ✅ Allowed | ❌ Not for training | - | Global | Cohere API ToS |
+| **Kilo Code** | ✅ Allowed | ❌ Not for training | - | Global | Kilo ToS |
+| **Pollinations.ai** | ✅ Allowed | ⚠️ May improve | - | Global | Pollinations ToS |
+| **OVHcloud** | ✅ Allowed | ❌ Not for training | GDPR compliant | EU | OVHcloud AI Endpoints ToS |
+| **LLM7.io** | ⚠️ Verify | ⚠️ Unknown | - | Global | Check official site |
+| **Z.AI** | ✅ Allowed | ❌ Not for training | Chinese law | China | Z.AI Platform Agreement |
+| **Coze** | ✅ Allowed | ❌ Not for training | Chinese law | China | Coze Service Agreement |
+| **Inference.net** | ⚠️ Verify | ⚠️ Unknown | - | Global | Check official site |
 
 ---
 
-## 🔴 红线条款 (必须注意)
+## 🔴 Red Line Clauses (Must Watch)
 
-### 1. 数据用于训练
-| 平台 | 免费层数据是否用于训练 | 如何退出 |
+### 1. Data Used for Training
+
+| Platform | Free Tier Data Used for Training? | How to Opt Out |
 |---|---|---|
-| **OpenAI** (非本列表) | ✅ 是 (除企业版) | 企业版/零留存 |
-| **Anthropic** (非本列表) | ❌ 否 | 默认不训练 |
-| **Google AI Studio** | ❌ 否 (免费层明确声明) | 默认不训练 |
-| **Groq** | ❌ 否 | 默认不训练 |
-| **Mistral** | ❌ 否 | 默认不训练 |
-| **Cohere** | ❌ 否 | 默认不训练 |
-| **Pollinations.ai** | ⚠️ 可能 | 无退出机制 |
-| **LLM7.io** | ⚠️ 不详 | 无明确声明 |
+| **OpenAI** (not in this list) | ✅ Yes (except Enterprise) | Enterprise/Zero retention |
+| **Anthropic** (not in this list) | ❌ No | Default no training |
+| **Google AI Studio** | ❌ No (free tier explicitly states) | Default no training |
+| **Groq** | ❌ No | Default no training |
+| **Mistral** | ❌ No | Default no training |
+| **Cohere** | ❌ No | Default no training |
+| **Pollinations.ai** | ⚠️ Possible | No opt-out mechanism |
+| **LLM7.io** | ⚠️ Unknown | No explicit statement |
 
-> **建议**：敏感数据 (PII、代码、商业机密) **仅用明确承诺不训练的平台**，或用本地模型。
+> **Recommendation**: Sensitive data (PII, code, trade secrets) **only use platforms with explicit no-training commitments**, or use local models.
 
-### 2. 数据留存期限
-| 平台 | 留存时长 | 删除机制 |
+### 2. Data Retention Periods
+
+| Platform | Retention | Deletion Mechanism |
 |---|---|---|
-| Google | 18个月 | 自动删除，可手动删除 |
-| Groq | 30天 | 自动删除 |
-| Mistral | 30天 | 自动删除 |
-| OpenRouter | 视上游 | 视上游 |
-| 本地模型 | 0 (本地) | 完全控制 |
+| Google | 18 months | Auto-delete, manual delete available |
+| Groq | 30 days | Auto-delete |
+| Mistral | 30 days | Auto-delete |
+| OpenRouter | Depends on upstream | Depends on upstream |
+| Local models | 0 (local) | Full control |
 
-### 3. 地域/出口合规
-| 平台 | 数据中心位置 | 适用法律 | 适合场景 |
+### 3. Regional / Export Compliance
+
+| Platform | Data Center Location | Applicable Law | Suitable For |
 |---|---|---|---|
-| **Mistral** | 法国/欧盟 | GDPR | EU 企业、数据驻留要求 |
-| **OVHcloud** | 法国/欧盟 | GDPR + 法国法律 | 高合规要求 |
-| **Scaleway** | 法国/欧盟 | GDPR | EU 企业 |
-| **Z.AI/Coze/百炼/火山/混元** | 中国大陆 | 中国法律 | 国内合规、数据不出境 |
-| **Groq/Google/NVIDIA/OpenRouter** | 美国/全球 | 美国法律 | 一般商业、无地域限制 |
+| **Mistral** | France/EU | GDPR | EU enterprises, data residency requirements |
+| **OVHcloud** | France/EU | GDPR + French law | High compliance requirements |
+| **Scaleway** | France/EU | GDPR | EU enterprises |
+| **Z.AI/Coze/Bailian/VolcEngine/Hunyuan** | Mainland China | Chinese law | Domestic compliance, data stays in China |
+| **Groq/Google/NVIDIA/OpenRouter** | US/Global | US law | General commercial, no regional limits |
 
 ---
 
-## 📋 商业使用清单
+## 📋 Commercial Use Checklist
 
-上线前逐项确认：
+Verify each item before going live:
 
-- [ ] **确认商业用途许可** — 所有列表平台允许，但请核对最新 ToS
-- [ ] **数据不训练承诺** — 敏感业务仅用 Google/Groq/Mistral/Cohere/本地模型
-- [ ] **数据留存可接受** — 30天/18个月是否满足合规要求
-- [ ] **地域合规** — EU 客户用 Mistral/OVH；国内客户用 Z.AI/Coze/百炼/火山
-- [ ] **导出控制** — 美国实体清单限制，避免向受制裁国家/实体提供服务
-- [ ] **输出内容责任** — 你对模型输出负责，平台通常免责
-- [ ] **SLA/可用性** — 免费层**无 SLA**，生产环境需有降级/备选方案
-- [ ] **费用变更风险** — 免费额度可随时调整，监控 providers.json 探测结果
+- [ ] **Confirm commercial use permission** — All listed platforms allow, but verify latest ToS
+- [ ] **Data not-for-training commitment** — Sensitive business only on Google/Groq/Mistral/Cohere/local models
+- [ ] **Data retention acceptable** — 30 days/18 months meet compliance requirements?
+- [ ] **Regional compliance** — EU clients use Mistral/OVH; China clients use Z.AI/Coze/Bailian/VolcEngine
+- [ ] **Export controls** — US entity list restrictions, avoid serving sanctioned countries/entities
+- [ ] **Output content liability** — You're responsible for model output, platforms typically disclaim
+- [ ] **SLA/Availability** — Free tiers have **no SLA**, production needs fallback/degradation plan
+- [ ] **Cost change risk** — Free quotas can change anytime, monitor providers.json probe results
 
 ---
 
-## 🏢 企业级部署建议
+## 🏢 Enterprise Deployment Recommendations
 
-### 方案 A: 完全合规 (数据不出境/不训练)
+### Option A: Full Compliance (Data never leaves / not trained)
 ```
-本地模型 (Ollama/Jan.ai) 为主
-    ↓ 需要云端能力
+Local models (Ollama/Jan.ai) as primary
+    ↓ Need cloud capability
 Mistral (EU) / OVHcloud (EU) / Z.AI (CN)
-    ↓ 仍不够
-Google AI Studio / Groq (明确不训练承诺)
+    ↓ Still not enough
+Google AI Studio / Groq (explicit no-training commitment)
 ```
 
-### 方案 B: 成本优先 (接受一定风险)
+### Option B: Cost Optimized (Accept Some Risk)
 ```
-Groq (速度) + Google (多模态) + OpenRouter (聚合) 为主
-    ↓ 敏感数据
-本地模型 / Cohere (RAG)
+Groq (speed) + Google (multimodal) + OpenRouter (aggregation) as primary
+    ↓ Sensitive data
+Local models / Cohere (RAG)
 ```
 
-### 方案 C: 混合部署 (推荐)
+### Option C: Hybrid Deployment (Recommended)
 ```
-非敏感/高吞吐: Groq / Google / NIM / OpenRouter
-敏感/PII: 本地模型 (Ollama/Jan.ai) + Cohere Embedding
-EU 客户: Mistral / OVHcloud
-CN 客户: Z.AI / 硅基流动 / 火山引擎 / 百炼
-代码/推理: Nemotron Ultra (OpenRouter/NIM) + 本地 DeepSeek-R1
+Non-sensitive/high-throughput: Groq / Google / NIM / OpenRouter
+Sensitive/PII: Local models (Ollama/Jan.ai) + Cohere Embedding
+EU clients: Mistral / OVHcloud
+CN clients: Z.AI / SiliconFlow / VolcEngine / Bailian
+Code/Reasoning: Nemotron Ultra (OpenRouter/NIM) + Local DeepSeek-R1
 ```
 
 ---
 
-## 📄 官方 ToS 链接速查
+## 📄 Official ToS Links Quick Reference
 
-| 平台 | ToS 链接 |
+| Platform | ToS Link |
 |---|---|
 | Google AI Studio | https://ai.google.dev/terms |
 | Groq | https://console.groq.com/terms |
@@ -126,32 +129,32 @@ CN 客户: Z.AI / 硅基流动 / 火山引擎 / 百炼
 | Pollinations.ai | https://pollinations.ai/terms |
 | OVHcloud | https://www.ovhcloud.com/legal/ |
 | LLM7.io | https://llm7.io/terms |
-| Z.AI 智谱 | https://open.bigmodel.cn/agreement |
+| Z.AI | https://open.bigmodel.cn/agreement |
 | Coze | https://www.coze.com/agreement |
-| 硅基流动 | https://siliconflow.cn/agreement |
-| 火山引擎 | https://www.volcengine.com/docs/6291/1151725 |
-| 百度千帆 | https://cloud.baidu.com/doc/WENXINWORKSHOP/s/ilkk79ynw |
-| 阿里云百炼 | https://help.aliyun.com/document_detail/2712313.html |
-| 腾讯混元 | https://hunyuan.tencent.com/agreement |
-| 月之暗面 | https://platform.moonshot.cn/agreement |
-| 讯飞星火 | https://www.xfyun.cn/doc/agreement |
-| 魔搭 ModelScope | https://modelscope.cn/agreement |
+| SiliconFlow | https://siliconflow.cn/agreement |
+| VolcEngine | https://www.volcengine.com/docs/6291/1151725 |
+| Baidu Qianfan | https://cloud.baidu.com/doc/WENXINWORKSHOP/s/ilkk79ynw |
+| Alibaba Bailian | https://help.aliyun.com/document_detail/2712313.html |
+| Tencent Hunyuan | https://hunyuan.tencent.com/agreement |
+| Moonshot Kimi | https://platform.moonshot.cn/agreement |
+| Xinghuo | https://www.xfyun.cn/doc/agreement |
+| ModelScope | https://modelscope.cn/agreement |
 | DeepSeek | https://platform.deepseek.com/agreement |
 
 ---
 
-## ⚠️ 变更追踪
+## 📄 Change Tracking
 
-| 日期 | 平台 | 变更内容 | 影响 |
+| Date | Platform | Change | Impact |
 |---|---|---|---|
-| 2026-08-01 | 初版 | 基于公开 ToS 整理 | 基准线 |
+| 2026-08-01 | Initial | Compiled from public ToS | Baseline |
 
-> **重要**：ToS 可随时变更。建议：
-> 1. 定期 (月度) 复查关键平台 ToS
-> 2. 订阅平台变更通知邮件
-> 3. 关注本项目 GitHub Issues 的合规标签
-> 4. 重大业务上线前请法务审核
+> **Important**: ToS can change anytime. Recommendations:
+> 1. Monthly re-review of key platform ToS
+> 2. Subscribe to platform change notifications
+> 3. Watch this project's GitHub Issues with compliance label
+> 4. Legal review required before major business launch
 
 ---
 
-*免责声明：本文档基于公开信息整理，不构成法律建议。商业决策请咨询专业法务。*
+*Disclaimer: This document is compiled from public information and does not constitute legal advice. Consult professional legal counsel for commercial decisions.*

@@ -1,43 +1,45 @@
-# free-llm-atlas 文档站
+# free-llm-atlas Documentation
 
-欢迎来到免费大模型图谱文档站。
-
-## 📚 文档导航
-
-### 平台详情
-- [平台总览](platforms/overview.md) — 所有平台分类汇总
-- [永久免费层](platforms/permanent-free.md) — 12个无需信用卡的永久免费平台
-- [试用额度平台](platforms/trial-credits.md) — 11个有试用额度的平台
-- [本地运行方案](platforms/local-inference.md) — 9类本地推理工具
-
-### 使用指南
-- [选型决策树](guides/decision-tree.md) — 根据需求选择最适合的平台
-- [快速开始](guides/quickstart.md) — 5分钟上手
-- [网关配置](guides/gateway-config.md) — Hermes/LiteLLM/Portkey 落地配置
-
-### 合规审查
-- [ToS 合规审查](compliance/tos-review.md) — 各平台服务条款关键点
+Welcome to the Free LLM Atlas documentation.
 
 ---
 
-## 🔧 工具与数据
+## 📚 Documentation Navigation
 
-- [providers.json](../data/providers.json) — 机器可读的完整 Provider 数据
-- [probe.py](../scripts/probe.py) — 自动化探测脚本
-- [GitHub Actions](../.github/workflows/) — 每日探测、每周同步
+### Platform Details
+- [Platform Overview](platforms/overview.md) — All platforms categorized summary
+- [Permanent Free Tier](platforms/permanent-free.md) — 17 providers requiring no credit card
+- [Trial Credit Platforms](platforms/trial-credits.md) — 2 providers with trial credits
+- [Local Inference Options](platforms/local-inference.md) — 9 local inference tools
+
+### Usage Guides
+- [Decision Tree](guides/decision-tree.md) — Choose the best platform for your needs
+- [Quick Start](guides/quickstart.md) — 5-minute getting started
+- [Gateway Configuration](guides/gateway-config.md) — Hermes/LiteLLM/Portkey deployment configs
+
+### Compliance
+- [ToS Compliance Review](compliance/tos-review.md) — Key terms of service for each platform
 
 ---
 
-## 📊 数据概览
+## 🔧 Tools & Data
 
-| 指标 | 数值 |
+- [providers.json](../data/providers.json) — Machine-readable complete provider data
+- [probe.py](../scripts/probe.py) — Automated probing script
+- [GitHub Actions](../.github/workflows/) — Daily probe, weekly sync
+
+---
+
+## 📊 Data Overview
+
+| Metric | Value |
 |---|---|
-| 总 Provider 数 | 46 |
-| 永久免费层 | 17 |
-| 试用额度类 | 20 |
-| 本地运行类 | 9 |
-| 最后更新 | 2026-08-01 |
+| Total Providers | 17 |
+| Permanent Free Tier | 15 |
+| Trial Credit | 2 |
+| Local Inference | 0 |
+| Last Updated | 2026-08-24 |
 
 ---
 
-*文档由 providers.json 自动生成，配合 GitHub Actions 保持同步。*
+*Documentation auto-generated from providers.json, kept in sync via GitHub Actions.*

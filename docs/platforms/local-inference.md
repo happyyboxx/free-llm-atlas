@@ -1,125 +1,125 @@
-# 本地运行方案详细对比
+# Local Inference Options Comparison
 
-9 类主流本地 LLM 推理工具/平台。完全免费、无限制、隐私优先。
+9 mainstream local LLM inference tools/platforms. Completely free, unlimited, privacy-first.
 
 ---
 
-## 📊 核心对比
+## 📊 Core Comparison
 
-| 工具 | Stars | 语言 | GUI | API 兼容 | 模型格式 | 硬件加速 | 适合场景 |
+| Tool | Stars | Language | GUI | API Compatible | Model Formats | Hardware Accel | Best For |
 |---|---|---|---|---|---|---|---|
-| **Ollama** | 150k+ | Go | ❌ | ✅ OpenAI | GGUF | CPU/GPU (Metal/CUDA) | 入门首选，一键运行 |
-| **LM Studio** | 40k+ | TS/Rust | ✅ | ✅ OpenAI | GGUF | CPU/GPU (Metal/CUDA/Vulkan) | 可视化管理，对话界面 |
-| **GPT4All** | 60k+ | C++/Py | ✅ | ✅ OpenAI | GGUF | CPU/GPU | 隐私优先，内置商店 |
-| **llama.cpp** | 75k+ | C++ | ❌ | ✅ OpenAI | GGUF/EXL2 | CPU/GPU (全平台) | 核心引擎，极致性能 |
-| **Jan.ai** | 43.8k | TypeScript | ✅ | ✅ OpenAI | GGUF | CPU/GPU (Metal/CUDA) | 开源 ChatGPT 替代 |
-| **KoboldCpp** | 11.3k | C++ | ✅ (KoboldAI) | ✅ OpenAI | GGUF | CPU/GPU | 角色扮演/写作优化 |
-| **llamafile** | 25.5k | C/C++ | ❌ | ✅ OpenAI | 单文件 | CPU/GPU | **零依赖分发** |
-| **Text-Gen-WebUI** | 47.5k | Python | ✅ (Gradio) | ✅ OpenAI | GGUF/EXL2/AWQ/GPTQ | CPU/GPU | 功能最全，支持训练 |
-| **BentoML** | 8.7k | Python | ❌ | ✅ OpenAI | 任意 (打包) | CPU/GPU | 生产级模型服务 |
+| **Ollama** | 150k+ | Go | ❌ | ✅ OpenAI | GGUF | CPU/GPU (Metal/CUDA) | Beginners, one-command run |
+| **LM Studio** | 40k+ | TS/Rust | ✅ | ✅ OpenAI | GGUF | CPU/GPU (Metal/CUDA/Vulkan) | Visual management, chat UI |
+| **GPT4All** | 60k+ | C++/Py | ✅ | ✅ OpenAI | GGUF | CPU/GPU | Privacy-first, built-in store |
+| **llama.cpp** | 75k+ | C++ | ❌ | ✅ OpenAI | GGUF/EXL2 | CPU/GPU (all platforms) | Core engine, extreme performance |
+| **Jan.ai** | 43.8k | TypeScript | ✅ | ✅ OpenAI | GGUF | CPU/GPU (Metal/CUDA) | Open-source ChatGPT alternative |
+| **KoboldCpp** | 11.3k | C++ | ✅ (KoboldAI) | ✅ OpenAI | GGUF | CPU/GPU | Roleplay/writing optimized |
+| **llamafile** | 25.5k | C/C++ | ❌ | ✅ OpenAI | Single-file | CPU/GPU | **Zero-dependency distribution** |
+| **Text-Gen-WebUI** | 47.5k | Python | ✅ (Gradio) | ✅ OpenAI | GGUF/EXL2/AWQ/GPTQ | CPU/GPU | Most features, supports training |
+| **BentoML** | 8.7k | Python | ❌ | ✅ OpenAI | Any (packaged) | CPU/GPU | Production model serving |
 
 ---
 
-## 🎯 选择指南
+## 🎯 Selection Guide
 
-### 完全新手，想最简单
-→ **Ollama** `curl -fsSL https://ollama.com/install.sh | sh` 然后 `ollama run llama3.1`
+### Complete beginner, want simplest
+→ **Ollama** `curl -fsSL https://ollama.com/install.sh | sh` then `ollama run llama3.1`
 
-### 想要图形界面聊天
-→ **LM Studio** (最成熟 GUI) → **GPT4All** (隐私优先) → **Jan.ai** (开源、功能全)
+### Want graphical chat interface
+→ **LM Studio** (most mature GUI) → **GPT4All** (privacy-first) → **Jan.ai** (open-source, full features)
 
-### 角色扮演 / 创意写作
-→ **KoboldCpp** (KoboldAI UI 专为 RP 设计)
+### Roleplay / Creative writing
+→ **KoboldCpp** (KoboldAI UI designed for RP)
 
-### 零依赖分发给他人
-→ **llamafile** (单二进制文件，双击即运行)
+### Zero-dependency distribution to others
+→ **llamafile** (single binary, double-click to run)
 
-### 想要功能最全 (RAG、训练、量化、多模态)
+### Want most features (RAG, training, quantization, multimodal)
 → **Text Generation WebUI** (oobabooga)
 
-### 生产环境部署 / 微服务
-→ **BentoML** (模型打包、API、任务队列、批量推理)
+### Production deployment / Microservices
+→ **BentoML** (model packaging, API, task queues, batch inference)
 
-### 极致性能 / 自定义编译
-→ **llama.cpp** (核心引擎，所有上层工具都基于此)
+### Extreme performance / Custom compilation
+→ **llama.cpp** (core engine, all upper layers build on this)
 
 ---
 
-## 🔧 硬件需求参考
+## 🔧 Hardware Requirements Reference
 
-| 模型大小 | 推荐内存 | 推荐显存 | 量化建议 |
+| Model Size | Recommended RAM | Recommended VRAM | Quantization |
 |---|---|---|---|
 | 1B-3B | 4-8 GB | 2-4 GB | Q4_K_M |
 | 7B-8B | 8-16 GB | 6-10 GB | Q4_K_M / Q5_K_M |
 | 13B-14B | 16-24 GB | 10-16 GB | Q4_K_M |
 | 32B-35B | 32 GB+ | 20-24 GB | Q3_K_M / Q4_K_M |
 | 70B-72B | 64 GB+ | 40-48 GB | Q3_K_M |
-| 405B | 256 GB+ | 多卡 (8x H100) | Q2_K / Q3_K_M |
+| 405B | 256 GB+ | Multi-GPU (8x H100) | Q2_K / Q3_K_M |
 
-> **Apple Silicon 统一内存优势**：M 系列芯片 CPU/GPU 共享内存，64GB/96GB/128GB 统一内存可跑 70B Q4。
+> **Apple Silicon Unified Memory Advantage**: M-series chips share CPU/GPU memory; 64GB/96GB/128GB unified memory can run 70B Q4.
 
 ---
 
-## 🚀 快速上手命令
+## 🚀 Quick Start Commands
 
-### Ollama (推荐新手)
+### Ollama (Recommended for Beginners)
 ```bash
 # macOS/Linux
 curl -fsSL https://ollama.com/install.sh | sh
 
-# 运行模型
+# Run models
 ollama run llama3.1:8b
 ollama run qwen2.5:72b
 ollama run deepseek-r1:70b
 
-# API 服务 (后台运行)
+# API service (background)
 ollama serve
-# 然后访问 http://localhost:11434/v1
+# Then access http://localhost:11434/v1
 ```
 
 ### LM Studio
-1. 下载安装包：https://lmstudio.ai
-2. 点击搜索下载模型 (GGUF)
-3. 点击 "Start Server" → `http://localhost:1234/v1`
+1. Download installer: https://lmstudio.ai
+2. Search and download models (GGUF)
+3. Click "Start Server" → `http://localhost:1234/v1`
 
-### llamafile (零依赖)
+### llamafile (Zero Dependency)
 ```bash
-# 下载单文件 (例如 Llama 3.1 8B)
+# Download single file (e.g., Llama 3.1 8B)
 wget https://huggingface.co/Mozilla/Llama-3.1-8B-Instruct-llamafile/resolve/main/Llama-3.1-8B-Instruct.Q4_K_M.llamafile
 
-# 赋权运行
+# Make executable and run
 chmod +x Llama-3.1-8B-Instruct.Q4_K_M.llamafile
 ./Llama-3.1-8B-Instruct.Q4_K_M.llamafile
-# 访问 http://localhost:8080
+# Access http://localhost:8080
 ```
 
 ### Jan.ai
 ```bash
-# 下载 AppImage / dmg / exe
-# 或 Docker
+# Download AppImage / dmg / exe
+# Or Docker
 docker run -d -p 1337:1337 -v jan-data:/root/.jan ghcr.io/janhq/jan
 ```
 
 ### KoboldCpp
 ```bash
-# 下载 Release 二进制
-# 或 Docker
+# Download Release binary
+# Or Docker
 docker run -d -p 5001:5001 ghcr.io/lostruins/koboldcpp:latest
 ```
 
 ### Text Generation WebUI
 ```bash
-# 一键安装 (Linux/macOS)
+# One-click install (Linux/macOS)
 git clone https://github.com/oobabooga/text-generation-webui
 cd text-generation-webui
-./start_linux.sh  # 或 start_macos.sh / start_windows.bat
+./start_linux.sh  # or start_macos.sh / start_windows.bat
 ```
 
 ### BentoML
 ```bash
 pip install bentoml
 
-# 创建服务
+# Create service
 cat > service.py << 'EOF'
 import bentoml
 from bentoml.io import Text
@@ -134,52 +134,52 @@ class LLMService:
     
     @bentoml.api
     async def generate(self, prompt: str) -> str:
-        # 使用 vLLM 或 transformers 推理
+        # Use vLLM or transformers for inference
         pass
-EOF
 
 bentoml serve service:LLMService
+EOF
 ```
 
 ---
 
-## 🔌 API 统一性
+## 🔌 API Unification
 
-所有工具都提供 **OpenAI 兼容 API** (`/v1/chat/completions`)，可直接接入：
+All tools provide **OpenAI-compatible API** (`/v1/chat/completions`), directly integrable with:
 - Hermes Agent
 - LiteLLM
 - Portkey
 - Open WebUI
 - Continue.dev
-- 任何 OpenAI SDK 客户端
+- Any OpenAI SDK client
 
 ```python
 from openai import OpenAI
 
-# 统一接口，只需改 base_url
+# Unified interface, just change base_url
 client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")  # Ollama
 client = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")  # LM Studio
 client = OpenAI(base_url="http://localhost:1337/v1", api_key="jan")  # Jan.ai
 
 response = client.chat.completions.create(
-    model="llama3.1:8b",  # 或任意已加载模型
-    messages=[{"role": "user", "content": "你好"}]
+    model="llama3.1:8b",  # or any loaded model
+    messages=[{"role": "user", "content": "Hello"}]
 )
 ```
 
 ---
 
-## ⚡ 性能优化 Tips
+## ⚡ Performance Optimization Tips
 
-| 优化 | 说明 |
+| Optimization | Description |
 |---|---|
-| **使用 GPU** | 所有工具都支持 Metal (Apple) / CUDA (NVIDIA) / Vulkan (AMD/Intel) |
-| **选择合适量化** | Q4_K_M = 平衡；Q5_K_M = 质量更好；Q2_K = 极致压缩 |
-| **设置上下文长度** | `--ctx-size 8192` 或更大，避免截断 |
-| **启用 Flash Attention** | llama.cpp: `-fa`；Text-Gen-WebUI: 模型加载时勾选 |
-| **批量推理** | BentoML / vLLM 支持连续批处理，吞吐提升 10x+ |
-| **KV Cache 量化** | llama.cpp: `-ckv q4_k`，显存省 50%+ |
+| **Use GPU** | All tools support Metal (Apple) / CUDA (NVIDIA) / Vulkan (AMD/Intel) |
+| **Choose right quantization** | Q4_K_M = balanced; Q5_K_M = better quality; Q2_K = extreme compression |
+| **Set context length** | `--ctx-size 8192` or larger, avoid truncation |
+| **Enable Flash Attention** | llama.cpp: `-fa`; Text-Gen-WebUI: check on model load |
+| **Batch inference** | BentoML / vLLM support continuous batching, 10x+ throughput boost |
+| **KV Cache quantization** | llama.cpp: `-ckv q4_k`, saves 50%+ VRAM |
 
 ---
 
-*本地运行 = 完全免费 + 隐私绝对 + 无限制。硬件允许下，优先考虑。*
+*Local inference = completely free + absolute privacy + no limits. Prioritize when hardware allows.*

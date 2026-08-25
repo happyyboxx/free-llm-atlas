@@ -39,7 +39,7 @@
         "embeddings"
       ],
       "region": "global",
-      "notes": "需 Google 账号，中文支持好，多模态强",
+      "notes": "Requires Google account, good Chinese support, strong multimodal",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
       "last_probed": "2026-08-23T15:46:00.566760+00:00",
       "status": "degraded",
@@ -79,7 +79,7 @@
         "function_calling"
       ],
       "region": "global",
-      "notes": "LPU 推理极致速度，无需信用卡",
+      "notes": "LPU inference at extreme speed, no credit card required",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
       "last_probed": "2026-08-23T15:46:00.607687+00:00",
       "status": "active",
@@ -114,7 +114,7 @@
         "chat"
       ],
       "region": "global",
-      "notes": "Wafer-scale 硬件，2600+ tokens/s",
+      "notes": "Wafer-scale hardware, 2600+ tokens/s",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
       "last_probed": "2026-08-23T15:46:00.697140+00:00",
       "status": "degraded",
@@ -153,7 +153,7 @@
         "vision"
       ],
       "region": "global",
-      "notes": "边缘部署，10K neurons/天免费额度",
+      "notes": "Edge deployment, 10K neurons/day free tier",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
       "last_probed": "2026-08-23T15:46:00.490837+00:00",
       "status": "active",
@@ -192,7 +192,7 @@
         "function_calling"
       ],
       "region": "global",
-      "notes": "需手机验证，102+ 模型，GPU 集群推理",
+      "notes": "Requires phone verification, 102+ models, GPU cluster inference",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
       "last_probed": "2026-08-23T15:46:00.232843+00:00",
       "status": "active",
@@ -231,7 +231,7 @@
         "function_calling"
       ],
       "region": "eu",
-      "notes": "欧洲隐私标准，~1B tokens/月免费",
+      "notes": "EU privacy standards, ~1B tokens/month free",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
       "last_probed": "2026-08-23T15:46:00.724860+00:00",
       "status": "active",
@@ -271,7 +271,7 @@
         "audio"
       ],
       "region": "global",
-      "notes": "$0.10/月 credits，聚合模型最多",
+      "notes": "$0.10/month credits, most aggregated models",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
       "last_probed": "2026-08-23T15:46:00.175272+00:00",
       "status": "unknown",
@@ -315,7 +315,7 @@
         "function_calling"
       ],
       "region": "global",
-      "notes": "GitHub 账号即用，45+ 模型含闭源顶级",
+      "notes": "GitHub account only, 45+ models including closed-source top tier",
       "source": "https://github.com/nejib1/Free-LLM",
       "last_probed": "2026-08-23T15:46:00.216671+00:00",
       "status": "down",
@@ -358,7 +358,7 @@
         "reasoning"
       ],
       "region": "global",
-      "notes": "聚合平台，14 免费模型，1M 上下文 (Nemotron Ultra)",
+      "notes": "Aggregation platform, 14 free models, 1M context (Nemotron Ultra)",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
       "last_probed": "2026-08-23T15:46:00.552477+00:00",
       "status": "active",
@@ -397,7 +397,7 @@
         "rerank"
       ],
       "region": "global",
-      "notes": "RAG/Embedding 强，1000 req/月免费",
+      "notes": "Strong RAG/Embedding, 1000 req/month free",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
       "last_probed": "2026-08-23T15:46:00.472308+00:00",
       "status": "active",
@@ -433,7 +433,7 @@
         "function_calling"
       ],
       "region": "global",
-      "notes": "无需 Key 列模型，200 req/hr per IP",
+      "notes": "No key needed to list models, 200 req/hr per IP",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
       "last_probed": "2026-08-23T15:46:00.599138+00:00",
       "status": "active",
@@ -467,7 +467,7 @@
         "image_generation"
       ],
       "region": "global",
-      "notes": "完全免费，无需注册，支持文生图",
+      "notes": "Completely free, no registration required, supports text-to-image",
       "source": "https://github.com/nejib1/Free-LLM",
       "last_probed": "2026-08-23T15:46:00.218026+00:00",
       "status": "unknown",
@@ -504,7 +504,7 @@
         "chat"
       ],
       "region": "eu",
-      "notes": "欧盟 GDPR 合规，匿名 2 RPM",
+      "notes": "EU GDPR compliant, anonymous 2 RPM",
       "source": "https://github.com/nejib1/Free-LLM",
       "last_probed": "2026-08-23T15:46:01.869907+00:00",
       "status": "degraded",
@@ -543,7 +543,7 @@
         "video_generation"
       ],
       "region": "global",
-      "notes": "含闭源顶级模型，30 RPM (带 token 120 RPM)。基础模型免费，闭源模型需 token",
+      "notes": "Includes closed-source top models, 30 RPM (120 RPM with token). Base models free, closed-source requires token",
       "source": "https://github.com/nejib1/Free-LLM",
       "last_probed": "2026-08-23T15:46:02.324967+00:00",
       "status": "active",
@@ -582,7 +582,7 @@
         "image_editing"
       ],
       "region": "global",
-      "notes": "免费图片/视频生成，图片 1K: 30/20 RPM, 2K: 20/10 RPM, 3K: 2/1 RPM, 4K: 1/1 RPM; 视频 2/1 RPM; 无需信用卡",
+      "notes": "Free image/video generation, images 1K: 30/20 RPM, 2K: 20/10 RPM, 3K: 2/1 RPM, 4K: 1/1 RPM; video 2/1 RPM; no credit card required",
       "source": "https://github.com/AgnesAI-Labs/AgnesAI-Models",
       "last_probed": "2026-08-23T15:46:00.000000+00:00",
       "status": "active",
@@ -625,7 +625,7 @@
         "agent_workflows"
       ],
       "region": "global",
-      "notes": "免费文本推理: 30 RPM 公开 / 20 实际 RPM; 512K 上下文; 支持工具调用、代码、推理、多轮对话、视觉输入; 无需信用卡; 需登录 Dashboard 领 credits",
+      "notes": "Free text inference: 30 RPM public / 20 actual RPM; 512K context; supports tool calling, code, reasoning, multi-turn, vision; no credit card; requires Dashboard login for credits",
       "source": "https://github.com/AgnesAI-Labs/AgnesAI-Models",
       "last_probed": "2026-08-23T15:46:00.000000+00:00",
       "status": "active",
@@ -657,7 +657,7 @@
         "function_calling"
       ],
       "region": "cn",
-      "notes": "有限免费额度，代码能力强",
+      "notes": "Limited free tier, strong coding ability",
       "source": "https://github.com/nejib1/Free-LLM",
       "last_probed": "2026-08-23T15:46:03.207930+00:00",
       "status": "active",
