@@ -33,7 +33,13 @@ try:
 except ImportError:
     yaml = None
 
-DATA_FILE = Path(__file__).parent.parent / "data" / "providers.json"
+ROOT_DIR = Path(__file__).resolve().parent.parent
+DATA_FILE = ROOT_DIR / "data" / "providers.json"
+
+# Ensure scripts/ is importable when run as ./scripts/probe.py
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from atlas_env import ENV_FILE, load_project_env  # noqa: E402
+
 
 @dataclass
 class ProbeResult:
@@ -99,6 +105,9 @@ class ProviderProber:
         elif slug == "nvidia-nim":
             # NVIDIA NIM uses Authorization without Bearer prefix in some cases
             pass  # Handled below
+        elif slug == "opencode-zen":
+            # OpenCode Zen uses standard Bearer token
+            pass
         
         # Try to get API key from environment for providers that require keys
         api_key = None
@@ -118,6 +127,7 @@ class ProviderProber:
                     "huggingface": "HF_TOKEN",
                     "zai": "GLM_API_KEY",
                     "cloudflare-workers-ai": "CLOUDFLARE_WORKERS_AI_API_TOKEN",
+                    "opencode-zen": "OPENCODE_ZEN_API_KEY",
                 }
                 if slug in fallback_map:
                     api_key = os.environ.get(fallback_map[slug])
@@ -483,6 +493,12 @@ async def main():
     parser.add_argument('--export-config', choices=['hermes', 'litellm', 'portkey'], help='Export gateway config')
     
     args = parser.parse_args()
+
+    n = load_project_env()
+    if n:
+        print(f"Loaded {n} vars from {ENV_FILE} (not ~/.hermes/.env)")
+    elif not ENV_FILE.is_file():
+        print(f"Warning: {ENV_FILE} missing — copy .env.example; do not use ~/.hermes/.env")
     
     prober = ProviderProber(dry_run=args.dry_run)
     
