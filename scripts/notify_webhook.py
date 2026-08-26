@@ -10,6 +10,11 @@ import sys
 from pathlib import Path
 from datetime import datetime, timezone
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from atlas_env import load_project_env  # noqa: E402
+
+load_project_env()
+
 DATA_FILE = Path(__file__).parent.parent / "data" / "providers.json"
 STATE_FILE = Path(__file__).parent.parent / ".github" / "provider_state.json"
 
