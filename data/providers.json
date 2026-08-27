@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-08-27T12:39:46.296666+00:00",
+  "updated": "2026-08-27T12:34:12.488615+00:00",
   "sources": [
     "cheahjs/free-llm-api-resources",
     "tashfeenahmed/freellmapi",
@@ -9,514 +9,6 @@
     "open-free-llm-api/awesome-freellm-apis"
   ],
   "providers": [
-    {
-      "name": "Google AI Studio",
-      "slug": "google-ai-studio",
-      "tier": "permanent_free",
-      "website": "https://aistudio.google.com",
-      "api_base": "https://generativelanguage.googleapis.com/v1beta",
-      "models_endpoint": "/models",
-      "requires_key": true,
-      "requires_card": false,
-      "rate_limit": {
-        "rpm": 15,
-        "rpd": 1500,
-        "tpm": 250000
-      },
-      "models": [
-        "gemini-1.5-flash",
-        "gemini-1.5-pro",
-        "gemini-2.0-flash-exp"
-      ],
-      "free_models": [
-        "gemini-1.5-flash",
-        "gemini-2.0-flash-exp"
-      ],
-      "features": [
-        "chat",
-        "vision",
-        "function_calling",
-        "embeddings"
-      ],
-      "region": "global",
-      "notes": "Requires Google account, good Chinese support, strong multimodal",
-      "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-27T12:39:43.861329+00:00",
-      "status": "degraded",
-      "context_window": 2000000,
-      "max_output_tokens": 8192,
-      "function_calling": true,
-      "health_score": 52,
-      "models_count": 50
-    },
-    {
-      "name": "Groq",
-      "slug": "groq",
-      "tier": "permanent_free",
-      "website": "https://console.groq.com",
-      "api_base": "https://api.groq.com/openai/v1",
-      "models_endpoint": "/models",
-      "requires_key": true,
-      "requires_card": false,
-      "rate_limit": {
-        "rpm": 30,
-        "rpd": 14400,
-        "tpm": 6000
-      },
-      "models": [
-        "llama-3.3-70b-versatile",
-        "llama-3.1-8b-instant",
-        "mixtral-8x7b-32768",
-        "gemma2-9b-it"
-      ],
-      "free_models": [
-        "llama-3.3-70b-versatile",
-        "llama-3.1-8b-instant",
-        "mixtral-8x7b-32768",
-        "gemma2-9b-it"
-      ],
-      "features": [
-        "chat",
-        "function_calling"
-      ],
-      "region": "global",
-      "notes": "LPU inference at extreme speed, no credit card required",
-      "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-27T12:39:43.940524+00:00",
-      "status": "active",
-      "context_window": 8192,
-      "max_output_tokens": 8192,
-      "function_calling": true,
-      "health_score": 68,
-      "models_count": 14
-    },
-    {
-      "name": "Cerebras",
-      "slug": "cerebras",
-      "tier": "permanent_free",
-      "website": "https://cloud.cerebras.ai",
-      "api_base": "https://api.cerebras.ai/v1",
-      "models_endpoint": "/models",
-      "requires_key": true,
-      "requires_card": false,
-      "rate_limit": {
-        "rpm": 30,
-        "rpd": 14400,
-        "tpd": 1000000
-      },
-      "models": [
-        "llama3.1-8b",
-        "llama3.3-70b"
-      ],
-      "free_models": [
-        "llama3.1-8b",
-        "llama3.3-70b"
-      ],
-      "features": [
-        "chat"
-      ],
-      "region": "global",
-      "notes": "Wafer-scale hardware, 2600+ tokens/s",
-      "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-27T12:39:43.837301+00:00",
-      "status": "degraded",
-      "context_window": 8192,
-      "max_output_tokens": 8192,
-      "function_calling": false,
-      "health_score": 65,
-      "models_count": 2
-    },
-    {
-      "name": "Cloudflare Workers AI",
-      "slug": "cloudflare-workers-ai",
-      "tier": "permanent_free",
-      "website": "https://developers.cloudflare.com/workers-ai",
-      "api_base": "https://api.cloudflare.com/client/v4/accounts/{account_id}/ai",
-      "models_endpoint": "/models/search",
-      "requires_key": true,
-      "requires_card": false,
-      "rate_limit": {
-        "daily_neurons": 10000
-      },
-      "models": [
-        "@cf/meta/llama-3.1-8b-instruct",
-        "@cf/meta/llama-3.3-70b-instruct",
-        "@cf/mistral/mistral-7b-instruct-v0.1",
-        "@cf/google/gemma-7b-it"
-      ],
-      "free_models": [
-        "@cf/meta/llama-3.1-8b-instruct",
-        "@cf/meta/llama-3.3-70b-instruct",
-        "@cf/mistral/mistral-7b-instruct-v0.1",
-        "@cf/google/gemma-7b-it"
-      ],
-      "features": [
-        "chat",
-        "embeddings",
-        "vision"
-      ],
-      "region": "global",
-      "notes": "Edge deployment, 10K neurons/day free tier",
-      "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-27T12:39:43.897177+00:00",
-      "status": "down",
-      "context_window": 8192,
-      "max_output_tokens": 4096,
-      "function_calling": false,
-      "health_score": 70,
-      "models_count": 4
-    },
-    {
-      "name": "NVIDIA NIM",
-      "slug": "nvidia-nim",
-      "tier": "permanent_free",
-      "website": "https://build.nvidia.com",
-      "api_base": "https://integrate.api.nvidia.com/v1",
-      "models_endpoint": "/models",
-      "requires_key": true,
-      "requires_card": false,
-      "rate_limit": {
-        "rpm": 40
-      },
-      "models": [
-        "nvidia/nemotron-3-ultra-550b-a55b",
-        "meta/llama-3.1-405b-instruct",
-        "microsoft/phi-3.5-mini-instruct",
-        "google/gemma-2-9b-it"
-      ],
-      "free_models": [
-        "nvidia/nemotron-3-ultra-550b-a55b",
-        "meta/llama-3.1-405b-instruct",
-        "microsoft/phi-3.5-mini-instruct",
-        "google/gemma-2-9b-it"
-      ],
-      "features": [
-        "chat",
-        "vision",
-        "function_calling"
-      ],
-      "region": "global",
-      "notes": "Requires phone verification, 102+ models, GPU cluster inference",
-      "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-27T12:39:43.932601+00:00",
-      "status": "active",
-      "models_count": 84,
-      "context_window": 1000000,
-      "max_output_tokens": 4096,
-      "function_calling": true,
-      "health_score": 70
-    },
-    {
-      "name": "Mistral La Plateforme",
-      "slug": "mistral",
-      "tier": "permanent_free",
-      "website": "https://console.mistral.ai",
-      "api_base": "https://api.mistral.ai/v1",
-      "models_endpoint": "/models",
-      "requires_key": true,
-      "requires_card": false,
-      "rate_limit": {
-        "rps": 1,
-        "tpm": 500000
-      },
-      "models": [
-        "mistral-large-latest",
-        "mistral-small-latest",
-        "open-mistral-7b",
-        "open-mixtral-8x7b"
-      ],
-      "free_models": [
-        "open-mistral-7b",
-        "open-mixtral-8x7b"
-      ],
-      "features": [
-        "chat",
-        "embeddings",
-        "function_calling"
-      ],
-      "region": "eu",
-      "notes": "EU privacy standards, ~1B tokens/month free",
-      "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-27T12:39:43.984712+00:00",
-      "status": "active",
-      "context_window": 32768,
-      "max_output_tokens": 4096,
-      "function_calling": true,
-      "health_score": 70,
-      "models_count": 54
-    },
-    {
-      "name": "HuggingFace Inference",
-      "slug": "huggingface",
-      "tier": "permanent_free",
-      "website": "https://huggingface.co/inference-api",
-      "api_base": "https://router.huggingface.co/v1",
-      "models_endpoint": "/models",
-      "requires_key": true,
-      "requires_card": false,
-      "rate_limit": {
-        "monthly_credits": 0.1
-      },
-      "models": [
-        "meta-llama/Meta-Llama-3.1-70B-Instruct",
-        "mistralai/Mistral-7B-Instruct-v0.3",
-        "google/gemma-2-9b-it",
-        "Qwen/Qwen2.5-72B-Instruct"
-      ],
-      "free_models": [
-        "meta-llama/Meta-Llama-3.1-70B-Instruct",
-        "mistralai/Mistral-7B-Instruct-v0.3",
-        "google/gemma-2-9b-it",
-        "Qwen/Qwen2.5-72B-Instruct"
-      ],
-      "features": [
-        "chat",
-        "embeddings",
-        "vision",
-        "audio"
-      ],
-      "region": "global",
-      "notes": "$0.10/month credits, most aggregated models",
-      "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-27T12:39:43.966708+00:00",
-      "status": "active",
-      "context_window": 4096,
-      "max_output_tokens": 4096,
-      "function_calling": false,
-      "health_score": 65,
-      "models_count": 136
-    },
-    {
-      "name": "OpenRouter",
-      "slug": "openrouter",
-      "tier": "permanent_free",
-      "website": "https://openrouter.ai",
-      "api_base": "https://openrouter.ai/api/v1",
-      "models_endpoint": "/models",
-      "requires_key": true,
-      "requires_card": false,
-      "rate_limit": {
-        "rpm": 20,
-        "rpd": 50
-      },
-      "models": [
-        "inclusionai/ling-3.0-flash:free",
-        "poolside/laguna-s-2.1:free",
-        "cohere/north-mini-code:free",
-        "nvidia/nemotron-3-ultra-550b-a55b:free",
-        "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"
-      ],
-      "free_models": [
-        "inclusionai/ling-3.0-flash:free",
-        "poolside/laguna-s-2.1:free",
-        "cohere/north-mini-code:free",
-        "nvidia/nemotron-3-ultra-550b-a55b:free",
-        "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"
-      ],
-      "features": [
-        "chat",
-        "vision",
-        "function_calling",
-        "reasoning"
-      ],
-      "region": "global",
-      "notes": "Aggregation platform, 14 free models, 1M context (Nemotron Ultra)",
-      "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-27T12:39:43.959756+00:00",
-      "status": "active",
-      "models_count": 417,
-      "context_window": 1000000,
-      "max_output_tokens": 4096,
-      "function_calling": true,
-      "health_score": 72
-    },
-    {
-      "name": "Cohere",
-      "slug": "cohere",
-      "tier": "permanent_free",
-      "website": "https://dashboard.cohere.com",
-      "api_base": "https://api.cohere.ai/v1",
-      "models_endpoint": "/models",
-      "requires_key": true,
-      "requires_card": false,
-      "rate_limit": {
-        "rpm": 20,
-        "monthly_requests": 1000
-      },
-      "models": [
-        "command-a",
-        "command-r-plus",
-        "command-r",
-        "command-light"
-      ],
-      "free_models": [
-        "command-r",
-        "command-light"
-      ],
-      "features": [
-        "chat",
-        "embeddings",
-        "rerank"
-      ],
-      "region": "global",
-      "notes": "Strong RAG/Embedding, 1000 req/month free",
-      "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-27T12:39:44.122168+00:00",
-      "status": "active",
-      "context_window": 4096,
-      "max_output_tokens": 4096,
-      "function_calling": false,
-      "health_score": 70,
-      "models_count": 20
-    },
-    {
-      "name": "Kilo Code",
-      "slug": "kilo-code",
-      "tier": "permanent_free",
-      "website": "https://kilo.ai",
-      "api_base": "https://api.kilo.ai/api/gateway/v1",
-      "models_endpoint": "/models",
-      "requires_key": false,
-      "requires_card": false,
-      "rate_limit": {
-        "rph": 200
-      },
-      "models": [
-        "kilo-auto/free",
-        "stepfun/step-1-flash",
-        "deepseek/deepseek-chat"
-      ],
-      "free_models": [
-        "kilo-auto/free",
-        "stepfun/step-1-flash",
-        "deepseek/deepseek-chat"
-      ],
-      "features": [
-        "chat",
-        "function_calling"
-      ],
-      "region": "global",
-      "notes": "No key needed to list models, 200 req/hr per IP",
-      "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-27T12:39:44.476622+00:00",
-      "status": "active",
-      "models_count": 368,
-      "context_window": 32768,
-      "max_output_tokens": 4096,
-      "function_calling": true,
-      "health_score": 68
-    },
-    {
-      "name": "Pollinations.ai",
-      "slug": "pollinations",
-      "tier": "permanent_free",
-      "website": "https://pollinations.ai",
-      "api_base": "https://text.pollinations.ai",
-      "models_endpoint": "/models",
-      "requires_key": true,
-      "requires_card": false,
-      "rate_limit": {},
-      "models": [
-        "openai",
-        "gpt-4o",
-        "claude",
-        "gemini"
-      ],
-      "free_models": [
-        "openai"
-      ],
-      "features": [
-        "chat",
-        "image_generation"
-      ],
-      "region": "global",
-      "notes": "Completely free, no registration required, supports text-to-image",
-      "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-27T12:39:44.333630+00:00",
-      "status": "active",
-      "context_window": 4096,
-      "max_output_tokens": 4096,
-      "function_calling": false,
-      "health_score": 55,
-      "models_count": 1
-    },
-    {
-      "name": "OVHcloud AI Endpoints",
-      "slug": "ovhcloud",
-      "tier": "permanent_free",
-      "website": "https://endpoints.ai.cloud.ovh.net",
-      "api_base": "https://endpoints.ai.cloud.ovh.net/v1",
-      "models_endpoint": "/models",
-      "requires_key": true,
-      "requires_card": false,
-      "rate_limit": {
-        "rpm": 2
-      },
-      "models": [
-        "mistral-7b-instruct",
-        "llama-3.1-8b-instruct",
-        "llama-3.3-70b-instruct",
-        "mixtral-8x7b-instruct"
-      ],
-      "free_models": [
-        "mistral-7b-instruct",
-        "llama-3.1-8b-instruct",
-        "llama-3.3-70b-instruct",
-        "mixtral-8x7b-instruct"
-      ],
-      "features": [
-        "chat"
-      ],
-      "region": "eu",
-      "notes": "EU GDPR compliant, anonymous 2 RPM",
-      "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-27T12:39:44.869138+00:00",
-      "status": "degraded",
-      "context_window": 32768,
-      "max_output_tokens": 4096,
-      "function_calling": false,
-      "health_score": 46
-    },
-    {
-      "name": "LLM7.io",
-      "slug": "llm7",
-      "tier": "permanent_free",
-      "website": "https://llm7.io",
-      "api_base": "https://api.llm7.io/v1",
-      "models_endpoint": "/models",
-      "requires_key": true,
-      "requires_card": false,
-      "rate_limit": {
-        "rpm": 30
-      },
-      "models": [
-        "claude-3.5-sonnet",
-        "gpt-5",
-        "gemini-2.0",
-        "kling",
-        "seedance"
-      ],
-      "free_models": [
-        "openai",
-        "gpt-4o-mini",
-        "deepseek-chat"
-      ],
-      "features": [
-        "chat",
-        "vision",
-        "video_generation"
-      ],
-      "region": "global",
-      "notes": "Includes closed-source top models, 30 RPM (120 RPM with token). Base models free, closed-source requires token",
-      "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-27T12:39:44.635277+00:00",
-      "status": "active",
-      "models_count": 48,
-      "context_window": 128000,
-      "max_output_tokens": 4096,
-      "function_calling": true,
-      "health_score": 70
-    },
     {
       "name": "Agnes AI",
       "slug": "agnes-ai",
@@ -548,7 +40,7 @@
       "region": "global",
       "notes": "Free image/video generation, images 1K: 30/20 RPM, 2K: 20/10 RPM, 3K: 2/1 RPM, 4K: 1/1 RPM; video 2/1 RPM; no credit card required",
       "source": "https://github.com/AgnesAI-Labs/AgnesAI-Models",
-      "last_probed": "2026-08-27T12:39:44.837812+00:00",
+      "last_probed": "2026-08-27T12:34:10.772913+00:00",
       "status": "active",
       "context_window": 0,
       "max_output_tokens": 0,
@@ -592,13 +84,438 @@
       "region": "global",
       "notes": "Free text inference: 30 RPM public / 20 actual RPM; 512K context; supports tool calling, code, reasoning, multi-turn, vision; no credit card; requires Dashboard login for credits",
       "source": "https://github.com/AgnesAI-Labs/AgnesAI-Models",
-      "last_probed": "2026-08-27T12:39:46.296591+00:00",
+      "last_probed": "2026-08-27T12:34:10.976433+00:00",
       "status": "active",
       "context_window": 512000,
       "max_output_tokens": 8192,
       "function_calling": true,
       "health_score": 74,
       "models_count": 10
+    },
+    {
+      "name": "Cerebras",
+      "slug": "cerebras",
+      "tier": "permanent_free",
+      "website": "https://cloud.cerebras.ai",
+      "api_base": "https://api.cerebras.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 30,
+        "rpd": 14400,
+        "tpd": 1000000
+      },
+      "models": [
+        "llama3.1-8b",
+        "llama3.3-70b"
+      ],
+      "free_models": [
+        "llama3.1-8b",
+        "llama3.3-70b"
+      ],
+      "features": [
+        "chat"
+      ],
+      "region": "global",
+      "notes": "Wafer-scale hardware, 2600+ tokens/s",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-27T12:34:09.776626+00:00",
+      "status": "active",
+      "context_window": 8192,
+      "max_output_tokens": 8192,
+      "function_calling": false,
+      "health_score": 65,
+      "models_count": 2
+    },
+    {
+      "name": "Cloudflare Workers AI",
+      "slug": "cloudflare-workers-ai",
+      "tier": "permanent_free",
+      "website": "https://developers.cloudflare.com/workers-ai",
+      "api_base": "https://api.cloudflare.com/client/v4/accounts/{account_id}/ai",
+      "models_endpoint": "/models/search",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "daily_neurons": 10000
+      },
+      "models": [
+        "@cf/meta/llama-3.1-8b-instruct",
+        "@cf/meta/llama-3.3-70b-instruct",
+        "@cf/mistral/mistral-7b-instruct-v0.1",
+        "@cf/google/gemma-7b-it"
+      ],
+      "free_models": [
+        "@cf/meta/llama-3.1-8b-instruct",
+        "@cf/meta/llama-3.3-70b-instruct",
+        "@cf/mistral/mistral-7b-instruct-v0.1",
+        "@cf/google/gemma-7b-it"
+      ],
+      "features": [
+        "chat",
+        "embeddings",
+        "vision"
+      ],
+      "region": "global",
+      "notes": "Edge deployment, 10K neurons/day free tier",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-27T12:34:10.635284+00:00",
+      "status": "active",
+      "context_window": 8192,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 70,
+      "models_count": 4
+    },
+    {
+      "name": "Cohere",
+      "slug": "cohere",
+      "tier": "permanent_free",
+      "website": "https://dashboard.cohere.com",
+      "api_base": "https://api.cohere.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 20,
+        "monthly_requests": 1000
+      },
+      "models": [
+        "command-a",
+        "command-r-plus",
+        "command-r",
+        "command-light"
+      ],
+      "free_models": [
+        "command-r",
+        "command-light"
+      ],
+      "features": [
+        "chat",
+        "embeddings",
+        "rerank"
+      ],
+      "region": "global",
+      "notes": "Strong RAG/Embedding, 1000 req/month free",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-27T12:34:09.950962+00:00",
+      "status": "active",
+      "context_window": 4096,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 70,
+      "models_count": 20
+    },
+    {
+      "name": "DeepSeek",
+      "slug": "deepseek",
+      "tier": "trial_credit",
+      "website": "https://platform.deepseek.com",
+      "api_base": "https://api.deepseek.com/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": true,
+      "rate_limit": {},
+      "models": [
+        "deepseek-chat",
+        "deepseek-reasoner"
+      ],
+      "free_models": [
+        "deepseek-chat"
+      ],
+      "features": [
+        "chat",
+        "reasoning",
+        "function_calling"
+      ],
+      "region": "cn",
+      "notes": "Limited free tier, strong coding ability",
+      "source": "https://github.com/nejib1/Free-LLM",
+      "last_probed": "2026-08-27T12:34:11.854121+00:00",
+      "status": "active",
+      "context_window": 64000,
+      "max_output_tokens": 8192,
+      "function_calling": true,
+      "health_score": 70
+    },
+    {
+      "name": "Google AI Studio",
+      "slug": "google-ai-studio",
+      "tier": "permanent_free",
+      "website": "https://aistudio.google.com",
+      "api_base": "https://generativelanguage.googleapis.com/v1beta",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 15,
+        "rpd": 1500,
+        "tpm": 250000
+      },
+      "models": [
+        "gemini-1.5-flash",
+        "gemini-1.5-pro",
+        "gemini-2.0-flash-exp"
+      ],
+      "free_models": [
+        "gemini-1.5-flash",
+        "gemini-2.0-flash-exp"
+      ],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling",
+        "embeddings"
+      ],
+      "region": "global",
+      "notes": "Requires Google account, good Chinese support, strong multimodal",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-27T12:34:09.588970+00:00",
+      "status": "active",
+      "context_window": 2000000,
+      "max_output_tokens": 8192,
+      "function_calling": true,
+      "health_score": 52,
+      "models_count": 50
+    },
+    {
+      "name": "Groq",
+      "slug": "groq",
+      "tier": "permanent_free",
+      "website": "https://console.groq.com",
+      "api_base": "https://api.groq.com/openai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 30,
+        "rpd": 14400,
+        "tpm": 6000
+      },
+      "models": [
+        "llama-3.3-70b-versatile",
+        "llama-3.1-8b-instant",
+        "mixtral-8x7b-32768",
+        "gemma2-9b-it"
+      ],
+      "free_models": [
+        "llama-3.3-70b-versatile",
+        "llama-3.1-8b-instant",
+        "mixtral-8x7b-32768",
+        "gemma2-9b-it"
+      ],
+      "features": [
+        "chat",
+        "function_calling"
+      ],
+      "region": "global",
+      "notes": "LPU inference at extreme speed, no credit card required",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-27T12:34:09.620177+00:00",
+      "status": "active",
+      "context_window": 8192,
+      "max_output_tokens": 8192,
+      "function_calling": true,
+      "health_score": 68,
+      "models_count": 14
+    },
+    {
+      "name": "HuggingFace Inference",
+      "slug": "huggingface",
+      "tier": "permanent_free",
+      "website": "https://huggingface.co/inference-api",
+      "api_base": "https://router.huggingface.co/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "monthly_credits": 0.1
+      },
+      "models": [
+        "meta-llama/Meta-Llama-3.1-70B-Instruct",
+        "mistralai/Mistral-7B-Instruct-v0.3",
+        "google/gemma-2-9b-it",
+        "Qwen/Qwen2.5-72B-Instruct"
+      ],
+      "free_models": [
+        "meta-llama/Meta-Llama-3.1-70B-Instruct",
+        "mistralai/Mistral-7B-Instruct-v0.3",
+        "google/gemma-2-9b-it",
+        "Qwen/Qwen2.5-72B-Instruct"
+      ],
+      "features": [
+        "chat",
+        "embeddings",
+        "vision",
+        "audio"
+      ],
+      "region": "global",
+      "notes": "$0.10/month credits, most aggregated models",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-27T12:34:09.745021+00:00",
+      "status": "active",
+      "context_window": 4096,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 65,
+      "models_count": 136
+    },
+    {
+      "name": "Kilo Code",
+      "slug": "kilo-code",
+      "tier": "permanent_free",
+      "website": "https://kilo.ai",
+      "api_base": "https://api.kilo.ai/api/gateway/v1",
+      "models_endpoint": "/models",
+      "requires_key": false,
+      "requires_card": false,
+      "rate_limit": {
+        "rph": 200
+      },
+      "models": [
+        "kilo-auto/free",
+        "stepfun/step-1-flash",
+        "deepseek/deepseek-chat"
+      ],
+      "free_models": [
+        "kilo-auto/free",
+        "stepfun/step-1-flash",
+        "deepseek/deepseek-chat"
+      ],
+      "features": [
+        "chat",
+        "function_calling"
+      ],
+      "region": "global",
+      "notes": "No key needed to list models, 200 req/hr per IP",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-27T12:34:10.159758+00:00",
+      "status": "active",
+      "models_count": 368,
+      "context_window": 32768,
+      "max_output_tokens": 4096,
+      "function_calling": true,
+      "health_score": 68
+    },
+    {
+      "name": "LLM7.io",
+      "slug": "llm7",
+      "tier": "permanent_free",
+      "website": "https://llm7.io",
+      "api_base": "https://api.llm7.io/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 30
+      },
+      "models": [
+        "claude-3.5-sonnet",
+        "gpt-5",
+        "gemini-2.0",
+        "kling",
+        "seedance"
+      ],
+      "free_models": [
+        "openai",
+        "gpt-4o-mini",
+        "deepseek-chat"
+      ],
+      "features": [
+        "chat",
+        "vision",
+        "video_generation"
+      ],
+      "region": "global",
+      "notes": "Includes closed-source top models, 30 RPM (120 RPM with token). Base models free, closed-source requires token",
+      "source": "https://github.com/nejib1/Free-LLM",
+      "last_probed": "2026-08-27T12:34:11.001006+00:00",
+      "status": "active",
+      "models_count": 48,
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": true,
+      "health_score": 70
+    },
+    {
+      "name": "Mistral La Plateforme",
+      "slug": "mistral",
+      "tier": "permanent_free",
+      "website": "https://console.mistral.ai",
+      "api_base": "https://api.mistral.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rps": 1,
+        "tpm": 500000
+      },
+      "models": [
+        "mistral-large-latest",
+        "mistral-small-latest",
+        "open-mistral-7b",
+        "open-mixtral-8x7b"
+      ],
+      "free_models": [
+        "open-mistral-7b",
+        "open-mixtral-8x7b"
+      ],
+      "features": [
+        "chat",
+        "embeddings",
+        "function_calling"
+      ],
+      "region": "eu",
+      "notes": "EU privacy standards, ~1B tokens/month free",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-27T12:34:09.807799+00:00",
+      "status": "active",
+      "context_window": 32768,
+      "max_output_tokens": 4096,
+      "function_calling": true,
+      "health_score": 70,
+      "models_count": 54
+    },
+    {
+      "name": "NVIDIA NIM",
+      "slug": "nvidia-nim",
+      "tier": "permanent_free",
+      "website": "https://build.nvidia.com",
+      "api_base": "https://integrate.api.nvidia.com/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 40
+      },
+      "models": [
+        "nvidia/nemotron-3-ultra-550b-a55b",
+        "meta/llama-3.1-405b-instruct",
+        "microsoft/phi-3.5-mini-instruct",
+        "google/gemma-2-9b-it"
+      ],
+      "free_models": [
+        "nvidia/nemotron-3-ultra-550b-a55b",
+        "meta/llama-3.1-405b-instruct",
+        "microsoft/phi-3.5-mini-instruct",
+        "google/gemma-2-9b-it"
+      ],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling"
+      ],
+      "region": "global",
+      "notes": "Requires phone verification, 102+ models, GPU cluster inference",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-27T12:34:09.242797+00:00",
+      "status": "active",
+      "models_count": 84,
+      "context_window": 1000000,
+      "max_output_tokens": 4096,
+      "function_calling": true,
+      "health_score": 70
     },
     {
       "name": "Ollama Cloud",
@@ -673,45 +590,13 @@
       "region": "global",
       "notes": "Free tier provides access to Ollama's cloud-hosted models with usage limits: 1 concurrent model, session limits reset every 5 hours, weekly limits reset every 7 days. Exactly what it says on the pricing page: https://ollama.com/pricing.",
       "source": "https://ollama.com/pricing",
-      "last_probed": "2026-08-27T12:39:44.595697+00:00",
+      "last_probed": "2026-08-27T12:34:10.749207+00:00",
       "status": "active",
       "context_window": 128000,
       "max_output_tokens": 4096,
       "function_calling": true,
       "health_score": 70,
       "models_count": 18
-    },
-    {
-      "name": "DeepSeek",
-      "slug": "deepseek",
-      "tier": "trial_credit",
-      "website": "https://platform.deepseek.com",
-      "api_base": "https://api.deepseek.com/v1",
-      "models_endpoint": "/models",
-      "requires_key": true,
-      "requires_card": true,
-      "rate_limit": {},
-      "models": [
-        "deepseek-chat",
-        "deepseek-reasoner"
-      ],
-      "free_models": [
-        "deepseek-chat"
-      ],
-      "features": [
-        "chat",
-        "reasoning",
-        "function_calling"
-      ],
-      "region": "cn",
-      "notes": "Limited free tier, strong coding ability",
-      "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-27T12:39:44.978054+00:00",
-      "status": "active",
-      "context_window": 64000,
-      "max_output_tokens": 8192,
-      "function_calling": true,
-      "health_score": 70
     },
     {
       "name": "OpenCode Zen",
@@ -758,13 +643,128 @@
       "region": "global",
       "notes": "OpenCode Zen free tier: 100 req/day, no credit card, OpenAI-compatible. Free models limited time, data collected for improvement. Auth: `opencode auth login --provider zen`. Endpoint: https://opencode.ai/zen/v1/chat/completions",
       "source": "https://opencode.ai/docs/zen/",
-      "last_probed": "2026-08-27T12:39:44.686629+00:00",
+      "last_probed": "2026-08-27T12:34:11.173644+00:00",
       "status": "active",
       "context_window": 128000,
       "max_output_tokens": 4096,
       "function_calling": false,
       "health_score": 75,
       "models_count": 63
+    },
+    {
+      "name": "OpenRouter",
+      "slug": "openrouter",
+      "tier": "permanent_free",
+      "website": "https://openrouter.ai",
+      "api_base": "https://openrouter.ai/api/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 20,
+        "rpd": 50
+      },
+      "models": [
+        "inclusionai/ling-3.0-flash:free",
+        "poolside/laguna-s-2.1:free",
+        "cohere/north-mini-code:free",
+        "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"
+      ],
+      "free_models": [
+        "inclusionai/ling-3.0-flash:free",
+        "poolside/laguna-s-2.1:free",
+        "cohere/north-mini-code:free",
+        "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"
+      ],
+      "features": [
+        "chat",
+        "vision",
+        "function_calling",
+        "reasoning"
+      ],
+      "region": "global",
+      "notes": "Aggregation platform, 14 free models, 1M context (Nemotron Ultra)",
+      "source": "https://github.com/cheahjs/free-llm-api-resources",
+      "last_probed": "2026-08-27T12:34:10.059512+00:00",
+      "status": "active",
+      "models_count": 417,
+      "context_window": 1000000,
+      "max_output_tokens": 4096,
+      "function_calling": true,
+      "health_score": 72
+    },
+    {
+      "name": "OVHcloud AI Endpoints",
+      "slug": "ovhcloud",
+      "tier": "permanent_free",
+      "website": "https://endpoints.ai.cloud.ovh.net",
+      "api_base": "https://endpoints.ai.cloud.ovh.net/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 2
+      },
+      "models": [
+        "mistral-7b-instruct",
+        "llama-3.1-8b-instruct",
+        "llama-3.3-70b-instruct",
+        "mixtral-8x7b-instruct"
+      ],
+      "free_models": [
+        "mistral-7b-instruct",
+        "llama-3.1-8b-instruct",
+        "llama-3.3-70b-instruct",
+        "mixtral-8x7b-instruct"
+      ],
+      "features": [
+        "chat"
+      ],
+      "region": "eu",
+      "notes": "EU GDPR compliant, anonymous 2 RPM",
+      "source": "https://github.com/nejib1/Free-LLM",
+      "last_probed": "2026-08-27T12:34:11.434229+00:00",
+      "status": "degraded",
+      "context_window": 32768,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 46
+    },
+    {
+      "name": "Pollinations.ai",
+      "slug": "pollinations",
+      "tier": "permanent_free",
+      "website": "https://pollinations.ai",
+      "api_base": "https://text.pollinations.ai",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "openai",
+        "gpt-4o",
+        "claude",
+        "gemini"
+      ],
+      "free_models": [
+        "openai"
+      ],
+      "features": [
+        "chat",
+        "image_generation"
+      ],
+      "region": "global",
+      "notes": "Completely free, no registration required, supports text-to-image",
+      "source": "https://github.com/nejib1/Free-LLM",
+      "last_probed": "2026-08-27T12:34:10.310582+00:00",
+      "status": "active",
+      "context_window": 4096,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 55,
+      "models_count": 1
     },
     {
       "name": "Z.AI (Zhipu AI)",
@@ -798,7 +798,7 @@
       "region": "global",
       "notes": "Permanent free models, no credit card required. Phone verification required. 1 concurrent request, 200K context window.",
       "source": "https://z.ai/",
-      "last_probed": "2026-08-27T12:39:45.167147+00:00",
+      "last_probed": "2026-08-27T12:34:12.488496+00:00",
       "status": "active",
       "context_window": 200000,
       "max_output_tokens": 8192,

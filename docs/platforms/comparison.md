@@ -9,12 +9,12 @@
 | OpenCode Zen | ✅ | 75 | 0 | 0 | 128000 | 4096 | chat, function_calling | global |
 | Z.AI (Zhipu AI) | ✅ | 75 | 0 | 0 | 200000 | 8192 | chat, function_calling, vision, streaming | global |
 | OpenRouter | ✅ | 72 | 20 | 0 | 1000000 | 4096 | chat, vision, function_calling, reasoning | global |
+| Agnes AI | ✅ | 70 | 30 | 500000 | 0 | 0 | image_generation, video_generation, image_editing | global |
 | Cloudflare Workers AI | ✅ | 70 | 0 | 10000 | 8192 | 4096 | chat, embeddings, vision | global |
-| NVIDIA NIM | ✅ | 70 | 40 | 0 | 1000000 | 4096 | chat, vision, function_calling | global |
-| Mistral La Plateforme | ✅ | 70 | 60 | 500000 | 32768 | 4096 | chat, embeddings, function_calling | eu |
 | Cohere | ✅ | 70 | 20 | 0 | 4096 | 4096 | chat, embeddings, rerank | global |
 | LLM7.io | ✅ | 70 | 30 | 0 | 128000 | 4096 | chat, vision, video_generation | global |
-| Agnes AI | ✅ | 70 | 30 | 500000 | 0 | 0 | image_generation, video_generation, image_editing | global |
+| Mistral La Plateforme | ✅ | 70 | 60 | 500000 | 32768 | 4096 | chat, embeddings, function_calling | eu |
+| NVIDIA NIM | ✅ | 70 | 40 | 0 | 1000000 | 4096 | chat, vision, function_calling | global |
 | Ollama Cloud | ✅ | 70 | 0 | 0 | 128000 | 4096 | chat, function_calling, multimodal, vision, streaming | global |
 | Groq | ✅ | 68 | 30 | 6000 | 8192 | 8192 | chat, function_calling | global |
 | Kilo Code | ✅ | 68 | 0 | 0 | 32768 | 4096 | chat, function_calling | global |
