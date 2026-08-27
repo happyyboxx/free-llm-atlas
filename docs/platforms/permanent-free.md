@@ -24,6 +24,8 @@ Deep comparison of 17+ no-credit-card, long-term free tier platforms.
 | **LLM7.io** | 30 | - | - | 200K | ✅ | ✅ | Global | Includes Claude/GPT-5 |
 | **Z.AI** | Concurrency | - | - | 200K | ✅ | ✅ | China | Domestic permanent free |
 | **Coze** | Unlimited | - | - | 128K | ✅ | ✅ | China | Bot/Workflow free |
+| **OpenCode Zen** | 100/day | 100/day | - | 128K | ❌ | ✅ | Global | Nemotron/DeepSeek/MiMo free |
+| **Ollama Cloud** | Session/weekly | - | - | 128K | ✅ | ✅ | Global | 20 models, 1 concurrent |
 
 ---
 
@@ -32,12 +34,13 @@ Deep comparison of 17+ no-credit-card, long-term free tier platforms.
 | Dimension | 1st | 2nd | 3rd |
 |---|---|---|---|
 | **Inference Speed** | Groq (LPU) | Cerebras | NVIDIA NIM |
-| **Context Length** | NVIDIA NIM (1M) | Google (2M) | Retired (128K) |
+| **Context Length** | NVIDIA NIM (1M) | Google (2M) | Ollama Cloud (128K) |
 | **Chinese Support** | Z.AI (GLM) | Google | SiliconFlow* |
-| **Model Variety** | HuggingFace | OpenRouter | Retired |
+| **Model Variety** | HuggingFace | OpenRouter | LLM7.io |
 | **Zero Barrier (No Key)** | Pollinations.ai | Kilo Code | - |
 | **Privacy/Compliance (EU)** | Mistral | OVHcloud | Scaleway* |
 | **Function Calling** | NVIDIA NIM | OpenRouter | Google |
+| **Free Models Variety** | OpenCode Zen | Ollama Cloud | OpenRouter |
 
 *Trial credit tier
 
@@ -61,7 +64,13 @@ Deep comparison of 17+ no-credit-card, long-term free tier platforms.
 → **Mistral** (French enterprise) → **OVHcloud** (anonymous 2 RPM)
 
 ### Want closed-source top models (GPT-5, Claude, o4-mini)
-→ **Retired** (was free tier) → **LLM7.io** (requires key)
+→ **GitHub Models** (was free tier) → **LLM7.io** (requires key)
+
+### Need free reasoning models / Nemotron variants
+→ **OpenCode Zen** (Nemotron 3 Ultra/Super/Lightning free) → **OpenRouter** (Nemotron Ultra free)
+
+### Want cloud-hosted local-style models
+→ **Ollama Cloud** (20 models, 1 concurrent, free tier)
 
 ---
 

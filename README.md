@@ -1,16 +1,16 @@
 # free-llm-atlas
 
-> **17 free LLM API providers, auto-probed daily. Structured JSON + gateway configs. Zero cost to production.**
+> **19 free LLM API providers, auto-probed daily. Structured JSON + gateway configs. Zero cost to production.**
 
 [![GitHub Stars](https://img.shields.io/github/stars/happyyboxx/free-llm-atlas?style=flat-square)](https://github.com/happyyboxx/free-llm-atlas/stargazers)
 [![Star History](https://api.star-history.com/svg?repos=happyyboxx/free-llm-atlas&type=Date&theme=dark)](https://star-history.com/#happyyboxx/free-llm-atlas&Date)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![Automated Probe](https://img.shields.io/github/actions/workflow/status/happyyboxx/free-llm-atlas/probe.yml?label=Daily%20Probe&style=flat-square)](https://github.com/happyyboxx/free-llm-atlas/actions/workflows/probe.yml)
-[![Providers](https://img.shields.io/badge/Providers-17-blue?style=flat-square)](data/providers.json)
-[![Free Forever](https://img.shields.io/badge/Free%20Forever-17%20no%20card-success?style=flat-square)](docs/platforms/permanent-free.md)
+[![Providers](https://img.shields.io/badge/Providers-19-blue?style=flat-square)](data/providers.json)
+[![Free Forever](https://img.shields.io/badge/Free%20Forever-19%20no%20card-success?style=flat-square)](docs/platforms/permanent-free.md)
 [![Last Probe](https://img.shields.io/github/last-commit/happyyboxx/free-llm-atlas?label=Last%20Probe&style=flat-square)](https://github.com/happyyboxx/free-llm-atlas/commits/main/data/providers.json)
 [![Data Freshness](https://img.shields.io/badge/Probe%20Schedule-Daily%2006%3A00%20UTC-orange?style=flat-square)](https://github.com/happyyboxx/free-llm-atlas/actions/workflows/probe.yml)
-[![Coverage](https://img.shields.io/badge/Coverage-17%2F17%20providers-brightgreen?style=flat-square)](data/providers.json)
+[![Coverage](https://img.shields.io/badge/Coverage-19%2F19%20providers-brightgreen?style=flat-square)](data/providers.json)
 
 ---
 
@@ -47,10 +47,10 @@ Every "free LLM API" list is **stale within a week**. Providers change limits, d
 
 | Feature | How |
 |---|---|
-| **Daily auto-probe** | GitHub Actions hits all 46 providers every day at 06:00 UTC |
+| **Daily auto-probe** | GitHub Actions hits all **48** providers every day at 06:00 UTC |
 | **Structured data** | `providers.json` — machine-readable, not a markdown table |
 | **Gateway configs** | Auto-generated Hermes / LiteLLM / Portkey / Open WebUI YAML from probe results |
-| **No-card filter** | 17 providers need zero credit card — clearly tagged |
+| **No-card filter** | **19** providers need zero credit card — clearly tagged |
 | **Live status** | Git history = uptime dashboard. See which provider degraded when. |
 | **Hidden limits exposed** | TPM, RPM, concurrent requests — the real bottlenecks |
 
@@ -77,10 +77,10 @@ Every "free LLM API" list is **stale within a week**. Providers change limits, d
 
 | Category | Count | Best For | Top Providers |
 |---|---|---|---|
-| **Permanent Free (no card)** | 17 | Production fallback chain | Google (Gemini 2M ctx), Groq (300+ tok/s), NIM (102 models), Cloudflare, Cohere |
-| **Trial Credits** | 2 | Prototyping / evaluation | Agnes AI (text), DeepSeek |
-| **Local Inference** | 0 | Privacy / offline / air-gapped | See [Local Inference](docs/platforms/local-inference.md) |
-| **Tested Endpoints** | 17 | All confirmed working | ✅ 11 active / ⚠️ 4 degraded / ❌ 1 down / ❓ 1 unknown |
+| **Permanent Free (no card)** | **19** | Production fallback chain | Google (Gemini 2M ctx), Groq (300+ tok/s), NIM (102 models), Cloudflare, Cohere, OpenCode Zen, Ollama Cloud |
+| **Trial Credits** | **2** | Prototyping / evaluation | Agnes AI (text), DeepSeek |
+| **Local Inference** | **0** | Privacy / offline / air-gapped | See [Local Inference](docs/platforms/local-inference.md) |
+| **Tested Endpoints** | **21** | All confirmed working | ✅ 15 active / ⚠️ 4 degraded / ❌ 1 down / ❓ 1 unknown |
 
 ### Zero-Cost Production Stack
 
@@ -194,6 +194,8 @@ Aggregates and validates data from:
 | [tashfeenahmed/freellmapi](https://github.com/tashfeenahmed/freellmapi) | 17K+ | Runnable proxy tool |
 | [mnfst/awesome-free-llm-apis](https://github.com/mnfst/awesome-free-llm-apis) | 6K+ | Strictly permanent free |
 | [nejib1/Free-LLM](https://github.com/nejib1/Free-LLM) | 100+ | 43+ provider tracker |
+| [opencode-ai/opencode](https://github.com/opencode-ai/opencode) | 15K+ | OpenCode Zen free models |
+| [ollama/ollama](https://github.com/ollama/ollama) | 100K+ | Ollama Cloud free tier |
 
 ---
 

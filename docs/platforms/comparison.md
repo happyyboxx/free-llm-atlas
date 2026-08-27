@@ -1,26 +1,27 @@
 # Provider Comparison Table (Auto-generated)
 
-> Last updated: 2026-08-24T23:23:54.395281+00:00
+> Last updated: 2026-08-27T07:17:12.186659+00:00
 
 ## Permanent Free Tier (No Card Required)
 
 | Provider | Status | Health | RPM | TPM | Context | Max Output | Features | Region |
 |---|---|---|---|---|---|---|---|---|
+| OpenCode Zen | ✅ | 75 | 0 | 0 | 128000 | 4096 | chat, function_calling | global |
 | OpenRouter | ✅ | 72 | 20 | 0 | 1000000 | 4096 | chat, vision, function_calling, reasoning | global |
-| Cloudflare Workers AI | ✅ | 70 | 0 | 10000 | 8192 | 4096 | chat, embeddings, vision | global |
+| Cloudflare Workers AI | ❌ | 70 | 0 | 10000 | 8192 | 4096 | chat, embeddings, vision | global |
 | NVIDIA NIM | ✅ | 70 | 40 | 0 | 1000000 | 4096 | chat, vision, function_calling | global |
 | Mistral La Plateforme | ✅ | 70 | 60 | 500000 | 32768 | 4096 | chat, embeddings, function_calling | eu |
 | Cohere | ✅ | 70 | 20 | 0 | 4096 | 4096 | chat, embeddings, rerank | global |
 | LLM7.io | ✅ | 70 | 30 | 0 | 128000 | 4096 | chat, vision, video_generation | global |
 | Agnes AI | ✅ | 70 | 30 | 500000 | 0 | 0 | image_generation, video_generation, image_editing | global |
+| Ollama Cloud | ✅ | 70 | 0 | 0 | 128000 | 4096 | chat, function_calling, multimodal, vision, streaming | global |
 | Groq | ✅ | 68 | 30 | 6000 | 8192 | 8192 | chat, function_calling | global |
 | Kilo Code | ✅ | 68 | 0 | 0 | 32768 | 4096 | chat, function_calling | global |
+| Cerebras | ⚠️ | 65 | 30 | 0 | 8192 | 8192 | chat | global |
+| HuggingFace Inference | ✅ | 65 | 0 | 0 | 4096 | 4096 | chat, embeddings, vision, audio | global |
+| Pollinations.ai | ✅ | 55 | 0 | 0 | 4096 | 4096 | chat, image_generation | global |
 | Google AI Studio | ⚠️ | 52 | 15 | 250000 | 2000000 | 8192 | chat, vision, function_calling, embeddings | global |
-| Cerebras | ⚠️ | 46 | 30 | 0 | 8192 | 8192 | chat | global |
 | OVHcloud AI Endpoints | ⚠️ | 46 | 2 | 0 | 32768 | 4096 | chat | eu |
-| HuggingFace Inference | ❓ | 42 | 0 | 0 | 4096 | 4096 | chat, embeddings, vision, audio | global |
-| Pollinations.ai | ❓ | 38 | 0 | 0 | 4096 | 4096 | chat, image_generation | global |
-| GitHub Models | 🏴‍☠️ Retired (2026-07-30) | N/A | N/A | N/A | N/A | N/A | N/A | Use Azure AI Foundry |
 
 ## Trial Credit Providers
 
@@ -42,6 +43,8 @@
 | **No Key / Zero Config** | Pollinations.ai / Kilo Code | Anonymous access |
 | **Image/Video Generation** | Agnes AI | Free image & video generation |
 | **Chinese Language** | LLM7.io / DeepSeek | Optimized for Chinese |
+| **Free Reasoning Models** | OpenCode Zen | Nemotron 3 Ultra/Super/Lightning free |
+| **Cloud-hosted Local Models** | Ollama Cloud | 20 models, free tier |
 
 ---
 

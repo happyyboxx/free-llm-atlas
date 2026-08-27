@@ -31,6 +31,8 @@ Choose the best free LLM provider for your needs with this decision tree.
 | **Embeddings / RAG** | **Cohere** / **Google** | HuggingFace / Mistral |
 | **EU GDPR Compliance** | **Mistral** (French enterprise) | OVHcloud (anonymous) |
 | **Most model variety** | **HuggingFace** (129+) | OpenRouter (aggregator) |
+| **Free Nemotron / reasoning models** | **OpenCode Zen** (Nemotron 3 Ultra/Super/Lightning free) | OpenRouter (Nemotron Ultra free) |
+| **Cloud-hosted local-style models** | **Ollama Cloud** (20 models, 1 concurrent) | Local Ollama |
 
 *Requires key or has quota limits
 
@@ -40,7 +42,7 @@ Choose the best free LLM provider for your needs with this decision tree.
 Permanent Free Tier Primary Chain:
 Groq (speed) → Google (multimodal/Chinese) → NVIDIA NIM (reasoning/long context)
     → OpenRouter (aggregation/fallback) → Cohere (embeddings) → Mistral (EU compliance)
-    → Kilo Code (no key) → Pollinations (zero barrier)
+    → OpenCode Zen (Nemotron free) → Kilo Code (no key) → Pollinations (zero barrier)
 ```
 
 ---
@@ -53,6 +55,8 @@ Groq (speed) → Google (multimodal/Chinese) → NVIDIA NIM (reasoning/long cont
 2. Kilo Code (no key, more models)
 3. Google AI Studio (1500 RPD free, Gemini 2.0 Flash)
 4. Groq (14400 RPD free, blazing fast)
+5. OpenCode Zen (100 req/day, Nemotron/DeepSeek free)
+6. Ollama Cloud (1 concurrent, 20 models free)
 ```
 
 ### Scenario B: Chinese Application, Domestic Deployment, Low Latency
@@ -79,6 +83,7 @@ Groq (speed) → Google (multimodal/Chinese) → NVIDIA NIM (reasoning/long cont
 3. Google AI Studio (Gemini 2.0 Function Calling)
 4. Groq (Llama 3.3 Function Calling)
 5. Mistral (Native Function Calling support)
+6. OpenCode Zen (Nemotron 3 Ultra/Super/Lightning free)
 ```
 
 ### Scenario E: Enterprise Compliance / EU Data Residency / GDPR
@@ -94,6 +99,13 @@ Groq (speed) → Google (multimodal/Chinese) → NVIDIA NIM (reasoning/long cont
 2. LM Studio (GUI friendly)
 3. Jan.ai (open source, full features: RAG/Embedding/Function Calling)
 4. llama.cpp (core engine, extreme performance)
+```
+
+### Scenario G: Want Free Cloud Models from Ollama
+```
+1. Ollama Cloud (20 models, 1 concurrent, free tier)
+2. OpenCode Zen (free Nemotron models)
+3. OpenRouter (14 free models, includes Nemotron Ultra)
 ```
 
 ---
