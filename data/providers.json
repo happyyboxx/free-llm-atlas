@@ -765,6 +765,46 @@
       "function_calling": false,
       "health_score": 75,
       "models_count": 63
+    },
+    {
+      "name": "Z.AI (Zhipu AI)",
+      "slug": "z-ai",
+      "tier": "permanent_free",
+      "website": "https://z.ai/",
+      "api_base": "https://open.bigmodel.cn/api/paas/v4/",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "concurrent": 1,
+        "notes": "Free tier: 1 concurrent request, session-based limits"
+      },
+      "models": [
+        "glm-4.5-flash",
+        "glm-4.6-flash",
+        "glm-4.7-flash"
+      ],
+      "free_models": [
+        "glm-4.5-flash",
+        "glm-4.6-flash",
+        "glm-4.7-flash"
+      ],
+      "features": [
+        "chat",
+        "function_calling",
+        "vision",
+        "streaming"
+      ],
+      "region": "global",
+      "notes": "Permanent free models, no credit card required. Phone verification required. 1 concurrent request, 200K context window.",
+      "source": "https://z.ai/",
+      "last_probed": "2026-08-27T07:17:12.186659+00:00",
+      "status": "active",
+      "context_window": 200000,
+      "max_output_tokens": 8192,
+      "function_calling": true,
+      "health_score": 75,
+      "models_count": 3
     }
   ]
 }
