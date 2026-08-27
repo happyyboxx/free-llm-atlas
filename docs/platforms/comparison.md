@@ -1,14 +1,15 @@
 # Provider Comparison Table (Auto-generated)
 
-> Last updated: 2026-08-27T07:17:12.186659+00:00
+> Last updated: 2026-08-27T12:34:12.488615+00:00
 
 ## Permanent Free Tier (No Card Required)
 
 | Provider | Status | Health | RPM | TPM | Context | Max Output | Features | Region |
 |---|---|---|---|---|---|---|---|---|
 | OpenCode Zen | ✅ | 75 | 0 | 0 | 128000 | 4096 | chat, function_calling | global |
+| Z.AI (Zhipu AI) | ✅ | 75 | 0 | 0 | 200000 | 8192 | chat, function_calling, vision, streaming | global |
 | OpenRouter | ✅ | 72 | 20 | 0 | 1000000 | 4096 | chat, vision, function_calling, reasoning | global |
-| Cloudflare Workers AI | ❌ | 70 | 0 | 10000 | 8192 | 4096 | chat, embeddings, vision | global |
+| Cloudflare Workers AI | ✅ | 70 | 0 | 10000 | 8192 | 4096 | chat, embeddings, vision | global |
 | NVIDIA NIM | ✅ | 70 | 40 | 0 | 1000000 | 4096 | chat, vision, function_calling | global |
 | Mistral La Plateforme | ✅ | 70 | 60 | 500000 | 32768 | 4096 | chat, embeddings, function_calling | eu |
 | Cohere | ✅ | 70 | 20 | 0 | 4096 | 4096 | chat, embeddings, rerank | global |
@@ -17,10 +18,10 @@
 | Ollama Cloud | ✅ | 70 | 0 | 0 | 128000 | 4096 | chat, function_calling, multimodal, vision, streaming | global |
 | Groq | ✅ | 68 | 30 | 6000 | 8192 | 8192 | chat, function_calling | global |
 | Kilo Code | ✅ | 68 | 0 | 0 | 32768 | 4096 | chat, function_calling | global |
-| Cerebras | ⚠️ | 65 | 30 | 0 | 8192 | 8192 | chat | global |
+| Cerebras | ✅ | 65 | 30 | 0 | 8192 | 8192 | chat | global |
 | HuggingFace Inference | ✅ | 65 | 0 | 0 | 4096 | 4096 | chat, embeddings, vision, audio | global |
 | Pollinations.ai | ✅ | 55 | 0 | 0 | 4096 | 4096 | chat, image_generation | global |
-| Google AI Studio | ⚠️ | 52 | 15 | 250000 | 2000000 | 8192 | chat, vision, function_calling, embeddings | global |
+| Google AI Studio | ✅ | 52 | 15 | 250000 | 2000000 | 8192 | chat, vision, function_calling, embeddings | global |
 | OVHcloud AI Endpoints | ⚠️ | 46 | 2 | 0 | 32768 | 4096 | chat | eu |
 
 ## Trial Credit Providers
@@ -43,8 +44,6 @@
 | **No Key / Zero Config** | Pollinations.ai / Kilo Code | Anonymous access |
 | **Image/Video Generation** | Agnes AI | Free image & video generation |
 | **Chinese Language** | LLM7.io / DeepSeek | Optimized for Chinese |
-| **Free Reasoning Models** | OpenCode Zen | Nemotron 3 Ultra/Super/Lightning free |
-| **Cloud-hosted Local Models** | Ollama Cloud | 20 models, free tier |
 
 ---
 
