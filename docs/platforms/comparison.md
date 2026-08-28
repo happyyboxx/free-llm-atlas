@@ -1,6 +1,6 @@
 # Provider Comparison Table (Auto-generated)
 
-> Last updated: 2026-08-27T12:34:12.488615+00:00
+> Last updated: 2026-08-27T13:01:30.350257+00:00
 
 ## Permanent Free Tier (No Card Required)
 
