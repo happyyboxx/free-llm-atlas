@@ -195,8 +195,8 @@ class Particle {
     this.y = Math.random() * canvas.height;
     this.vx = (Math.random() - 0.5) * 0.2;
     this.vy = (Math.random() - 0.5) * 0.2;
-    this.radius = Math.random() * 1.2 + 0.3;
-    this.opacity = Math.random() * 0.4 + 0.1;
+    this.radius = Math.random() * 1.5 + 0.5; // Slightly larger for desktop visibility
+    this.opacity = Math.random() * 0.6 + 0.2; // Higher base opacity
     this.color = currentTheme === 'dark' 
       ? (Math.random() > 0.5 ? '#00ff88' : '#00d4ff')
       : (Math.random() > 0.5 ? '#00b368' : '#0090cc');
@@ -231,8 +231,9 @@ class Particle {
 }
 
 function initParticles() {
-  const density = Math.min(0.0003, Math.max(0.0001, window.innerWidth * window.innerHeight / 10000000));
-  const count = Math.max(20, Math.min(60, Math.floor(canvas.width * canvas.height * density)));
+  // Dynamic particle count based on screen size
+  const density = Math.min(0.0005, Math.max(0.0002, window.innerWidth * window.innerHeight / 10000000));
+  const count = Math.max(30, Math.min(100, Math.floor(canvas.width * canvas.height * density)));
   particles = Array.from({ length: count }, () => new Particle());
 }
 
