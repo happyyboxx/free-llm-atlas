@@ -109,9 +109,7 @@
     "speed_test_desc": "Test real-time latency to provider endpoints from your location.",
     "speed_test_run": "Run Test",
     "speed_test_latency": "Latency (ms)",
-    "speed_test_status": "Status",
-    "bookmark_title": "My Bookmarks",
-    "bookmark_empty": "No bookmarks yet. Click the star on a provider card to save it."
+    "speed_test_status": "Status"
   },
   "zh": {
     "site_title": "免费LLM图谱 | 零成本AI基础设施",
@@ -223,8 +221,6 @@
     "speed_test_desc": "从您的位置测试到提供商端点的实时延迟。",
     "speed_test_run": "运行测试",
     "speed_test_latency": "延迟(ms)",
-    "speed_test_status": "状态",
-    "bookmark_title": "我的收藏",
-    "bookmark_empty": "暂无收藏。点击提供商卡片上的星标来保存。"
+    "speed_test_status": "状态"
   }
 }

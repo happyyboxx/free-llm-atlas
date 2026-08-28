@@ -1330,76 +1330,6 @@ footer {
   animation: fadeIn 0.3s ease;
 }
 
-/* ===== Bookmark Section ===== */
-.bookmark-section {
-  background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg) 100%);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.bookmark-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.25rem;
-}
-
-.bookmark-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.25rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-  transition: all var(--transition);
-}
-
-.bookmark-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 255, 136, 0.1);
-}
-
-.bookmark-info {
-  flex: 1;
-  min-width: 0;
-}
-
-.bookmark-name {
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-}
-
-.bookmark-meta {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  font-size: 0.75rem;
-  color: var(--muted);
-}
-
-.bookmark-remove {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  color: var(--muted);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all var(--transition-fast);
-  flex-shrink: 0;
-}
-
-.bookmark-remove:hover {
-  border-color: var(--danger);
-  color: var(--danger);
-  background: rgba(255, 51, 102, 0.1);
-}
-
 /* ===== Speed Test Section ===== */
 .speed-section {
   text-align: center;
@@ -1523,37 +1453,6 @@ footer {
 
 .feature-filter-btn.active {
   background: rgba(0, 255, 136, 0.15);
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-/* Provider card bookmark button */
-.provider-bookmark {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  color: var(--muted);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all var(--transition-fast);
-  z-index: 5;
-}
-
-.provider-bookmark:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: rgba(0, 255, 136, 0.1);
-}
-
-.provider-bookmark.saved {
-  background: rgba(0, 255, 136, 0.2);
   border-color: var(--accent);
   color: var(--accent);
 }

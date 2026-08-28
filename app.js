@@ -647,7 +647,6 @@ async function init() {
         
         // ===== Comparison Logic =====
         let selectedProviders = new Set();
-        let bookmarks = new Set(JSON.parse(localStorage.getItem('bookmarks') || '[]'));
         
         function updateCompareSelect() {
           if (!providersData) return;
@@ -937,80 +936,6 @@ async function init() {
         document.getElementById('share-export-json').addEventListener('click', exportToJSON);
         document.getElementById('share-export-md').addEventListener('click', exportToMarkdown);
         
-        // ===== Bookmarks =====
-        function toggleBookmark(slug) {
-          if (bookmarks.has(slug)) {
-            bookmarks.delete(slug);
-          } else {
-            bookmarks.add(slug);
-          }
-          localStorage.setItem('bookmarks', JSON.stringify([...bookmarks]));
-          renderBookmarks();
-          showToast(bookmarks.has(slug) ? t('toast_added') : t('toast_removed'), 'success');
-        }
-        
-        function renderBookmarks() {
-          const grid = document.getElementById('bookmark-grid');
-          grid.innerHTML = '';
-          
-          if (bookmarks.size === 0) {
-            grid.innerHTML = `<p style="color:var(--muted);text-align:center;grid-column:1/-1;padding:2rem;">${t('bookmark_empty')}</p>`;
-            return;
-          }
-          
-          bookmarks.forEach(slug => {
-            const p = providersData.providers.find(x => x.slug === slug);
-            if (!p) return;
-            
-            const card = document.createElement('div');
-            card.className = 'bookmark-card';
-            card.innerHTML = `
-              <div class="bookmark-info">
-                <div class="bookmark-name">${escapeHtml(p.name)}</div>
-                <div class="bookmark-meta">
-                  <span>${p.models_count || 0} models</span>
-                  <span>${p.health_score || '—'}/100 health</span>
-                  <span>${p.status || 'unknown'}</span>
-                </div>
-              </div>
-              <button class="bookmark-remove" data-slug="${p.slug}" title="Remove bookmark">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M18 6L6 18M6 6l12 12"/>
-                </svg>
-              </button>
-            `;
-            
-            grid.appendChild(card);
-          });
-          
-          // Add remove listeners
-          grid.querySelectorAll('.bookmark-remove').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-              const slug = e.currentTarget.getAttribute('data-slug');
-              toggleBookmark(slug);
-            });
-          });
-        }
-        
-        // Add bookmark button to provider cards
-        function addBookmarkButtons() {
-          document.querySelectorAll('.provider-card').forEach(card => {
-            const slug = card.dataset.slug;
-            const existing = card.querySelector('.provider-bookmark');
-            if (!existing) {
-              const btn = document.createElement('button');
-              btn.className = 'provider-bookmark' + (bookmarks.has(slug) ? ' saved' : '');
-              btn.innerHTML = bookmarks.has(slug) ? '★' : '☆';
-              btn.title = bookmarks.has(slug) ? 'Remove bookmark' : 'Add to bookmarks';
-              btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                toggleBookmark(slug);
-              });
-              card.appendChild(btn);
-            }
-          });
-        }
-        
         // ===== Speed Test =====
         function runSpeedTest() {
           if (!providersData) return;
@@ -1116,12 +1041,6 @@ async function init() {
         // ===== Initialize all features after data load =====
         async function initAllFeatures() {
           if (!providersData) return;
-          
-          // Add bookmark buttons to provider cards
-          addBookmarkButtons();
-          
-          // Render bookmarks
-          renderBookmarks();
           
           // Initialize calculator
           calculateCosts();
