@@ -1,6 +1,6 @@
 # Platforms Overview (Auto-generated)
 
-> Last updated: 2026-08-27T13:01:30.350257+00:00
+> Last updated: 2026-08-27T17:11:06.761151+00:00
 
 | Platform | Tier | Requires Key | Requires Card | Region | Status |
 |---|---|---|---|---|---|
