@@ -543,22 +543,32 @@ async function init() {
   
   // Apply language
   document.documentElement.lang = currentLang;
-  applyI18n();
+    applyI18n();
   
-  resizeCanvas();
-  if (!reducedMotion) { 
-    initParticles(); 
-    animationFrameId = requestAnimationFrame(animate); 
-  }
+    resizeCanvas();
+    if (!reducedMotion) { 
+      initParticles(); 
+      animationFrameId = requestAnimationFrame(animate); 
+    }
 
-  const data = await fetchProviders();
-  if (data) {
-    renderProviders(data.providers);
-    document.getElementById('last-probe').textContent = data.updated
-      ? new Date(data.updated).toLocaleString()
-      : '—';
-    document.getElementById('data-version').textContent = data.version || '1.0';
-  }
+    const data = await fetchProviders();
+    if (data) {
+      renderProviders(data.providers);
+      document.getElementById('last-probe').textContent = data.updated
+          ? new Date(data.updated).toLocaleString()
+          : '—';
+      document.getElementById('data-version').textContent = data.version || '1.0';
+    
+      // Initialize comparison feature after providers are loaded
+      updateCompareSelect();
+      document.getElementById('compare-select').addEventListener('change', (e) => {
+        const slug = e.target.value;
+        if (slug && !selectedProviders.has(slug)) {
+          addToCompare(slug);
+          e.target.value = ''; // Reset select
+        }
+      });
+    }
 
   // Filter listeners with debounce
   const debounce = (func, delay) => {
@@ -706,17 +716,5 @@ async function init() {
         
         // Make removeFromCompare globally accessible
         window.removeFromCompare = removeFromCompare;
-        
-        // Initial population of compare select
-        updateCompareSelect();
-        
-        // Event listener for compare select
-        document.getElementById('compare-select').addEventListener('change', (e) => {
-          const slug = e.target.value;
-          if (slug && !selectedProviders.has(slug)) {
-            addToCompare(slug);
-            e.target.value = ''; // Reset select
-          }
-        });
         
         // ===== Cleanup =====
