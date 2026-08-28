@@ -193,17 +193,18 @@ class Particle {
   reset() {
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
-    this.vx = (Math.random() - 0.5) * 0.2;
-    this.vy = (Math.random() - 0.5) * 0.2;
-    this.radius = Math.random() * 1.5 + 0.5; // Slightly larger for desktop visibility
-    this.opacity = Math.random() * 0.6 + 0.2; // Higher base opacity
+    this.vx = (Math.random() - 0.5) * 0.3;
+    this.vy = (Math.random() - 0.5) * 0.3;
+    this.radius = Math.random() * 2.5 + 1.0; // Much larger for visibility
+    this.opacity = Math.random() * 0.5 + 0.5; // 0.5-1.0 high visibility
     this.color = currentTheme === 'dark' 
-      ? (Math.random() > 0.5 ? '#00ff88' : '#00d4ff')
-      : (Math.random() > 0.5 ? '#00b368' : '#0090cc');
+      ? (Math.random() > 0.5 ? '#00ff88' : '#00ffff')
+      : (Math.random() > 0.5 ? '#00b368' : '#0099cc');
     this.originalY = this.y;
-    this.amplitude = Math.random() * 20 + 10;
+    this.amplitude = Math.random() * 30 + 15;
     this.frequency = Math.random() * 0.02 + 0.01;
     this.phase = Math.random() * Math.PI * 2;
+    this.pulsePhase = Math.random() * Math.PI * 2;
   }
   update(deltaTime) {
     // Vertical floating motion
@@ -212,19 +213,37 @@ class Particle {
     // Horizontal drift
     this.x += this.vx * deltaTime * 0.001;
     
-    // Wrap around
-    if (this.x < -20) this.x = canvas.width + 20;
-    if (this.x > canvas.width + 20) this.x = -20;
+    // Pulse animation
+    this.pulsePhase += deltaTime * 0.001;
     
-    // Vertical bounds
-    if (this.y < -20) this.y = canvas.height + 20;
-    if (this.y > canvas.height + 20) this.y = -20;
+    // Wrap around
+    if (this.x < -30) this.x = canvas.width + 30;
+    if (this.x > canvas.width + 30) this.x = -30;
+    if (this.y < -30) this.y = canvas.height + 30;
+    if (this.y > canvas.height + 30) this.y = -30;
   }
   draw() {
+    // Draw outer glow
+    const pulseOpacity = this.opacity * (0.8 + 0.2 * Math.sin(this.pulsePhase));
+    const glowRadius = this.radius * 2.5;
+    
+    // Outer glow
+    const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, glowRadius);
+    gradient.addColorStop(0, this.color.replace(/rgba?\([^)]+\)/, '').replace('#', '').replace(/^/, '#') + '00');
+    gradient.addColorStop(1, this.color);
+    // Simpler: just draw with alpha
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius * 2, 0, Math.PI * 2);
+    ctx.fillStyle = this.color;
+    ctx.globalAlpha = pulseOpacity * 0.15;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+    
+    // Core particle
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     ctx.fillStyle = this.color;
-    ctx.globalAlpha = this.opacity;
+    ctx.globalAlpha = pulseOpacity;
     ctx.fill();
     ctx.globalAlpha = 1;
   }
@@ -232,8 +251,8 @@ class Particle {
 
 function initParticles() {
   // Dynamic particle count based on screen size
-  const density = Math.min(0.0005, Math.max(0.0002, window.innerWidth * window.innerHeight / 10000000));
-  const count = Math.max(30, Math.min(100, Math.floor(canvas.width * canvas.height * density)));
+  const density = Math.min(0.0008, Math.max(0.0004, window.innerWidth * window.innerHeight / 10000000));
+  const count = Math.max(50, Math.min(150, Math.floor(canvas.width * canvas.height * density)));
   particles = Array.from({ length: count }, () => new Particle());
 }
 
@@ -258,15 +277,16 @@ function animate(timestamp) {
       const dy = particles[i].y - particles[j].y;
       const dist = Math.sqrt(dx * dx + dy * dy);
       
-      if (dist < 150) {
-        const opacity = 0.06 * (1 - dist / 150);
+      if (dist < 200) { // Increased connection distance
+        const opacity = 0.15 * (1 - dist / 200); // Higher base opacity
+        const pulseFactor = 0.5 + 0.5 * Math.sin(lastTime * 0.001 + dist * 0.02);
         ctx.beginPath();
         ctx.moveTo(particles[i].x, particles[i].y);
         ctx.lineTo(particles[j].x, particles[j].y);
         ctx.strokeStyle = currentTheme === 'dark' 
-          ? `rgba(0, 255, 136, ${opacity})`
-          : `rgba(0, 179, 104, ${opacity * 0.5})`;
-        ctx.lineWidth = 0.3;
+          ? `rgba(0, 255, 136, ${opacity * pulseFactor})`
+          : `rgba(0, 179, 104, ${opacity * pulseFactor * 0.8})`;
+        ctx.lineWidth = Math.max(0.5, 1.5 * (1 - dist / 200)); // Thicker lines for closer particles
         ctx.stroke();
       }
     }
