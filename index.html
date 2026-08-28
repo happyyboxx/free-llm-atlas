@@ -117,6 +117,77 @@
             <div class="compare-grid" id="compare-grid"></div>
         </section>
 
+        <!-- Cost Calculator Section -->
+        <section class="calculator-section" id="calculator">
+            <div class="section-header">
+                <span class="section-tag mono" data-i18n="calculator_title">Calculator</span>
+                <h2 class="section-title" data-i18n="calculator_title">Cost Calculator</h2>
+                <p class="section-desc" data-i18n="calculator_desc">Estimate monthly costs based on your token usage. Note: Free tier providers shown as $0. Trial credit providers require manual estimation.</p>
+            </div>
+            <div class="calculator-controls">
+                <div class="calc-input-group">
+                    <label data-i18n="calc_input_tokens">Monthly Input Tokens</label>
+                    <input type="number" id="calc-input-tokens" value="100000" min="0" step="1000" class="calc-input">
+                </div>
+                <div class="calc-input-group">
+                    <label data-i18n="calc_output_tokens">Monthly Output Tokens</label>
+                    <input type="number" id="calc-output-tokens" value="50000" min="0" step="1000" class="calc-input">
+                </div>
+                <div class="calc-input-group">
+                    <label data-i18n="calc_ratio">I/O Ratio Preset</label>
+                    <select id="calc-ratio-preset" class="calc-select">
+                        <option value="10:1">10:1 (RAG/Chat)</option>
+                        <option value="1:1">1:1 (Balanced)</option>
+                        <option value="1:4">1:4 (Code Gen)</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                </div>
+            </div>
+            <div class="calculator-results" id="calculator-results"></div>
+        </section>
+
+        <!-- Share/Export Section -->
+        <section class="share-section" id="share">
+            <div class="section-header">
+                <span class="section-tag mono" data-i18n="share_title">Share</span>
+                <h2 class="section-title" data-i18n="share_title">Share Comparison</h2>
+                <p class="section-desc" data-i18n="share_desc">Share your comparison with others via link or export data.</p>
+            </div>
+            <div class="share-actions">
+                <button class="btn btn-primary" id="share-copy-link" data-i18n="share_copy_link">Copy Link</button>
+                <button class="btn btn-secondary" id="share-export-json" data-i18n="share_export_json">Export JSON</button>
+                <button class="btn btn-secondary" id="share-export-md" data-i18n="share_export_md">Export Markdown</button>
+            </div>
+            <div class="share-url" id="share-url" style="display:none;">
+                <input type="text" id="share-url-input" readonly>
+                <span class="copy-success" id="copy-success" data-i18n="share_copied"></span>
+            </div>
+        </section>
+
+        <!-- Bookmarks Section -->
+        <section class="bookmark-section" id="bookmarks">
+            <div class="section-header">
+                <span class="section-tag mono" data-i18n="bookmark_title">Bookmarks</span>
+                <h2 class="section-title" data-i18n="bookmark_title">My Bookmarks</h2>
+                <p class="section-desc" data-i18n="bookmark_empty">No bookmarks yet. Click the star on a provider card to save it.</p>
+            </div>
+            <div class="bookmark-grid" id="bookmark-grid"></div>
+        </section>
+
+        <!-- Speed Test Section -->
+        <section class="speed-section" id="speed-test">
+            <div class="section-header">
+                <span class="section-tag mono" data-i18n="speed_test_title">Speed</span>
+                <h2 class="section-title" data-i18n="speed_test_title">API Speed Test</h2>
+                <p class="section-desc" data-i18n="speed_test_desc">Test real-time latency to provider endpoints from your location.</p>
+            </div>
+            <div class="speed-controls">
+                <button class="btn btn-primary" id="speed-run-all" data-i18n="speed_test_run">Test All Providers</button>
+                <button class="btn btn-secondary" id="speed-clear" style="display:none;">Clear Results</button>
+            </div>
+            <div class="speed-grid" id="speed-grid"></div>
+        </section>
+
         <!-- Live Monitor Section -->
         <section class="monitor-section" id="monitor">
             <div class="section-header">

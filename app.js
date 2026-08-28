@@ -7,6 +7,19 @@ const CACHE_DURATION = 30000; // 30 seconds
 let currentLang = localStorage.getItem('lang') || 'en';
 let i18nData = null;
 
+// ===== Cost Calculator State =====
+let calculatorState = {
+  monthlyInputTokens: 100000,
+  monthlyOutputTokens: 50000,
+  inputOutputRatio: '10:1',
+  selectedProviders: []
+};
+
+// ===== Share State =====
+let shareState = {
+  baseUrl: window.location.origin + window.location.pathname
+};
+
 async function loadI18n() {
   try {
     const res = await fetch('i18n.json');
@@ -573,23 +586,26 @@ async function init() {
     }
 
     const data = await fetchProviders();
-    if (data) {
-      renderProviders(data.providers);
-      document.getElementById('last-probe').textContent = data.updated
-          ? new Date(data.updated).toLocaleString()
-          : '—';
-      document.getElementById('data-version').textContent = data.version || '1.0';
-    
-      // Initialize comparison feature after providers are loaded
-      updateCompareSelect();
-      document.getElementById('compare-select').addEventListener('change', (e) => {
-        const slug = e.target.value;
-        if (slug && !selectedProviders.has(slug)) {
-          addToCompare(slug);
-          e.target.value = ''; // Reset select
+        if (data) {
+            renderProviders(data.providers);
+            document.getElementById('last-probe').textContent = data.updated
+                ? new Date(data.updated).toLocaleString()
+                : '—';
+            document.getElementById('data-version').textContent = data.version || '1.0';
+
+            // Initialize comparison feature after providers are loaded
+            updateCompareSelect();
+            document.getElementById('compare-select').addEventListener('change', (e) => {
+                const slug = e.target.value;
+                if (slug && !selectedProviders.has(slug)) {
+                    addToCompare(slug);
+                    e.target.value = ''; // Reset select
+                }
+            });
+        
+            // Initialize all new features
+            initAllFeatures();
         }
-      });
-    }
 
   // Filter listeners with debounce
   const debounce = (func, delay) => {
@@ -631,6 +647,7 @@ async function init() {
         
         // ===== Comparison Logic =====
         let selectedProviders = new Set();
+        let bookmarks = new Set(JSON.parse(localStorage.getItem('bookmarks') || '[]'));
         
         function updateCompareSelect() {
           if (!providersData) return;
@@ -737,5 +754,385 @@ async function init() {
         
         // Make removeFromCompare globally accessible
         window.removeFromCompare = removeFromCompare;
+        
+        // ===== Cost Calculator =====
+        function calculateCosts() {
+          if (!providersData) return;
+          
+          const inputTokens = parseInt(document.getElementById('calc-input-tokens').value) || 0;
+          const outputTokens = parseInt(document.getElementById('calc-output-tokens').value) || 0;
+          const resultsContainer = document.getElementById('calculator-results');
+          
+          resultsContainer.innerHTML = '';
+          
+          // Add header
+          const header = document.createElement('div');
+          header.className = 'calc-result-card';
+          header.style.fontWeight = '600';
+          header.style.borderBottom = '2px solid var(--accent)';
+          header.innerHTML = `
+            <div>${t('calc_provider')}</div>
+            <div style="text-align:right;">${t('calc_estimate')}</div>
+            <div style="text-align:right;">Model</div>
+            <div style="text-align:right;">Per 1M Tokens</div>
+          `;
+          resultsContainer.appendChild(header);
+          
+          // Sort providers: permanent_free first, then by health
+          const sortedProviders = [...providersData.providers].sort((a, b) => {
+            if (a.tier === 'permanent_free' && b.tier !== 'permanent_free') return -1;
+            if (a.tier !== 'permanent_free' && b.tier === 'permanent_free') return 1;
+            return (b.health_score || 0) - (a.health_score || 0);
+          });
+          
+          sortedProviders.forEach(p => {
+            const card = document.createElement('div');
+            card.className = 'calc-result-card ' + p.tier;
+            
+            let cost = 0;
+            let costType = 'unknown';
+            let costText = '—';
+            let perMText = '—';
+            
+            if (p.tier === 'permanent_free') {
+              cost = 0;
+              costType = 'free';
+              costText = '$0';
+              perMText = 'Free';
+            } else if (p.tier === 'trial_credit') {
+              // Estimate based on typical trial limits
+              const inputCost = (inputTokens / 1000000) * 0.5; // Estimated $0.5 per 1M input
+              const outputCost = (outputTokens / 1000000) * 1.5; // Estimated $1.5 per 1M output
+              cost = (inputCost + outputCost).toFixed(2);
+              costType = 'trial';
+              costText = `~$${cost}`;
+              perMText = `$${((inputTokens + outputTokens) / 1000000).toFixed(2)}/M`;
+            }
+            
+            const modelName = p.models?.[0] || 'default';
+            
+            card.innerHTML = `
+              <div class="calc-provider-info">
+                <div class="calc-provider-name">${escapeHtml(p.name)}</div>
+                <div class="calc-provider-tier">${p.tier.replace('_', ' ')}</div>
+              </div>
+              <div class="calc-cost ${costType}">${costText}</div>
+              <div class="calc-model-name">${escapeHtml(modelName)}</div>
+              <div class="calc-cost-per-m">${perMText}</div>
+            `;
+            
+            resultsContainer.appendChild(card);
+          });
+        }
+        
+        // Calculator event listeners
+        ['calc-input-tokens', 'calc-output-tokens', 'calc-ratio-preset'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) {
+            el.addEventListener('input', calculateCosts);
+            el.addEventListener('change', calculateCosts);
+          }
+        });
+        
+        // Ratio preset handling
+        const ratioSelect = document.getElementById('calc-ratio-preset');
+        if (ratioSelect) {
+          ratioSelect.addEventListener('change', (e) => {
+            const value = e.target.value;
+            if (value !== 'custom') {
+              const [inRatio, outRatio] = value.split(':').map(Number);
+              document.getElementById('calc-input-tokens').value = inRatio * 10000; // Base unit
+              document.getElementById('calc-output-tokens').value = outRatio * 10000;
+              calculateCosts();
+            }
+          });
+        }
+        
+        // ===== Share/Export =====
+        function generateShareLink() {
+          if (!providersData) return '';
+          
+          const selectedSlugs = Array.from(selectedProviders);
+          const params = new URLSearchParams();
+          params.set('providers', selectedSlugs.join(','));
+          params.set('lang', currentLang);
+          params.set('theme', currentTheme);
+          
+          return `${shareState.baseUrl}?${params.toString()}`;
+        }
+        
+        function exportToJSON() {
+          const data = {
+            providers: Array.from(selectedProviders).map(slug => {
+              const p = providersData.providers.find(x => x.slug === slug);
+              if (!p) return null;
+              return {
+                name: p.name,
+                slug: p.slug,
+                tier: p.tier,
+                status: p.status,
+                health_score: p.health_score,
+                models: p.models,
+                features: p.features
+              };
+            }).filter(Boolean),
+            exported_at: new Date().toISOString(),
+            language: currentLang
+          };
+          
+          const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'free-llm-atlas-comparison.json';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+          
+          showToast(t('toast_copied'), 'success');
+        }
+        
+        function exportToMarkdown() {
+          let md = '# Free LLM Atlas Comparison\n\n';
+          md += `| ${t('modal_provider')} | ${t('modal_tier')} | ${t('modal_status')} | ${t('modal_health')} | ${t('modal_models')} | ${t('modal_features')} |\n`;
+          md += '|---------|------|--------|--------|--------|----------|\n';
+          
+          selectedProviders.forEach(slug => {
+            const p = providersData.providers.find(x => x.slug === slug);
+            if (!p) return;
+            md += `| ${escapeHtml(p.name)} | ${p.tier.replace('_', ' ')} | ${t(p.status || 'unknown')} | ${p.health_score || '—'}/100 | ${p.models_count || 0} | ${(p.features || []).join(', ') || '—'} |\n`;
+          });
+          
+          const blob = new Blob([md], { type: 'text/markdown' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'free-llm-atlas-comparison.md';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+          
+          showToast(t('toast_copied'), 'success');
+        }
+        
+        // Share button event listeners
+        document.getElementById('share-copy-link').addEventListener('click', () => {
+          const link = generateShareLink();
+          if (!link) {
+            showToast(t('toast_error'), 'error');
+            return;
+          }
+          
+          const urlInput = document.getElementById('share-url-input');
+          urlInput.value = link;
+          document.getElementById('share-url').style.display = 'flex';
+          
+          navigator.clipboard.writeText(link).then(() => {
+            showToast(t('share_copied'), 'success');
+          });
+        });
+        
+        document.getElementById('share-export-json').addEventListener('click', exportToJSON);
+        document.getElementById('share-export-md').addEventListener('click', exportToMarkdown);
+        
+        // ===== Bookmarks =====
+        function toggleBookmark(slug) {
+          if (bookmarks.has(slug)) {
+            bookmarks.delete(slug);
+          } else {
+            bookmarks.add(slug);
+          }
+          localStorage.setItem('bookmarks', JSON.stringify([...bookmarks]));
+          renderBookmarks();
+          showToast(bookmarks.has(slug) ? t('toast_added') : t('toast_removed'), 'success');
+        }
+        
+        function renderBookmarks() {
+          const grid = document.getElementById('bookmark-grid');
+          grid.innerHTML = '';
+          
+          if (bookmarks.size === 0) {
+            grid.innerHTML = `<p style="color:var(--muted);text-align:center;grid-column:1/-1;padding:2rem;">${t('bookmark_empty')}</p>`;
+            return;
+          }
+          
+          bookmarks.forEach(slug => {
+            const p = providersData.providers.find(x => x.slug === slug);
+            if (!p) return;
+            
+            const card = document.createElement('div');
+            card.className = 'bookmark-card';
+            card.innerHTML = `
+              <div class="bookmark-info">
+                <div class="bookmark-name">${escapeHtml(p.name)}</div>
+                <div class="bookmark-meta">
+                  <span>${p.models_count || 0} models</span>
+                  <span>${p.health_score || '—'}/100 health</span>
+                  <span>${p.status || 'unknown'}</span>
+                </div>
+              </div>
+              <button class="bookmark-remove" data-slug="${p.slug}" title="Remove bookmark">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+              </button>
+            `;
+            
+            grid.appendChild(card);
+          });
+          
+          // Add remove listeners
+          grid.querySelectorAll('.bookmark-remove').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+              const slug = e.currentTarget.getAttribute('data-slug');
+              toggleBookmark(slug);
+            });
+          });
+        }
+        
+        // Add bookmark button to provider cards
+        function addBookmarkButtons() {
+          document.querySelectorAll('.provider-card').forEach(card => {
+            const slug = card.dataset.slug;
+            const existing = card.querySelector('.provider-bookmark');
+            if (!existing) {
+              const btn = document.createElement('button');
+              btn.className = 'provider-bookmark' + (bookmarks.has(slug) ? ' saved' : '');
+              btn.innerHTML = bookmarks.has(slug) ? '★' : '☆';
+              btn.title = bookmarks.has(slug) ? 'Remove bookmark' : 'Add to bookmarks';
+              btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleBookmark(slug);
+              });
+              card.appendChild(btn);
+            }
+          });
+        }
+        
+        // ===== Speed Test =====
+        function runSpeedTest() {
+          if (!providersData) return;
+          
+          const grid = document.getElementById('speed-grid');
+          const runBtn = document.getElementById('speed-run-all');
+          const clearBtn = document.getElementById('speed-clear');
+          
+          runBtn.style.display = 'none';
+          clearBtn.style.display = 'inline-flex';
+          grid.innerHTML = '';
+          
+          // Create cards for all providers
+          providersData.providers.forEach(p => {
+            const card = document.createElement('div');
+            card.className = 'speed-card';
+            card.id = `speed-${p.slug}`;
+            card.innerHTML = `
+              <div class="speed-provider">
+                <h4 class="speed-name">${escapeHtml(p.name)}</h4>
+                <span class="speed-status pending">Testing</span>
+              </div>
+              <div class="speed-latency pending">—</div>
+            `;
+            grid.appendChild(card);
+          });
+          
+          // Run tests with batching (max 5 concurrent)
+          const batchSize = 5;
+          const providers = providersData.providers.slice(0, 15); // Limit to first 15 for performance
+          
+          let currentIndex = 0;
+          
+          function testNext() {
+            if (currentIndex >= providers.length) return;
+            
+            const endIndex = Math.min(currentIndex + batchSize, providers.length);
+            
+            for (let i = currentIndex; i < endIndex; i++) {
+              const p = providers[i];
+              const card = document.getElementById(`speed-${p.slug}`);
+              
+              checkEndpoint(p).then(latency => {
+                const statusEl = card.querySelector('.speed-status');
+                const latencyEl = card.querySelector('.speed-latency');
+                
+                if (latency !== null) {
+                  card.className = 'speed-card success';
+                  statusEl.textContent = 'OK';
+                  statusEl.className = 'speed-status success';
+                  latencyEl.textContent = `${latency}ms`;
+                  latencyEl.className = 'speed-latency';
+                } else {
+                  card.className = 'speed-card error';
+                  statusEl.textContent = 'Error';
+                  statusEl.className = 'speed-status error';
+                  latencyEl.textContent = 'Failed';
+                }
+              }).catch(() => {
+                card.className = 'speed-card error';
+                const statusEl = card.querySelector('.speed-status');
+                const latencyEl = card.querySelector('.speed-latency');
+                statusEl.textContent = 'Error';
+                statusEl.className = 'speed-status error';
+                latencyEl.textContent = 'Failed';
+              });
+            }
+            
+            currentIndex = endIndex;
+            if (currentIndex < providers.length) {
+              setTimeout(testNext, 500); // Small delay between batches
+            }
+          }
+          
+          testNext();
+        }
+        
+        async function checkEndpoint(provider) {
+          try {
+            const start = performance.now();
+            await fetch(provider.website, { mode: 'no-cors', cache: 'no-store' });
+            const end = performance.now();
+            return Math.round(end - start);
+          } catch (e) {
+            return null;
+          }
+        }
+        
+        // Speed test button listener
+        document.getElementById('speed-run-all').addEventListener('click', runSpeedTest);
+        document.getElementById('speed-clear').addEventListener('click', () => {
+          document.getElementById('speed-grid').innerHTML = '';
+          document.getElementById('speed-run-all').style.display = 'inline-flex';
+          document.getElementById('speed-clear').style.display = 'none';
+        });
+        
+        // ===== Feature Filters =====
+        function setupFeatureFilters() {
+          // This would be populated based on available features in providersData
+          // For now, we'll add it after data loads
+        }
+        
+        // ===== Initialize all features after data load =====
+        async function initAllFeatures() {
+          if (!providersData) return;
+          
+          // Add bookmark buttons to provider cards
+          addBookmarkButtons();
+          
+          // Render bookmarks
+          renderBookmarks();
+          
+          // Initialize calculator
+          calculateCosts();
+          
+          // Setup feature filters (placeholder for now)
+          setupFeatureFilters();
+          
+          // Update share link if comparison has selections
+          if (selectedProviders.size > 0) {
+            document.getElementById('share-url').style.display = 'none'; // Hide until user clicks copy
+          }
+        }
         
         // ===== Cleanup =====

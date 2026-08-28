@@ -1159,6 +1159,405 @@ footer {
   color: var(--accent);
 }
 
+/* ===== Calculator Section ===== */
+.calculator-section {
+  background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg) 100%);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.calculator-controls {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.calc-input-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.calc-input-group label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.calc-input, .calc-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--fg);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  transition: all var(--transition);
+}
+
+.calc-input:focus, .calc-select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.calculator-results {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.calc-result-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 1rem;
+  align-items: center;
+  transition: all var(--transition);
+}
+
+.calc-result-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(0, 255, 136, 0.1);
+}
+
+.calc-result-card.free {
+  border-left: 4px solid var(--accent);
+}
+
+.calc-result-card.trial {
+  border-left: 4px solid var(--accent-secondary);
+}
+
+.calc-result-card.unknown {
+  border-left: 4px solid var(--warning);
+}
+
+.calc-provider-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.calc-provider-name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.calc-provider-tier {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.calc-model-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.calc-cost {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+.calc-cost.free {
+  color: var(--accent);
+}
+
+.calc-cost.trial {
+  color: var(--accent-secondary);
+}
+
+.calc-cost.unknown {
+  color: var(--warning);
+}
+
+.calc-cost-per-m {
+  font-size: 0.7rem;
+  color: var(--muted);
+  text-align: right;
+  margin-top: 0.25rem;
+}
+
+/* ===== Share Section ===== */
+.share-section {
+  text-align: center;
+}
+
+.share-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.share-url {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.share-url input {
+  padding: 0.75rem 1rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--fg);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  min-width: 300px;
+  flex: 1;
+}
+
+.copy-success {
+  color: var(--accent);
+  font-size: 0.8rem;
+  animation: fadeIn 0.3s ease;
+}
+
+/* ===== Bookmark Section ===== */
+.bookmark-section {
+  background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg) 100%);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.bookmark-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.bookmark-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: all var(--transition);
+}
+
+.bookmark-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 255, 136, 0.1);
+}
+
+.bookmark-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.bookmark-name {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.bookmark-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.bookmark-remove {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.bookmark-remove:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+  background: rgba(255, 51, 102, 0.1);
+}
+
+/* ===== Speed Test Section ===== */
+.speed-section {
+  text-align: center;
+}
+
+.speed-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.speed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.speed-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.25rem;
+  text-align: left;
+  transition: all var(--transition);
+}
+
+.speed-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(0, 255, 136, 0.1);
+}
+
+.speed-card.testing {
+  border-color: var(--accent-secondary);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.speed-card.success {
+  border-color: var(--accent);
+}
+
+.speed-card.error {
+  border-color: var(--danger);
+}
+
+.speed-provider {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.speed-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.speed-status {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.speed-status.pending {
+  background: rgba(0, 212, 255, 0.2);
+  color: var(--accent-secondary);
+}
+
+.speed-status.success {
+  background: rgba(0, 255, 136, 0.2);
+  color: var(--accent);
+}
+
+.speed-status.error {
+  background: rgba(255, 51, 102, 0.2);
+  color: var(--danger);
+}
+
+.speed-latency {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--fg);
+}
+
+.speed-latency.pending {
+  color: var(--muted);
+}
+
+/* ===== Feature Filter in Provider Section ===== */
+.feature-filter-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.feature-filter-btn {
+  padding: 0.4rem 0.8rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.feature-filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.feature-filter-btn.active {
+  background: rgba(0, 255, 136, 0.15);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Provider card bookmark button */
+.provider-bookmark {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  z-index: 5;
+}
+
+.provider-bookmark:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(0, 255, 136, 0.1);
+}
+
+.provider-bookmark.saved {
+  background: rgba(0, 255, 136, 0.2);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   section { padding: 3.5rem 1.5rem; }

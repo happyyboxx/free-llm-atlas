@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free LLM Atlas - 19 free LLM API providers, auto-probed daily. Structured JSON + gateway configs. Zero cost to production.">
+    <title>Free LLM Atlas | Zero-Cost AI Infrastructure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050508;
+            --bg-elevated: #0a0a12;
+            --fg: #e8e8f0;
+            --muted: #6b6b7a;
+            --accent: #00ff88;
+            --accent-dim: #00cc6a;
+            --accent-glow: rgba(0, 255, 136, 0.4);
+            --accent-secondary: #00d4ff;
+            --warning: #ffaa00;
+            --danger: #ff3366;
+            --card: #0f0f1a;
+            --border: #1e1e2e;
+            --glow: 0 0 30px rgba(0, 255, 136, 0.15);
+            --transition-fast: 0.15s ease;
+            --transition: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+            font-feature-settings: 'liga' 0, 'calt' 0; /* Disable ligatures for mono feel */
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* ===== Performance Optimizations ===== */
+        /* Use will-change for elements that animate */
+        .provider-card, .stat, .monitor-card, .live-dot, .hero-badge {
+            will-change: transform, opacity;
+        }
+
+        /* ===== Canvas Background ===== */
+        #bg-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            background: radial-gradient(circle at 20% 30%, rgba(0, 255, 136, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(0, 212, 255, 0.05) 0%, transparent 50%);
+        }
+
+        /* ===== Grid Overlay ===== */
+        .grid-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image:
+                linear-gradient(rgba(0, 255, 136, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 136, 0.08) 1px, transparent 1px);
+            background-size: 64px 64px;
+            animation: gridMove 25s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 64px 64px; }
+        }
+
+        /* ===== Noise Texture (Performance optimized) ===== */
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 2;
+            pointer-events: none;
+            opacity: 0.015;
+            mix-blend-mode: overlay;
+            pointer-events: none;
+        }
+
+        /* ===== Main Content ===== */
+        main { position: relative; z-index: 10; }
+
+        /* ===== Hero Section ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: pulse 6s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.05); }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.8rem;
+            background: rgba(0, 255, 136, 0.08);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            animation: slideUp 0.8s ease-out;
+            backdrop-filter: blur(4px);
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px; height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 0.7; box-shadow: 0 0 8px var(--accent); }
+            50% { opacity: 0.2; box-shadow: none; }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 7vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, var(--fg) 0%, var(--accent) 45%, var(--accent-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideUp 0.8s ease-out 0.1s both;
+            letter-spacing: -0.5px;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(0.95rem, 2vw, 1.3rem);
+            color: var(--muted);
+            max-width: 720px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.6;
+            animation: slideUp 0.8s ease-out 0.2s both;
+            max-width: 800px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: slideUp 0.8s ease-out 0.3s both;
+        }
+
+        .stat {
+            padding: 1.25rem 1.75rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            min-width: 140px;
+            text-align: center;
+            transition: all var(--transition-fast);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 16px rgba(0, 255, 136, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .stat::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+            transform: scaleX(0);
+            transition: transform var(--transition);
+            transform-origin: left;
+        }
+
+        .stat:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1.1;
+            font-family: 'JetBrains Mono', monospace;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        /* ===== Scroll Indicator ===== */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--muted);
+            font-size: 0.7rem;
+            opacity: 0.7;
+            animation: bounce 2.5s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(6px); }
+        }
+
+        /* ===== Section ===== */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 0.3rem 0.9rem;
+            background: rgba(0, 255, 136, 0.08);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 100px;
+            font-size: 0.68rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .section-desc {
+            color: var(--muted);
+            max-width: 620px;
+            margin: 0 auto;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* ===== Providers Grid ===== */
+        .providers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .provider-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all var(--transition);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            min-height: 180px;
+            backdrop-filter: blur(4px);
+            border: 1px solid var(--border);
+        }
+
+        .provider-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 24px rgba(0, 255, 136, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .provider-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--transition-slow);
+        }
+
+        .provider-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .provider-logo {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--bg);
+            flex-shrink: 0;
+        }
+
+        .provider-tier {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.2rem 0.6rem;
+            border-radius: 80px;
+            font-size: 0.62rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        .tier-permanent { background: rgba(0, 255, 136, 0.12); color: var(--accent); border: 1px solid rgba(0, 255, 136, 0.25); }
+        .tier-trial { background: rgba(0, 212, 255, 0.12); color: var(--accent-secondary); border: 1px solid rgba(0, 212, 255, 0.25); }
+        .tier-local { background: rgba(255, 170, 0, 0.12); color: var(--warning); border: 1px solid rgba(255, 170, 0, 0.25); }
+
+        .provider-name {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0.4rem 0 0.2rem;
+            line-height: 1.3;
+            flex-grow: 1;
+            min-width: 0;
+        }
+
+        .provider-meta {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: auto;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.75rem;
+            color: var(--muted);
+            flex: 1;
+            min-width: 60px;
+        }
+
+        .meta-item .value {
+            color: var(--fg);
+            font-weight: 500;
+            font-family: 'JetBrains Mono', monospace;
+            min-width: 40px;
+            text-align: right;
+        }
+
+        .provider-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            margin-top: 0.75rem;
+        }
+
+        .feature-tag {
+            padding: 0.15rem 0.5rem;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.62rem;
+            font-weight: 500;
+            color: var(--muted);
+            transition: all var(--transition-fast);
+            white-space: nowrap;
+        }
+
+        .feature-tag:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(0, 255, 136, 0.08);
+        }
+
+        .provider-status {
+            position: absolute;
+            top: 0.75rem; right: 0.75rem;
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            transition: all var(--transition-fast);
+            box-shadow: 0 0 0 rgba(0, 255, 136, 0);
+        }
+
+        .status-active { 
+            background: var(--accent); 
+            animation: statusPulse 2s ease-in-out infinite;
+        }
+        .status-degraded { 
+            background: var(--warning); 
+            animation: statusPulse 2s ease-in-out infinite;
+        }
+        .status-offline { 
+            background: var(--danger); 
+        }
+
+        @keyframes statusPulse {
+            0%, 100% { box-shadow: 0 0 0 rgba(0, 255, 136, 0); }
+            50% { box-shadow: 0 0 8px rgba(0, 255, 136, 0.5); }
+        }
+
+        /* ===== Live Monitor ===== */
+        .monitor-section {
+            background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg) 100%);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .monitor-section::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle at 30% 30%, rgba(0, 255, 136, 0.03) 0%, transparent 70%),
+                        radial-gradient(circle at 70% 70%, rgba(0, 212, 255, 0.03) 0%, transparent 70%);
+            animation: monitorBG 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes monitorBG {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+        }
+
+        .monitor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .monitor-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.25rem;
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(4px);
+        }
+
+        .monitor-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(0, 255, 136, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .monitor-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+
+        .monitor-title {
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        .monitor-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+            line-height: 1.1;
+        }
+
+        .monitor-label {
+            font-size: 0.72rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
+        }
+
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+
+        .live-dot {
+            width: 6px; height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: livePulse 1.8s ease-in-out infinite;
+        }
+
+        @keyframes livePulse {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .progress-bar {
+            height: 3px;
+            background: var(--border);
+            border-radius: 1.5px;
+            overflow: hidden;
+            margin-top: 0.75rem;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+            border-radius: 1.5px;
+            transition: width 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transform: translateX(-100%);
+            animation: progressShine 2s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes progressShine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            padding: 2.5rem 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color var(--transition-fast);
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            background: rgba(0, 255, 136, 0.05);
+        }
+
+        .footer-copy {
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 0.025px;
+        }
+
+        /* ===== Modal ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            overscroll-behavior: contain;
+        }
+
+        .modal-overlay.open { display: flex; animation: fadeIn 0.3s ease; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            max-width: 560px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: modalIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            z-index: 1001;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.93) translateY(25px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .modal-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .modal-close {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+        }
+
+        .modal-close:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(0, 255, 136, 0.08);
+        }
+
+        .modal-body { padding: 1.25rem; }
+
+        .modal-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
+            font-size: 0.88rem;
+        }
+
+        .detail-label { color: var(--muted); font-weight: 500; }
+        .detail-value { color: var(--fg); font-weight: 500; font-family: 'JetBrains Mono', monospace; }
+
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 1rem;
+        }
+
+        .feature-tag-modal {
+            padding: 0.2rem 0.55rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--muted);
+            transition: all var(--transition-fast);
+        }
+
+        .feature-tag-modal:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(0, 255, 136, 0.08);
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            color: var(--bg);
+        }
+
+        .btn-secondary {
+            background: var(--bg);
+            color: var(--fg);
+            border: 1px solid var(--border);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 255, 136, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(15, 15, 26, 0.7);
+            border-color: var(--accent);
+        }
+
+        /* ===== Search/Filter ===== */
+        .filter-bar {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            align-items: stretch;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 220px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 2.5rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--fg);
+            font-family: inherit;
+            font-size: 0.85rem;
+            transition: all var(--transition);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .search-box::before {
+            content: '🔍';
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        .filter-select {
+            padding: 0.8rem 1rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--fg);
+            font-family: inherit;
+            font-size: 0.85rem;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b6b7a' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            padding-right: 2.25rem;
+            transition: all var(--transition);
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        /* ===== Toast ===== */
+        .toast-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            pointer-events: none;
+        }
+
+        .toast {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.85rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            min-width: 260px;
+            animation: toastIn 0.25s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(4px);
+            font-size: 0.85rem;
+        }
+
+        .toast.success { border-color: var(--accent); }
+        .toast.error { border-color: var(--danger); }
+
+        @keyframes toastIn {
+            from { opacity: 0; transform: translateX(100%); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            section { padding: 3.5rem 1.5rem; }
+            .hero-stats { gap: 1.25rem; }
+            .stat { padding: 1rem 1.25rem; min-width: 110px; }
+            .stat-value { font-size: 1.8rem; }
+            .providers-grid { grid-template-columns: 1fr; }
+            .filter-bar { flex-direction: column; }
+            .search-box { min-width: 0; }
+            .hero { padding: 1.5rem; }
+        }
+
+        @media (max-width: 480px) {
+            section { padding: 2.5rem 1rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero .subtitle { font-size: 0.9rem; }
+            .monitor-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ===== Reduced Motion ===== */
+        @media (prefers-reduced-motion: reduce) {
+            .hero::before, .hero-badge, .scroll-indicator,
+            .live-dot, .stat, .provider-card, .monitor-card,
+            .progress-fill, .feature-tag, .feature-tag-modal {
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+    <div class="grid-overlay"></div>
+    <div class="noise-overlay"></div>
+
+    <main>
+        <!-- Hero -->
+        <header class="hero">
+            <div class="hero-badge mono">LIVE • AUTO-PROBED DAILY</div>
+            <h1>Free LLM Atlas</h1>
+            <p class="subtitle">19 permanent-free LLM providers, auto-probed daily. Structured JSON, gateway configs, zero cost to production.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value mono" id="stat-providers">19</div>
+                    <div class="stat-label">Providers</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value mono" id="stat-models">0</div>
+                    <div class="stat-label">Total Models</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value mono" id="stat-free">0</div>
+                    <div class="stat-label">Free Models</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value mono" id="stat-health">0</div>
+                    <div class="stat-label">Avg Health</div>
+                </div>
+            </div>
+            <div class="scroll-indicator mono">SCROLL TO EXPLORE</div>
+        </header>
+
+        <!-- Providers Section -->
+        <section id="providers">
+            <div class="section-header">
+                <span class="section-tag mono">Providers</span>
+                <h2 class="section-title">Available Providers</h2>
+                <p class="section-desc">All providers are permanently free (no credit card) or trial-credit based. Data refreshed daily at 06:00 UTC via GitHub Actions.</p>
+            </div>
+            <div class="filter-bar">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search providers, models, features..." aria-label="Search providers">
+                </div>
+                <select class="filter-select" id="tier-filter" aria-label="Filter by tier">
+                    <option value="">All Tiers</option>
+                    <option value="permanent_free">Permanent Free</option>
+                    <option value="trial_credit">Trial Credit</option>
+                    <option value="local">Local</option>
+                </select>
+                <select class="filter-select" id="status-filter" aria-label="Filter by status">
+                    <option value="">All Status</option>
+                    <option value="active">Active</option>
+                    <option value="degraded">Degraded</option>
+                    <option value="offline">Offline</option>
+                </select>
+            </div>
+            <div class="providers-grid" id="providers-grid" role="list"></div>
+        </section>
+
+        <!-- Live Monitor Section -->
+        <section class="monitor-section" id="monitor">
+            <div class="section-header">
+                <span class="section-tag mono">Live Monitor</span>
+                <h2 class="section-title">Real-Time Status</h2>
+                <p class="section-desc">Live health metrics from the last automated probe run. Green = fully operational, Yellow = degraded, Red = offline.</p>
+            </div>
+            <div class="monitor-grid">
+                <div class="monitor-card">
+                    <div class="monitor-header">
+                        <span class="monitor-title">Overall Health</span>
+                        <span class="live-indicator"><span class="live-dot"></span> LIVE</span>
+                    </div>
+                    <div class="monitor-value mono" id="health-score">—</div>
+                    <div class="monitor-label">Average Health Score</div>
+                    <div class="progress-bar"><div class="progress-fill" id="health-progress" style="width: 0%"></div></div>
+                </div>
+                <div class="monitor-card">
+                    <div class="monitor-header">
+                        <span class="monitor-title">Active Providers</span>
+                        <span class="live-indicator"><span class="live-dot"></span> LIVE</span>
+                    </div>
+                    <div class="monitor-value mono" id="active-count">—</div>
+                    <div class="monitor-label">Fully Operational</div>
+                    <div class="progress-bar"><div class="progress-fill" id="active-progress" style="width: 0%"></div></div>
+                </div>
+                <div class="monitor-card">
+                    <div class="monitor-header">
+                        <span class="monitor-title">Total Models</span>
+                    </div>
+                    <div class="monitor-value mono" id="total-models">—</div>
+                    <div class="monitor-label">Across All Providers</div>
+                </div>
+                <div class="monitor-card">
+                    <div class="monitor-header">
+                        <span class="monitor-title">Free Models</span>
+                    </div>
+                    <div class="monitor-value mono" id="free-models">—</div>
+                    <div class="monitor-label">No Cost / No Card</div>
+                </div>
+                <div class="monitor-card">
+                    <div class="monitor-header">
+                        <span class="monitor-title">Last Probe</span>
+                    </div>
+                    <div class="monitor-value mono" style="font-size: 1.4rem" id="last-probe">—</div>
+                    <div class="monitor-label">Auto-run daily 06:00 UTC</div>
+                </div>
+                <div class="monitor-card">
+                    <div class="monitor-header">
+                        <span class="monitor-title">Data Version</span>
+                    </div>
+                    <div class="monitor-value mono" style="font-size: 1.15rem" id="data-version">—</div>
+                    <div class="monitor-label">Schema v1.0</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <a href="https://github.com/happyyboxx/free-llm-atlas" target="_blank" rel="noopener">GitHub Repository</a>
+                <a href="data/providers.json" target="_blank" rel="noopener">Raw JSON API</a>
+                <a href="README.md" target="_blank" rel="noopener">Documentation</a>
+                <a href="https://hermes.nousresearch.com" target="_blank" rel="noopener">Powered by Hermes</a>
+            </div>
+            <p class="footer-copy mono">
+                Built with <span style="color: var(--accent)">❤</span> by Hermes Agent · Data auto-updated daily via GitHub Actions · <span id="build-time" class="mono"></span>
+            </p>
+        </footer>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modal-title" style="font-size: 1.1rem; font-weight: 600;">Provider Details</h3>
+                <button class="modal-close" id="modal-close" aria-label="Close modal">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6L6 18M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <script>
+        // ===== Data Loading with Caching =====
+        let providersData = null;
+        let lastFetchTime = 0;
+        const CACHE_DURATION = 30000; // 30 seconds
+
+        async function fetchProviders() {
+            const now = Date.now();
+            if (providersData && (now - lastFetchTime) < CACHE_DURATION) return providersData;
+
+            try {
+                const res = await fetch('data/providers.json?' + now, { 
+                    cache: 'no-store',
+                    headers: {
+                        'Cache-Control': 'no-cache, no-store, must-revalidate'
+                    }
+                });
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const data = await res.json();
+                providersData = data;
+                lastFetchTime = now;
+                return data;
+            } catch (e) {
+                console.error('Fetch error:', e);
+                showToast('Failed to load provider data', 'error');
+                return null;
+            }
+        }
+
+        // ===== Optimized Background Animation =====
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let animationFrameId = null;
+        let reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let lastTime = 0;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.2;
+                this.vy = (Math.random() - 0.5) * 0.2;
+                this.radius = Math.random() * 1.2 + 0.3;
+                this.opacity = Math.random() * 0.4 + 0.1;
+                this.color = Math.random() > 0.5 ? '#00ff88' : '#00d4ff';
+                this.originalY = this.y;
+                this.amplitude = Math.random() * 20 + 10;
+                this.frequency = Math.random() * 0.02 + 0.01;
+                this.phase = Math.random() * Math.PI * 2;
+            }
+            update(deltaTime) {
+                // Vertical floating motion
+                this.y = this.originalY + Math.sin(this.x * this.frequency + lastTime * 0.001 + this.phase) * this.amplitude;
+                
+                // Horizontal drift
+                this.x += this.vx * deltaTime * 0.001;
+                
+                // Wrap around
+                if (this.x < -20) this.x = canvas.width + 20;
+                if (this.x > canvas.width + 20) this.x = -20;
+                
+                // Vertical bounds
+                if (this.y < -20) this.y = canvas.height + 20;
+                if (this.y > canvas.height + 20) this.y = -20;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.globalAlpha = this.opacity;
+                ctx.fill();
+                ctx.globalAlpha = 1;
+            }
+        }
+
+        function initParticles() {
+            // Dynamic particle count based on screen size
+            const density = Math.min(0.0003, Math.max(0.0001, window.innerWidth * window.innerHeight / 10000000));
+            const count = Math.max(20, Math.min(60, Math.floor(canvas.width * canvas.height * density)));
+            particles = Array.from({ length: count }, () => new Particle());
+        }
+
+        function animate(timestamp) {
+            if (reducedMotion) return;
+            
+            const deltaTime = timestamp - lastTime;
+            lastTime = timestamp;
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Update and draw particles
+            particles.forEach(p => {
+                p.update(deltaTime);
+                p.draw();
+            });
+            
+            // Draw connections (optimized - only check nearby particles)
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    
+                    // Only draw connections for nearby particles
+                    if (dist < 150) {
+                        const opacity = 0.06 * (1 - dist / 150);
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(0, 255, 136, ${opacity})`;
+                        ctx.lineWidth = 0.3;
+                        ctx.stroke();
+                    }
+                }
+            }
+            
+            animationFrameId = requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            initParticles();
+        });
+
+        // ===== Provider Rendering with Virtual Scrolling Concept =====
+        function renderProviders(providers) {
+            const grid = document.getElementById('providers-grid');
+            const search = document.getElementById('search-input').value.toLowerCase().trim();
+            const tierFilter = document.getElementById('tier-filter').value;
+            const statusFilter = document.getElementById('status-filter').value;
+
+            // Filter providers
+            const filtered = providers.filter(p => {
+                // Text search
+                if (search) {
+                    const searchable = [
+                        p.name,
+                        p.slug,
+                        p.models?.join(' ') || '',
+                        p.features?.join(' ') || '',
+                        p.notes || ''
+                    ].join(' ').toLowerCase();
+                    if (!searchable.includes(search)) return false;
+                }
+                
+                // Tier filter
+                if (tierFilter && p.tier !== tierFilter) return false;
+                
+                // Status filter
+                if (statusFilter && p.status !== statusFilter) return false;
+                
+                return true;
+            });
+
+            // Use document fragment for better performance
+            const fragment = document.createDocumentFragment();
+            
+            filtered.forEach(p => {
+                const card = document.createElement('article');
+                card.className = 'provider-card';
+                card.setAttribute('role', 'listitem');
+                card.setAttribute('tabindex', '0');
+                card.dataset.slug = p.slug;
+                card.dataset.name = p.name;
+                
+                card.innerHTML = `
+                    <span class="provider-status status-${p.status || 'offline'}" 
+                          aria-label="Status: ${p.status || 'unknown'}"></span>
+                    <div class="card-header">
+                        <div class="provider-logo" aria-hidden="true">${escapeHtml(p.name.charAt(0))}</div>
+                        <span class="provider-tier tier-${p.tier}">${p.tier.replace('_', ' ')}</span>
+                    </div>
+                    <h3 class="provider-name">${escapeHtml(p.name)}</h3>
+                    <div class="provider-meta">
+                        <span class="meta-item"><span class="value">${p.models_count || p.models?.length || 0}</span> models</span>
+                        <span class="meta-item"><span class="value">${p.free_models?.length || 0}</span> free</span>
+                        <span class="meta-item"><span class="value">${p.context_window?.toLocaleString() || '—'}</span> ctx</span>
+                    </div>
+                    <div class="provider-features" aria-label="Features">
+                        ${(p.features || []).slice(0, 6).map(f => `<span class="feature-tag">${escapeHtml(f)}</span>`).join('')}
+                    </div>
+                `;
+                
+                fragment.appendChild(card);
+            });
+            
+            // Clear and append
+            grid.textContent = '';
+            grid.appendChild(fragment);
+            
+            // Add event listeners efficiently
+            grid.querySelectorAll('.provider-card').forEach(card => {
+                const open = () => openModal(card.dataset.slug);
+                card.addEventListener('click', open);
+                card.addEventListener('keydown', e => { 
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        open(); 
+                    }
+                });
+            });
+
+            // Update stats
+            updateStats(providers);
+        }
+
+        function updateStats(providers) {
+            // Calculate stats efficiently
+            let totalModels = 0;
+            let totalFree = 0;
+            let totalHealth = 0;
+            let activeCount = 0;
+            
+            for (const p of providers) {
+                totalModels += p.models_count || p.models?.length || 0;
+                totalFree += p.free_models?.length || 0;
+                totalHealth += p.health_score || 0;
+                if (p.status === 'active') activeCount++;
+            }
+            
+            const avgHealth = providers.length ? Math.round(totalHealth / providers.length) : 0;
+            const activePercentage = providers.length ? Math.round(activeCount / providers.length * 100) : 0;
+            
+            // Update DOM
+            document.getElementById('stat-providers').textContent = providers.length;
+            document.getElementById('stat-models').textContent = totalModels.toLocaleString();
+            document.getElementById('stat-free').textContent = totalFree.toLocaleString();
+            document.getElementById('stat-health').textContent = avgHealth;
+            document.getElementById('health-score').textContent = avgHealth;
+            document.getElementById('active-count').textContent = activeCount;
+            document.getElementById('total-models').textContent = totalModels.toLocaleString();
+            document.getElementById('free-models').textContent = totalFree.toLocaleString();
+            document.getElementById('health-progress').style.width = `${avgHealth}%`;
+            document.getElementById('active-progress').style.width = `${activePercentage}%`;
+        }
+
+        // ===== Modal =====
+        const modal = document.getElementById('modal');
+        const modalBody = document.getElementById('modal-body');
+        const modalTitle = document.getElementById('modal-title');
+
+        function openModal(slug) {
+            const p = providersData?.providers?.find(x => x.slug === slug);
+            if (!p) return;
+
+            modalTitle.textContent = p.name;
+            modalBody.innerHTML = `
+                <div class="modal-detail">
+                    <span class="detail-label">Status</span>
+                    <span class="detail-value"><span class="provider-status status-${p.status || 'offline'}" 
+                           style="width:10px;height:10px;display:inline-block;margin-right:0.4rem;"></span>
+                        ${p.status || 'unknown'}</span>
+                    <span class="detail-label">Tier</span>
+                    <span class="detail-value">${p.tier.replace('_', ' ')}</span>
+                    <span class="detail-label">Models</span>
+                    <span class="detail-value">${p.models_count || p.models?.length || 0}</span>
+                    <span class="detail-label">Free Models</span>
+                    <span class="detail-value">${p.free_models?.length || 0}</span>
+                    <span class="detail-label">Context Window</span>
+                    <span class="detail-value mono">${p.context_window?.toLocaleString() || '—'}</span>
+                    <span class="detail-label">Max Output</span>
+                    <span class="detail-value mono">${p.max_output_tokens?.toLocaleString() || '—'}</span>
+                    <span class="detail-label">Health Score</span>
+                    <span class="detail-value">${p.health_score || '—'}/100</span>
+                    <span class="detail-label">Function Calling</span>
+                    <span class="detail-value">${p.function_calling ? '✓' : '✗'}</span>
+                    <span class="detail-label">Requires Key</span>
+                    <span class="detail-value">${p.requires_key ? 'Yes' : 'No'}</span>
+                    <span class="detail-label">Requires Card</span>
+                    <span class="detail-value">${p.requires_card ? 'Yes' : 'No'}</span>
+                    <span class="detail-label">Region</span>
+                    <span class="detail-value">${p.region || 'global'}</span>
+                    <span class="detail-label">Last Probed</span>
+                    <span class="detail-value mono">${p.last_probed ? new Date(p.last_probed).toLocaleString() : '—'}</span>
+                </div>
+                <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);">
+                    <strong style="display:block;margin-bottom:0.5rem;color:var(--accent);">Features</strong>
+                    <div style="display:flex;flex-wrap:wrap;gap:0.4rem;">
+                        ${(p.features || []).map(f => `<span class="feature-tag">${escapeHtml(f)}</span>`).join('')}
+                    </div>
+                </div>
+                ${p.notes ? `<div style="margin-top:1rem;padding:1rem;background:var(--bg);border-radius:12px;border:1px solid var(--border);color:var(--muted);font-size:0.85rem;">${escapeHtml(p.notes)}</div>` : ''}
+                <div style="display:flex;gap:0.75rem;margin-top:1.5rem;">
+                    <a href="${escapeHtml(p.website)}" target="_blank" rel="noopener" 
+                       style="flex:1;padding:0.7rem;background:var(--bg);border:1px solid var(--border);border-radius:10px;color:var(--fg);text-decoration:none;text-align:center;transition:all var(--transition-fast);"
+                       onmouseover="this.style.borderColor='var(--accent)'" 
+                       onmouseout="this.style.borderColor='var(--border)'">Website</a>
+                    <a href="${escapeHtml(p.api_base)}${escapeHtml(p.models_endpoint)}" 
+                       target="_blank" rel="noopener" 
+                       style="flex:1;padding:0.7rem;background:linear-gradient(135deg,var(--accent),var(--accent-secondary));border:none;border-radius:10px;color:var(--bg);text-decoration:none;text-align:center;font-weight:600;">Models API</a>
+                </div>
+            `;
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            // Trap focus in modal
+            trapFocus(modal);
+        }
+
+        function closeModal() {
+            modal.classList.remove('open');
+            document.body.style.overflow = '';
+            releaseFocus();
+        }
+
+        function trapFocus(element) {
+            const focusableElements = element.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            const firstFocusable = focusableElements[0];
+            const lastFocusable = focusableElements[focusableElements.length - 1];
+            
+            element.addEventListener('keydown', function e(e) {
+                if (e.key === 'Tab') {
+                    if (e.shiftKey) { // shift + tab
+                        if (document.activeElement === firstFocusable) {
+                            e.preventDefault();
+                            lastFocusable.focus();
+                        }
+                    } else { // tab
+                        if (document.activeElement === lastFocusable) {
+                            e.preventDefault();
+                            firstFocusable.focus();
+                        }
+                    }
+                }
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        }
+
+        function releaseFocus() {
+            // Implementation would release trapped focus
+        }
+
+        document.getElementById('modal-close').addEventListener('click', closeModal);
+        modal.addEventListener('click', e => { 
+            if (e.target === modal) closeModal(); 
+        });
+        document.addEventListener('keydown', e => { 
+            if (e.key === 'Escape') closeModal(); 
+        });
+
+        // ===== Toast =====
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            container.appendChild(toast);
+            
+            // Auto remove
+            setTimeout(() => {
+                toast.style.animation = 'toastOut 0.2s ease';
+                setTimeout(() => {
+                    if (toast.parentNode) toast.parentNode.removeChild(toast);
+                }, 200);
+            }, 3000);
+        }
+
+        // Add toast out animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes toastOut {
+                to { opacity: 0; transform: translateX(100%); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // ===== Build Time =====
+        document.getElementById('build-time').textContent = new Date().toISOString().split('T')[0];
+
+        // ===== Initialize =====
+        async function init() {
+            resizeCanvas();
+            if (!reducedMotion) { 
+                initParticles(); 
+                animationFrameId = requestAnimationFrame(animate); 
+            }
+
+            const data = await fetchProviders();
+            if (data) {
+                renderProviders(data.providers);
+                document.getElementById('last-probe').textContent = data.updated
+                    ? new Date(data.updated).toLocaleString()
+                    : '—';
+                document.getElementById('data-version').textContent = data.version || '1.0';
+            }
+
+            // Filter listeners with debounce
+            const debounce = (func, delay) => {
+                let timeoutId;
+                return (...args) => {
+                    clearTimeout(timeoutId);
+                    timeoutId = setTimeout(() => func.apply(this, args), delay);
+                };
+            };
+
+            const updateView = debounce(() => {
+                if (providersData) {
+                    renderProviders(providersData.providers);
+                }
+            }, 150);
+
+            ['search-input', 'tier-filter', 'status-filter'].forEach(id => {
+                const el = document.getElementById(id);
+                el.addEventListener('input', updateView);
+                el.addEventListener('change', updateView);
+            });
+        }
+
+        // Start initialization
+        init().catch(console.error);
+        
+        // Cleanup on page hide/unload
+        window.addEventListener('pagehide', () => {
+            if (animationFrameId) cancelAnimationFrame(animationFrameId);
+        });
+    </script>
+</body>
+</html>
