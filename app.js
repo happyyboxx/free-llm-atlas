@@ -599,14 +599,12 @@ async function init() {
         });
         
         // ===== Comparison Logic =====
-        const compareSelect = document.getElementById('compare-select');
-        const compareSelected = document.getElementById('compare-selected');
-        const compareGrid = document.getElementById('compare-grid');
-        const selectedProviders = new Set();
+        let selectedProviders = new Set();
         
         function updateCompareSelect() {
           if (!providersData) return;
           
+          const compareSelect = document.getElementById('compare-select');
           // Clear and repopulate options
           compareSelect.innerHTML = '<option value="">Select a provider to compare...</option>';
           providersData.providers.forEach(p => {
@@ -620,6 +618,7 @@ async function init() {
         }
         
         function renderComparison() {
+          const compareGrid = document.getElementById('compare-grid');
           if (selectedProviders.size === 0) {
             compareGrid.innerHTML = '';
             return;
@@ -672,11 +671,19 @@ async function init() {
                 </div>
               </div>
               <div style="margin-top:1rem; text-align:right;">
-                <button class="btn btn-sm" onclick="removeFromCompare('${p.slug}')">Remove</button>
+                <button class="btn btn-secondary" style="padding:0.5rem 1rem; font-size:0.8rem;" data-remove="${p.slug}">Remove</button>
               </div>
             `;
             
             compareGrid.appendChild(card);
+          });
+          
+          // Add event listeners for remove buttons (event delegation)
+          compareGrid.querySelectorAll('[data-remove]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+              const slug = e.target.getAttribute('data-remove');
+              removeFromCompare(slug);
+            });
           });
         }
         
@@ -697,15 +704,19 @@ async function init() {
           renderComparison();
         }
         
-        compareSelect.addEventListener('change', (e) => {
+        // Make removeFromCompare globally accessible
+        window.removeFromCompare = removeFromCompare;
+        
+        // Initial population of compare select
+        updateCompareSelect();
+        
+        // Event listener for compare select
+        document.getElementById('compare-select').addEventListener('change', (e) => {
           const slug = e.target.value;
           if (slug && !selectedProviders.has(slug)) {
             addToCompare(slug);
             e.target.value = ''; // Reset select
           }
         });
-        
-        // Initial population of compare select
-        updateCompareSelect();
         
         // ===== Cleanup =====
