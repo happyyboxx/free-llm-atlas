@@ -50,6 +50,7 @@ async function loadI18n() {
 }
 
 function t(key) {
+  if (!key) return '';
   return i18nData?.[currentLang]?.[key] || i18nData?.en?.[key] || key;
 }
 
@@ -438,7 +439,8 @@ function createStatusCard(p) {
   let rateLimitText = '';
   // Handle all rate limit keys, not just hardcoded ones
   for (const [key, value] of Object.entries(rateLimit)) {
-    if (typeof value === 'object' && value !== null) continue; // Skip nested objects
+    if (value === null || value === undefined) continue;
+    if (typeof value === 'object') continue; // Skip nested objects
     const label = key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
     rateLimitText += `${value} ${label} `;
   }
@@ -628,13 +630,13 @@ function openProviderModal(p) {
 
       <div>
         <h4 style="margin-bottom: 12px;">${t('modal_capabilities')}</h4>
-        <div style="margin-bottom: 16px;">
+        <div>
           <strong style="color: var(--text-muted); font-size: 0.85rem;">${t('modal_context')}: </strong>
-          <span style="margin-left: 8px;">${p.context_window ? formatContext(p.context_window) : t('unknown')}</span>
+          <span style="margin-left: 8px;">${p.context_window && p.context_window > 0 ? formatContext(p.context_window) : t('unknown')}</span>
         </div>
         <div style="margin-bottom: 16px;">
           <strong style="color: var(--text-muted); font-size: 0.85rem;">${t('modal_max_output')}: </strong>
-          <span style="margin-left: 8px;">${p.max_output_tokens ? p.max_output_tokens.toLocaleString() : t('unknown')}</span>
+          <span style="margin-left: 8px;">${p.max_output_tokens && p.max_output_tokens > 0 ? p.max_output_tokens.toLocaleString() : t('unknown')}</span>
         </div>
         <div style="margin-bottom: 16px;">
           <strong style="color: var(--text-muted); font-size: 0.85rem;">${t('modal_function')}: </strong>
