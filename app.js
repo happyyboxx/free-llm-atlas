@@ -593,70 +593,70 @@ function openProviderModal(p) {
   const content = `
     <div style="display: grid; gap: 20px;">
       <div>
-        <h4 style="margin-bottom: 12px;">Basic Info</h4>
+        <h4 style="margin-bottom: 12px;">${t('modal_basic_info')}</h4>
         <dl style="display: grid; grid-template-columns: 140px 1fr; gap: 8px 16px; font-size: 0.9rem;">
-          <dt style="color: var(--text-muted);">Website</dt>
+          <dt style="color: var(--text-muted);">${t('modal_website')}</dt>
           <dd><a href="${escapeHtml(p.website)}" target="_blank" rel="noopener" style="color: var(--brand);">${escapeHtml(p.website)}</a></dd>
-          <dt style="color: var(--text-muted);">API Base</dt>
+          <dt style="color: var(--text-muted);">${t('modal_api_base')}</dt>
           <dd><code style="font-size: 0.85rem;">${escapeHtml(p.api_base)}</code></dd>
-          <dt style="color: var(--text-muted);">Tier</dt>
+          <dt style="color: var(--text-muted);">${t('modal_tier')}</dt>
           <dd><span class="provider-tier tier-${p.tier}">${p.tier}</span></dd>
-          <dt style="color: var(--text-muted);">Region</dt>
+          <dt style="color: var(--text-muted);">${t('modal_region')}</dt>
           <dd>${p.region || 'Global'}</dd>
-          <dt style="color: var(--text-muted);">Requires Key</dt>
-          <dd>${p.requires_key ? 'Yes' : 'No'}</dd>
-          <dt style="color: var(--text-muted);">Requires Card</dt>
-          <dd>${p.requires_card ? 'Yes' : 'No'}</dd>
-          <dt style="color: var(--text-muted);">Status</dt>
+          <dt style="color: var(--text-muted);">${t('modal_requires_key')}</dt>
+          <dd>${p.requires_key ? t('yes') : t('no')}</dd>
+          <dt style="color: var(--text-muted);">${t('modal_requires_card')}</dt>
+          <dd>${p.requires_card ? t('yes') : t('no')}</dd>
+          <dt style="color: var(--text-muted);">${t('modal_status')}</dt>
           <dd><span class="status-badge status-${p.status}">${translateStatus(p.status)}</span></dd>
-          <dt style="color: var(--text-muted);">Health Score</dt>
+          <dt style="color: var(--text-muted);">${t('modal_health')}</dt>
           <dd style="color: ${p.health_score >= 80 ? 'var(--success)' : p.health_score >= 60 ? 'var(--warning)' : 'var(--danger)'}; font-weight: 600;">${p.health_score || '—'}/100</dd>
-          <dt style="color: var(--text-muted);">Last Probed</dt>
+          <dt style="color: var(--text-muted);">${t('modal_last_probed')}</dt>
           <dd>${formatDate(p.last_probed)}</dd>
         </dl>
       </div>
 
       <div>
-        <h4 style="margin-bottom: 12px;">Rate Limits</h4>
+        <h4 style="margin-bottom: 12px;">${t('modal_rate_limits')}</h4>
         <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; font-size: 0.85rem;">${rateLimitHtml}</ul>
       </div>
 
       <div>
-        <h4 style="margin-bottom: 12px;">Capabilities</h4>
+        <h4 style="margin-bottom: 12px;">${t('modal_capabilities')}</h4>
         <div style="margin-bottom: 16px;">
-          <strong style="color: var(--text-muted); font-size: 0.85rem;">Context Window:</strong>
-          <span style="margin-left: 8px;">${p.context_window ? formatContext(p.context_window) : 'N/A'}</span>
+          <strong style="color: var(--text-muted); font-size: 0.85rem;">${t('modal_context')}: </strong>
+          <span style="margin-left: 8px;">${p.context_window ? formatContext(p.context_window) : t('unknown')}</span>
         </div>
         <div style="margin-bottom: 16px;">
-          <strong style="color: var(--text-muted); font-size: 0.85rem;">Max Output Tokens:</strong>
-          <span style="margin-left: 8px;">${p.max_output_tokens ? p.max_output_tokens.toLocaleString() : 'N/A'}</span>
+          <strong style="color: var(--text-muted); font-size: 0.85rem;">${t('modal_max_output')}: </strong>
+          <span style="margin-left: 8px;">${p.max_output_tokens ? p.max_output_tokens.toLocaleString() : t('unknown')}</span>
         </div>
         <div style="margin-bottom: 16px;">
-          <strong style="color: var(--text-muted); font-size: 0.85rem;">Function Calling:</strong>
-          <span style="margin-left: 8px;">${p.function_calling ? 'Yes' : 'No'}</span>
+          <strong style="color: var(--text-muted); font-size: 0.85rem;">${t('modal_function')}: </strong>
+          <span style="margin-left: 8px;">${p.function_calling ? t('yes') : t('no')}</span>
         </div>
         <div>
-          <strong style="color: var(--text-muted); font-size: 0.85rem;">Features:</strong>
-          <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">${features || 'None'}</div>
+          <strong style="color: var(--text-muted); font-size: 0.85rem;">${t('modal_features')}: </strong>
+          <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px;">${features || t('unknown')}</div>
         </div>
       </div>
 
       <div>
-        <h4 style="margin-bottom: 12px;">Models (${(p.models || []).length} total, ${(p.free_models || []).length} free)</h4>
+        <h4 style="margin-bottom: 12px;">${t('modal_models_title')} (${(p.models || []).length} ${t('modal_total')}, ${(p.free_models || []).length} ${t('modal_free')})</h4>
         <div style="margin-bottom: 16px;">
-          <strong style="color: var(--text-muted); font-size: 0.85rem;">Free Models:</strong>
-          <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px;">${freeModels || 'None'}</div>
+          <strong style="color: var(--text-muted); font-size: 0.85rem;">${t('modal_free_models')}: </strong>
+          <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px;">${freeModels || t('none')}</div>
         </div>
         <div>
-          <strong style="color: var(--text-muted); font-size: 0.85rem;">All Models:</strong>
-          <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px;">${models}${p.models.length > 10 ? ' <span style="color: var(--text-dim);">...+' + (p.models.length - 10) + ' more</span>' : ''}</div>
+          <strong style="color: var(--text-muted); font-size: 0.85rem;">${t('modal_all_models')}: </strong>
+          <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px;">${models}${p.models.length > 10 ? ' <span style="color: var(--text-dim);">' + t('modal_and_more') + ' ' + (p.models.length - 10) + '</span>' : ''}</div>
         </div>
       </div>
 
       <div style="padding-top: 16px; border-top: 1px solid var(--border); color: var(--text-dim); font-size: 0.8rem;">
-        ${escapeHtml(p.notes || 'No additional notes.')}
+        ${escapeHtml(p.notes || t('modal_no_notes'))}
         <br><br>
-        <strong>Source:</strong> <a href="${escapeHtml(p.source)}" target="_blank" rel="noopener" style="color: var(--brand);">${escapeHtml(p.source)}</a>
+        <strong>${t('modal_source')}: </strong> <a href="${escapeHtml(p.source)}" target="_blank" rel="noopener" style="color: var(--brand);">${escapeHtml(p.source)}</a>
       </div>
     </div>
   `;
