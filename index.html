@@ -48,134 +48,74 @@
     </div>
 
     <main>
-        <!-- Hero -->
-        <header class="hero">
+        <!-- Hero Section -->
+        <section class="hero">
             <div class="hero-badge mono" data-i18n="hero_badge">LIVE • AUTO-PROBED DAILY</div>
             <h1 data-i18n="hero_title">Free LLM Atlas</h1>
-            <p class="subtitle" data-i18n="hero_subtitle">permanent-free LLM providers, auto-probed daily. Structured JSON, gateway configs, zero cost to production.</p>
-            <div class="hero-stats">
+            <p class="subtitle" data-i18n="hero_subtitle">19 free LLM API providers, auto-probed daily. Structured JSON + gateway configs. Zero cost to production.</p>
+            
+            <div class="hero-stats" id="hero-stats">
                 <div class="stat">
-                    <div class="stat-value mono" id="stat-providers">19</div>
-                    <div class="stat-label" data-i18n="stat_providers">Providers</div>
+                    <span class="stat-value mono" id="stat-providers">—</span>
+                    <span class="stat-label" data-i18n="stat_providers">Providers</span>
                 </div>
                 <div class="stat">
-                    <div class="stat-value mono" id="stat-models">0</div>
-                    <div class="stat-label" data-i18n="stat_models">Total Models</div>
+                    <span class="stat-value mono" id="stat-models">—</span>
+                    <span class="stat-label" data-i18n="stat_models">Models</span>
                 </div>
                 <div class="stat">
-                    <div class="stat-value mono" id="stat-free">0</div>
-                    <div class="stat-label" data-i18n="stat_free">Free Models</div>
+                    <span class="stat-value mono" id="stat-free">—</span>
+                    <span class="stat-label" data-i18n="stat_free">Free Models</span>
                 </div>
                 <div class="stat">
-                    <div class="stat-value mono" id="stat-health">0</div>
-                    <div class="stat-label" data-i18n="stat_health">Avg Health</div>
+                    <span class="stat-value mono" id="stat-health">—</span>
+                    <span class="stat-label" data-i18n="stat_health">Avg Health</span>
                 </div>
             </div>
-            <div class="scroll-indicator mono" data-i18n="scroll_indicator">SCROLL TO EXPLORE</div>
-        </header>
 
-        <!-- Providers Section -->
+            <div class="scroll-indicator" data-i18n="scroll_indicator">SCROLL TO EXPLORE</div>
+        </section>
+
+        <!-- Providers Grid Section -->
         <section id="providers">
             <div class="section-header">
                 <span class="section-tag mono" data-i18n="section_providers_tag">Providers</span>
-                <h2 class="section-title" data-i18n="section_providers_title">Available Providers</h2>
-                <p class="section-desc" data-i18n="section_providers_desc">All providers are permanently free (no credit card) or trial-credit based. Data refreshed daily at 06:00 UTC via GitHub Actions.</p>
+                <h2 class="section-title" data-i18n="section_providers_title">All Providers</h2>
+                <p class="section-desc" data-i18n="section_providers_desc">Explore all 19+ free LLM API providers with live health status, models, and features.</p>
             </div>
+
             <div class="filter-bar">
                 <div class="search-box">
-                    <input type="text" id="search-input" data-i18n-placeholder="search_placeholder" placeholder="Search providers, models, features..." aria-label="Search providers">
+                    <input type="text" id="search-input" placeholder="Search providers, models, features..." aria-label="Search providers" data-i18n-placeholder="search_placeholder">
                 </div>
-                <select class="filter-select" id="tier-filter" aria-label="Filter by tier">
-                    <option value="">All Tiers</option>
-                    <option value="permanent_free">Permanent Free</option>
-                    <option value="trial_credit">Trial Credit</option>
-                    <option value="local">Local</option>
-                </select>
-                <select class="filter-select" id="status-filter" aria-label="Filter by status">
-                    <option value="">All Status</option>
-                    <option value="active">Active</option>
-                    <option value="degraded">Degraded</option>
-                    <option value="offline">Offline</option>
-                </select>
-            </div>
-            <div class="providers-grid" id="providers-grid" role="list"></div>
-        </section>
-
-        <!-- Compare Section -->
-        <section class="compare-section" id="compare">
-            <div class="section-header">
-                <span class="section-tag mono" data-i18n="compare_title">Compare</span>
-                <h2 class="section-title" data-i18n="compare_title">Model Comparison</h2>
-                <p class="section-desc" data-i18n="compare_desc">Select up to 3 providers to compare their capabilities side by side.</p>
-            </div>
-            <div class="compare-selector">
-                <select class="compare-select" id="compare-select">
-                    <option value="">Select a provider to compare...</option>
-                </select>
-                <div class="compare-selected" id="compare-selected"></div>
-            </div>
-            <div class="compare-grid" id="compare-grid"></div>
-        </section>
-
-        <!-- Cost Calculator Section -->
-        <section class="calculator-section" id="calculator">
-            <div class="section-header">
-                <span class="section-tag mono" data-i18n="calculator_title">Calculator</span>
-                <h2 class="section-title" data-i18n="calculator_title">Cost Calculator</h2>
-                <p class="section-desc" data-i18n="calculator_desc">Estimate monthly costs based on your token usage. Note: Free tier providers shown as $0. Trial credit providers require manual estimation.</p>
-            </div>
-            <div class="calculator-controls">
-                <div class="calc-input-group">
-                    <label data-i18n="calc_input_tokens">Monthly Input Tokens</label>
-                    <input type="number" id="calc-input-tokens" value="100000" min="0" step="1000" class="calc-input">
+                <div class="filter-group">
+                    <label for="tier-filter" data-i18n="filter_tier_label">Tier</label>
+                    <select class="filter-select" id="tier-filter" aria-label="Filter by tier">
+                        <option value="" data-i18n="filter_tier_all">All Tiers</option>
+                        <option value="permanent_free" data-i18n="filter_tier_permanent">Permanent Free</option>
+                        <option value="trial_credit" data-i18n="filter_tier_trial">Trial Credit</option>
+                        <option value="local" data-i18n="filter_tier_local">Local</option>
+                    </select>
                 </div>
-                <div class="calc-input-group">
-                    <label data-i18n="calc_output_tokens">Monthly Output Tokens</label>
-                    <input type="number" id="calc-output-tokens" value="50000" min="0" step="1000" class="calc-input">
+                <div class="filter-group">
+                    <label for="status-filter" data-i18n="filter_status_label">Status</label>
+                    <select class="filter-select" id="status-filter" aria-label="Filter by status">
+                        <option value="" data-i18n="filter_status_all">All Status</option>
+                        <option value="active" data-i18n="filter_status_active">Active</option>
+                        <option value="degraded" data-i18n="filter_status_degraded">Degraded</option>
+                        <option value="down" data-i18n="filter_status_offline">Down</option>
+                        <option value="unknown" data-i18n="filter_status_unknown">Unknown</option>
+                    </select>
                 </div>
-                <div class="calc-input-group">
-                    <label data-i18n="calc_ratio">I/O Ratio Preset</label>
-                    <select id="calc-ratio-preset" class="calc-select">
-                        <option value="10:1">10:1 (RAG/Chat)</option>
-                        <option value="1:1">1:1 (Balanced)</option>
-                        <option value="1:4">1:4 (Code Gen)</option>
-                        <option value="custom">Custom</option>
+                <div class="filter-group">
+                    <label for="feature-filter" data-i18n="filter_feature_label">Feature</label>
+                    <select class="filter-select" id="feature-filter" aria-label="Filter by feature">
+                        <option value="" data-i18n="filter_feature_all">All Features</option>
                     </select>
                 </div>
             </div>
-            <div class="calculator-results" id="calculator-results"></div>
-        </section>
 
-        <!-- Share/Export Section -->
-        <section class="share-section" id="share">
-            <div class="section-header">
-                <span class="section-tag mono" data-i18n="share_title">Share</span>
-                <h2 class="section-title" data-i18n="share_title">Share Comparison</h2>
-                <p class="section-desc" data-i18n="share_desc">Share your comparison with others via link or export data.</p>
-            </div>
-            <div class="share-actions">
-                <button class="btn btn-primary" id="share-copy-link" data-i18n="share_copy_link">Copy Link</button>
-                <button class="btn btn-secondary" id="share-export-json" data-i18n="share_export_json">Export JSON</button>
-                <button class="btn btn-secondary" id="share-export-md" data-i18n="share_export_md">Export Markdown</button>
-            </div>
-            <div class="share-url" id="share-url" style="display:none;">
-                <input type="text" id="share-url-input" readonly>
-                <span class="copy-success" id="copy-success" data-i18n="share_copied"></span>
-            </div>
-        </section>
-
-        <!-- Speed Test Section -->
-        <section class="speed-section" id="speed-test">
-            <div class="section-header">
-                <span class="section-tag mono" data-i18n="speed_test_title">Speed</span>
-                <h2 class="section-title" data-i18n="speed_test_title">API Speed Test</h2>
-                <p class="section-desc" data-i18n="speed_test_desc">Test real-time latency to provider endpoints from your location.</p>
-            </div>
-            <div class="speed-controls">
-                <button class="btn btn-primary" id="speed-run-all" data-i18n="speed_test_run">Test All Providers</button>
-                <button class="btn btn-secondary" id="speed-clear" style="display:none;">Clear Results</button>
-            </div>
-            <div class="speed-grid" id="speed-grid"></div>
+            <div id="providers-grid" class="providers-grid"></div>
         </section>
 
         <!-- Live Monitor Section -->
@@ -188,60 +128,310 @@
             <div class="monitor-grid">
                 <div class="monitor-card">
                     <div class="monitor-header">
-                        <span class="monitor-title">Overall Health</span>
-                        <span class="live-indicator"><span class="live-dot"></span> LIVE</span>
+                        <span class="monitor-title" data-i18n="monitor_health">Overall Health</span>
+                        <span class="live-indicator"><span class="live-dot"></span> <span data-i18n="live_label">LIVE</span></span>
                     </div>
                     <div class="monitor-value mono" id="health-score">—</div>
-                    <div class="monitor-label">Average Health Score</div>
+                    <div class="monitor-label" data-i18n="monitor_health_label">Average Health Score</div>
                     <div class="progress-bar"><div class="progress-fill" id="health-progress" style="width: 0%"></div></div>
                 </div>
                 <div class="monitor-card">
                     <div class="monitor-header">
-                        <span class="monitor-title">Active Providers</span>
-                        <span class="live-indicator"><span class="live-dot"></span> LIVE</span>
+                        <span class="monitor-title" data-i18n="monitor_active">Active Providers</span>
+                        <span class="live-indicator"><span class="live-dot"></span> <span data-i18n="live_label">LIVE</span></span>
                     </div>
                     <div class="monitor-value mono" id="active-count">—</div>
-                    <div class="monitor-label">Fully Operational</div>
+                    <div class="monitor-label" data-i18n="monitor_active_label">Fully Operational</div>
                     <div class="progress-bar"><div class="progress-fill" id="active-progress" style="width: 0%"></div></div>
                 </div>
                 <div class="monitor-card">
                     <div class="monitor-header">
-                        <span class="monitor-title">Total Models</span>
+                        <span class="monitor-title" data-i18n="monitor_models">Total Models</span>
                     </div>
                     <div class="monitor-value mono" id="total-models">—</div>
-                    <div class="monitor-label">Across All Providers</div>
+                    <div class="monitor-label" data-i18n="monitor_models_label">Across All Providers</div>
                 </div>
                 <div class="monitor-card">
                     <div class="monitor-header">
-                        <span class="monitor-title">Free Models</span>
+                        <span class="monitor-title" data-i18n="monitor_free">Free Models</span>
                     </div>
                     <div class="monitor-value mono" id="free-models">—</div>
-                    <div class="monitor-label">No Cost / No Card</div>
+                    <div class="monitor-label" data-i18n="monitor_free_label">No Cost / No Card</div>
                 </div>
                 <div class="monitor-card">
                     <div class="monitor-header">
-                        <span class="monitor-title">Last Probe</span>
+                        <span class="monitor-title" data-i18n="monitor_probe">Last Probe</span>
                     </div>
                     <div class="monitor-value mono" style="font-size: 1.4rem" id="last-probe">—</div>
-                    <div class="monitor-label">Auto-run daily 06:00 UTC</div>
+                    <div class="monitor-label" data-i18n="monitor_probe_label">Auto-run daily 06:00 UTC</div>
                 </div>
                 <div class="monitor-card">
                     <div class="monitor-header">
-                        <span class="monitor-title">Data Version</span>
+                        <span class="monitor-title" data-i18n="monitor_version">Data Version</span>
                     </div>
                     <div class="monitor-value mono" style="font-size: 1.15rem" id="data-version">—</div>
-                    <div class="monitor-label">Schema v1.0</div>
+                    <div class="monitor-label" data-i18n="monitor_version_label">Schema v1.0</div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Provider Status Grid (Enhanced) -->
+        <section id="status-grid" style="display: none;">
+            <div class="section-header">
+                <span class="section-tag mono" data-i18n="status_grid_tag">Status Grid</span>
+                <h2 class="section-title" data-i18n="status_grid_title">Provider Status Grid</h2>
+                <p class="section-desc" data-i18n="status_grid_desc">Detailed status cards for each provider with health scores, rate limits, and capabilities.</p>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="container">
+                <div class="summary-grid" id="summary-grid">
+                    <div class="summary-card">
+                        <div class="summary-value" id="total-providers">—</div>
+                        <div class="summary-label" data-i18n="summary_total">Total Providers</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-value" id="active-providers">—</div>
+                        <div class="summary-label" data-i18n="summary_active">Active</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-value" id="degraded-providers">—</div>
+                        <div class="summary-label" data-i18n="summary_degraded">Degraded</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-value" id="down-providers">—</div>
+                        <div class="summary-label" data-i18n="summary_down">Down</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-value" id="avg-health">—</div>
+                        <div class="summary-label" data-i18n="summary_avg_health">Avg Health Score</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-value" id="total-models-summary">—</div>
+                        <div class="summary-label" data-i18n="summary_total_models">Total Models</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="container">
+                <div class="filter-bar" id="status-filter-bar">
+                    <div class="search-box">
+                        <input type="text" id="status-search-input" placeholder="Search providers, models, features..." aria-label="Search providers">
+                    </div>
+                    <div class="filter-group">
+                        <label for="status-tier-filter" data-i18n="filter_tier_label">Tier</label>
+                        <select class="filter-select" id="status-tier-filter" aria-label="Filter by tier">
+                            <option value="" data-i18n="filter_tier_all">All Tiers</option>
+                            <option value="permanent_free" data-i18n="filter_tier_permanent">Permanent Free</option>
+                            <option value="trial_credit" data-i18n="filter_tier_trial">Trial Credit</option>
+                            <option value="local" data-i18n="filter_tier_local">Local</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="status-status-filter" data-i18n="filter_status_label">Status</label>
+                        <select class="filter-select" id="status-status-filter" aria-label="Filter by status">
+                            <option value="" data-i18n="filter_status_all">All Status</option>
+                            <option value="active" data-i18n="filter_status_active">Active</option>
+                            <option value="degraded" data-i18n="filter_status_degraded">Degraded</option>
+                            <option value="down" data-i18n="filter_status_offline">Down</option>
+                            <option value="unknown" data-i18n="filter_status_unknown">Unknown</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="status-feature-filter" data-i18n="filter_feature_label">Feature</label>
+                        <select class="filter-select" id="status-feature-filter" aria-label="Filter by feature">
+                            <option value="" data-i18n="filter_feature_all">All Features</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Provider Grid -->
+            <div class="container">
+                <div class="loading-grid" id="status-loading-grid">
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                </div>
+                <div class="status-grid" id="provider-grid" style="display: none;"></div>
+                <div class="no-results" id="status-no-results" style="display: none; text-align: center; padding: 60px 20px; color: var(--text-muted);" data-i18n="no_results">No providers match your filters.</div>
+            </div>
+        </section>
+
+        <!-- Zero-Cost Stack Generator -->
+        <section id="stack-generator">
+            <div class="section-header">
+                <span class="section-tag mono" data-i18n="stack_tag">Stack Generator</span>
+                <h2 class="section-title" data-i18n="stack_title">Zero-Cost Stack Generator</h2>
+                <p class="section-desc" data-i18n="stack_desc">Answer a few questions and we'll recommend the best free LLM provider stack for your workload.</p>
+            </div>
+
+            <div class="container">
+                <div class="stack-form" id="stack-form">
+                    <div class="form-section">
+                        <h3 class="form-section-title" data-i18n="stack_workload">Workload Requirements</h3>
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="concurrent-users" data-i18n="stack_concurrent">Concurrent Users</label>
+                                <input type="number" id="concurrent-users" value="10" min="1" max="1000" step="1" class="calc-input">
+                            </div>
+                            <div class="input-group">
+                                <label for="tokens-per-request" data-i18n="stack_tokens">Avg Tokens per Request</label>
+                                <input type="number" id="tokens-per-request" value="200" min="10" max="10000" step="10" class="calc-input">
+                            </div>
+                            <div class="input-group">
+                                <label for="daily-requests" data-i18n="stack_daily">Daily Requests</label>
+                                <input type="number" id="daily-requests" value="100" min="1" max="100000" step="10" class="calc-input">
+                            </div>
+                            <div class="input-group">
+                                <label for="budget" data-i18n="stack_budget">Monthly Budget (USD)</label>
+                                <input type="number" id="budget" value="0" min="0" max="10000" step="10" class="calc-input">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3 class="form-section-title" data-i18n="stack_requirements">Requirements</h3>
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="language-pref" data-i18n="stack_language">Language Preference</label>
+                                <select id="language-pref" class="calc-input">
+                                    <option value="en" data-i18n="stack_lang_en">English</option>
+                                    <option value="zh" data-i18n="stack_lang_zh">Chinese</option>
+                                    <option value="mix" data-i18n="stack_lang_mix">Multi-language</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="function-calling" data-i18n="stack_function">Need Function Calling</label>
+                                <select id="function-calling" class="calc-input">
+                                    <option value="no" data-i18n="no">No</option>
+                                    <option value="yes" data-i18n="yes">Yes</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="context-need" data-i18n="stack_context">Context Window Need</label>
+                                <select id="context-need" class="calc-input">
+                                    <option value="small" data-i18n="stack_ctx_small">Small (≤4K)</option>
+                                    <option value="medium" data-i18n="stack_ctx_med">Medium (4K-32K)</option>
+                                    <option value="large" data-i18n="stack_ctx_large">Large (32K-128K)</option>
+                                    <option value="xl" data-i18n="stack_ctx_xl">Extra Large (128K+)</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="latency-pref" data-i18n="stack_latency">Latency Priority</label>
+                                <select id="latency-pref" class="calc-input">
+                                    <option value="balanced" data-i18n="stack_lat_balanced">Balanced</option>
+                                    <option value="low" data-i18n="stack_lat_low">Low Latency</option>
+                                    <option value="throughput" data-i18n="stack_lat_throughput">High Throughput</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="btn btn-primary" id="generate-stack" style="width: 100%; padding: 16px; font-size: 1rem; font-weight: 600;" data-i18n="stack_generate">Generate Optimal Stack</button>
+                </div>
+            </div>
+
+            <!-- Result -->
+            <div class="container" style="margin-top: 40px;">
+                <div class="stack-result" id="stack-result"></div>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section id="compare" class="compare-section">
+            <div class="section-header">
+                <span class="section-tag mono" data-i18n="compare_tag">Compare</span>
+                <h2 class="section-title" data-i18n="compare_title">Compare Providers</h2>
+                <p class="section-desc" data-i18n="compare_desc">Select up to 3 providers for side-by-side comparison.</p>
+            </div>
+            <div class="compare-selector">
+                <select class="compare-select" id="compare-select-1" aria-label="First provider">
+                    <option value="" disabled selected data-i18n="compare_select_1">Select first provider</option>
+                </select>
+                <select class="compare-select" id="compare-select-2" aria-label="Second provider">
+                    <option value="" disabled selected data-i18n="compare_select_2">Select second provider</option>
+                </select>
+                <select class="compare-select" id="compare-select-3" aria-label="Third provider">
+                    <option value="" disabled selected data-i18n="compare_select_3">Select third provider</option>
+                </select>
+                <div class="compare-selected" id="compare-selected"></div>
+            </div>
+            <div class="compare-grid" id="compare-grid"></div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section id="calculator" class="calculator-section">
+            <div class="section-header">
+                <span class="section-tag mono" data-i18n="calc_tag">Cost Calculator</span>
+                <h2 class="section-title" data-i18n="calc_title">Cost Calculator</h2>
+                <p class="section-desc" data-i18n="calc_desc">Estimate monthly costs based on your token usage across different providers.</p>
+            </div>
+            <div class="calculator-controls">
+                <div class="calc-input-group">
+                    <label data-i18n="calc_input_tokens">Monthly Input Tokens</label>
+                    <input type="number" class="calc-input" id="monthly-input-tokens" value="1000000" min="0" step="10000">
+                </div>
+                <div class="calc-input-group">
+                    <label data-i18n="calc_output_tokens">Monthly Output Tokens</label>
+                    <input type="number" class="calc-input" id="monthly-output-tokens" value="500000" min="0" step="10000">
+                </div>
+                <div class="calc-input-group">
+                    <label data-i18n="calc_ratio">Input:Output Ratio</label>
+                    <select class="calc-select" id="input-output-ratio">
+                        <option value="1:1" data-i18n="calc_ratio_1">1:1</option>
+                        <option value="2:1" data-i18n="calc_ratio_2">2:1</option>
+                        <option value="4:1" data-i18n="calc_ratio_4">4:1</option>
+                        <option value="10:1" selected data-i18n="calc_ratio_10">10:1</option>
+                    </select>
+                </div>
+            </div>
+            <div class="calculator-results" id="calculator-results"></div>
+        </section>
+
+        <!-- Speed Test Section -->
+        <section id="speed-test" class="speed-section">
+            <div class="section-header">
+                <span class="section-tag mono" data-i18n="speed_tag">Speed Test</span>
+                <h2 class="section-title" data-i18n="speed_title">Latency Speed Test</h2>
+                <p class="section-desc" data-i18n="speed_desc">Test actual latency to each provider's API endpoint from your location.</p>
+            </div>
+            <div class="speed-controls">
+                <button class="btn btn-primary" id="run-speed-test" data-i18n="speed_run">Run Speed Test</button>
+                <button class="btn btn-secondary" id="clear-speed-test" style="display: none;" data-i18n="speed_clear">Clear Results</button>
+            </div>
+            <div class="speed-grid" id="speed-grid"></div>
+        </section>
+
+        <!-- Share Section -->
+        <section id="share" class="share-section">
+            <div class="section-header">
+                <span class="section-tag mono" data-i18n="share_tag">Share</span>
+                <h2 class="section-title" data-i18n="share_title">Share & Export</h2>
+                <p class="section-desc" data-i18n="share_desc">Share your findings or export data for offline analysis.</p>
+            </div>
+            <div class="share-actions">
+                <button class="btn btn-primary" id="copy-link" data-i18n="share_copy_link">Copy Page Link</button>
+                <button class="btn btn-secondary" id="export-json" data-i18n="share_export_json">Export JSON</button>
+                <button class="btn btn-secondary" id="export-md" data-i18n="share_export_md">Export Markdown</button>
+            </div>
+            <div class="share-url">
+                <input type="text" id="share-url-input" readonly placeholder="Click 'Copy Page Link' to generate">
+                <span class="copy-success" id="copy-success" style="display: none;" data-i18n="share_copied">Copied!</span>
             </div>
         </section>
 
         <!-- Footer -->
         <footer>
             <div class="footer-links">
-                <a href="https://github.com/happyyboxx/free-llm-atlas" target="_blank" rel="noopener">GitHub Repository</a>
-                <a href="data/providers.json" target="_blank" rel="noopener">Raw JSON API</a>
-                <a href="README.md" target="_blank" rel="noopener">Documentation</a>
-                <a href="https://hermes.nousresearch.com" target="_blank" rel="noopener">Powered by Hermes</a>
+                <a href="https://github.com/happyyboxx/free-llm-atlas" target="_blank" rel="noopener" data-i18n="footer_github">GitHub Repository</a>
+                <a href="data/providers.json" target="_blank" rel="noopener" data-i18n="footer_json">Raw JSON API</a>
+                <a href="README.md" target="_blank" rel="noopener" data-i18n="footer_docs">Documentation</a>
+                <a href="https://hermes.nousresearch.com" target="_blank" rel="noopener" data-i18n="footer_powered">Powered by Hermes</a>
             </div>
             <p class="footer-copy mono">
                 Built with <span style="color: var(--accent)">❤</span> by Hermes Agent · Data auto-updated daily via GitHub Actions · <span id="build-time" class="mono"></span>
