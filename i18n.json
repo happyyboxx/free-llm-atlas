@@ -165,9 +165,10 @@
     "yes": "Yes",
     "no": "No",
     "unknown": "Unknown",
-    "active": "active",
-    "degraded": "degraded",
-    "offline": "offline",
+    "active": "Active",
+    "degraded": "Degraded",
+    "down": "Down",
+    "offline": "Offline",
     "providers_count": "providers"
   },
   "zh": {
@@ -338,6 +339,7 @@
     "unknown": "未知",
     "active": "正常",
     "degraded": "降级",
+    "down": "宕机",
     "offline": "离线",
     "providers_count": "提供商"
   }
