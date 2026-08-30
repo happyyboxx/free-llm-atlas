@@ -436,12 +436,12 @@ function createStatusCard(p) {
 
   const rateLimit = p.rate_limit || {};
   let rateLimitText = '';
-  if (rateLimit.rpm) rateLimitText += `${rateLimit.rpm} RPM `;
-  if (rateLimit.rpd) rateLimitText += `${rateLimit.rpd}/day `;
-  if (rateLimit.tpm) rateLimitText += `${rateLimit.tpm} TPM `;
-  if (rateLimit.daily_neurons) rateLimitText += `${rateLimit.daily_neurons} neurons/day `;
-  if (rateLimit.monthly_requests) rateLimitText += `${rateLimit.monthly_requests}/month `;
-  if (rateLimit.rph) rateLimitText += `${rateLimit.rph}/hr `;
+  // Handle all rate limit keys, not just hardcoded ones
+  for (const [key, value] of Object.entries(rateLimit)) {
+    if (typeof value === 'object' && value !== null) continue; // Skip nested objects
+    const label = key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    rateLimitText += `${value} ${label} `;
+  }
   if (!rateLimitText) rateLimitText = 'N/A';
 
   const features = (p.features || []).slice(0, 6);
@@ -574,7 +574,12 @@ function openProviderModal(p) {
   let rateLimitHtml = '';
   for (const [key, value] of Object.entries(rateLimit)) {
     const label = key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-    rateLimitHtml += `<li><strong>${label}:</strong> ${value}</li>`;
+    // Handle nested objects/arrays
+    let displayValue = value;
+    if (typeof value === 'object' && value !== null) {
+      displayValue = JSON.stringify(value);
+    }
+    rateLimitHtml += `<li><strong>${label}:</strong> ${escapeHtml(displayValue)}</li>`;
   }
   if (!rateLimitHtml) rateLimitHtml = '<li>Not specified</li>';
 
