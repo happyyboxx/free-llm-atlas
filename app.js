@@ -161,13 +161,66 @@ async function fetchProviders() {
 
 // ===== Optimized Background Animation =====
 const canvas = document.getElementById('bg-canvas');
-const ctx = canvas.getContext('2d');
+let ctx = null;
 let particles = [];
 let animationFrameId = null;
-let reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let reducedMotion = false;
 let lastTime = 0;
 
+function initCanvas() {
+  if (!canvas) {
+    console.warn('Canvas element not found');
+    return false;
+  }
+  try {
+    // Try with willReadFrequently for better performance on some Linux setups
+    ctx = canvas.getContext('2d', { 
+      alpha: true, 
+      desynchronized: true,
+      willReadFrequently: false 
+    });
+    
+    // Fallback if desynchronized fails
+    if (!ctx) {
+      ctx = canvas.getContext('2d', { alpha: true });
+    }
+    
+    if (!ctx) {
+      console.warn('Failed to get 2D context');
+      return false;
+    }
+  } catch (e) {
+    console.warn('Canvas context error:', e);
+    // Final fallback
+    try {
+      ctx = canvas.getContext('2d');
+    } catch (e2) {
+      console.warn('Canvas context fallback failed:', e2);
+      return false;
+    }
+  }
+  return true;
+}
+
+// Initialize reduced motion check and listen for changes
+function initReducedMotion() {
+  const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  reducedMotion = mediaQuery.matches;
+  mediaQuery.addEventListener?.('change', (e) => {
+    reducedMotion = e.matches;
+    if (!reducedMotion && particles.length === 0) {
+      initParticles();
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      animationFrameId = requestAnimationFrame(animate);
+    } else if (reducedMotion && animationFrameId) {
+      cancelAnimationFrame(animationFrameId);
+      animationFrameId = null;
+    }
+  });
+}
+
 function resizeCanvas() {
+  if (!initCanvas()) return;
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 }
@@ -217,13 +270,14 @@ class Particle {
 }
 
 function initParticles() {
+  if (!initCanvas()) return;
   const density = Math.min(0.0008, Math.max(0.0004, window.innerWidth * window.innerHeight / 10000000));
   const count = Math.max(50, Math.min(150, Math.floor(canvas.width * canvas.height * density)));
   particles = Array.from({ length: count }, () => new Particle());
 }
 
 function animate(timestamp) {
-  if (reducedMotion) return;
+  if (reducedMotion || !ctx) return;
 
   const deltaTime = timestamp - lastTime;
   lastTime = timestamp;
@@ -1216,8 +1270,11 @@ async function init() {
   document.documentElement.lang = currentLang;
   applyI18n();
 
+  // Initialize reduced motion listener (also sets initial value)
+  initReducedMotion();
+
   resizeCanvas();
-  if (!reducedMotion) { initParticles(); animationFrameId = requestAnimationFrame(animate); }
+  if (!reducedMotion && initCanvas()) { initParticles(); animationFrameId = requestAnimationFrame(animate); }
 
   const data = await fetchProviders();
   if (data) {
