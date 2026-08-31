@@ -329,7 +329,7 @@ function renderProviders(providers) {
   grid.appendChild(fragment);
 
   grid.querySelectorAll('.provider-card').forEach(card => {
-    const open = () => openModal(card.dataset.slug);
+    const open = () => openModalBySlug(card.dataset.slug);
     card.addEventListener('click', open);
     card.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
@@ -565,7 +565,7 @@ const modal = document.getElementById('modal');
 const modalBody = document.getElementById('modal-body');
 const modalTitle = document.getElementById('modal-title');
 
-function openModal(slug) {
+function openModalBySlug(slug) {
   const p = providersData?.providers?.find(x => x.slug === slug);
   if (!p) {
     console.error('Provider not found:', slug);
