@@ -1840,3 +1840,142 @@ footer {
   .progress-fill, .feature-tag, .feature-tag-modal,
   .skeleton-card { animation: none !important; }
 }
+
+/* ===== Follow Section ===== */
+.follow-section {
+  padding: 4rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.follow-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.follow-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.follow-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform var(--transition);
+}
+
+.follow-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: var(--glow);
+}
+
+.follow-card:hover::before {
+  transform: scaleY(1);
+}
+
+.follow-card.x-card:hover {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3), 0 0 60px rgba(29, 155, 240, 0.15);
+}
+
+.follow-card.github-card:hover {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3), 0 0 60px rgba(36, 41, 46, 0.15);
+}
+
+.follow-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+
+.follow-card:hover .follow-icon {
+  border-color: var(--accent);
+  background: var(--brand-bg);
+}
+
+.follow-card.x-card .follow-icon {
+  color: #1d9bf0;
+}
+
+.follow-card.github-card .follow-icon {
+  color: var(--fg);
+}
+
+.follow-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.follow-platform {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.follow-handle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.follow-desc {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+
+.follow-arrow {
+  color: var(--muted);
+  transition: all var(--transition);
+  flex-shrink: 0;
+}
+
+.follow-card:hover .follow-arrow {
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .follow-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+  
+  .follow-card {
+    padding: 20px;
+  }
+}
