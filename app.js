@@ -567,11 +567,19 @@ const modalTitle = document.getElementById('modal-title');
 
 function openModal(slug) {
   const p = providersData?.providers?.find(x => x.slug === slug);
-  if (!p) return;
+  if (!p) {
+    console.error('Provider not found:', slug);
+    return;
+  }
   openProviderModal(p);
 }
 
 function openProviderModal(p) {
+  if (!p || typeof p !== 'object') {
+    console.error('Invalid provider object:', p);
+    openModal('Error', '<div style="padding:20px;color:var(--danger);">Invalid provider data</div>');
+    return;
+  }
   const rateLimit = p.rate_limit || {};
   let rateLimitHtml = '';
   for (const [key, value] of Object.entries(rateLimit)) {
@@ -581,12 +589,13 @@ function openProviderModal(p) {
     if (typeof value === 'object' && value !== null) {
       displayValue = JSON.stringify(value);
     }
-    rateLimitHtml += `<li><strong>${label}:</strong> ${escapeHtml(displayValue)}</li>`;
+    if (displayValue === null || displayValue === undefined) displayValue = 'N/A';
+    rateLimitHtml += `<li><strong>${escapeHtml(label)}:</strong> ${escapeHtml(String(displayValue))}</li>`;
   }
   if (!rateLimitHtml) rateLimitHtml = '<li>Not specified</li>';
 
   const features = (p.features || []).map(f =>
-    `<span class="feature-tag">${f.replace(/_/g, ' ')}</span>`
+    `<span class="feature-tag">${escapeHtml(f.replace(/_/g, ' '))}</span>`
   ).join('');
 
   const models = (p.models || []).slice(0, 10).map(m =>
@@ -603,21 +612,21 @@ function openProviderModal(p) {
         <h4 style="margin-bottom: 12px;">${t('modal_basic_info')}</h4>
         <dl style="display: grid; grid-template-columns: 140px 1fr; gap: 8px 16px; font-size: 0.9rem;">
           <dt style="color: var(--text-muted);">${t('modal_website')}</dt>
-          <dd><a href="${escapeHtml(p.website)}" target="_blank" rel="noopener" style="color: var(--brand);">${escapeHtml(p.website)}</a></dd>
+          <dd><a href="${escapeHtml(p.website || '')}" target="_blank" rel="noopener" style="color: var(--brand);">${escapeHtml(p.website || 'N/A')}</a></dd>
           <dt style="color: var(--text-muted);">${t('modal_api_base')}</dt>
-          <dd><code style="font-size: 0.85rem;">${escapeHtml(p.api_base)}</code></dd>
+          <dd><code style="font-size: 0.85rem;">${escapeHtml(p.api_base || 'N/A')}</code></dd>
           <dt style="color: var(--text-muted);">${t('modal_tier')}</dt>
-          <dd><span class="provider-tier tier-${p.tier}">${p.tier}</span></dd>
+          <dd><span class="provider-tier tier-${p.tier || 'unknown'}">${escapeHtml(p.tier || 'unknown')}</span></dd>
           <dt style="color: var(--text-muted);">${t('modal_region')}</dt>
-          <dd>${p.region || 'Global'}</dd>
+          <dd>${escapeHtml(p.region || 'Global')}</dd>
           <dt style="color: var(--text-muted);">${t('modal_requires_key')}</dt>
           <dd>${p.requires_key ? t('yes') : t('no')}</dd>
           <dt style="color: var(--text-muted);">${t('modal_requires_card')}</dt>
           <dd>${p.requires_card ? t('yes') : t('no')}</dd>
           <dt style="color: var(--text-muted);">${t('modal_status')}</dt>
-          <dd><span class="status-badge status-${p.status}">${translateStatus(p.status)}</span></dd>
+          <dd><span class="status-badge status-${p.status || 'unknown'}">${translateStatus(p.status)}</span></dd>
           <dt style="color: var(--text-muted);">${t('modal_health')}</dt>
-          <dd style="color: ${p.health_score >= 80 ? 'var(--success)' : p.health_score >= 60 ? 'var(--warning)' : 'var(--danger)'}; font-weight: 600;">${p.health_score || '—'}/100</dd>
+          <dd style="color: ${(p.health_score || 0) >= 80 ? 'var(--success)' : (p.health_score || 0) >= 60 ? 'var(--warning)' : 'var(--danger)'}; font-weight: 600;">${p.health_score !== undefined ? p.health_score : '—'}/100</dd>
           <dt style="color: var(--text-muted);">${t('modal_last_probed')}</dt>
           <dd>${formatDate(p.last_probed)}</dd>
         </dl>
@@ -656,19 +665,19 @@ function openProviderModal(p) {
         </div>
         <div>
           <strong style="color: var(--text-muted); font-size: 0.85rem;">${t('modal_all_models')}: </strong>
-          <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px;">${models}${p.models.length > 10 ? ' <span style="color: var(--text-dim);">' + t('modal_and_more') + ' ' + (p.models.length - 10) + '</span>' : ''}</div>
+          <div style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px;">${models}${p.models && p.models.length > 10 ? ' <span style="color: var(--text-dim);">' + t('modal_and_more') + ' ' + (p.models.length - 10) + '</span>' : ''}</div>
         </div>
       </div>
 
       <div style="padding-top: 16px; border-top: 1px solid var(--border); color: var(--text-dim); font-size: 0.8rem;">
         ${escapeHtml(p.notes || t('modal_no_notes'))}
         <br><br>
-        <strong>${t('modal_source')}: </strong> <a href="${escapeHtml(p.source)}" target="_blank" rel="noopener" style="color: var(--brand);">${escapeHtml(p.source)}</a>
+        <strong>${t('modal_source')}: </strong> <a href="${escapeHtml(p.source || '')}" target="_blank" rel="noopener" style="color: var(--brand);">${escapeHtml(p.source || 'N/A')}</a>
       </div>
     </div>
   `;
 
-  openModal(p.name, content);
+  openModal(p.name || 'Provider', content);
 }
 
 function openModal(title, content) {
