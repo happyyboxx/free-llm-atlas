@@ -674,6 +674,10 @@ function openProviderModal(p) {
         <br><br>
         <strong>${t('modal_source')}: </strong> <a href="${escapeHtml(p.source || '')}" target="_blank" rel="noopener" style="color: var(--brand);">${escapeHtml(p.source || 'N/A')}</a>
       </div>
+      <div class="modal-actions" style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); display: flex; gap: 12px; justify-content: flex-end;">
+        <a href="${escapeHtml(p.website || '#')}" target="_blank" rel="noopener" class="btn btn-secondary">${t('modal_website')}</a>
+        <a href="${escapeHtml(p.api_base || '')}${escapeHtml(p.models_endpoint || '')}" target="_blank" rel="noopener" class="btn btn-primary">${t('modal_models_api') || 'Models API'}</a>
+      </div>
     </div>
   `;
 
