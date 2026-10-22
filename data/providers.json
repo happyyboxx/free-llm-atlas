@@ -362,6 +362,39 @@
       "models_count": 136
     },
     {
+      "name": "IteraCompute",
+      "slug": "iteracompute",
+      "tier": "permanent_free",
+      "website": "https://iteracompute.com/free/",
+      "api_base": "https://api.iteracompute.com/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "tpm": 160000
+      },
+      "models": [
+        "qwen/qwen3.8-27b",
+        "qwen/qwen3.8-flash",
+        "deepseek/deepseek-v4.1-flash",
+        "z-ai/glm-5.3-flash",
+        "moonshotai/kimi-k2.7-code",
+        "minimax/minimax-m3"
+      ],
+      "free_models": [
+        "qwen/qwen3.8-27b"
+      ],
+      "features": [
+        "chat",
+        "function_calling"
+      ],
+      "region": "cn",
+      "notes": "Permanent free tier for Qwen3.8-27B: up to 30M tokens/month (input + output), 128K total context, 8,192 max output, 160K TPM, no daily quota, resets monthly at 00:00 UTC. No credit card; email or Google sign-up. Shared capacity may queue at peak. Other models are pay-as-you-go.",
+      "source": "https://iteracompute.com/models/qwen3-8-27b/",
+      "last_probed": null,
+      "status": "unknown"
+    },
+    {
       "name": "Kilo Code",
       "slug": "kilo-code",
       "tier": "permanent_free",
