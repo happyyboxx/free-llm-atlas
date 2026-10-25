@@ -1,13 +1,23 @@
 {
-  "version": "1.6",
-  "updated": "2026-10-25T08:33:16.130125+00:00",
+  "version": "1.7.1",
+  "updated": "2026-10-25T08:42:53.388292+00:00",
   "sources": [
     "nejib1/Free-LLM",
     "cheahjs/free-llm-api-resources",
     "openrouter-daily-2026-10-24",
     "mnfst/awesome-free-llm-apis",
     "tashfeenahmed/freellmapi",
-    "open-free-llm-api/awesome-freellm-apis"
+    "open-free-llm-api/awesome-freellm-apis",
+    "opentyphoon.ai",
+    "aihorde.net",
+    "freeinference.org",
+    "dreamprompting.com",
+    "freetheai.org",
+    "iteracompute.com",
+    "requesty.ai",
+    "amd-radeon-cloud",
+    "nscale.com",
+    "vercel.com"
   ],
   "providers": [
     {
@@ -91,7 +101,7 @@
       "max_output_tokens": 8192,
       "function_calling": true,
       "health_score": 74,
-      "models_count": 4
+      "models_count": 3
     },
     {
       "name": "Cerebras",
@@ -235,7 +245,7 @@
       "max_output_tokens": 8192,
       "function_calling": true,
       "health_score": 70,
-      "models_count": 2
+      "models_count": 1
     },
     {
       "name": "Google AI Studio",
@@ -444,7 +454,7 @@
       "source": "https://github.com/nejib1/Free-LLM",
       "last_probed": "2026-10-24T10:04:19.874459+00:00",
       "status": "active",
-      "models_count": 11,
+      "models_count": 8,
       "context_window": 128000,
       "max_output_tokens": 4096,
       "function_calling": true,
@@ -487,7 +497,7 @@
       "max_output_tokens": 4096,
       "function_calling": true,
       "health_score": 70,
-      "models_count": 4
+      "models_count": 2
     },
     {
       "name": "NVIDIA NIM",
@@ -835,7 +845,7 @@
       "max_output_tokens": 4096,
       "function_calling": false,
       "health_score": 55,
-      "models_count": 4
+      "models_count": 1
     },
     {
       "name": "Z.AI (Zhipu AI)",
@@ -946,7 +956,7 @@
       "max_output_tokens": 0,
       "function_calling": false,
       "health_score": 70,
-      "models_count": 6
+      "models_count": 5
     },
     {
       "name": "Liquid AI",
@@ -1011,7 +1021,7 @@
       "max_output_tokens": 0,
       "function_calling": false,
       "health_score": 70,
-      "models_count": 3
+      "models_count": 2
     },
     {
       "name": "Poolside",
@@ -1220,6 +1230,563 @@
       "function_calling": false,
       "health_score": 70,
       "models_count": 1
+    },
+    {
+      "name": "Typhoon (SCB 10X)",
+      "slug": "typhoon",
+      "tier": "permanent_free",
+      "website": "https://opentyphoon.ai",
+      "api_base": "https://api.opentyphoon.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rps": 5,
+        "rpm": 200
+      },
+      "models": [
+        "typhoon-v2.5-30b-a3b-instruct",
+        "typhoon-v2.1-12b-instruct",
+        "typhoon-ocr",
+        "typhoon-ocr-preview",
+        "typhoon-ocr-v1.5",
+        "typhoon-asr-realtime",
+        "typhoon-isan-asr-realtime"
+      ],
+      "free_models": [
+        "typhoon-v2.5-30b-a3b-instruct",
+        "typhoon-v2.1-12b-instruct",
+        "typhoon-ocr",
+        "typhoon-ocr-preview",
+        "typhoon-ocr-v1.5",
+        "typhoon-asr-realtime",
+        "typhoon-isan-asr-realtime"
+      ],
+      "features": [
+        "chat",
+        "ocr",
+        "asr",
+        "vision",
+        "translation"
+      ],
+      "region": "global",
+      "notes": "Thai-language models from SCB 10X, free research showcase API, OpenAI-compatible, 5 req/s, 200 req/min. Usage data collected for model improvement. Beta, no formal support.",
+      "source": "opentyphoon.ai",
+      "last_probed": "2026-10-25T08:42:04.626530+00:00",
+      "status": "active",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": true,
+      "health_score": 75,
+      "models_count": 7
+    },
+    {
+      "name": "AI Horde",
+      "slug": "ai-horde",
+      "tier": "permanent_free",
+      "website": "https://aihorde.net",
+      "api_base": "https://aihorde.net/api/v2",
+      "models_endpoint": "",
+      "requires_key": false,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "koboldcpp/Qwen_Qwen3-0.6B-IQ4_XS",
+        "koboldcpp/Llama-3.2-1B-Instruct",
+        "koboldcpp/NVIDIA-Nemotron-3-Nano-4B-Q4_K_M",
+        "google/gemma-4-31b",
+        "aphrodite/TheDrummer/Behemoth-X-123B-v2.1",
+        "koboldcpp/Rocinante-X-12B",
+        "koboldcpp/L3-8B-Stheno-v3.2",
+        "koboldcpp/Qwen3-4B-Nymphaea-RP.i1-Q4_K_S",
+        "koboldcpp/Llama-3.2-3B-Instruct-Q4_K_M",
+        "koboldcpp/gemma-3-4b-it-heretic",
+        "koboldcpp/debug-Serenity-26B-A4B-Q4_K_M",
+        "aphrodite/TheDrummer/Skyfall-31B-v4.2",
+        "koboldcpp/Mistral-Nemo-2407-Thinking-Claude-Gemini-GPT5.2-Uncensored-HERETIC",
+        "aphrodite/TheDrummer/Behemoth-128B-v3-NVFP4",
+        "koboldcpp/Angelic_Eclipse-12B",
+        "koboldcpp/mini-magnum-12b-v1.1",
+        "koboldcpp/Qwen/Qwen3.5-0.8B",
+        "koboldcpp/Gemma-4-E4B-it-Ultra-Uncensored-Heretic",
+        "koboldcpp/Gemma-4-E4B-Uncensored-HauhauCS-Aggressive-Q4_K_M"
+      ],
+      "free_models": [
+        "koboldcpp/Qwen_Qwen3-0.6B-IQ4_XS",
+        "koboldcpp/Llama-3.2-1B-Instruct",
+        "koboldcpp/NVIDIA-Nemotron-3-Nano-4B-Q4_K_M",
+        "google/gemma-4-31b",
+        "aphrodite/TheDrummer/Behemoth-X-123B-v2.1",
+        "koboldcpp/Rocinante-X-12B",
+        "koboldcpp/L3-8B-Stheno-v3.2",
+        "koboldcpp/Qwen3-4B-Nymphaea-RP.i1-Q4_K_S",
+        "koboldcpp/Llama-3.2-3B-Instruct-Q4_K_M",
+        "koboldcpp/gemma-3-4b-it-heretic",
+        "koboldcpp/debug-Serenity-26B-A4B-Q4_K_M",
+        "aphrodite/TheDrummer/Skyfall-31B-v4.2",
+        "koboldcpp/Mistral-Nemo-2407-Thinking-Claude-Gemini-GPT5.2-Uncensored-HERETIC",
+        "aphrodite/TheDrummer/Behemoth-128B-v3-NVFP4",
+        "koboldcpp/Angelic_Eclipse-12B",
+        "koboldcpp/mini-magnum-12b-v1.1",
+        "koboldcpp/Qwen/Qwen3.5-0.8B",
+        "koboldcpp/Gemma-4-E4B-it-Ultra-Uncensored-Heretic",
+        "koboldcpp/Gemma-4-E4B-Uncensored-HauhauCS-Aggressive-Q4_K_M"
+      ],
+      "features": [
+        "chat",
+        "image_generation"
+      ],
+      "region": "global",
+      "notes": "Crowdsourced distributed inference cluster, anonymous key '0000000000' (no registration), or register to earn kudos for priority. Community-powered volunteer network — model availability and speed vary with worker supply. No card, no phone. Kudos never expire. Commercial use allowed per model license. Operated by Haidra (volunteer non-profit).",
+      "source": "aihorde.net",
+      "last_probed": "2026-10-25T08:42:04.626552+00:00",
+      "status": "active",
+      "context_window": 4096,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 60,
+      "models_count": 19
+    },
+    {
+      "name": "FreeInference",
+      "slug": "freeinference",
+      "tier": "permanent_free",
+      "website": "https://freeinference.org",
+      "api_base": "https://freeinference.org/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "glm-5.1",
+        "glm-5.3-flash",
+        "deepseek-v4-flash",
+        "minimax-m3",
+        "qwen3.6-35b",
+        "diffusiongemma",
+        "minimax-m2.5",
+        "bge-m3"
+      ],
+      "free_models": [
+        "glm-5.1",
+        "glm-5.3-flash",
+        "deepseek-v4-flash",
+        "minimax-m3",
+        "qwen3.6-35b",
+        "diffusiongemma",
+        "minimax-m2.5",
+        "bge-m3"
+      ],
+      "features": [
+        "chat",
+        "tool_calling",
+        "embeddings",
+        "anthropic_compatible"
+      ],
+      "region": "global",
+      "notes": "Harvard SEAS MadSys Lab, OpenAI & Anthropic compatible endpoints, for research/coding agents. No credit card. Generous quota for research/prototyping. Models marked Pro need Pro-enabled key. Prompts/responses may be logged for research.",
+      "source": "freeinference.org",
+      "last_probed": "2026-10-25T08:42:04.626559+00:00",
+      "status": "active",
+      "context_window": 1000000,
+      "max_output_tokens": 8192,
+      "function_calling": true,
+      "health_score": 70,
+      "models_count": 8
+    },
+    {
+      "name": "DreamPrompting",
+      "slug": "dreamprompting",
+      "tier": "permanent_free",
+      "website": "https://dreamprompting.com",
+      "api_base": "https://dreamprompting.com/api/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 100,
+        "rpd_tokens": 500000,
+        "rpd_requests": 5000
+      },
+      "models": [
+        "groq/openai/gpt-oss-120b",
+        "groq/openai/gpt-oss-20b",
+        "groq/qwen/qwen3.6-27b",
+        "groq/groq/compound-mini",
+        "cerebras/gpt-oss-120b",
+        "cerebras/zai-glm-4.7",
+        "cerebras/gemma-4-31b",
+        "nvidia/nemotron-3-super-120b-a12b",
+        "nvidia/nemotron-3-nano-30b-a3b",
+        "meta/llama-3.2-11b-vision-instruct",
+        "cohere/command-r-08-2024",
+        "cohere/command-r-plus-08-2024",
+        "cohere/command-a-03-2025",
+        "google/gemini-3.1-flash-lite",
+        "google/gemini-2.5-flash",
+        "openrouter/stealth/ox-alpha",
+        "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+        "openrouter/google/gemma-4-31b-it:free",
+        "openrouter/openai/gpt-oss-20b:free",
+        "cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+        "cloudflare/@cf/ibm-granite/granite-4.0-h-micro",
+        "cloudflare/@cf/nvidia/nemotron-3-120b-a12b",
+        "cloudflare/@cf/openai/gpt-oss-120b",
+        "cloudflare/@cf/meta/llama-4-scout-17b-16e-instruct",
+        "huggingface/meta-llama/Llama-3.3-70B-Instruct",
+        "huggingface/Qwen/Qwen2.5-72B-Instruct",
+        "mistral/codestral-latest",
+        "ch.at/ch.at"
+      ],
+      "free_models": [
+        "groq/openai/gpt-oss-120b",
+        "groq/openai/gpt-oss-20b",
+        "groq/qwen/qwen3.6-27b",
+        "groq/groq/compound-mini",
+        "nvidia/nemotron-3-super-120b-a12b",
+        "nvidia/nemotron-3-nano-30b-a3b",
+        "cohere/command-r-08-2024",
+        "cohere/command-r-plus-08-2024",
+        "cohere/command-a-03-2025",
+        "google/gemini-3.1-flash-lite",
+        "google/gemini-2.5-flash",
+        "openrouter/nvidia/nemotron-3-super-120b-a12b:free",
+        "openrouter/google/gemma-4-31b-it:free",
+        "openrouter/openai/gpt-oss-20b:free",
+        "cloudflare/@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+        "cloudflare/@cf/ibm-granite/granite-4.0-h-micro",
+        "cloudflare/@cf/nvidia/nemotron-3-120b-a12b",
+        "cloudflare/@cf/openai/gpt-oss-120b",
+        "cloudflare/@cf/meta/llama-4-scout-17b-16e-instruct",
+        "huggingface/meta-llama/Llama-3.3-70B-Instruct",
+        "huggingface/Qwen/Qwen2.5-72B-Instruct",
+        "mistral/codestral-latest",
+        "ch.at/ch.at"
+      ],
+      "features": [
+        "chat",
+        "tool_calling",
+        "vision",
+        "reasoning",
+        "streaming",
+        "auto_failover"
+      ],
+      "region": "global",
+      "notes": "Gateway/router aggregating 27+ providers (Groq, NVIDIA, OpenRouter, Cohere, Gemini, Cerebras, Cloudflare, HF, Mistral, ch.at). Auto failover across providers. 100 RPM burst per IP, 500K tokens/24h rolling, 5K req/24h rolling. Sign in with Google, no credit card. OpenAI-compatible.",
+      "source": "dreamprompting.com",
+      "last_probed": "2026-10-25T08:42:04.626565+00:00",
+      "status": "active",
+      "context_window": 1000000,
+      "max_output_tokens": 8192,
+      "function_calling": true,
+      "health_score": 80,
+      "models_count": 23
+    },
+    {
+      "name": "FreeTheAI",
+      "slug": "freetheai",
+      "tier": "permanent_free",
+      "website": "https://freetheai.org",
+      "api_base": "https://api.freetheai.org/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpd": 50
+      },
+      "models": [
+        "fta/zai/glm-5.3",
+        "fta/zai/glm-5.3-flash",
+        "fta/kimi/k3",
+        "fta/mmx/minimax-m3",
+        "fta/bbl/gemini-3.5-flash",
+        "fta/olm/kimi-k2.7-code",
+        "fta/olf/gemma4:31b",
+        "fta/ocz/mimo-v2.6-flash-free",
+        "fta/bbl/grok-4-1-fast-non-reasoning",
+        "fta/ocz/deepseek-v4.1-flash-free",
+        "fta/fox/gpt-6-luna",
+        "fta/vbk/gpt-5.4-mini",
+        "fta/vbk/claude-haiku-4.5",
+        "fta/vbk/mistral-small",
+        "fta/vbk/gemma",
+        "fta/vbk/gpt-oss-120b",
+        "fta/bbl/gpt-5",
+        "fta/bbl/gpt-5-mini",
+        "fta/bbl/gpt-5-nano",
+        "fta/bbl/gpt-4.1",
+        "fta/bbl/gpt-4.1-mini",
+        "fta/bbl/gpt-4.1-nano",
+        "fta/bbl/gpt-4o",
+        "fta/bbl/gpt-4o-mini",
+        "fta/bbl/gpt-4-turbo",
+        "fta/bbl/gpt-3.5-turbo",
+        "fta/ocz/deepseek-v4-flash"
+      ],
+      "free_models": [
+        "fta/zai/glm-5.3",
+        "fta/zai/glm-5.3-flash",
+        "fta/kimi/k3",
+        "fta/mmx/minimax-m3",
+        "fta/bbl/gemini-3.5-flash",
+        "fta/olm/kimi-k2.7-code",
+        "fta/olf/gemma4:31b",
+        "fta/ocz/mimo-v2.6-flash-free",
+        "fta/bbl/grok-4-1-fast-non-reasoning",
+        "fta/ocz/deepseek-v4.1-flash-free",
+        "fta/fox/gpt-6-luna",
+        "fta/vbk/gpt-5.4-mini",
+        "fta/vbk/claude-haiku-4.5",
+        "fta/vbk/mistral-small",
+        "fta/vbk/gemma",
+        "fta/vbk/gpt-oss-120b",
+        "fta/bbl/gpt-5",
+        "fta/bbl/gpt-5-mini",
+        "fta/bbl/gpt-5-nano",
+        "fta/bbl/gpt-4.1",
+        "fta/bbl/gpt-4.1-mini",
+        "fta/bbl/gpt-4.1-nano",
+        "fta/bbl/gpt-4o",
+        "fta/bbl/gpt-4o-mini",
+        "fta/bbl/gpt-4-turbo",
+        "fta/bbl/gpt-3.5-turbo",
+        "fta/ocz/deepseek-v4-flash"
+      ],
+      "features": [
+        "chat",
+        "tool_calling",
+        "vision",
+        "web_search",
+        "streaming",
+        "anthropic_compatible",
+        "responses_api"
+      ],
+      "region": "global",
+      "notes": "Marketplace with 50 free req/day + daily check-in (resets 00:00 UTC), +50/day for linking Discord. 114+ models across 10+ prefixes (fta/zai, fta/kimi, fta/mmx, fta/bbl, fta/olm, fta/olf, fta/ocz, fta/vbk, fta/fox). OpenAI Chat Completions, Anthropic Messages, OpenAI Responses APIs. Crypto wallet for paid models. No prompt/reply storage.",
+      "source": "freetheai.org",
+      "last_probed": "2026-10-25T08:42:04.626571+00:00",
+      "status": "active",
+      "context_window": 200000,
+      "max_output_tokens": 131072,
+      "function_calling": true,
+      "health_score": 75,
+      "models_count": 27
+    },
+    {
+      "name": "IteraCompute",
+      "slug": "itera-compute",
+      "tier": "permanent_free",
+      "website": "https://iteracompute.com",
+      "api_base": "https://api.iteracompute.com/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "tpm": 30000000
+      },
+      "models": [
+        "qwen3.8-27b"
+      ],
+      "free_models": [
+        "qwen3.8-27b"
+      ],
+      "features": [
+        "chat"
+      ],
+      "region": "global",
+      "notes": "30M tokens/month free, Qwen 3.8 27B, OpenAI-compatible. Email signup only.",
+      "source": "iteracompute.com",
+      "last_probed": "2026-10-25T08:42:04.626576+00:00",
+      "status": "active",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 65,
+      "models_count": 1
+    },
+    {
+      "name": "Requesty",
+      "slug": "requesty",
+      "tier": "permanent_free",
+      "website": "https://requesty.ai",
+      "api_base": "https://router.requesty.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpd": 200
+      },
+      "models": [
+        "laguna-m.1",
+        "laguna-xs.2",
+        "ling-3.0-tiny",
+        "gemma-4-31b",
+        "leanstral-1.5",
+        "nemotron-3-super-120b-a12b",
+        "nemotron-3-nano-30b-a3b",
+        "nemotron-3.5-content-safety",
+        "nemotron-3-ultra-550b-a55b",
+        "muse-glimmer-30b"
+      ],
+      "free_models": [
+        "laguna-m.1",
+        "laguna-xs.2",
+        "ling-3.0-tiny",
+        "gemma-4-31b",
+        "leanstral-1.5",
+        "nemotron-3-super-120b-a12b",
+        "nemotron-3-nano-30b-a3b",
+        "nemotron-3.5-content-safety",
+        "nemotron-3-ultra-550b-a55b",
+        "muse-glimmer-30b"
+      ],
+      "features": [
+        "chat",
+        "tool_calling"
+      ],
+      "region": "global",
+      "notes": "Router with 200 req/day free, 12+ free models, OpenAI-compatible. Supports fallback routing.",
+      "source": "requesty.ai",
+      "last_probed": "2026-10-25T08:42:04.626582+00:00",
+      "status": "active",
+      "context_window": 1000000,
+      "max_output_tokens": 4096,
+      "function_calling": true,
+      "health_score": 70,
+      "models_count": 10
+    },
+    {
+      "name": "AMD Radeon Cloud",
+      "slug": "amd-radeon-cloud",
+      "tier": "trial_credit",
+      "website": "https://instinct.radeoncloud.amd.com",
+      "api_base": "https://api.radeoncloud.amd.com/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "daily_usd": 10
+      },
+      "models": [
+        "deepseek-v4-flash",
+        "deepseek-v4-flash-vision",
+        "qwen3.8-flash-next",
+        "minicpm-v4.6",
+        "minicpm-5-1b"
+      ],
+      "free_models": [
+        "deepseek-v4-flash",
+        "deepseek-v4-flash-vision",
+        "qwen3.8-flash-next",
+        "minicpm-v4.6",
+        "minicpm-5-1b"
+      ],
+      "features": [
+        "chat",
+        "vision"
+      ],
+      "region": "global",
+      "notes": "$10 usage/day free credits, 5 models, email signup. AMD Instinct GPU cloud.",
+      "source": "amd-radeon-cloud",
+      "last_probed": "2026-10-25T08:42:04.626588+00:00",
+      "status": "active",
+      "context_window": 1000000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 60,
+      "models_count": 5
+    },
+    {
+      "name": "Nscale",
+      "slug": "nscale",
+      "tier": "trial_credit",
+      "website": "https://nscale.com",
+      "api_base": "https://api.nscale.com/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "usd_credit": 5
+      },
+      "models": [
+        "llama-4-scout",
+        "llama-3.3-70b"
+      ],
+      "free_models": [
+        "llama-4-scout",
+        "llama-3.3-70b"
+      ],
+      "features": [
+        "chat"
+      ],
+      "region": "global",
+      "notes": "$5 starter credit, 2 models, email signup.",
+      "source": "nscale.com",
+      "last_probed": "2026-10-25T08:42:04.626593+00:00",
+      "status": "active",
+      "context_window": 1000000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 60,
+      "models_count": 2
+    },
+    {
+      "name": "Vercel AI Gateway",
+      "slug": "vercel-ai-gateway",
+      "tier": "trial_credit",
+      "website": "https://vercel.com/docs/ai-gateway",
+      "api_base": "https://ai-gateway.vercel.sh/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "monthly_usd": 5
+      },
+      "models": [
+        "gpt-oss-120b",
+        "gpt-5.4-mini",
+        "gemma-4-31b",
+        "gemini-2.5-flash",
+        "qwen3.8-flash-next",
+        "glm-5.3-flash",
+        "kimi-k2.7-code",
+        "minimax-m3",
+        "nemotron-3-super-120b-a12b",
+        "llama-4-maverick",
+        "grok-4.6",
+        "deepseek-v3.2-thinking"
+      ],
+      "free_models": [
+        "gpt-oss-120b",
+        "gpt-5.4-mini",
+        "gemma-4-31b",
+        "gemini-2.5-flash",
+        "qwen3.8-flash-next",
+        "glm-5.3-flash",
+        "kimi-k2.7-code",
+        "minimax-m3",
+        "nemotron-3-super-120b-a12b",
+        "llama-4-maverick",
+        "grok-4.6",
+        "deepseek-v3.2-thinking"
+      ],
+      "features": [
+        "chat",
+        "tool_calling",
+        "vision",
+        "streaming",
+        "auto_routing"
+      ],
+      "region": "global",
+      "notes": "$5/month credits, routes to multiple providers (Groq, NVIDIA, OpenRouter, etc.), OpenAI-compatible. Automatic model routing and fallback.",
+      "source": "vercel.com",
+      "last_probed": "2026-10-25T08:42:04.626599+00:00",
+      "status": "active",
+      "context_window": 1000000,
+      "max_output_tokens": 4096,
+      "function_calling": true,
+      "health_score": 70,
+      "models_count": 12
     }
   ]
 }
