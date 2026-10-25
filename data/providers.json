@@ -1,12 +1,13 @@
 {
-  "version": "1.0",
-  "updated": "2026-08-31T02:00:40.788515+00:00",
+  "version": "1.5",
+  "updated": "2026-10-25T08:20:04.741084+00:00",
   "sources": [
     "cheahjs/free-llm-api-resources",
     "tashfeenahmed/freellmapi",
     "mnfst/awesome-free-llm-apis",
     "nejib1/Free-LLM",
-    "open-free-llm-api/awesome-freellm-apis"
+    "open-free-llm-api/awesome-freellm-apis",
+    "openrouter-daily-2026-10-24"
   ],
   "providers": [
     {
@@ -40,7 +41,7 @@
       "region": "global",
       "notes": "Free image/video generation, images 1K: 30/20 RPM, 2K: 20/10 RPM, 3K: 2/1 RPM, 4K: 1/1 RPM; video 2/1 RPM; no credit card required",
       "source": "https://github.com/AgnesAI-Labs/AgnesAI-Models",
-      "last_probed": "2026-08-30T10:59:35.940555+00:00",
+      "last_probed": "2026-09-08T05:04:18.209553+00:00",
       "status": "active",
       "context_window": 0,
       "max_output_tokens": 0,
@@ -84,7 +85,7 @@
       "region": "global",
       "notes": "Free text inference: 30 RPM public / 20 actual RPM; 512K context; supports tool calling, code, reasoning, multi-turn, vision; no credit card; requires Dashboard login for credits",
       "source": "https://github.com/AgnesAI-Labs/AgnesAI-Models",
-      "last_probed": "2026-08-30T10:59:36.245558+00:00",
+      "last_probed": "2026-09-08T05:04:17.952795+00:00",
       "status": "active",
       "context_window": 512000,
       "max_output_tokens": 8192,
@@ -120,13 +121,13 @@
       "region": "global",
       "notes": "Wafer-scale hardware, 2600+ tokens/s",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-30T10:59:35.631613+00:00",
-      "status": "degraded",
+      "last_probed": "2026-09-08T05:04:17.821335+00:00",
+      "status": "active",
       "context_window": 8192,
       "max_output_tokens": 8192,
       "function_calling": false,
       "health_score": 65,
-      "models_count": 2
+      "models_count": 3
     },
     {
       "name": "Cloudflare Workers AI",
@@ -160,8 +161,8 @@
       "region": "global",
       "notes": "Edge deployment, 10K neurons/day free tier",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-30T10:59:35.702773+00:00",
-      "status": "down",
+      "last_probed": "2026-09-08T05:04:18.851843+00:00",
+      "status": "active",
       "context_window": 8192,
       "max_output_tokens": 4096,
       "function_calling": false,
@@ -182,14 +183,10 @@
         "monthly_requests": 1000
       },
       "models": [
-        "command-a",
-        "command-r-plus",
-        "command-r",
-        "command-light"
+        "cohere/north-mini-code:free"
       ],
       "free_models": [
-        "command-r",
-        "command-light"
+        "cohere/north-mini-code:free"
       ],
       "features": [
         "chat",
@@ -197,15 +194,15 @@
         "rerank"
       ],
       "region": "global",
-      "notes": "Strong RAG/Embedding, 1000 req/month free",
+      "notes": "Strong RAG/Embedding, 1000 req/month free + 1 free models on OpenRouter",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-30T10:59:35.654171+00:00",
+      "last_probed": "2026-10-25T08:20:04.741021+00:00",
       "status": "active",
       "context_window": 4096,
       "max_output_tokens": 4096,
       "function_calling": false,
       "health_score": 70,
-      "models_count": 20
+      "models_count": 1
     },
     {
       "name": "DeepSeek",
@@ -232,12 +229,13 @@
       "region": "cn",
       "notes": "Limited free tier, strong coding ability",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-30T10:59:36.168017+00:00",
+      "last_probed": "2026-10-25T08:18:21.594677+00:00",
       "status": "active",
       "context_window": 64000,
       "max_output_tokens": 8192,
       "function_calling": true,
-      "health_score": 70
+      "health_score": 70,
+      "models_count": 2
     },
     {
       "name": "Google AI Studio",
@@ -254,13 +252,16 @@
         "tpm": 250000
       },
       "models": [
-        "gemini-1.5-flash",
-        "gemini-1.5-pro",
-        "gemini-2.0-flash-exp"
+        "google/lyria-3-clip-preview",
+        "google/lyria-3-pro-preview",
+        "google/gemma-4-26b-a4b-it:free",
+        "google/gemma-4-31b-it:free"
       ],
       "free_models": [
-        "gemini-1.5-flash",
-        "gemini-2.0-flash-exp"
+        "google/gemma-4-26b-a4b-it:free",
+        "google/gemma-4-31b-it:free",
+        "google/lyria-3-pro-preview",
+        "google/lyria-3-clip-preview"
       ],
       "features": [
         "chat",
@@ -269,15 +270,15 @@
         "embeddings"
       ],
       "region": "global",
-      "notes": "Requires Google account, good Chinese support, strong multimodal",
+      "notes": "Requires Google account, good Chinese support, strong multimodal + 4 free models on OpenRouter",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-30T10:59:35.707781+00:00",
-      "status": "degraded",
+      "last_probed": "2026-10-25T08:20:04.741009+00:00",
+      "status": "active",
       "context_window": 2000000,
       "max_output_tokens": 8192,
       "function_calling": true,
       "health_score": 52,
-      "models_count": 50
+      "models_count": 4
     },
     {
       "name": "Groq",
@@ -312,7 +313,7 @@
       "region": "global",
       "notes": "LPU inference at extreme speed, no credit card required",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-30T10:59:35.791626+00:00",
+      "last_probed": "2026-09-08T05:04:18.205250+00:00",
       "status": "active",
       "context_window": 8192,
       "max_output_tokens": 8192,
@@ -353,13 +354,13 @@
       "region": "global",
       "notes": "$0.10/month credits, most aggregated models",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-30T10:59:35.761929+00:00",
+      "last_probed": "2026-09-08T05:04:18.166078+00:00",
       "status": "active",
       "context_window": 4096,
       "max_output_tokens": 4096,
       "function_calling": false,
       "health_score": 65,
-      "models_count": 136
+      "models_count": 137
     },
     {
       "name": "Kilo Code",
@@ -390,9 +391,9 @@
       "region": "global",
       "notes": "No key needed to list models, 200 req/hr per IP",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-30T10:59:36.454610+00:00",
+      "last_probed": "2026-09-08T05:04:18.654271+00:00",
       "status": "active",
-      "models_count": 366,
+      "models_count": 369,
       "context_window": 32768,
       "max_output_tokens": 4096,
       "function_calling": true,
@@ -411,16 +412,27 @@
         "rpm": 30
       },
       "models": [
-        "claude-3.5-sonnet",
+        "qwen2.5-coder-32b",
+        "gpt-4o-mini",
+        "seedance",
+        "deepseek-r1-0528",
+        "mistral-small-3.1-24b",
         "gpt-5",
+        "claude-3.5-sonnet",
         "gemini-2.0",
         "kling",
-        "seedance"
+        "deepseek-v3-0324",
+        "gemini-2.5-flash-lite"
       ],
       "free_models": [
-        "openai",
+        "qwen2.5-coder-32b",
         "gpt-4o-mini",
-        "deepseek-chat"
+        "deepseek-r1-0528",
+        "mistral-small-3.1-24b",
+        "deepseek-chat",
+        "openai",
+        "deepseek-v3-0324",
+        "gemini-2.5-flash-lite"
       ],
       "features": [
         "chat",
@@ -430,9 +442,9 @@
       "region": "global",
       "notes": "Includes closed-source top models, 30 RPM (120 RPM with token). Base models free, closed-source requires token",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-30T10:59:36.220503+00:00",
+      "last_probed": "2026-10-25T08:16:37.529141+00:00",
       "status": "active",
-      "models_count": 44,
+      "models_count": 12,
       "context_window": 128000,
       "max_output_tokens": 4096,
       "function_calling": true,
@@ -469,13 +481,13 @@
       "region": "eu",
       "notes": "EU privacy standards, ~1B tokens/month free",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-30T10:59:36.073983+00:00",
+      "last_probed": "2026-09-08T05:04:18.855753+00:00",
       "status": "active",
       "context_window": 32768,
       "max_output_tokens": 4096,
       "function_calling": true,
       "health_score": 70,
-      "models_count": 54
+      "models_count": 46
     },
     {
       "name": "NVIDIA NIM",
@@ -490,16 +502,20 @@
         "rpm": 40
       },
       "models": [
-        "nvidia/nemotron-3-ultra-550b-a55b",
-        "meta/llama-3.1-405b-instruct",
-        "microsoft/phi-3.5-mini-instruct",
-        "google/gemma-2-9b-it"
+        "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "nvidia/nemotron-3.5-lightning:free",
+        "nvidia/nemotron-3.5-super-vl:free",
+        "nvidia/nemotron-3.5-content-safety:free",
+        "nvidia/nemotron-3-super-120b-a12b:free",
+        "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"
       ],
       "free_models": [
-        "nvidia/nemotron-3-ultra-550b-a55b",
-        "meta/llama-3.1-405b-instruct",
-        "microsoft/phi-3.5-mini-instruct",
-        "google/gemma-2-9b-it"
+        "nvidia/nemotron-3.5-super-vl:free",
+        "nvidia/nemotron-3.5-lightning:free",
+        "nvidia/nemotron-3.5-content-safety:free",
+        "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+        "nvidia/nemotron-3-super-120b-a12b:free"
       ],
       "features": [
         "chat",
@@ -507,11 +523,11 @@
         "function_calling"
       ],
       "region": "global",
-      "notes": "Requires phone verification, 102+ models, GPU cluster inference",
+      "notes": "Requires phone verification, 102+ models, GPU cluster inference + 6 free models on OpenRouter",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-30T10:59:36.125587+00:00",
+      "last_probed": "2026-10-25T08:20:04.740989+00:00",
       "status": "active",
-      "models_count": 83,
+      "models_count": 6,
       "context_window": 1000000,
       "max_output_tokens": 4096,
       "function_calling": true,
@@ -590,7 +606,7 @@
       "region": "global",
       "notes": "Free tier provides access to Ollama's cloud-hosted models with usage limits: 1 concurrent model, session limits reset every 5 hours, weekly limits reset every 7 days. Exactly what it says on the pricing page: https://ollama.com/pricing.",
       "source": "https://ollama.com/pricing",
-      "last_probed": "2026-08-30T10:59:36.195391+00:00",
+      "last_probed": "2026-09-08T05:04:18.448589+00:00",
       "status": "active",
       "context_window": 128000,
       "max_output_tokens": 4096,
@@ -643,13 +659,13 @@
       "region": "global",
       "notes": "OpenCode Zen free tier: 100 req/day, no credit card, OpenAI-compatible. Free models limited time, data collected for improvement. Auth: `opencode auth login --provider zen`. Endpoint: https://opencode.ai/zen/v1/chat/completions",
       "source": "https://opencode.ai/docs/zen/",
-      "last_probed": "2026-08-30T10:59:36.229497+00:00",
+      "last_probed": "2026-09-08T05:04:18.847249+00:00",
       "status": "active",
       "context_window": 128000,
       "max_output_tokens": 4096,
       "function_calling": false,
       "health_score": 75,
-      "models_count": 63
+      "models_count": 70
     },
     {
       "name": "OpenRouter",
@@ -665,18 +681,48 @@
         "rpd": 50
       },
       "models": [
-        "inclusionai/ling-3.0-flash:free",
+        "recursive/flint-v1.0:free",
+        "xingchen-agi/xing4.0-29b-a4b:free",
+        "nvidia/nemotron-3.5-super-vl:free",
+        "dots-studio/dots-3-note-preview:free",
+        "liquid/lfm-2.5-2.6b:free",
+        "nvidia/nemotron-3.5-lightning:free",
+        "thinkingmachines/inkling-small:free",
         "poolside/laguna-s-2.1:free",
+        "thinkingmachines/inkling:free",
+        "poolside/laguna-xs-2.1:free",
         "cohere/north-mini-code:free",
+        "nvidia/nemotron-3.5-content-safety:free",
         "nvidia/nemotron-3-ultra-550b-a55b:free",
-        "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"
+        "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+        "google/gemma-4-26b-a4b-it:free",
+        "google/gemma-4-31b-it:free",
+        "google/lyria-3-pro-preview",
+        "google/lyria-3-clip-preview",
+        "nvidia/nemotron-3-super-120b-a12b:free",
+        "openrouter/free"
       ],
       "free_models": [
-        "inclusionai/ling-3.0-flash:free",
+        "recursive/flint-v1.0:free",
+        "xingchen-agi/xing4.0-29b-a4b:free",
+        "nvidia/nemotron-3.5-super-vl:free",
+        "dots-studio/dots-3-note-preview:free",
+        "liquid/lfm-2.5-2.6b:free",
+        "nvidia/nemotron-3.5-lightning:free",
+        "thinkingmachines/inkling-small:free",
         "poolside/laguna-s-2.1:free",
+        "thinkingmachines/inkling:free",
+        "poolside/laguna-xs-2.1:free",
         "cohere/north-mini-code:free",
+        "nvidia/nemotron-3.5-content-safety:free",
         "nvidia/nemotron-3-ultra-550b-a55b:free",
-        "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"
+        "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+        "google/gemma-4-26b-a4b-it:free",
+        "google/gemma-4-31b-it:free",
+        "google/lyria-3-pro-preview",
+        "google/lyria-3-clip-preview",
+        "nvidia/nemotron-3-super-120b-a12b:free",
+        "openrouter/free"
       ],
       "features": [
         "chat",
@@ -685,11 +731,11 @@
         "reasoning"
       ],
       "region": "global",
-      "notes": "Aggregation platform, 14 free models, 1M context (Nemotron Ultra)",
+      "notes": "Aggregation platform, 20 free models as of 2026-10-25. Models: flint-v1.0, xing4.0-29b-a4b, nemotron-3.5-super-vl, dots-3-note-preview, lfm-2.5-2.6b, nemotron-3.5-lightning, inkling-small, laguna-s-2.1, inkling, laguna-xs-2.1, north-mini-code, nemotron-3.5-content-safety, nemotron-3-ultra-550b-a55b, nemotron-3-nano-omni-30b-a3b-reasoning, gemma-4-26b-a4b-it, gemma-4-31b-it, lyria-3-pro-preview, lyria-3-clip-preview, nemotron-3-super-120b-a12b, free",
       "source": "https://github.com/cheahjs/free-llm-api-resources",
-      "last_probed": "2026-08-30T10:59:36.243240+00:00",
+      "last_probed": "2026-10-25T08:20:04.740926+00:00",
       "status": "active",
-      "models_count": 396,
+      "models_count": 20,
       "context_window": 1000000,
       "max_output_tokens": 4096,
       "function_calling": true,
@@ -708,16 +754,40 @@
         "rpm": 2
       },
       "models": [
-        "mistral-7b-instruct",
-        "llama-3.1-8b-instruct",
+        "Qwen3-Coder-30B-A3B-Instruct",
         "llama-3.3-70b-instruct",
-        "mixtral-8x7b-instruct"
+        "Qwen2.5-VL-72B-Instruct",
+        "mistral-7b-instruct",
+        "Mistral-7B-Instruct-v0.3",
+        "Meta-Llama-3_3-70B-Instruct",
+        "Qwen3.6-27B",
+        "gpt-oss-20b",
+        "llama-3.1-8b-instruct",
+        "Mistral-Nemo-Instruct-2407",
+        "mixtral-8x7b-instruct",
+        "Qwen3.5-397B-A17B",
+        "Mistral-Small-3.2-24B-Instruct-2506",
+        "gpt-oss-120b",
+        "Qwen3.5-9B",
+        "Qwen3-32B"
       ],
       "free_models": [
-        "mistral-7b-instruct",
-        "llama-3.1-8b-instruct",
+        "Qwen3-Coder-30B-A3B-Instruct",
         "llama-3.3-70b-instruct",
-        "mixtral-8x7b-instruct"
+        "Qwen2.5-VL-72B-Instruct",
+        "mistral-7b-instruct",
+        "Mistral-7B-Instruct-v0.3",
+        "Meta-Llama-3_3-70B-Instruct",
+        "Qwen3.6-27B",
+        "gpt-oss-20b",
+        "llama-3.1-8b-instruct",
+        "Mistral-Nemo-Instruct-2407",
+        "mixtral-8x7b-instruct",
+        "Qwen3.5-397B-A17B",
+        "Mistral-Small-3.2-24B-Instruct-2506",
+        "gpt-oss-120b",
+        "Qwen3.5-9B",
+        "Qwen3-32B"
       ],
       "features": [
         "chat"
@@ -725,12 +795,13 @@
       "region": "eu",
       "notes": "EU GDPR compliant, anonymous 2 RPM",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-30T10:59:36.832164+00:00",
+      "last_probed": "2026-10-25T08:16:37.529159+00:00",
       "status": "degraded",
       "context_window": 32768,
       "max_output_tokens": 4096,
       "function_calling": false,
-      "health_score": 46
+      "health_score": 46,
+      "models_count": 16
     },
     {
       "name": "Pollinations.ai",
@@ -758,7 +829,7 @@
       "region": "global",
       "notes": "Completely free, no registration required, supports text-to-image",
       "source": "https://github.com/nejib1/Free-LLM",
-      "last_probed": "2026-08-30T10:59:36.633194+00:00",
+      "last_probed": "2026-09-08T05:04:19.674996+00:00",
       "status": "active",
       "context_window": 4096,
       "max_output_tokens": 4096,
@@ -798,13 +869,357 @@
       "region": "global",
       "notes": "Permanent free models, no credit card required. Phone verification required. 1 concurrent request, 200K context window.",
       "source": "https://z.ai/",
-      "last_probed": "2026-08-30T10:59:37.202826+00:00",
+      "last_probed": "2026-09-08T05:04:22.254666+00:00",
       "status": "active",
       "context_window": 200000,
       "max_output_tokens": 8192,
       "function_calling": true,
       "health_score": 75,
       "models_count": 3
+    },
+    {
+      "name": "Recursive",
+      "slug": "recursive",
+      "tier": "permanent_free",
+      "website": "https://openrouter.ai",
+      "api_base": "https://openrouter.ai/api/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 20,
+        "rpd": 50
+      },
+      "models": [
+        "recursive/flint-v1.0:free"
+      ],
+      "free_models": [
+        "recursive/flint-v1.0:free"
+      ],
+      "features": [
+        "chat"
+      ],
+      "region": "global",
+      "notes": "Free models on OpenRouter: 1 models",
+      "source": "openrouter-daily",
+      "last_probed": "2026-10-25T08:20:04.741062+00:00",
+      "status": "active",
+      "context_window": 0,
+      "max_output_tokens": 0,
+      "function_calling": false,
+      "health_score": 70,
+      "models_count": 1
+    },
+    {
+      "name": "Liquid AI",
+      "slug": "liquid",
+      "tier": "permanent_free",
+      "website": "https://openrouter.ai",
+      "api_base": "https://openrouter.ai/api/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 20,
+        "rpd": 50
+      },
+      "models": [
+        "liquid/lfm-2.5-2.6b:free"
+      ],
+      "free_models": [
+        "liquid/lfm-2.5-2.6b:free"
+      ],
+      "features": [
+        "chat"
+      ],
+      "region": "global",
+      "notes": "Free models on OpenRouter: 1 models",
+      "source": "openrouter-daily",
+      "last_probed": "2026-10-25T08:20:04.741052+00:00",
+      "status": "active",
+      "context_window": 0,
+      "max_output_tokens": 0,
+      "function_calling": false,
+      "health_score": 70,
+      "models_count": 1
+    },
+    {
+      "name": "Thinking Machines",
+      "slug": "thinkingmachines",
+      "tier": "permanent_free",
+      "website": "https://openrouter.ai",
+      "api_base": "https://openrouter.ai/api/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 20,
+        "rpd": 50
+      },
+      "models": [
+        "thinkingmachines/inkling:free",
+        "thinkingmachines/inkling-small:free"
+      ],
+      "free_models": [
+        "thinkingmachines/inkling-small:free",
+        "thinkingmachines/inkling:free"
+      ],
+      "features": [
+        "chat"
+      ],
+      "region": "global",
+      "notes": "Free models on OpenRouter: 2 models",
+      "source": "openrouter-daily",
+      "last_probed": "2026-10-25T08:20:04.741033+00:00",
+      "status": "active",
+      "context_window": 0,
+      "max_output_tokens": 0,
+      "function_calling": false,
+      "health_score": 70,
+      "models_count": 2
+    },
+    {
+      "name": "Poolside",
+      "slug": "poolside",
+      "tier": "permanent_free",
+      "website": "https://openrouter.ai",
+      "api_base": "https://openrouter.ai/api/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 20,
+        "rpd": 50
+      },
+      "models": [
+        "poolside/laguna-s-2.1:free",
+        "poolside/laguna-xs-2.1:free"
+      ],
+      "free_models": [
+        "poolside/laguna-s-2.1:free",
+        "poolside/laguna-xs-2.1:free"
+      ],
+      "features": [
+        "chat"
+      ],
+      "region": "global",
+      "notes": "Free models on OpenRouter: 2 models",
+      "source": "openrouter-daily",
+      "last_probed": "2026-10-25T08:20:04.741043+00:00",
+      "status": "active",
+      "context_window": 0,
+      "max_output_tokens": 0,
+      "function_calling": false,
+      "health_score": 70,
+      "models_count": 2
+    },
+    {
+      "name": "Hugging Face",
+      "slug": "hugging-face",
+      "tier": "permanent_free",
+      "website": "https://huggingface.co/settings/tokens",
+      "api_base": "https://router.huggingface.co/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "meta-llama/Llama-3.1-8B-Instruct",
+        "google/gemma-3-4b-it",
+        "microsoft/phi-4",
+        "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "Qwen/Qwen2.5-7B-Instruct"
+      ],
+      "free_models": [
+        "meta-llama/Llama-3.1-8B-Instruct",
+        "google/gemma-3-4b-it",
+        "microsoft/phi-4",
+        "Qwen/Qwen2.5-Coder-7B-Instruct",
+        "Qwen/Qwen2.5-7B-Instruct"
+      ],
+      "features": [
+        "chat"
+      ],
+      "region": "global",
+      "notes": "$0.10/month in Inference Provider credits for free users (subject to change). Routes to Fireworks, Together, Hyperbolic, Nebius, Novita, DeepInfra and others. Thousands of models.",
+      "source": "awesome-free-llm-apis",
+      "last_probed": "2026-10-25T08:16:37.529130+00:00",
+      "status": "active",
+      "context_window": 0,
+      "max_output_tokens": 0,
+      "function_calling": false,
+      "health_score": 70,
+      "models_count": 6
+    },
+    {
+      "name": "ModelScope",
+      "slug": "modelscope",
+      "tier": "permanent_free",
+      "website": "https://modelscope.cn/my/myaccesstoken",
+      "api_base": "https://api-inference.modelscope.cn/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "Qwen/Qwen3.5-35B-A3B",
+        "Qwen/Qwen3.5-27B"
+      ],
+      "free_models": [
+        "Qwen/Qwen3.5-35B-A3B",
+        "Qwen/Qwen3.5-27B"
+      ],
+      "features": [
+        "chat"
+      ],
+      "region": "global",
+      "notes": "Free API-Inference for registered users. Requires Alibaba Cloud account binding + real-name verification.",
+      "source": "awesome-free-llm-apis",
+      "last_probed": "2026-10-25T08:16:37.529148+00:00",
+      "status": "active",
+      "context_window": 0,
+      "max_output_tokens": 0,
+      "function_calling": false,
+      "health_score": 70,
+      "models_count": 3
+    },
+    {
+      "name": "SambaNova",
+      "slug": "sambanova",
+      "tier": "permanent_free",
+      "website": "https://cloud.sambanova.ai/apis",
+      "api_base": "https://api.sambanova.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "DeepSeek-V3.1",
+        "DeepSeek-V3.2",
+        "Meta-Llama-3.3-70B-Instruct",
+        "gpt-oss-120b",
+        "MiniMax-M2.7",
+        "gemma-4-31B-it"
+      ],
+      "free_models": [
+        "DeepSeek-V3.1",
+        "DeepSeek-V3.2",
+        "Meta-Llama-3.3-70B-Instruct",
+        "gpt-oss-120b",
+        "MiniMax-M2.7",
+        "gemma-4-31B-it"
+      ],
+      "features": [
+        "chat"
+      ],
+      "region": "global",
+      "notes": "Free tier, no credit card. Ultra-fast RDU inference. 20 RPM, 200K tokens/day.",
+      "source": "awesome-free-llm-apis",
+      "last_probed": "2026-10-25T08:16:37.529166+00:00",
+      "status": "active",
+      "context_window": 0,
+      "max_output_tokens": 0,
+      "function_calling": false,
+      "health_score": 70,
+      "models_count": 6
+    },
+    {
+      "name": "SiliconFlow",
+      "slug": "siliconflow",
+      "tier": "permanent_free",
+      "website": "https://cloud.siliconflow.cn/account/ak",
+      "api_base": "https://api.siliconflow.cn/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "Qwen/Qwen3-8B",
+        "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"
+      ],
+      "free_models": [
+        "Qwen/Qwen3-8B",
+        "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"
+      ],
+      "features": [
+        "chat"
+      ],
+      "region": "global",
+      "notes": "Permanently free models, no credit card required. 200+ paid models also available.",
+      "source": "awesome-free-llm-apis",
+      "last_probed": "2026-10-25T08:16:37.529173+00:00",
+      "status": "active",
+      "context_window": 0,
+      "max_output_tokens": 0,
+      "function_calling": false,
+      "health_score": 70,
+      "models_count": 2
+    },
+    {
+      "name": "XingChen AGI",
+      "slug": "xingchen-agi",
+      "tier": "permanent_free",
+      "website": "https://openrouter.ai",
+      "api_base": "https://openrouter.ai/api/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 20,
+        "rpd": 50
+      },
+      "models": [
+        "xingchen-agi/xing4.0-29b-a4b:free"
+      ],
+      "free_models": [
+        "xingchen-agi/xing4.0-29b-a4b:free"
+      ],
+      "features": [
+        "chat"
+      ],
+      "region": "global",
+      "notes": "Free models on OpenRouter: 1 models",
+      "source": "openrouter-daily",
+      "last_probed": "2026-10-25T08:20:04.741081+00:00",
+      "status": "active",
+      "context_window": 0,
+      "max_output_tokens": 0,
+      "function_calling": false,
+      "health_score": 70,
+      "models_count": 1
+    },
+    {
+      "name": "Dots Studio",
+      "slug": "dots-studio",
+      "tier": "permanent_free",
+      "website": "https://openrouter.ai",
+      "api_base": "https://openrouter.ai/api/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 20,
+        "rpd": 50
+      },
+      "models": [
+        "dots-studio/dots-3-note-preview:free"
+      ],
+      "free_models": [
+        "dots-studio/dots-3-note-preview:free"
+      ],
+      "features": [
+        "chat"
+      ],
+      "region": "global",
+      "notes": "Free models on OpenRouter: 1 models",
+      "source": "openrouter-daily",
+      "last_probed": "2026-10-25T08:20:04.741072+00:00",
+      "status": "active",
+      "context_window": 0,
+      "max_output_tokens": 0,
+      "function_calling": false,
+      "health_score": 70,
+      "models_count": 1
     }
   ]
 }
