@@ -25,12 +25,19 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
       
-      - name: Prepare providers.json
+      - name: Prepare site files
         run: |
           mkdir -p ./public
+          # Copy providers.json (API data)
           cp data/providers.json ./public/providers.json
-          # Also create a latest.json symlink for stable URL
           cp data/providers.json ./public/latest.json
+          # Copy frontend files
+          cp index.html ./public/
+          cp app.js ./public/
+          cp styles.css ./public/
+          cp i18n.json ./public/
+          # Copy docs folder if exists
+          if [ -d "docs" ]; then cp -r docs ./public/; fi
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
