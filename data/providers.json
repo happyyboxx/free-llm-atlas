@@ -382,6 +382,38 @@
       "models_count": 125
     },
     {
+      "name": "IteraCompute",
+      "slug": "iteracompute",
+      "tier": "trial_credit",
+      "website": "https://iteracompute.com/free/",
+      "api_base": "https://api.iteracompute.com/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "Auto",
+        "qwen/qwen3.8-27b",
+        "qwen/qwen3.8-flash",
+        "deepseek/deepseek-v4.1-flash",
+        "z-ai/glm-5.3-flash",
+        "moonshotai/kimi-k2.7-code",
+        "minimax/minimax-m3"
+      ],
+      "free_models": [
+        "Auto"
+      ],
+      "features": [
+        "chat",
+        "function_calling"
+      ],
+      "region": "cn",
+      "notes": "Time-limited Auto promotion ending November 24, 2026 at 00:00 Pacific Time (08:00 UTC), classified as trial_credit rather than permanent_free. Auto routes across available open models without pinning a model, version or precision. Free tier: up to 30M input/output tokens per UTC calendar month, 128K total context, 8,192 max output and one queued or running request per account. No fixed RPM, TPM or daily token cap. No card or recharge; verified email or Google sign-in required. Monthly allowance resets at 00:00 UTC on the first; no rollover or automatic paid overage. Shared capacity may queue; no SLA. Source checked 2026-11-11. Provider-affiliated submission; independent maintainer verification requested. Availability after the promotion is not guaranteed.",
+      "source": "https://iteracompute.com/free/",
+      "last_probed": null,
+      "status": "unknown"
+    },
+    {
       "name": "Kilo Code",
       "slug": "kilo-code",
       "tier": "permanent_free",
