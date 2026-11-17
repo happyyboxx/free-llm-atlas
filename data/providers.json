@@ -1,6 +1,6 @@
 {
-  "version": "1.8.1",
-  "updated": "2026-11-16T14:27:19.848815+00:00",
+  "version": "1.8.2",
+  "updated": "2026-11-17T11:18:45.853981+00:00",
   "sources": [
     "volcengine.com",
     "openrouter-daily-2026-10-24",
@@ -1674,38 +1674,6 @@
       "function_calling": true,
       "health_score": 75,
       "models_count": 27
-    },
-    {
-      "name": "IteraCompute",
-      "slug": "itera-compute",
-      "tier": "permanent_free",
-      "website": "https://iteracompute.com",
-      "api_base": "https://api.iteracompute.com/v1",
-      "models_endpoint": "/models",
-      "requires_key": true,
-      "requires_card": false,
-      "rate_limit": {
-        "tpm": 30000000
-      },
-      "models": [
-        "qwen3.8-27b"
-      ],
-      "free_models": [
-        "qwen3.8-27b"
-      ],
-      "features": [
-        "chat"
-      ],
-      "region": "global",
-      "notes": "30M tokens/month free, Qwen 3.8 27B, OpenAI-compatible. Email signup only.",
-      "source": "iteracompute.com",
-      "last_probed": "2026-11-16T14:27:19.848529+00:00",
-      "status": "active",
-      "context_window": 128000,
-      "max_output_tokens": 4096,
-      "function_calling": false,
-      "health_score": 65,
-      "models_count": 33
     },
     {
       "name": "Requesty",
