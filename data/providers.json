@@ -1,32 +1,42 @@
 {
-  "version": "1.8.2",
-  "updated": "2026-11-17T11:18:45.853981+00:00",
+  "version": "1.9.1",
+  "updated": "2026-11-17T11:32:21.117068+00:00",
   "sources": [
-    "volcengine.com",
-    "openrouter-daily-2026-10-24",
-    "dreamprompting.com",
-    "cheahjs/free-llm-api-resources",
-    "amd-radeon-cloud",
-    "iteracompute.com",
-    "training.xfyun.cn",
-    "freetheai.org",
-    "ling.tbox.cn",
     "guihuashaoxiang/FreeLLM-API-KeyHub",
-    "vercel.com",
-    "freeinference.org",
-    "mnfst/awesome-free-llm-apis",
-    "nejib1/Free-LLM",
-    "hughpython/free-llm-api-cn",
-    "tashfeenahmed/freellmapi",
-    "nscale.com",
-    "requesty.ai",
-    "aihorde.net",
-    "open-free-llm-api/awesome-freellm-apis",
-    "dawn0731/cn-freellm",
     "aistudio.baidu.com",
+    "tashfeenahmed/freellmapi",
+    "iteracompute.com",
+    "nejib1/Free-LLM",
+    "aionlabs.ai",
     "opentyphoon.ai",
+    "hetzner.com",
+    "ling.tbox.cn",
+    "dawn0731/cn-freellm",
+    "api.airforce",
+    "arli.ai",
+    "freetheai.org",
+    "gonka.ai",
+    "mixlayer.ai",
+    "mnfst/awesome-free-llm-apis",
+    "aihorde.net",
+    "volcengine.com",
+    "dreamprompting.com",
     "longcat.chat",
-    "platform.sensenova.cn"
+    "bazaarlink.ai",
+    "hughpython/free-llm-api-cn",
+    "sea-lion.ai",
+    "freeinference.org",
+    "amd-radeon-cloud",
+    "training.xfyun.cn",
+    "nousresearch.com",
+    "cheahjs/free-llm-api-resources",
+    "vercel.com",
+    "platform.sensenova.cn",
+    "requesty.ai",
+    "openrouter-daily-2026-10-24",
+    "nscale.com",
+    "open-free-llm-api/awesome-freellm-apis",
+    "kilo.ai"
   ],
   "providers": [
     {
@@ -110,7 +120,7 @@
       "max_output_tokens": 8192,
       "function_calling": true,
       "health_score": 74,
-      "models_count": 10
+      "models_count": 3
     },
     {
       "name": "Cerebras",
@@ -379,7 +389,7 @@
       "max_output_tokens": 4096,
       "function_calling": false,
       "health_score": 65,
-      "models_count": 133
+      "models_count": 4
     },
     {
       "name": "IteraCompute",
@@ -411,7 +421,8 @@
       "notes": "Time-limited Auto promotion ending November 24, 2026 at 00:00 Pacific Time (08:00 UTC), classified as trial_credit rather than permanent_free. Auto routes across available open models without pinning a model, version or precision. Free tier: up to 30M input/output tokens per UTC calendar month, 128K total context, 8,192 max output and one queued or running request per account. No fixed RPM, TPM or daily token cap. No card or recharge; verified email or Google sign-in required. Monthly allowance resets at 00:00 UTC on the first; no rollover or automatic paid overage. Shared capacity may queue; no SLA. Source checked 2026-11-11. Provider-affiliated submission; independent maintainer verification requested. Availability after the promotion is not guaranteed.",
       "source": "https://iteracompute.com/free/",
       "last_probed": null,
-      "status": "unknown"
+      "status": "unknown",
+      "models_count": 1
     },
     {
       "name": "Kilo Code",
@@ -444,7 +455,7 @@
       "source": "https://github.com/cheahjs/free-llm-api-resources",
       "last_probed": "2026-11-16T14:27:10.582608+00:00",
       "status": "active",
-      "models_count": 468,
+      "models_count": 3,
       "context_window": 32768,
       "max_output_tokens": 4096,
       "function_calling": true,
@@ -495,7 +506,7 @@
       "source": "https://github.com/nejib1/Free-LLM",
       "last_probed": "2026-11-16T14:27:10.853506+00:00",
       "status": "active",
-      "models_count": 72,
+      "models_count": 8,
       "context_window": 128000,
       "max_output_tokens": 4096,
       "function_calling": true,
@@ -578,7 +589,7 @@
       "source": "https://github.com/cheahjs/free-llm-api-resources",
       "last_probed": "2026-11-16T14:27:10.418406+00:00",
       "status": "active",
-      "models_count": 33,
+      "models_count": 6,
       "context_window": 1000000,
       "max_output_tokens": 4096,
       "function_calling": true,
@@ -663,7 +674,7 @@
       "max_output_tokens": 4096,
       "function_calling": true,
       "health_score": 70,
-      "models_count": 24
+      "models_count": 20
     },
     {
       "name": "OpenCode Zen",
@@ -716,7 +727,7 @@
       "max_output_tokens": 4096,
       "function_calling": false,
       "health_score": 75,
-      "models_count": 87
+      "models_count": 11
     },
     {
       "name": "OpenRouter",
@@ -786,7 +797,7 @@
       "source": "https://github.com/cheahjs/free-llm-api-resources",
       "last_probed": "2026-11-16T14:27:10.598711+00:00",
       "status": "active",
-      "models_count": 469,
+      "models_count": 20,
       "context_window": 1000000,
       "max_output_tokens": 4096,
       "function_calling": true,
@@ -969,7 +980,7 @@
       "max_output_tokens": 0,
       "function_calling": false,
       "health_score": 70,
-      "models_count": 469
+      "models_count": 1
     },
     {
       "name": "Hugging Face",
@@ -1007,7 +1018,7 @@
       "max_output_tokens": 0,
       "function_calling": false,
       "health_score": 70,
-      "models_count": 133
+      "models_count": 5
     },
     {
       "name": "Liquid AI",
@@ -1040,7 +1051,7 @@
       "max_output_tokens": 0,
       "function_calling": false,
       "health_score": 70,
-      "models_count": 469
+      "models_count": 1
     },
     {
       "name": "ModelScope",
@@ -1072,7 +1083,7 @@
       "max_output_tokens": 0,
       "function_calling": false,
       "health_score": 70,
-      "models_count": 38
+      "models_count": 2
     },
     {
       "name": "Poolside",
@@ -1107,7 +1118,7 @@
       "max_output_tokens": 0,
       "function_calling": false,
       "health_score": 70,
-      "models_count": 469
+      "models_count": 2
     },
     {
       "name": "Recursive",
@@ -1140,7 +1151,7 @@
       "max_output_tokens": 0,
       "function_calling": false,
       "health_score": 70,
-      "models_count": 469
+      "models_count": 1
     },
     {
       "name": "SambaNova",
@@ -1180,7 +1191,7 @@
       "max_output_tokens": 0,
       "function_calling": false,
       "health_score": 70,
-      "models_count": 5
+      "models_count": 6
     },
     {
       "name": "SiliconFlow",
@@ -1299,7 +1310,7 @@
       "max_output_tokens": 0,
       "function_calling": false,
       "health_score": 70,
-      "models_count": 469
+      "models_count": 2
     },
     {
       "name": "XingChen AGI",
@@ -1332,7 +1343,7 @@
       "max_output_tokens": 0,
       "function_calling": false,
       "health_score": 70,
-      "models_count": 469
+      "models_count": 1
     },
     {
       "name": "Typhoon (SCB 10X)",
@@ -1495,7 +1506,7 @@
       "max_output_tokens": 8192,
       "function_calling": true,
       "health_score": 70,
-      "models_count": 3
+      "models_count": 8
     },
     {
       "name": "DreamPrompting",
@@ -1724,7 +1735,7 @@
       "max_output_tokens": 4096,
       "function_calling": true,
       "health_score": 70,
-      "models_count": 757
+      "models_count": 10
     },
     {
       "name": "AMD Radeon Cloud",
@@ -1857,7 +1868,7 @@
       "max_output_tokens": 4096,
       "function_calling": true,
       "health_score": 70,
-      "models_count": 509
+      "models_count": 12
     },
     {
       "name": "火山方舟 Volcengine Ark",
@@ -2019,7 +2030,7 @@
       "max_output_tokens": 8192,
       "function_calling": false,
       "health_score": 70,
-      "models_count": 59
+      "models_count": 1
     },
     {
       "name": "美团 LongCat",
@@ -2261,6 +2272,414 @@
       "max_output_tokens": 8192,
       "function_calling": true,
       "health_score": 75,
+      "models_count": 1
+    },
+    {
+      "name": "Api.Airforce",
+      "slug": "api-airforce",
+      "tier": "permanent_free",
+      "website": "https://api.airforce",
+      "api_base": "https://api.airforce/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 1,
+        "rpd": 1000
+      },
+      "models": [
+        "openai/gpt-oss-20b",
+        "openai/gpt-oss-120b",
+        "google/gemma-3-27b-it",
+        "z-ai/glm-4.7-flash",
+        "meta/llama-3.1-8b-instruct",
+        "meta/llama-3.2-3b-instruct",
+        "mistral/mistral-7b-instruct",
+        "qwen/qwen3-8b",
+        "deepseek/deepseek-v4.1-flash",
+        "anthropic/claude-3.5-haiku",
+        "google/gemini-2.5-flash",
+        "nvidia/nemotron-3-ultra",
+        "x-ai/grok-4",
+        "cohere/command-r-plus",
+        "ibm/granite-3.1-8b-instruct"
+      ],
+      "free_models": [
+        "openai/gpt-oss-20b",
+        "openai/gpt-oss-120b",
+        "google/gemma-3-27b-it",
+        "z-ai/glm-4.7-flash",
+        "meta/llama-3.1-8b-instruct",
+        "meta/llama-3.2-3b-instruct",
+        "mistral/mistral-7b-instruct",
+        "qwen/qwen3-8b",
+        "deepseek/deepseek-v4.1-flash",
+        "anthropic/claude-3.5-haiku",
+        "google/gemini-2.5-flash",
+        "nvidia/nemotron-3-ultra",
+        "x-ai/grok-4",
+        "cohere/command-r-plus",
+        "ibm/granite-3.1-8b-instruct"
+      ],
+      "features": [
+        "chat",
+        "tool_calling",
+        "vision",
+        "anthropic_compatible",
+        "image_generation",
+        "embeddings",
+        "pay_as_you_go"
+      ],
+      "region": "global",
+      "notes": "统一 OpenAI/Anthropic 兼容网关。免费永久层：1 RPM、1000 RPD、26 个免费模型（GPT-OSS、Gemma 3、GLM 4.7 Flash、Llama、Nemotron 等）。无需信用卡。付费模型按 token 计费，无订阅制。支持 OpenAI Chat Completions、Anthropic Messages、Responses API、图像生成、嵌入。",
+      "source": "https://api.airforce",
+      "last_probed": "2026-11-17T11:32:07.396240+00:00",
+      "status": "active",
+      "context_window": 131072,
+      "max_output_tokens": 8192,
+      "function_calling": true,
+      "health_score": 75,
+      "models_count": 15
+    },
+    {
+      "name": "BazaarLink",
+      "slug": "bazaarlink",
+      "tier": "permanent_free",
+      "website": "https://bazaarlink.ai",
+      "api_base": "https://api.bazaarlink.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm_no_credit": 10,
+        "rpm_with_credit": 20,
+        "daily_weighted_no_credit": 60,
+        "daily_weighted_with_credit": 120,
+        "concurrent": 2,
+        "site_wide_rpm": 20
+      },
+      "models": [
+        "qwen/qwen3.7-flash",
+        "nvidia/nemotron-3.5-lightning-free",
+        "stealth/glyph-cluster",
+        "deepseek/deepseek-v4-flash-0731free",
+        "auto:free"
+      ],
+      "free_models": [
+        "qwen/qwen3.7-flash",
+        "nvidia/nemotron-3.5-lightning-free",
+        "stealth/glyph-cluster",
+        "deepseek/deepseek-v4-flash-0731free",
+        "auto:free"
+      ],
+      "features": [
+        "chat",
+        "tool_calling",
+        "vision",
+        "image_generation",
+        "video_generation",
+        "anthropic_compatible",
+        "auto_router",
+        "embeddings"
+      ],
+      "region": "global",
+      "notes": "台湾 AI 网关，OpenAI/Anthropic/Responses API 兼容。免费层：无信用额度 10 RPM + 60 加权单位/天；有信用额度 20 RPM + 120 加权单位/天。站点级 20 RPM 上限，账户并发 2。每日 00:00 UTC 重置。长上下文消耗更多单位。免费模型轮换（Qwen 3.7 Flash、Nemotron 3.5 Lightning、Glyph Cluster、DeepSeek V4 Flash）。支持 auto:free 智能路由。新台币计费、统一发票。",
+      "source": "https://bazaarlink.ai",
+      "last_probed": "2026-11-17T11:32:07.396257+00:00",
+      "status": "active",
+      "context_window": 1000000,
+      "max_output_tokens": 8192,
+      "function_calling": true,
+      "health_score": 70,
+      "models_count": 5
+    },
+    {
+      "name": "SEA-LION (AI Singapore)",
+      "slug": "sea-lion",
+      "tier": "permanent_free",
+      "website": "https://sea-lion.ai",
+      "api_base": "https://api.sea-lion.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 10
+      },
+      "models": [
+        "aisingapore/Qwen-SEA-LION-v4.5-27B-IT",
+        "aisingapore/Llama-SEA-LION-v3.5-70B-R",
+        "aisingapore/SEA-Guard",
+        "aisingapore/SEA-LION-ModernBERT-Embedding-600M"
+      ],
+      "free_models": [
+        "aisingapore/Qwen-SEA-LION-v4.5-27B-IT",
+        "aisingapore/Llama-SEA-LION-v3.5-70B-R",
+        "aisingapore/SEA-Guard",
+        "aisingapore/SEA-LION-ModernBERT-Embedding-600M"
+      ],
+      "features": [
+        "chat",
+        "embeddings",
+        "safety_classification",
+        "multilingual_sea"
+      ],
+      "region": "global",
+      "notes": "AI Singapore 东南亚语言模型 API。10 RPM 免费层（POC 用途，非生产）。4 个免费模型：Qwen-SEA-LION v4.5 27B (262K context)、Llama-SEA-LION v3.5 70B Reasoning (131K)、SEA-Guard 安全分类、SEA-LION Embedding 600M。Google 登录获取 Trial API Key。OpenAI 兼容。生产建议自托管或用云平台伙伴 (AWS Bedrock、GCP Vertex AI)。可申请提高限额至 sealion@aisingapore.org。",
+      "source": "https://sea-lion.ai",
+      "last_probed": "2026-11-17T11:32:07.396262+00:00",
+      "status": "active",
+      "context_window": 262000,
+      "max_output_tokens": 8192,
+      "function_calling": false,
+      "health_score": 70,
+      "models_count": 4
+    },
+    {
+      "name": "Aion Labs",
+      "slug": "aion-labs",
+      "tier": "permanent_free",
+      "website": "https://aionlabs.ai",
+      "api_base": "https://api.aionlabs.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "daily_credit": "not_published"
+      },
+      "models": [
+        "aion-2.0",
+        "aion-3.0-mini",
+        "aion-3.5-mini"
+      ],
+      "free_models": [
+        "aion-2.0",
+        "aion-3.0-mini",
+        "aion-3.5-mini"
+      ],
+      "features": [
+        "chat",
+        "roleplay",
+        "storytelling"
+      ],
+      "region": "global",
+      "notes": "以色列 AI 实验室，专注角色扮演和故事创作。每日免费额度（信用额度，具体数值未公开）。无需信用卡。3 个免费模型：Aion 2.0、Aion 3.0 Mini、Aion 3.5 Mini。OpenAI 兼容。",
+      "source": "https://aionlabs.ai",
+      "last_probed": "2026-11-17T11:32:07.396266+00:00",
+      "status": "active",
+      "context_window": 8192,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 65,
+      "models_count": 3
+    },
+    {
+      "name": "Gonka Broker",
+      "slug": "gonka-broker",
+      "tier": "permanent_free",
+      "website": "https://gonka.ai",
+      "api_base": "https://api.gonka.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "monthly_tokens": 1000000,
+        "phone_verification": true
+      },
+      "models": [
+        "auto-router"
+      ],
+      "free_models": [
+        "auto-router"
+      ],
+      "features": [
+        "chat",
+        "auto_routing",
+        "rotating_models"
+      ],
+      "region": "global",
+      "notes": "网络治理路由器，模型阵容随治理轮换。~1M tokens/月共享额度，月度重置。需手机号验证。免费层无需信用卡。OpenAI 兼容。实时模型列表见 /v1/models。",
+      "source": "https://gonka.ai",
+      "last_probed": "2026-11-17T11:32:07.396269+00:00",
+      "status": "active",
+      "context_window": 131072,
+      "max_output_tokens": 8192,
+      "function_calling": true,
+      "health_score": 60,
+      "models_count": 1
+    },
+    {
+      "name": "Hetzner Inference API",
+      "slug": "hetzner-inference",
+      "tier": "trial_credit",
+      "website": "https://www.hetzner.com/cloud/gpu/inference",
+      "api_base": "https://inference.hetzner.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": true,
+      "rate_limit": {
+        "concurrent": 10,
+        "tokens_60s": "4M_in_100K_out"
+      },
+      "models": [
+        "qwen3.8-27b",
+        "qwen3.6-35b-a3b"
+      ],
+      "free_models": [
+        "qwen3.8-27b",
+        "qwen3.6-35b-a3b"
+      ],
+      "features": [
+        "chat",
+        "reasoning"
+      ],
+      "region": "eu",
+      "notes": "Hetzner 实验阶段免费推理 API。需 Hetzner 账号+计费验证（可能需信用卡/身份证）。实验期间无计费系统，免费使用。10 并发请求，4M 输入/100K 输出 tokens/60秒。2 个免费模型：Qwen3.8 27B、Qwen3.6 35B A3B。OpenAI 兼容。",
+      "source": "https://www.hetzner.com/cloud/gpu/inference",
+      "last_probed": "2026-11-17T11:32:07.396273+00:00",
+      "status": "active",
+      "context_window": 131072,
+      "max_output_tokens": 100000,
+      "function_calling": false,
+      "health_score": 55,
+      "models_count": 2
+    },
+    {
+      "name": "Kilo AI Gateway",
+      "slug": "kilo-ai-gateway",
+      "tier": "permanent_free",
+      "website": "https://kilo.ai",
+      "api_base": "https://api.kilo.ai/api/gateway",
+      "models_endpoint": "/models",
+      "requires_key": false,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm_per_ip": 200,
+        "anonymous_allowed": true
+      },
+      "models": [
+        "kilo-auto/free"
+      ],
+      "free_models": [
+        "kilo-auto/free"
+      ],
+      "features": [
+        "chat",
+        "auto_router",
+        "no_key_required"
+      ],
+      "region": "global",
+      "notes": "Kilo Code 网关，无需 API Key 即可匿名使用。免费模型 200 RPM/每 IP。自动路由到免费模型池。默认模型 kilo-auto/free。OpenAI 兼容。",
+      "source": "https://kilo.ai",
+      "last_probed": "2026-11-17T11:32:07.396278+00:00",
+      "status": "active",
+      "context_window": 131072,
+      "max_output_tokens": 8192,
+      "function_calling": true,
+      "health_score": 75,
+      "models_count": 1
+    },
+    {
+      "name": "Nous Portal",
+      "slug": "nous-portal",
+      "tier": "permanent_free",
+      "website": "https://nousresearch.com",
+      "api_base": "https://inference.nousresearch.com/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": true,
+      "rate_limit": {
+        "standard": "not_published"
+      },
+      "models": [
+        "stepfun/step-3.7-flash",
+        "reflection/beam-1.0",
+        "upstage/solar-mini-4",
+        "crouton/alpha"
+      ],
+      "free_models": [
+        "stepfun/step-3.7-flash",
+        "reflection/beam-1.0",
+        "upstage/solar-mini-4",
+        "crouton/alpha"
+      ],
+      "features": [
+        "chat",
+        "reasoning"
+      ],
+      "region": "global",
+      "notes": "Nous Research 门户。免费层仅限免费模型，需 Stripe 支付方式验证（$0 扣款）。标准速率限制（具体数值未公开）。4 个免费模型：Step 3.7 Flash、Reflection Beam 1.0、Upstage Solar Mini 4、Crouton Alpha (stealth)。OpenAI 兼容。",
+      "source": "https://nousresearch.com",
+      "last_probed": "2026-11-17T11:32:07.396281+00:00",
+      "status": "active",
+      "context_window": 131072,
+      "max_output_tokens": 8192,
+      "function_calling": true,
+      "health_score": 60,
+      "models_count": 4
+    },
+    {
+      "name": "Mixlayer",
+      "slug": "mixlayer",
+      "tier": "permanent_free",
+      "website": "https://mixlayer.ai",
+      "api_base": "https://api.mixlayer.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "per_org_per_model": "not_published"
+      },
+      "models": [
+        "qwen3.5-4b"
+      ],
+      "free_models": [
+        "qwen3.5-4b"
+      ],
+      "features": [
+        "chat"
+      ],
+      "region": "global",
+      "notes": "按组织/模型速率限制（控制台可见）。免费模型：Qwen3.5 4B。需注册。OpenAI 兼容。",
+      "source": "https://mixlayer.ai",
+      "last_probed": "2026-11-17T11:32:07.396285+00:00",
+      "status": "active",
+      "context_window": 32768,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 55,
+      "models_count": 1
+    },
+    {
+      "name": "Arli AI",
+      "slug": "arli-ai",
+      "tier": "trial_credit",
+      "website": "https://arli.ai",
+      "api_base": "https://api.arli.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "concurrent": 1,
+        "trial_uses": "~5_per_2_days_per_model"
+      },
+      "models": [
+        "qwen3.5-27b-derestricted"
+      ],
+      "free_models": [
+        "qwen3.5-27b-derestricted"
+      ],
+      "features": [
+        "chat"
+      ],
+      "region": "global",
+      "notes": "单并发请求，每模型约 5 次/2天试用额度（第三方列表数据）。1 个免费模型：Qwen3.5 27B Derestricted。OpenAI 兼容。",
+      "source": "https://arli.ai",
+      "last_probed": "2026-11-17T11:32:07.396288+00:00",
+      "status": "active",
+      "context_window": 12000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 50,
       "models_count": 1
     }
   ]
