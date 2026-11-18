@@ -1,0 +1,16 @@
+# Free LLM Atlas - robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://happyyboxx.github.io/free-llm-atlas/sitemap.xml
+
+# Crawl-delay for polite bots
+Crawl-delay: 10
+
+# Disallow non-public paths (none currently, but good practice)
+# Disallow: /private/
+# Disallow: /api/
+
+# Host directive for Yandex
+Host: https://happyyboxx.github.io/free-llm-atlas

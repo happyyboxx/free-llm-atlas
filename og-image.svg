@@ -1,0 +1,72 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0c1a2b"/>
+      <stop offset="50%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0ea5e9"/>
+      <stop offset="100%" style="stop-color:#6366f1"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Subtle grid pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(14,165,233,0.05)" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Accent line -->
+  <line x1="100" y1="180" x2="1100" y2="180" stroke="url(#accent)" stroke-width="2" stroke-dasharray="10,5" opacity="0.3"/>
+  
+  <!-- Main Title -->
+  <text x="600" y="220" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="64" font-weight="700" fill="white">
+    Free LLM Atlas
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="290" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="28" font-weight="400" fill="#94a3b8">
+    85+ Providers • 425+ Free Models • Zero Cost
+  </text>
+  
+  <!-- Stats badges -->
+  <g font-family="JetBrains Mono, monospace">
+    <g transform="translate(250, 380)">
+      <rect x="0" y="0" width="200" height="80" rx="12" fill="rgba(14,165,233,0.1)" stroke="rgba(14,165,233,0.3)" stroke-width="1"/>
+      <text x="100" y="35" text-anchor="middle" font-size="28" font-weight="700" fill="#0ea5e9">85+</text>
+      <text x="100" y="62" text-anchor="middle" font-size="14" fill="#64748b">PROVIDERS</text>
+    </g>
+    
+    <g transform="translate(500, 380)">
+      <rect x="0" y="0" width="200" height="80" rx="12" fill="rgba(99,102,241,0.1)" stroke="rgba(99,102,241,0.3)" stroke-width="1"/>
+      <text x="100" y="35" text-anchor="middle" font-size="28" font-weight="700" fill="#6366f1">425+</text>
+      <text x="100" y="62" text-anchor="middle" font-size="14" fill="#64748b">FREE MODELS</text>
+    </g>
+    
+    <g transform="translate(750, 380)">
+      <rect x="0" y="0" width="200" height="80" rx="12" fill="rgba(34,197,94,0.1)" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
+      <text x="100" y="35" text-anchor="middle" font-size="28" font-weight="700" fill="#22c55e">$0</text>
+      <text x="100" y="62" text-anchor="middle" font-size="14" fill="#64748b">COST</text>
+    </g>
+  </g>
+  
+  <!-- Features -->
+  <text x="600" y="510" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="500" fill="#64748b">
+    Auto-probed daily • OpenAI-compatible • Side-by-side comparison • JSON/Markdown export
+  </text>
+  
+  <!-- URL -->
+  <text x="600" y="560" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="16" fill="#475569">
+    happyyboxx.github.io/free-llm-atlas
+  </text>
+  
+  <!-- GitHub badge -->
+  <g transform="translate(600, 590)">
+    <rect x="-80" y="0" width="160" height="28" rx="14" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <text x="0" y="19" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#64748b">⭐ Star on GitHub</text>
+  </g>
+</svg>

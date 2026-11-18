@@ -177,7 +177,14 @@
     "follow_x_platform": "X (Twitter)",
     "follow_x_desc": "Daily free LLM updates, provider alerts, and infrastructure insights",
     "follow_github_platform": "GitHub",
-    "follow_github_desc": "Source code, JSON API, daily probe workflows, and contribution guides"
+    "follow_github_desc": "Source code, JSON API, daily probe workflows, and contribution guides",
+    "newsletter_tag": "Newsletter",
+    "newsletter_title": "Weekly Free LLM Updates",
+    "newsletter_desc": "Get the weekly digest: new providers, model changes, quota updates, and stack recommendations. No spam, unsubscribe anytime.",
+    "newsletter_email_label": "Email address",
+    "newsletter_subscribe": "Subscribe",
+    "newsletter_help": "Powered by Buttondown. See <a href=\"https://buttondown.email/privacy\" target=\"_blank\" rel=\"noopener\">privacy policy</a>. We never share your email.",
+    "newsletter_success": "Thanks for subscribing! Check your inbox for confirmation."
   },
   "zh": {
     "site_title": "免费LLM图谱 | 零成本AI基础设施",
@@ -357,6 +364,13 @@
     "follow_x_platform": "X (Twitter)",
     "follow_x_desc": "每日免费LLM更新、提供商预警和基础设施洞察",
     "follow_github_platform": "GitHub",
-    "follow_github_desc": "源码、JSON API、每日探测工作流和贡献指南"
+    "follow_github_desc": "源码、JSON API、每日探测工作流和贡献指南",
+    "newsletter_tag": "周报",
+    "newsletter_title": "每周免费 LLM 更新",
+    "newsletter_desc": "获取每周摘要：新增提供商、模型变更、额度更新和组合推荐。无垃圾邮件，随时退订。",
+    "newsletter_email_label": "邮箱地址",
+    "newsletter_subscribe": "订阅",
+    "newsletter_help": "由 Buttondown 提供支持。查看 <a href=\"https://buttondown.email/privacy\" target=\"_blank\" rel=\"noopener\">隐私政策</a>。我们绝不共享您的邮箱。",
+    "newsletter_success": "订阅成功！请查收邮箱确认邮件。"
   }
 }

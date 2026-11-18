@@ -3,13 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free LLM Atlas - 19 free LLM API providers, auto-probed daily. Structured JSON + gateway configs. Zero cost to production.">
+    <meta name="description" content="Free LLM Atlas - 85+ permanently free LLM API providers, 425+ free models, auto-probed daily. Compare providers, find zero-cost AI infrastructure. No credit card required.">
+    <meta name="keywords" content="free LLM API, free AI models, zero-cost AI, OpenRouter free, Groq free, Gemini API free, LLM provider comparison, free token API, AI infrastructure">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="color-scheme" content="dark light">
-    <title>Free LLM Atlas | Zero-Cost AI Infrastructure</title>
+    <meta name="theme-color" content="#0ea5e9" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0369a1" media="(prefers-color-scheme: dark)">
+    <title>Free LLM Atlas | 85+ Zero-Cost LLM API Providers & 425+ Free Models</title>
+    <link rel="canonical" href="https://happyyboxx.github.io/free-llm-atlas/">
+    <link rel="alternate" type="application/rss+xml" title="Free LLM Atlas Updates" href="https://happyyboxx.github.io/free-llm-atlas/feed.xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="sitemap" type="application/xml" href="https://happyyboxx.github.io/free-llm-atlas/sitemap.xml">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://happyyboxx.github.io/free-llm-atlas/">
+    <meta property="og:title" content="Free LLM Atlas | 85+ Zero-Cost LLM API Providers & 425+ Free Models">
+    <meta property="og:description" content="Discover 85+ permanently free LLM API providers with 425+ free models. Auto-probed daily, structured JSON, gateway configs. No credit card required. Compare providers side-by-side.">
+    <meta property="og:image" content="https://happyyboxx.github.io/free-llm-atlas/og-image.png">
+    <meta property="og:site_name" content="Free LLM Atlas">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="zh_CN">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@happybox2016">
+    <meta name="twitter:url" content="https://happyyboxx.github.io/free-llm-atlas/">
+    <meta name="twitter:title" content="Free LLM Atlas | 85+ Zero-Cost LLM API Providers">
+    <meta name="twitter:description" content="425+ free models across 85+ providers. Auto-probed daily. Zero cost, no credit card. Compare & find your stack.">
+    <meta name="twitter:image" content="https://happyyboxx.github.io/free-llm-atlas/og-image.png">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" id="jsonld-schema">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Free LLM Atlas",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "description": "Curated atlas of 85+ free LLM API providers with 425+ free models. Auto-probed daily via GitHub Actions. Structured JSON API, gateway configs, zero cost to production.",
+      "featureList": [
+        "85+ free LLM API providers",
+        "425+ free models",
+        "Daily automated health probes",
+        "OpenAI-compatible endpoints",
+        "Side-by-side comparison",
+        "Zero-cost stack generator",
+        "Cost calculator",
+        "Latency speed test",
+        "JSON/Markdown export"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "Hermes Agent",
+        "url": "https://hermes.nousresearch.com"
+      },
+      "url": "https://happyyboxx.github.io/free-llm-atlas/",
+      "sameAs": [
+        "https://github.com/happyyboxx/free-llm-atlas",
+        "https://x.com/happybox2016"
+      ]
+    }
+    </script>
+    
     <script>
         // Prevent flash of wrong theme
         (function() {
@@ -52,7 +117,7 @@
         <section class="hero">
             <div class="hero-badge mono" data-i18n="hero_badge">LIVE • AUTO-PROBED DAILY</div>
             <h1 data-i18n="hero_title">Free LLM Atlas</h1>
-            <p class="subtitle" data-i18n="hero_subtitle">19 free LLM API providers, auto-probed daily. Structured JSON + gateway configs. Zero cost to production.</p>
+            <p class="subtitle" data-i18n="hero_subtitle">85+ permanently free LLM API providers, 425+ free models, auto-probed daily. Structured JSON + gateway configs. Zero cost to production.</p>
             
             <div class="hero-stats" id="hero-stats">
                 <div class="stat">
@@ -61,7 +126,7 @@
                 </div>
                 <div class="stat">
                     <span class="stat-value mono" id="stat-models">—</span>
-                    <span class="stat-label" data-i18n="stat_models">Models</span>
+                    <span class="stat-label" data-i18n="stat_models">Total Models</span>
                 </div>
                 <div class="stat">
                     <span class="stat-value mono" id="stat-free">—</span>
@@ -91,7 +156,7 @@
             <div class="section-header">
                 <span class="section-tag mono" data-i18n="section_providers_tag">Providers</span>
                 <h2 class="section-title" data-i18n="section_providers_title">All Providers</h2>
-                <p class="section-desc" data-i18n="section_providers_desc">Explore all 19+ free LLM API providers with live health status, models, and features.</p>
+                <p class="section-desc" data-i18n="section_providers_desc">Explore all 85+ free LLM API providers with live health status, models, and features.</p>
             </div>
 
             <div class="filter-bar">
@@ -433,6 +498,25 @@
                 <input type="text" id="share-url-input" readonly placeholder="Click 'Copy Page Link' to generate">
                 <span class="copy-success" id="copy-success" style="display: none;" data-i18n="share_copied">Copied!</span>
             </div>
+        </section>
+
+        <!-- Newsletter Signup Section -->
+        <section id="newsletter" class="newsletter-section">
+            <div class="section-header">
+                <span class="section-tag mono" data-i18n="newsletter_tag">Newsletter</span>
+                <h2 class="section-title" data-i18n="newsletter_title">Weekly Free LLM Updates</h2>
+                <p class="section-desc" data-i18n="newsletter_desc">Get the weekly digest: new providers, model changes, quota updates, and stack recommendations. No spam, unsubscribe anytime.</p>
+            </div>
+            <form class="newsletter-form" id="newsletter-form" action="https://api.buttondown.email/v1/subscribers" method="POST" target="_blank">
+                <input type="hidden" name="tags" value="free-llm-atlas">
+                <div class="newsletter-input-group">
+                    <label for="newsletter-email" class="visually-hidden" data-i18n="newsletter_email_label">Email address</label>
+                    <input type="email" id="newsletter-email" name="email" placeholder="Enter your email" required autocomplete="email" aria-describedby="newsletter-help">
+                    <button type="submit" class="btn btn-primary" data-i18n="newsletter_subscribe">Subscribe</button>
+                </div>
+                <p id="newsletter-help" class="newsletter-help" data-i18n="newsletter_help">Powered by Buttondown. See <a href="https://buttondown.email/privacy" target="_blank" rel="noopener">privacy policy</a>. We never share your email.</p>
+            </form>
+            <div class="newsletter-success" id="newsletter-success" style="display: none;" data-i18n="newsletter_success">Thanks for subscribing! Check your inbox for confirmation.</div>
         </section>
 
         <!-- Follow & Connect Section -->

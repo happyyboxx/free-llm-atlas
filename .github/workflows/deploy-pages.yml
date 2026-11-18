@@ -5,6 +5,10 @@ on:
     branches: [main]
     paths:
       - 'data/providers.json'
+      - 'index.html'
+      - 'app.js'
+      - 'styles.css'
+      - 'i18n.json'
   workflow_dispatch:
 
 permissions:
@@ -21,6 +25,28 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install ImageMagick
+        run: sudo apt-get update && sudo apt-get install -y imagemagick
+      
+      - name: Install dependencies
+        run: npm ci --ignore-scripts 2>/dev/null || echo "No package.json, skipping npm install"
+      
+      - name: Generate og-image.png from SVG
+        run: |
+          magick og-image.svg -background none og-image.png 2>/dev/null || convert og-image.svg og-image.png
+      
+      - name: Generate sitemap.xml and feed.xml
+        run: |
+          node scripts/generate-sitemap.js
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -36,6 +62,11 @@ jobs:
           cp app.js ./public/
           cp styles.css ./public/
           cp i18n.json ./public/
+          # Copy generated SEO files
+          cp sitemap.xml ./public/
+          cp feed.xml ./public/
+          cp og-image.png ./public/
+          cp robots.txt ./public/
           # Copy docs folder if exists
           if [ -d "docs" ]; then cp -r docs ./public/; fi
       
