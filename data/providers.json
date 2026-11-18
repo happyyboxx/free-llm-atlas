@@ -1,42 +1,46 @@
 {
-  "version": "1.9.1.20261117",
-  "updated": "2026-11-17T12:05:05.925768+00:00",
+  "version": "1.10.0.20261118",
+  "updated": "2026-11-18T04:29:10.482821+00:00",
   "sources": [
-    "nejib1/Free-LLM",
-    "api.airforce",
-    "arli.ai",
-    "longcat.chat",
     "opentyphoon.ai",
-    "nscale.com",
-    "cheahjs/free-llm-api-resources",
-    "freeinference.org",
-    "platform.sensenova.cn",
-    "hughpython/free-llm-api-cn",
-    "aionlabs.ai",
-    "ling.tbox.cn",
-    "hetzner.com",
-    "dreamprompting.com",
-    "bazaarlink.ai",
     "mnfst/awesome-free-llm-apis",
+    "forge-priyo-com-2026-11",
+    "ling.tbox.cn",
     "volcengine.com",
-    "training.xfyun.cn",
-    "iteracompute.com",
-    "freetheai.org",
-    "vercel.com",
-    "amd-radeon-cloud",
-    "gonka.ai",
-    "openrouter-daily-2026-10-24",
-    "requesty.ai",
-    "tashfeenahmed/freellmapi",
+    "arli.ai",
+    "hetzner.com",
+    "platform.sensenova.cn",
     "guihuashaoxiang/FreeLLM-API-KeyHub",
-    "dawn0731/cn-freellm",
-    "kilo.ai",
-    "mixlayer.ai",
-    "open-free-llm-api/awesome-freellm-apis",
+    "freeinference.org",
+    "tashfeenahmed/freellmapi",
+    "openrouter-daily-2026-10-24",
     "aistudio.baidu.com",
-    "sea-lion.ai",
+    "freetheai.org",
+    "hughpython/free-llm-api-cn",
+    "dreamprompting.com",
+    "vercel.com",
     "nousresearch.com",
-    "aihorde.net"
+    "apillmfree-com-2026-11",
+    "api.airforce",
+    "nejib1/Free-LLM",
+    "freellmapi-link-2026-11",
+    "gonka.ai",
+    "requesty.ai",
+    "aihorde.net",
+    "longcat.chat",
+    "kilo.ai",
+    "amd-radeon-cloud",
+    "open-free-llm-api/awesome-freellm-apis",
+    "nscale.com",
+    "aionlabs.ai",
+    "bazaarlink.ai",
+    "training.xfyun.cn",
+    "sea-lion.ai",
+    "dawn0731/cn-freellm",
+    "cheahjs/free-llm-api-resources",
+    "iteracompute.com",
+    "packet-ai-blog-2026-11",
+    "mixlayer.ai"
   ],
   "providers": [
     {
@@ -2709,6 +2713,913 @@
       "notes": "Aggregates 34 providers, 635 free endpoints, 1 OpenAI-compatible endpoint. Auto-routes to best available model. Monthly 7.4B tokens.",
       "source": "tashfeenahmed/freellmapi",
       "last_probed": "2026-11-17T12:04:48.075149+00:00",
+      "status": "unknown",
+      "context_window": 4096,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 50,
+      "models_count": 1
+    },
+    {
+      "name": "Vikasit AI",
+      "slug": "vikasit-ai",
+      "tier": "permanent_free",
+      "website": "https://vikasit.ai",
+      "api_base": "https://api.vikasit.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "tokens_per_day": 2000000
+      },
+      "models": [
+        "auto"
+      ],
+      "free_models": [
+        "auto"
+      ],
+      "features": [
+        "chat",
+        "auto_routing"
+      ],
+      "region": "global",
+      "notes": "2M tokens/day free tier. OpenAI-compatible. Auto-router across multiple models.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482647+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 50,
+      "models_count": 1
+    },
+    {
+      "name": "Regolo.ai",
+      "slug": "regolo-ai",
+      "tier": "permanent_free",
+      "website": "https://regolo.ai",
+      "api_base": "https://api.regolo.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "tokens_per_day": 1000000
+      },
+      "models": [
+        "auto"
+      ],
+      "free_models": [
+        "auto"
+      ],
+      "features": [
+        "chat",
+        "auto_routing"
+      ],
+      "region": "global",
+      "notes": "1M tokens/day free tier. OpenAI-compatible. Auto-router.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482661+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 50,
+      "models_count": 1
+    },
+    {
+      "name": "Experiential Labs",
+      "slug": "experiential-labs",
+      "tier": "permanent_free",
+      "website": "https://experientiallabs.ai",
+      "api_base": "https://api.experientiallabs.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "tokens_per_day": 1000000
+      },
+      "models": [
+        "auto"
+      ],
+      "free_models": [
+        "auto"
+      ],
+      "features": [
+        "chat",
+        "auto_routing"
+      ],
+      "region": "global",
+      "notes": "1M tokens/day free tier. OpenAI-compatible. Auto-router.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482666+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 50,
+      "models_count": 1
+    },
+    {
+      "name": "Synap",
+      "slug": "synap",
+      "tier": "permanent_free",
+      "website": "https://synap402.com",
+      "api_base": "https://synap402.com/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "tokens_per_day": 50000,
+        "requests_per_day": 10
+      },
+      "models": [
+        "qwen3-coder-30b"
+      ],
+      "free_models": [
+        "qwen3-coder-30b"
+      ],
+      "features": [
+        "chat",
+        "coding"
+      ],
+      "region": "global",
+      "notes": "50K tokens/day, 10 requests/day free tier. Qwen3-Coder-30B model. OpenAI-compatible.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482670+00:00",
+      "status": "unknown",
+      "context_window": 32768,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 50,
+      "models_count": 1
+    },
+    {
+      "name": "Free.ai",
+      "slug": "free-ai",
+      "tier": "permanent_free",
+      "website": "https://free.ai",
+      "api_base": "https://api.free.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "tokens_per_day": 30000
+      },
+      "models": [
+        "auto"
+      ],
+      "free_models": [
+        "auto"
+      ],
+      "features": [
+        "chat",
+        "auto_routing"
+      ],
+      "region": "global",
+      "notes": "30K tokens/day free tier. OpenAI-compatible. Auto-router.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482674+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 50,
+      "models_count": 1
+    },
+    {
+      "name": "EURI by Euron",
+      "slug": "euri-by-euron",
+      "tier": "permanent_free",
+      "website": "https://euron.one",
+      "api_base": "https://api.euron.one/api/v1/euri",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "tokens_per_day": 10000
+      },
+      "models": [
+        "auto"
+      ],
+      "free_models": [
+        "auto"
+      ],
+      "features": [
+        "chat",
+        "auto_routing"
+      ],
+      "region": "global",
+      "notes": "10K tokens/day free tier. OpenAI-compatible. Auto-router.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482677+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 50,
+      "models_count": 1
+    },
+    {
+      "name": "NVIDIA Build / NIM",
+      "slug": "nvidia-build-nim",
+      "tier": "trial_credit",
+      "website": "https://build.nvidia.com",
+      "api_base": "https://integrate.api.nvidia.com/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 40,
+        "rpd": 10000
+      },
+      "models": [
+        "auto"
+      ],
+      "free_models": [
+        "auto"
+      ],
+      "features": [
+        "chat",
+        "tool_calling",
+        "vision",
+        "reasoning"
+      ],
+      "region": "global",
+      "notes": "Free trial: 40 RPM, 10K RPD. No card required. Hosted NIM models including Nemotron, Llama, Mistral, etc.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482681+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": true,
+      "health_score": 50,
+      "models_count": 1
+    },
+    {
+      "name": "Fireworks AI",
+      "slug": "fireworks-ai",
+      "tier": "trial_credit",
+      "website": "https://fireworks.ai",
+      "api_base": "https://api.fireworks.ai/inference/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "accounts/fireworks/models/llama-v3p1-405b-instruct",
+        "accounts/fireworks/models/llama-v3p1-70b-instruct",
+        "accounts/fireworks/models/mixtral-8x7b-instruct"
+      ],
+      "free_models": [
+        "accounts/fireworks/models/llama-v3p1-405b-instruct",
+        "accounts/fireworks/models/llama-v3p1-70b-instruct",
+        "accounts/fireworks/models/mixtral-8x7b-instruct"
+      ],
+      "features": [
+        "chat",
+        "tool_calling",
+        "vision",
+        "reasoning"
+      ],
+      "region": "global",
+      "notes": "Free tier on select models. OpenAI-compatible. Also offers $1 free credit on signup.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482684+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": true,
+      "health_score": 50,
+      "models_count": 3
+    },
+    {
+      "name": "Together AI",
+      "slug": "together-ai",
+      "tier": "trial_credit",
+      "website": "https://together.ai",
+      "api_base": "https://api.together.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
+        "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+        "mistralai/Mixtral-8x7B-Instruct-v0.1"
+      ],
+      "free_models": [
+        "meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
+        "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+        "mistralai/Mixtral-8x7B-Instruct-v0.1"
+      ],
+      "features": [
+        "chat",
+        "tool_calling",
+        "vision",
+        "reasoning"
+      ],
+      "region": "global",
+      "notes": "Free tier on select models. OpenAI-compatible. $5 free credit on signup.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482687+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": true,
+      "health_score": 50,
+      "models_count": 3
+    },
+    {
+      "name": "Novita AI",
+      "slug": "novita-ai",
+      "tier": "trial_credit",
+      "website": "https://novita.ai",
+      "api_base": "https://api.novita.ai/openai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "meta-llama/llama-3.1-405b-instruct",
+        "meta-llama/llama-3.1-70b-instruct"
+      ],
+      "free_models": [
+        "meta-llama/llama-3.1-405b-instruct",
+        "meta-llama/llama-3.1-70b-instruct"
+      ],
+      "features": [
+        "chat",
+        "tool_calling"
+      ],
+      "region": "global",
+      "notes": "Free tier on select models. OpenAI-compatible. $5 free credit on signup.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482691+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": true,
+      "health_score": 50,
+      "models_count": 2
+    },
+    {
+      "name": "Baichuan AI",
+      "slug": "baichuan-ai",
+      "tier": "trial_credit",
+      "website": "https://baichuan-ai.com",
+      "api_base": "https://api.baichuan-ai.com/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "Baichuan2-Turbo"
+      ],
+      "free_models": [
+        "Baichuan2-Turbo"
+      ],
+      "features": [
+        "chat"
+      ],
+      "region": "china",
+      "notes": "¥80 sign-up credit (~10M tokens, 3 months). China-based platform. OpenAI-compatible.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482694+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 50,
+      "models_count": 1
+    },
+    {
+      "name": "Baidu Qianfan",
+      "slug": "baidu-qianfan",
+      "tier": "trial_credit",
+      "website": "https://qianfan.baidubce.com",
+      "api_base": "https://qianfan.baidubce.com/v2",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "ERNIE-4.5",
+        "DeepSeek",
+        "Qwen3",
+        "Kimi-K2"
+      ],
+      "free_models": [
+        "ERNIE-4.5",
+        "DeepSeek",
+        "Qwen3",
+        "Kimi-K2"
+      ],
+      "features": [
+        "chat",
+        "tool_calling"
+      ],
+      "region": "china",
+      "notes": "1M free tokens on 17 models (one-time, 3 months). China-based. OpenAI-compatible.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482697+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": true,
+      "health_score": 50,
+      "models_count": 4
+    },
+    {
+      "name": "Hyperbolic",
+      "slug": "hyperbolic",
+      "tier": "trial_credit",
+      "website": "https://hyperbolic.ai",
+      "api_base": "https://api.hyperbolic.ai/inference/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "auto"
+      ],
+      "free_models": [
+        "auto"
+      ],
+      "features": [
+        "chat",
+        "auto_routing"
+      ],
+      "region": "global",
+      "notes": "Free tier on select models. OpenAI-compatible. Decentralized GPU network.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482701+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 50,
+      "models_count": 1
+    },
+    {
+      "name": "Scaleway Generative APIs",
+      "slug": "scaleway-generative-apis",
+      "tier": "trial_credit",
+      "website": "https://scaleway.com/en/generative-apis/",
+      "api_base": "https://api.scaleway.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "auto"
+      ],
+      "free_models": [
+        "auto"
+      ],
+      "features": [
+        "chat",
+        "auto_routing"
+      ],
+      "region": "eu",
+      "notes": "Free tier available. EU-based. OpenAI-compatible.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482704+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 50,
+      "models_count": 1
+    },
+    {
+      "name": "Aiven AI Gateway",
+      "slug": "aiven-ai-gateway",
+      "tier": "trial_credit",
+      "website": "https://aiven.io",
+      "api_base": "https://ai.aiven.io/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "aiven-model-router"
+      ],
+      "free_models": [
+        "aiven-model-router"
+      ],
+      "features": [
+        "chat",
+        "auto_routing"
+      ],
+      "region": "eu",
+      "notes": "Free forever tier for aiven-model router. Approved orgs get $300 credit. EU-based.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482707+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 50,
+      "models_count": 1
+    },
+    {
+      "name": "AMD Token Lab",
+      "slug": "amd-token-lab",
+      "tier": "trial_credit",
+      "website": "https://developer.amd.com/ai-developer-program/",
+      "api_base": "https://api.tokenlab.amd.com/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "deepseek-v4",
+        "qwen3.8",
+        "gemma-4",
+        "glm-5.3"
+      ],
+      "free_models": [
+        "deepseek-v4",
+        "qwen3.8",
+        "gemma-4",
+        "glm-5.3"
+      ],
+      "features": [
+        "chat",
+        "reasoning"
+      ],
+      "region": "global",
+      "notes": "Free for AMD AI Developer Program members. 10 points, 30-day access, ~20 RPM. On AMD GPUs.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482710+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 50,
+      "models_count": 4
+    },
+    {
+      "name": "Zhipu BigModel",
+      "slug": "zhipu-bigmodel",
+      "tier": "trial_credit",
+      "website": "https://bigmodel.cn",
+      "api_base": "https://open.bigmodel.cn/api/paas/v4",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "glm-4-flash",
+        "glm-4-air",
+        "glm-4-plus"
+      ],
+      "free_models": [
+        "glm-4-flash",
+        "glm-4-air",
+        "glm-4-plus"
+      ],
+      "features": [
+        "chat",
+        "tool_calling",
+        "vision"
+      ],
+      "region": "china",
+      "notes": "Free tier on GLM models. China-based. OpenAI-compatible (v4).",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482713+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": true,
+      "health_score": 50,
+      "models_count": 3
+    },
+    {
+      "name": "OrcaRouter",
+      "slug": "orcarouter",
+      "tier": "trial_credit",
+      "website": "https://orcarouter.ai",
+      "api_base": "https://api.orcarouter.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "orcarouter/free",
+        "deepseek-v4-flash",
+        "glm-5.3-flash",
+        "hy3"
+      ],
+      "free_models": [
+        "orcarouter/free",
+        "deepseek-v4-flash",
+        "glm-5.3-flash",
+        "hy3"
+      ],
+      "features": [
+        "chat",
+        "auto_routing",
+        "failover"
+      ],
+      "region": "global",
+      "notes": "Free auto-router + $0 model IDs. Some offers need deposit. OpenAI-compatible.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482716+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 50,
+      "models_count": 4
+    },
+    {
+      "name": "ReadyServer LLM API",
+      "slug": "readyserver-llm-api",
+      "tier": "trial_credit",
+      "website": "https://readyserver.ai",
+      "api_base": "http://api.readyserver.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "auto"
+      ],
+      "free_models": [
+        "auto"
+      ],
+      "features": [
+        "chat",
+        "auto_routing"
+      ],
+      "region": "global",
+      "notes": "Free tier. OpenAI-compatible. Auto-router.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482720+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 50,
+      "models_count": 1
+    },
+    {
+      "name": "Nebius Token Factory",
+      "slug": "nebius-token-factory",
+      "tier": "trial_credit",
+      "website": "https://nebius.com",
+      "api_base": "https://api.tokenfactory.nebius.com/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "deepseek-v4.1-flash",
+        "minimax-m3.1-flash",
+        "qwen2.5-1.5b-instruct"
+      ],
+      "free_models": [
+        "deepseek-v4.1-flash",
+        "minimax-m3.1-flash",
+        "qwen2.5-1.5b-instruct"
+      ],
+      "features": [
+        "chat",
+        "reasoning"
+      ],
+      "region": "global",
+      "notes": "New launch (Nov 2026). Free for all users. DeepSeek V4.1 Flash (1M context, NVFP4), MiniMax M3.1 Flash, Qwen2.5 1.5B.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482723+00:00",
+      "status": "unknown",
+      "context_window": 1000000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 50,
+      "models_count": 3
+    },
+    {
+      "name": "DGrid",
+      "slug": "dgrid",
+      "tier": "trial_credit",
+      "website": "https://dgrid.ai",
+      "api_base": "https://api.dgrid.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "dgridai/free"
+      ],
+      "free_models": [
+        "dgridai/free"
+      ],
+      "features": [
+        "chat"
+      ],
+      "region": "global",
+      "notes": "Free model: 10 RPM, 100 RPD. After $5+ top-up: 20 RPM, 1000 RPD. OpenAI-compatible.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482726+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 50,
+      "models_count": 1
+    },
+    {
+      "name": "Ant Ling",
+      "slug": "ant-ling",
+      "tier": "trial_credit",
+      "website": "https://ant-ling.com",
+      "api_base": "https://api.ant-ling.com/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": true,
+      "rate_limit": {},
+      "models": [
+        "ling-3.2-flash"
+      ],
+      "free_models": [
+        "ling-3.2-flash"
+      ],
+      "features": [
+        "chat",
+        "anthropic_compatible"
+      ],
+      "region": "china",
+      "notes": "Free for 2 weeks after Nov 5 2026 launch. Requires Alipay binding. Anthropic-compatible too.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482730+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 50,
+      "models_count": 1
+    },
+    {
+      "name": "HPC-AI Model APIs",
+      "slug": "hpc-ai-model-apis",
+      "tier": "trial_credit",
+      "website": "https://hpc-ai.com",
+      "api_base": "https://api.hpc-ai.com/inference/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "auto"
+      ],
+      "free_models": [
+        "auto"
+      ],
+      "features": [
+        "chat",
+        "auto_routing"
+      ],
+      "region": "global",
+      "notes": "Free tier. OpenAI-compatible. HPC-focused inference.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482733+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 50,
+      "models_count": 1
+    },
+    {
+      "name": "Flonno",
+      "slug": "flonno",
+      "tier": "trial_credit",
+      "website": "https://flonno.com",
+      "api_base": "https://www.flonno.com/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "rpm": 60
+      },
+      "models": [
+        "qwen3.8-27b"
+      ],
+      "free_models": [
+        "qwen3.8-27b"
+      ],
+      "features": [
+        "chat",
+        "anthropic_compatible"
+      ],
+      "region": "global",
+      "notes": "$1 one-time credit on signup (email verification). Single model qwen3.8-27b. Anthropic-compatible too.",
+      "source": "freellmapi-link-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482736+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 50,
+      "models_count": 1
+    },
+    {
+      "name": "Token Factory (packet.ai)",
+      "slug": "token-factory",
+      "tier": "permanent_free",
+      "website": "https://packet.ai",
+      "api_base": "https://api.packet.ai/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {},
+      "models": [
+        "deepseek-v4.1-flash",
+        "minimax-m3.1-flash",
+        "qwen2.5-1.5b-instruct"
+      ],
+      "free_models": [
+        "deepseek-v4.1-flash",
+        "minimax-m3.1-flash",
+        "qwen2.5-1.5b-instruct"
+      ],
+      "features": [
+        "chat",
+        "reasoning"
+      ],
+      "region": "global",
+      "notes": "New launch Nov 17 2026. Free for all users, no waitlist. DeepSeek V4.1 Flash (1M context, NVFP4, MIT), MiniMax M3.1 Flash, Qwen2.5 1.5B. No published rate limits yet.",
+      "source": "packet-ai-blog-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482740+00:00",
+      "status": "unknown",
+      "context_window": 1000000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 50,
+      "models_count": 3
+    },
+    {
+      "name": "Priyo Forge",
+      "slug": "priyo-forge",
+      "tier": "permanent_free",
+      "website": "https://forge.priyo.com",
+      "api_base": "https://api.forge.priyo.com/v1",
+      "models_endpoint": "/models",
+      "requires_key": true,
+      "requires_card": false,
+      "rate_limit": {
+        "tokens_per_day": 100000,
+        "rpm": 10
+      },
+      "models": [
+        "auto"
+      ],
+      "free_models": [
+        "auto"
+      ],
+      "features": [
+        "chat",
+        "auto_routing"
+      ],
+      "region": "asia",
+      "notes": "Free for Bangladesh developers. 100K tokens/day, 10 RPM starter tier. Verified builders get 500K tokens/day. OpenAI-compatible.",
+      "source": "forge-priyo-com-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482743+00:00",
+      "status": "unknown",
+      "context_window": 128000,
+      "max_output_tokens": 4096,
+      "function_calling": false,
+      "health_score": 50,
+      "models_count": 1
+    },
+    {
+      "name": "APILLMFree",
+      "slug": "apillmfree",
+      "tier": "permanent_free",
+      "website": "https://apillmfree.com",
+      "api_base": "https://api.apillmfree.com/v1",
+      "models_endpoint": "/models",
+      "requires_key": false,
+      "requires_card": false,
+      "rate_limit": {
+        "rpd": 16
+      },
+      "models": [
+        "free-ai"
+      ],
+      "free_models": [
+        "free-ai"
+      ],
+      "features": [
+        "chat",
+        "uncensored",
+        "keyless"
+      ],
+      "region": "global",
+      "notes": "Keyless, uncensored 9B param model. 16 concurrent requests/IP. OpenAI-compatible. No key required.",
+      "source": "apillmfree-com-2026-11",
+      "last_probed": "2026-11-18T04:29:10.482746+00:00",
       "status": "unknown",
       "context_window": 4096,
       "max_output_tokens": 4096,
