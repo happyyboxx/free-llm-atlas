@@ -50,8 +50,10 @@ jobs:
       - name: Prepare site files
         run: |
           mkdir -p ./public
+          mkdir -p ./public/data
           # Copy providers.json (API data)
           cp data/providers.json ./public/providers.json
+          cp data/providers.json ./public/data/providers.json
           cp data/providers.json ./public/latest.json
           # Copy frontend files
           cp index.html ./public/
